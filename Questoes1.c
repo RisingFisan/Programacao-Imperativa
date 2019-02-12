@@ -79,16 +79,39 @@ int qDig (unsigned int n) {
 
 // 7
 
-void mystrcat(char s1[], char s2[]) {
-    int sz1 = strlen(s1);
-    int sz2 = strlen(s2);
+char * mystrcat(char s1[], char s2[]) {
+    int sz1 = 0, sz2 = 0;
+    char c;
+    // As seis linhas abaixo são o mesmo que sz1 = strlen(s1) e sz2 = strlen(s2)
+    while((c = s1[sz1]) != '\0') {
+        sz1++;
+    }
+    while((c = s2[sz2]) != '\0') {
+        sz2++;
+    }
     for(int i = 0; i < sz2; i++)
         s1[i + sz1] = s2[i];
+    return s1;
 }
 
+// 8
 
-void eight() {};
-void nine() {};
+// char * strcpy(char * dest, char source[]) {
+
+// }
+
+// 9
+
+int mystrcmp(char s1[], char s2[]) {
+    int i = 0;
+    while(s1[i] != '\0' || s2[i] != '\0') {
+        if(s1[i] > s2[i]) return 1;
+        else if(s2[i] > s1[i]) return -1;
+        i++;
+    }
+    return 0;
+}
+
 void ten() {};
 void eleven() {};
 void twelve() {};
@@ -99,9 +122,24 @@ void sixteen() {};
 void seventeen() {};
 void eighteen() {};
 
+void getLine(char str[]) {
+    char c;
+    int i = 0;
+    while((c = getchar()) != '\n' || strlen(str) <= 1) {
+        str[i] = c;
+        i++;
+    }
+    if(c == '\n') {
+        str[i] = '\0';
+    }
+}
+
 int main(int argc, char const *argv[])
 {
+    char s1[1000];
+    char s2[1000];
     int opcao;
+    int num;
     printf("Insere o numero correspondente ao exercicio: ");
     scanf("%d",&opcao);
     switch (opcao)
@@ -117,7 +155,6 @@ int main(int argc, char const *argv[])
             break;
         case 4:
             printf("Introduz um valor: ");
-            int num;
             scanf("%d",&num);
             int n = bitsUm(num);
             printf("Resposta: %d",n);
@@ -132,19 +169,20 @@ int main(int argc, char const *argv[])
             scanf("%d",&num);
             printf("Resposta: %d",qDig(num));
             break;
-        case 7:;
-            char ar[] = "Hello ";
-            char arr[] = "There!" ;
-            //scanf("%s",&ar);
-            //scanf("%s",&arr);
-            mystrcat(ar,arr);
-            printf("%s",ar);
+        case 7:
+            getLine(s1);
+            getLine(s2);
+            mystrcat(s1,s2);
+            printf("%s",s1);
             break;
         case 8:;
-            eight();
+            //strcpy \();
             break;
         case 9:
-            nine();
+            getLine(s1);
+            getLine(s2);
+            num = mystrcmp("abc","def");
+            printf("Resposta: %d", num);
             break;
         case 10:
             ten();
