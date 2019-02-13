@@ -12,7 +12,7 @@ void one() {
         if(num == 0) break;
         if(num > maior) maior = num;
     }
-    printf("Maior: %d", maior);
+    printf("Maior: %d\n", maior);
 }
 
 // 2 - Média da sequência
@@ -28,7 +28,7 @@ void two() {
         n++;
     }
     double media = soma / n;
-    printf("%.5f",media);
+    printf("Media: %.5f\n",media);
 }
 
 // 3 - Segundo maior da sequência
@@ -49,7 +49,7 @@ void three() {
             m = num;
         } else if (num > sm) sm = num;
     }
-    printf("Segundo maior numero: %d",sm);
+    printf("Segundo maior numero: %d\n",sm);
 }
 
 // 4 - Nº de bits iguais a 1 na representação binária de n
@@ -96,9 +96,12 @@ char * mystrcat(char s1[], char s2[]) {
 
 // 8
 
-// char * strcpy(char * dest, char source[]) {
-
-// }
+char * mystrcpy(char * dest, char source[]) {
+    for(int i = 0; source[i] != '\0'; i++) {
+        dest[i] = source[i];
+    }
+    return dest;
+}
 
 // 9
 
@@ -112,7 +115,26 @@ int mystrcmp(char s1[], char s2[]) {
     return 0;
 }
 
-void ten() {};
+// 10
+
+char *mystrstr (char haystack[], char needle[]) {
+    int i = 0, j = 0, startnum = 0;
+    int isContained = 0;
+    while(needle[i] != '\0' && haystack[j] != '\0') {
+        if(haystack[j] == needle[i]) {
+            if(!isContained) {
+                isContained = 1;
+                startnum = j;
+            }
+            i++;
+        }
+        else isContained = 0;
+        j++;
+    }
+    if (isContained) return &haystack[startnum];
+    else return NULL;
+}
+
 void eleven() {};
 void twelve() {};
 void thirteen() {};
@@ -176,7 +198,10 @@ int main(int argc, char const *argv[])
             printf("%s",s1);
             break;
         case 8:;
-            //strcpy \();
+            getLine(s1);
+            getLine(s2);
+            mystrcpy(s1,s2);
+            printf("%s",s1);
             break;
         case 9:
             getLine(s1);
@@ -185,7 +210,12 @@ int main(int argc, char const *argv[])
             printf("Resposta: %d", num);
             break;
         case 10:
-            ten();
+            printf("Haystack: ");
+            getLine(s1);
+            printf("Needle: ");
+            getLine(s2);
+            char * ans = mystrstr(s1,s2);
+            printf("%s",ans);
             break;
         case 11:
             eleven();
