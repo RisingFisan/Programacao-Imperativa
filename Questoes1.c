@@ -135,11 +135,89 @@ char *mystrstr (char haystack[], char needle[]) {
     else return NULL;
 }
 
-void eleven() {};
-void twelve() {};
-void thirteen() {};
-void fourteen() {};
-void fifteen() {};
+// 11
+
+void mystrrev(char s[]) {
+    int len = 0;
+    for(int i = 0; s[i] != '\0'; i++) {
+        len++;    
+    }
+    char rev[len];
+    for(int i = 0; i < len; i++) {
+        rev[i] = s[len - i - 1];
+    }
+    for(int i = 0; i < len; i++) {
+        s[i] = rev[i];
+    }
+}
+
+// 12
+
+void removeIndex(char s[], int n) {
+    for(int j = n; s[j - 1] != '\0'; j++) {
+        s[j] = s[j + 1];
+    }
+}
+
+void strnoV (char s[]) {
+    int i = 0;
+    char c;
+    while((c = s[i]) != '\0') {
+        if(c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U' || c == 'a'
+        || c == 'e' || c == 'i' || c == 'o' || c == 'u') removeIndex(s, i);
+        else i++;
+    }
+}
+
+// 13
+
+void truncW (char t[], int n) {
+    int wordLen = 0;
+    int i = 0;
+    char c;
+    while((c = t[i]) != '\0') {
+        if(c == ' ' || c == '\n' || c == '\t') {i++; wordLen = 0;}
+        else {
+            if(wordLen >= n) removeIndex(t, i);
+            else {i++; wordLen++;}
+        }
+    } 
+}
+
+// 14
+
+char charMaisfreq (char s[]) {
+    int charFreq[256];
+    int freqMax = 0;
+    char maisFreq;
+    for(int i = 0; i < 256; i++) charFreq[i] = 0;
+    for(int i = 0; s[i] != '\0'; i++) {
+        int c = s[i];
+        charFreq[c] += 1;
+        if(charFreq[c] > freqMax) {
+            freqMax = charFreq[c];
+            maisFreq = s[i];
+        }
+    }
+    return maisFreq;
+}
+
+// 15
+
+int iguaisConsecutivos (char s[]) {
+    char acc = s[0];
+    int consec = 0, max = 0;
+    for(int i = 0; s[i] != '\0'; i++) {
+        if(s[i] == acc) consec++;
+        else {
+            if(consec > max) max = consec;
+            consec = 1;
+            acc = s[i];
+        }
+    }
+    return max;
+}
+
 void sixteen() {};
 void seventeen() {};
 void eighteen() {};
@@ -147,7 +225,11 @@ void eighteen() {};
 void getLine(char str[]) {
     char c;
     int i = 0;
-    while((c = getchar()) != '\n' || strlen(str) <= 1) {
+    if((c = getchar()) != '\n') { 
+        str[i] = c;
+        i++;
+    }
+    while((c = getchar()) != '\n') {
         str[i] = c;
         i++;
     }
@@ -218,19 +300,28 @@ int main(int argc, char const *argv[])
             printf("%s",ans);
             break;
         case 11:
-            eleven();
+            getLine(s1);
+            mystrrev(s1);
+            printf("%s",s1);
             break;
         case 12:
-            twelve();
+            getLine(s1);
+            strnoV(s1);
+            printf("%s",s1);
             break;
         case 13:
-            thirteen();
+            getLine(s1);
+            scanf("%d",&num);
+            truncW(s1,num);
+            printf("%s",s1);
             break;
         case 14:
-            fourteen();
+            getLine(s1);
+            printf("%c",charMaisfreq(s1));
             break;
         case 15:
-            fifteen();
+            getLine(s1);
+            printf("%d",iguaisConsecutivos(s1));
             break;
         case 16:
             sixteen();
