@@ -261,17 +261,17 @@ int main(int argc, char const *argv[])
             printf("Introduz um valor: ");
             scanf("%d",&num);
             int n = bitsUm(num);
-            printf("Resposta: %d",n);
+            printf("Resposta: %d\n",n);
             break;
         case 5:
             printf("Introduz um valor: ");
             scanf("%d",&num);
-            printf("Resposta: %d",trailingZ(num));
+            printf("Resposta: %d\n",trailingZ(num));
             break;
         case 6:
             printf("Introduz um valor: ");
             scanf("%d",&num);
-            printf("Resposta: %d",qDig(num));
+            printf("Resposta: %d\n",qDig(num));
             break;
         case 7:
             getLine(s1);
