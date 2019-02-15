@@ -5,7 +5,8 @@
 // 1 - Maior da sequência
 
 void one() {
-    int maior = 0;
+    int maior;
+    scanf("%d", &maior);
     while(1) {
         int num;
         scanf("%d", &num);
@@ -267,6 +268,72 @@ int maiorSufixo (char s1 [], char s2 []) {
     return maiorPrefixo(s1,s2);
 }
 
+// 19
+
+int sufPref (char s1[], char s2[]) {
+    int ans = 1;
+    char s1x[strlen(s1)];
+    char s2x[strlen(s2)];
+    for(int i = 0; s1[i] != '\0' && s2[i] != '\0'; i++) {
+        strrev(s1);
+        strncpy(s1x,s1,i + 1);
+        strrev(s1);
+        strrev(s1x);
+        strncpy(s2x,s2,i + 1);
+        if(strcmp(s1x,s2x) == 0) ans = i + 1;
+    }
+    return ans;
+}
+
+// 20
+
+int contaPal (char s[]) {
+    int inWord = 0;
+    int total = 0;
+    for(int i = 0; s[i] != '\0'; i++) {
+        if(s[i] == ' ' || s[i] == '\n' || s[i] == '\t') {
+            if(inWord) {
+                total++;
+                inWord = 0;
+            }
+        }
+        else inWord = 1;
+    }
+    if(inWord) total++;
+    return total;
+}
+
+// 21
+
+int contaVogais (char s[]) {
+    int total = 0;
+    for(int i = 0; s[i] != '\0'; i++) {
+        switch(s[i]) {
+            case 'a': case 'e': case 'i': case 'o': case 'u':
+            case 'A': case 'E': case 'I': case 'O': case 'U':
+                total++;
+        }
+    }
+    return total;
+}
+
+// 22
+
+int contida (char a[], char b[]) {
+    int cont = 1;
+    for(int i = 0; a[i] != '\0'; i++) {
+        int pertence = 0;
+        for(int j = 0; b[j] != '\0'; j++) {
+            if(a[i] == b[j]) pertence = 1;
+        }
+        if(!pertence) {
+            cont = 0;
+            break;
+        }
+    }
+    return cont;
+}
+
 // void getLine(char str[]) {
 //     char c;
 //     int i = 0;
@@ -370,19 +437,91 @@ int main(int argc, char const *argv[])
             break;
         case 16:
             gets(s1);
-            printf("%d",difConsecutivos(s1));
+            printf("%d\n",difConsecutivos(s1));
             break;
         case 17:
             gets(s1);
             gets(s2);
-            printf("%d",maiorPrefixo(s1,s2));
+            printf("%d\n",maiorPrefixo(s1,s2));
             break;
         case 18:
             gets(s1);
             gets(s2);
-            printf("%d",maiorSufixo(s1,s2));
+            printf("%d\n",maiorSufixo(s1,s2));
             break;
-        default:
+        case 19:
+            gets(s1);
+            gets(s2);
+            printf("%d\n",sufPref(s1,s2));
+            break;
+        case 20:
+            gets(s1);
+            printf("%d\n",contaPal(s1));
+            break;
+        case 21:
+            gets(s1);
+            printf("%d\n",contaVogais(s1));
+            break;
+        case 22:
+            gets(s1);
+            gets(s2);
+            int resp = contida(s1,s2);
+            if(resp) printf("Verdadeiro.\n");
+            else printf("Falso.\n");
+            break;
+        case 23:
+            break;
+        case 24:
+            break;
+        case 25:
+            break;
+        case 26:
+            break;
+        case 27:
+            break;
+        case 28:
+            break;
+        case 29:
+            break;
+        case 30:
+            break;
+        case 31:
+            break;
+        case 32:
+            break;
+        case 33:
+            break;
+        case 34:
+            break;
+        case 35:
+            break;
+        case 36:
+            break;
+        case 37:
+            break;
+        case 38:
+            break;
+        case 39:
+            break;
+        case 40:
+            break;
+        case 41:
+            break;
+        case 42:
+            break;
+        case 43:
+            break;
+        case 44:
+            break;
+        case 45:
+            break;
+        case 46:
+            break;
+        case 47:
+            break;
+        case 48:
+            break;
+        case 49:
             break;
     }
     return 0;
