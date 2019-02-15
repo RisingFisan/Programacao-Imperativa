@@ -119,7 +119,7 @@ int mystrcmp(char s1[], char s2[]) {
 
 char *mystrstr (char haystack[], char needle[]) {
     int i = 0, j = 0, startnum = 0;
-    int isContained = 0;
+    int isContained = 1;
     while(needle[i] != '\0' && haystack[j] != '\0') {
         if(haystack[j] == needle[i]) {
             if(!isContained) {
@@ -215,28 +215,73 @@ int iguaisConsecutivos (char s[]) {
             acc = s[i];
         }
     }
+    if(consec > max) max = consec;
     return max;
 }
 
-void sixteen() {};
-void seventeen() {};
-void eighteen() {};
+// 16
 
-void getLine(char str[]) {
-    char c;
-    int i = 0;
-    if((c = getchar()) != '\n') { 
-        str[i] = c;
-        i++;
-    }
-    while((c = getchar()) != '\n') {
-        str[i] = c;
-        i++;
-    }
-    if(c == '\n') {
-        str[i] = '\0';
-    }
+int not_in(char c, char str[]) {
+    int acc = 1;
+    for(int i = 0; str[i] != '\0'; i++) {
+        if(c == str[i]) acc = 0;
+        else continue;
+    } 
+    return acc;
 }
+
+int difConsecutivos (char s[]) {
+    char acc[256];
+    int differ = 0, max = 0;
+    for(int i = 0; s[i] != '\0'; i++) {
+        if(not_in(s[i],acc)) acc[differ++] = s[i];
+        else {
+            if(differ > max) max = differ;
+            for(int j = 0; acc[j] != '\0'; j++) {
+               acc[j] = '\0'; 
+            }
+            differ = 0;
+            acc[differ++] = s[i];
+        }
+    }
+    if(differ > max) max = differ;
+    return max;
+}
+
+// 17
+
+int maiorPrefixo (char s1 [], char s2 []) {
+    int acc = 0;
+    for(int i = 0; s1[i] != '\0' && s2[i] != '\0'; i++) {
+        if(s1[i] == s2[i]) acc++;
+        else break;
+    }
+    return acc;
+}
+
+// 18
+
+int maiorSufixo (char s1 [], char s2 []) {
+    mystrrev(s1);
+    mystrrev(s2);
+    return maiorPrefixo(s1,s2);
+}
+
+// void getLine(char str[]) {
+//     char c;
+//     int i = 0;
+//     if((c = getchar()) != '\n') { 
+//         str[i] = c;
+//         i++;
+//     }
+//     while((c = getchar()) != '\n') {
+//         str[i] = c;
+//         i++;
+//     }
+//     if(c == '\n') {
+//         str[i] = '\0';
+//     }
+// }
 
 int main(int argc, char const *argv[])
 {
@@ -245,7 +290,7 @@ int main(int argc, char const *argv[])
     int opcao;
     int num;
     printf("Insere o numero correspondente ao exercicio: ");
-    scanf("%d",&opcao);
+    scanf("%d\n",&opcao);
     switch (opcao)
     {
         case 1:
@@ -274,63 +319,68 @@ int main(int argc, char const *argv[])
             printf("Resposta: %d\n",qDig(num));
             break;
         case 7:
-            getLine(s1);
-            getLine(s2);
+            gets(s1);
+            gets(s2);
             mystrcat(s1,s2);
             printf("%s",s1);
             break;
         case 8:;
-            getLine(s1);
-            getLine(s2);
+            gets(s1);
+            gets(s2);
             mystrcpy(s1,s2);
             printf("%s",s1);
             break;
         case 9:
-            getLine(s1);
-            getLine(s2);
+            gets(s1);
+            gets(s2);
             num = mystrcmp("abc","def");
             printf("Resposta: %d", num);
             break;
         case 10:
             printf("Haystack: ");
-            getLine(s1);
+            gets(s1);
             printf("Needle: ");
-            getLine(s2);
+            gets(s2);
             char * ans = mystrstr(s1,s2);
             printf("%s",ans);
             break;
         case 11:
-            getLine(s1);
+            gets(s1);
             mystrrev(s1);
             printf("%s",s1);
             break;
         case 12:
-            getLine(s1);
+            gets(s1);
             strnoV(s1);
             printf("%s",s1);
             break;
         case 13:
-            getLine(s1);
+            gets(s1);
             scanf("%d",&num);
             truncW(s1,num);
             printf("%s",s1);
             break;
         case 14:
-            getLine(s1);
+            gets(s1);
             printf("%c",charMaisfreq(s1));
             break;
         case 15:
-            getLine(s1);
+            gets(s1);
             printf("%d",iguaisConsecutivos(s1));
             break;
         case 16:
-            sixteen();
+            gets(s1);
+            printf("%d",difConsecutivos(s1));
             break;
         case 17:
-            seventeen();
+            gets(s1);
+            gets(s2);
+            printf("%d",maiorPrefixo(s1,s2));
             break;
         case 18:
-            eighteen();
+            gets(s1);
+            gets(s2);
+            printf("%d",maiorSufixo(s1,s2));
             break;
         default:
             break;
