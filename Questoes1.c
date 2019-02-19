@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+#define MAXLINE 1000
+
 // 1 - Maior da sequência
 
 void one() {
@@ -81,25 +83,24 @@ int qDig (unsigned int n) {
 // 7
 
 char * mystrcat(char s1[], char s2[]) {
-    int sz1 = 0, sz2 = 0;
-    char c;
-    // As seis linhas abaixo são o mesmo que sz1 = strlen(s1) e sz2 = strlen(s2)
-    while((c = s1[sz1]) != '\0') {
-        sz1++;
-    }
-    while((c = s2[sz2]) != '\0') {
-        sz2++;
-    }
-    for(int i = 0; i < sz2; i++)
+    int sz1 = 0, i;
+    while(s1[sz1]) sz1++;
+    for(i = 0; s2[i]; i++)
         s1[i + sz1] = s2[i];
+    s1[sz1 + i + 1] = '\0';
     return s1;
 }
 
 // 8
 
 char * mystrcpy(char * dest, char source[]) {
-    for(int i = 0; source[i] != '\0'; i++) {
+    int i;
+    for(i = 0; source[i] != '\0'; i++) {
         dest[i] = source[i];
+    }
+    while(dest[i] != '\0') {
+        dest[i] = '\0';
+        i++;
     }
     return dest;
 }
@@ -190,7 +191,7 @@ void truncW (char t[], int n) {
 char charMaisfreq (char s[]) {
     int charFreq[256];
     int freqMax = 0;
-    char maisFreq;
+    char maisFreq = s[0];
     for(int i = 0; i < 256; i++) charFreq[i] = 0;
     for(int i = 0; s[i] != '\0'; i++) {
         int c = s[i];
@@ -206,14 +207,12 @@ char charMaisfreq (char s[]) {
 // 15
 
 int iguaisConsecutivos (char s[]) {
-    char acc = s[0];
     int consec = 0, max = 0;
-    for(int i = 0; s[i] != '\0'; i++) {
-        if(s[i] == acc) consec++;
+    for(int i = 0; s[i]; i++) {
+        if(s[i] == s[i - 1]) consec++;
         else {
             if(consec > max) max = consec;
             consec = 1;
-            acc = s[i];
         }
     }
     if(consec > max) max = consec;
@@ -224,7 +223,7 @@ int iguaisConsecutivos (char s[]) {
 
 int not_in(char c, char str[]) {
     int acc = 1;
-    for(int i = 0; str[i] != '\0'; i++) {
+    for(int i = 0; str[i]; i++) {
         if(c == str[i]) acc = 0;
         else continue;
     } 
@@ -234,11 +233,11 @@ int not_in(char c, char str[]) {
 int difConsecutivos (char s[]) {
     char acc[256];
     int differ = 0, max = 0;
-    for(int i = 0; s[i] != '\0'; i++) {
+    for(int i = 0; s[i]; i++) {
         if(not_in(s[i],acc)) acc[differ++] = s[i];
         else {
             if(differ > max) max = differ;
-            for(int j = 0; acc[j] != '\0'; j++) {
+            for(int j = 0; acc[j]; j++) {
                acc[j] = '\0'; 
             }
             differ = 0;
@@ -253,7 +252,7 @@ int difConsecutivos (char s[]) {
 
 int maiorPrefixo (char s1 [], char s2 []) {
     int acc = 0;
-    for(int i = 0; s1[i] != '\0' && s2[i] != '\0'; i++) {
+    for(int i = 0; s1[i] && s2[i]; i++) {
         if(s1[i] == s2[i]) acc++;
         else break;
     }
@@ -274,7 +273,7 @@ int sufPref (char s1[], char s2[]) {
     int ans = 1;
     char s1x[strlen(s1)];
     char s2x[strlen(s2)];
-    for(int i = 0; s1[i] != '\0' && s2[i] != '\0'; i++) {
+    for(int i = 0; s1[i] && s2[i]; i++) {
         strrev(s1);
         strncpy(s1x,s1,i + 1);
         strrev(s1);
@@ -334,30 +333,113 @@ int contida (char a[], char b[]) {
     return cont;
 }
 
-// void getLine(char str[]) {
-//     char c;
-//     int i = 0;
-//     if((c = getchar()) != '\n') { 
-//         str[i] = c;
-//         i++;
-//     }
-//     while((c = getchar()) != '\n') {
-//         str[i] = c;
-//         i++;
-//     }
-//     if(c == '\n') {
-//         str[i] = '\0';
-//     }
-// }
+// 23
+
+int palindrome (char s[]) {
+    int len = 0, pal = 1;
+    for(int i = 0; s[i] != '\0'; i++) len++;
+    for(int i  =0; s[i] != '\0'; i++) if(s[i] != s[len - 1 - i]) pal = 0;
+    return pal;
+}
+
+// 24
+
+int remRep (char x[]) {
+    int i = 1;
+    char prev = x[0];
+    while(x[i] != '\0') {
+        if(x[i] == prev) removeIndex(x,i);
+        else prev = x[i++];
+    }
+    return i;
+}
+
+// 25
+
+int limpaEspacos (char t[]) {
+    int i = 0;
+    int prevSpace = 0;
+    while(t[i] != '\0') {
+        if(t[i] == ' ') {
+            if(prevSpace) removeIndex(t,i);
+            else {
+                prevSpace = 1;
+                i++;
+            }
+        }
+        else { 
+            prevSpace = 0;
+            i++;
+        }
+    }
+    return i;
+}
+
+// 26
+
+void insere (int v[], int N, int x) {
+    for(int i = 0; i < N; i++) {
+        if(v[i] > x) {
+            for(int j = N; j > i; j--) {
+                v[j] = v[j - 1];
+            }
+            v[i] = x;
+            break;
+        }
+        if(i == N - 1) {
+            v[i + 1] = x;
+        }
+    }
+}
+
+// 27
+
+void merge (int r [], int a[], int b[], int na, int nb) {
+    int i = 0, j = 0, k = 0;
+    while(k < na + nb) {
+        if((a[i] < b[j] && i < na && j < nb) || j >= nb)
+            r[k++] = a[i++];
+        else
+            r[k++] = b[j++];
+    }
+}
+
+// 28
+
+int crescente (int a[], int i, int j) {
+    int cresc = 1;
+    for(int k = i; k < j; k++) {
+        if(a[k + 1] < a[k]) cresc = 0;
+    }
+    return cresc;
+}
+
+void getLine(char str[], int lim) {
+    char c;
+    int i = 0;
+    while((c = getchar()) != '\n' && i < lim) {
+        str[i] = c;
+        i++;
+    }
+    str[i] = '\0';
+}
+
+void getIntArray(int arr[], int lim) {
+    for(int i = 0; i < lim; i++) {
+        printf("Insere um valor: ");
+        scanf("%d",&arr[i]);
+    }
+}
 
 int main(int argc, char const *argv[])
 {
-    char s1[1000];
-    char s2[1000];
-    int opcao;
-    int num;
+    char s1[MAXLINE];
+    char s2[MAXLINE];
+    int opcao, num, num1, num2, resp;
     printf("Insere o numero correspondente ao exercicio: ");
-    scanf("%d\n",&opcao);
+    scanf("%d",&opcao);
+    char c;
+    while((c= getchar()) != '\n' && c != EOF) {} // Ao usar o scanf, o caracter '\n' permanece no buffer. Este while vê-se livre do '\n', para não estragar os getLine em baixo.
     switch (opcao)
     {
         case 1:
@@ -386,101 +468,139 @@ int main(int argc, char const *argv[])
             printf("Resposta: %d\n",qDig(num));
             break;
         case 7:
-            gets(s1);
-            gets(s2);
+            getLine(s1,MAXLINE);
+            getLine(s2,MAXLINE);
             mystrcat(s1,s2);
             printf("%s",s1);
             break;
-        case 8:;
-            gets(s1);
-            gets(s2);
+        case 8:
+            getLine(s1,MAXLINE);
+            getLine(s2,MAXLINE);
             mystrcpy(s1,s2);
             printf("%s",s1);
             break;
         case 9:
-            gets(s1);
-            gets(s2);
-            num = mystrcmp("abc","def");
+            getLine(s1,MAXLINE);
+            getLine(s2,MAXLINE);
+            num = mystrcmp(s1,s2);
             printf("Resposta: %d", num);
             break;
         case 10:
             printf("Haystack: ");
-            gets(s1);
+            getLine(s1,MAXLINE);
             printf("Needle: ");
-            gets(s2);
+            getLine(s2,MAXLINE);
             char * ans = mystrstr(s1,s2);
             printf("%s",ans);
             break;
         case 11:
-            gets(s1);
+            getLine(s1,MAXLINE);
             mystrrev(s1);
             printf("%s",s1);
             break;
         case 12:
-            gets(s1);
+            getLine(s1,MAXLINE);
             strnoV(s1);
             printf("%s",s1);
             break;
         case 13:
-            gets(s1);
+            getLine(s1,MAXLINE);
             scanf("%d",&num);
             truncW(s1,num);
             printf("%s",s1);
             break;
         case 14:
-            gets(s1);
+            getLine(s1,MAXLINE);
             printf("%c",charMaisfreq(s1));
             break;
         case 15:
-            gets(s1);
+            getLine(s1,MAXLINE);
             printf("%d",iguaisConsecutivos(s1));
             break;
         case 16:
-            gets(s1);
+            getLine(s1,MAXLINE);
             printf("%d\n",difConsecutivos(s1));
             break;
         case 17:
-            gets(s1);
-            gets(s2);
+            getLine(s1,MAXLINE);
+            getLine(s2,MAXLINE);
             printf("%d\n",maiorPrefixo(s1,s2));
             break;
         case 18:
-            gets(s1);
-            gets(s2);
+            getLine(s1,MAXLINE);
+            getLine(s2,MAXLINE);
             printf("%d\n",maiorSufixo(s1,s2));
             break;
         case 19:
-            gets(s1);
-            gets(s2);
+            getLine(s1,MAXLINE);
+            getLine(s2,MAXLINE);
             printf("%d\n",sufPref(s1,s2));
             break;
         case 20:
-            gets(s1);
+            getLine(s1,MAXLINE);
             printf("%d\n",contaPal(s1));
             break;
         case 21:
-            gets(s1);
+            getLine(s1,MAXLINE);
             printf("%d\n",contaVogais(s1));
             break;
         case 22:
-            gets(s1);
-            gets(s2);
-            int resp = contida(s1,s2);
+            getLine(s1,MAXLINE);
+            getLine(s2,MAXLINE);
+            resp = contida(s1,s2);
             if(resp) printf("Verdadeiro.\n");
             else printf("Falso.\n");
             break;
         case 23:
+            getLine(s1,MAXLINE);
+            resp = palindrome(s1);
+            if(resp) printf("Verdadeiro.\n");
+            else printf("Falso.\n");
             break;
         case 24:
+            getLine(s1,MAXLINE);
+            resp = remRep(s1);
+            printf("%s - length: %d", s1, resp);
             break;
         case 25:
+            getLine(s1,MAXLINE);
+            resp = limpaEspacos(s1);
+            printf("%s - length: %d", s1, resp);
             break;
-        case 26:
-            break;
-        case 27:
-            break;
-        case 28:
-            break;
+        case 26: {
+            printf("Tamanho da lista ordenada: ");
+            scanf("%d",&num);
+            int nums[num];
+            getIntArray(nums,num);
+            printf("Valor a inserir: ");
+            scanf("%d",&resp);
+            insere(nums,num,resp);
+            for(int i = 0; i <= num; i++) printf("%d ", nums[i]);
+            break; }
+        case 27: {
+            printf("Tamanho da lista ordenada 1: ");
+            scanf("%d", &num1);
+            int nums1[num1];
+            getIntArray(nums1,num1);
+            printf("Tamanho da lista ordenada 2: ");
+            scanf("%d", &num2);
+            int nums2[num2];
+            getIntArray(nums2,num2);
+            int r[num1+num2];
+            merge(r,nums1,nums2,num1,num2);
+            for(int i = 0; i < num1 + num2; i++) printf("%d ",r[i]);
+            break; }
+        case 28: {
+            printf("Tamanho da lista: ");
+            scanf("%d", &num);
+            int nums[num];
+            getIntArray(nums,num);
+            printf("Limite mínimo e máximo: ");
+            scanf("%d %d",&num1,&num2);
+            resp = crescente(nums,num1,num2);
+            if(resp) printf("Verdadeiro.\n");
+            else printf("Falso.\n");
+            break; }
         case 29:
             break;
         case 30:
