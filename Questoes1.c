@@ -482,7 +482,8 @@ int maxCresc (int v[], int N) {
 // 33
 
 int elimRep (int v[], int n) {
-    for(int i = 1; i < n; i++) {
+    int i = 1;
+    while(i < n) {
         int belongs = 0;
         for(int j = 0; j < i; j++) {
             if(v[i] == v[j]) belongs = 1;
@@ -492,17 +493,61 @@ int elimRep (int v[], int n) {
                 v[j] = v[j + 1];
             }
             n--;
-        }
+        } else i++;
     }
     return n;
+}
+
+// 34
+
+int elimRepOrd (int v[], int n) {return elimRep(v,n);}
+
+// 35
+
+int comunsOrd (int a[], int na, int b[], int nb) {
+    int i = 0, j = 0, ans = 0;
+    while(i < na && j < nb) {
+        if(a[i] == b[j]) {
+            ans++;
+            i++;
+            j++;
+        }
+        else if(a[i] > b[j]) j++;
+        else i++;
+    }
+    return ans;
+}
+
+// 36
+
+int comuns (int a[], int na, int b[], int nb) {
+    int ans = 0;
+    for(int i = 0; i < na; i++) {
+        int belongs = 0;
+        for(int j = 0; j < nb; j++) if(a[i] == b[j]) belongs = 1;
+        if(belongs) ans++;
+    }
+    return ans;
+}
+
+// 37
+
+int minInd (int v[], int n) {
+    int min = v[0], minIndex = 0;
+    for(int i = 1; i < n; i++) {
+        if(v[i] < min) { 
+            minIndex = i;
+            min = v[i];
+        }
+    }
+    return minIndex;
 }
 
 void getLine(char str[], int lim) {
     char c;
     int i = 0;
     while((c = getchar()) != '\n' && i < lim) {
-        str[i] = c;
-        i++;
+        str[i++] = c;
     }
     str[i] = '\0';
 }
@@ -510,7 +555,7 @@ void getLine(char str[], int lim) {
 void getIntArray(int arr[], int lim) {
     for(int i = 0; i < lim; i++) {
         printf("Insere um valor: ");
-        scanf("%d",&arr[i]);
+        scanf("%d", arr + i);
     }
 }
 
@@ -518,7 +563,7 @@ void printArray(int arr[], int lim) {
     printf("[");
     for(int i = 0; i < lim; i++) {
         if(i == lim - 1) printf("%d",arr[i]);
-        else printf("%d ,",arr[i]);
+        else printf("%d, ",arr[i]);
     }
     printf("]\n");
 }
@@ -726,7 +771,8 @@ int main(int argc, char const *argv[])
             resp = maxCresc(nums,num);
             printf("Resposta: %d", resp);
             break; }
-        case 33: {
+        case 33:
+        case 34: {
             printf("Tamanho da lista: ");
             scanf("%d", &num);
             int nums[num];
@@ -735,15 +781,38 @@ int main(int argc, char const *argv[])
             printArray(nums,resp);
             printf("Resposta: %d", resp);
             break; }
-            break;
-        case 34:
-            break;
-        case 35:
-            break;
-        case 36:
-            break;
-        case 37:
-            break;
+        case 35: {
+            printf("Tamanho da lista ordenada 1: ");
+            scanf("%d", &num1);
+            int nums1[num1];
+            getIntArray(nums1,num1);
+            printf("Tamanho da lista ordenada 2: ");
+            scanf("%d", &num2);
+            int nums2[num2];
+            getIntArray(nums2,num2);
+            resp = comunsOrd(nums1,num1,nums2,num2);
+            printf("Resposta: %d", resp);
+            break; }
+        case 36: {
+            printf("Tamanho da lista ordenada 1: ");
+            scanf("%d", &num1);
+            int nums1[num1];
+            getIntArray(nums1,num1);
+            printf("Tamanho da lista ordenada 2: ");
+            scanf("%d", &num2);
+            int nums2[num2];
+            getIntArray(nums2,num2);
+            resp = comuns(nums1,num1,nums2,num2);
+            printf("Resposta: %d", resp);
+            break; }
+        case 37: {
+            printf("Tamanho da lista: ");
+            scanf("%d", &num);
+            int nums[num];
+            getIntArray(nums,num);
+            resp = minInd(nums,num);
+            printf("Resposta: %d", resp);
+            break; }
         case 38:
             break;
         case 39:
