@@ -21,8 +21,9 @@ float multInt(int n, float m) {
 float multInt2 (int n, float m) {
     float r = 0;
     while(n > 0) {
-        m *= 2;
-        if((n /= 2) % 2) r += m; 
+        if(n % 2) r += m;
+        n /= 2;
+        m *= 2; 
     }
     return r;
 }
@@ -96,7 +97,7 @@ int main(int argc, char const *argv[]) {
             break;
         case 2:
             scanf("%d %f",&num1,&fl1);
-            ans = multInt(num1, fl1);
+            ans = multInt2(num1, fl1);
             printf("Resposta: %f", ans);
             break;
         case 3:
