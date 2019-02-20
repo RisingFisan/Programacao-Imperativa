@@ -274,10 +274,10 @@ int sufPref (char s1[], char s2[]) {
     char s1x[strlen(s1)];
     char s2x[strlen(s2)];
     for(int i = 0; s1[i] && s2[i]; i++) {
-        strrev(s1);
+        mystrrev(s1);
         strncpy(s1x,s1,i + 1);
-        strrev(s1);
-        strrev(s1x);
+        mystrrev(s1);
+        mystrrev(s1x);
         strncpy(s2x,s2,i + 1);
         if(strcmp(s1x,s2x) == 0) ans = i + 1;
     }
@@ -414,6 +414,89 @@ int crescente (int a[], int i, int j) {
     return cresc;
 }
 
+// 29
+
+int retiraNeg (int v[], int N) {
+    for(int i = 0; i < N; i++) {
+        if(v[i] < 0) {
+            for(int j = i; j < N; j++) v[j] = v[j + 1];
+            N--;
+        }
+    }
+    return N;
+}
+
+// 30
+
+int menosFreq (int v[], int N) {
+    int freq = 1, minFreq = N + 1, ans = v[0];
+    for(int i = 1; i < N; i++) {
+        if(v[i] == v[i - 1]) {
+            freq++;
+        }
+        if(v[i] != v[i + 1] || i == N - 1) {
+            if(freq < minFreq) {
+                minFreq = freq;
+                ans = v[i];
+            }
+            freq = 1;
+        }
+    }
+    return ans;
+}
+
+// 31
+
+int maisFreq (int v[], int N) {
+    int freq = 1, maxFreq = 0, ans = v[0];
+    for(int i = 1; i < N; i++) {
+        if(v[i] == v[i - 1]) freq++;
+        if(v[i] != v[i - 1] || i == N - 1) {
+            if(freq > maxFreq) {
+                maxFreq = freq;
+                ans = v[i - 1];
+            }
+            freq = 1;
+        }
+    }
+    return ans;
+}
+
+// 32
+
+int maxCresc (int v[], int N) {
+    int ans = 1, currAns = 1;
+    for(int i = 1; i < N; i++) {
+        if(v[i - 1] > v[i]) {
+            ans = currAns > ans ? currAns : ans;
+            currAns = 1;
+        }
+        else {
+            currAns++;
+        }
+    }
+    ans = currAns > ans ? currAns : ans;
+    return ans;
+}
+
+// 33
+
+int elimRep (int v[], int n) {
+    for(int i = 1; i < n; i++) {
+        int belongs = 0;
+        for(int j = 0; j < i; j++) {
+            if(v[i] == v[j]) belongs = 1;
+        }
+        if(belongs) {
+            for(int j = i; j < n; j++) {
+                v[j] = v[j + 1];
+            }
+            n--;
+        }
+    }
+    return n;
+}
+
 void getLine(char str[], int lim) {
     char c;
     int i = 0;
@@ -429,6 +512,15 @@ void getIntArray(int arr[], int lim) {
         printf("Insere um valor: ");
         scanf("%d",&arr[i]);
     }
+}
+
+void printArray(int arr[], int lim) {
+    printf("[");
+    for(int i = 0; i < lim; i++) {
+        if(i == lim - 1) printf("%d",arr[i]);
+        else printf("%d ,",arr[i]);
+    }
+    printf("]\n");
 }
 
 int main(int argc, char const *argv[])
@@ -601,15 +693,48 @@ int main(int argc, char const *argv[])
             if(resp) printf("Verdadeiro.\n");
             else printf("Falso.\n");
             break; }
-        case 29:
-            break;
-        case 30:
-            break;
-        case 31:
-            break;
-        case 32:
-            break;
-        case 33:
+        case 29: {
+            printf("Tamanho da lista: ");
+            scanf("%d", &num);
+            int nums[num];
+            getIntArray(nums,num);
+            resp = retiraNeg(nums,num);
+            printArray(nums,resp);
+            printf("Resposta: %d", resp);
+            break; }
+        case 30: {
+            printf("Tamanho da lista crescente: ");
+            scanf("%d", &num);
+            int nums[num];
+            getIntArray(nums,num);
+            resp = menosFreq(nums,num);
+            printf("Resposta: %d", resp);
+            break; }
+        case 31: {
+            printf("Tamanho da lista crescente: ");
+            scanf("%d", &num);
+            int nums[num];
+            getIntArray(nums,num);
+            resp = maisFreq(nums,num);
+            printf("Resposta: %d", resp);
+            break; }
+        case 32: {
+            printf("Tamanho da lista: ");
+            scanf("%d", &num);
+            int nums[num];
+            getIntArray(nums,num);
+            resp = maxCresc(nums,num);
+            printf("Resposta: %d", resp);
+            break; }
+        case 33: {
+            printf("Tamanho da lista: ");
+            scanf("%d", &num);
+            int nums[num];
+            getIntArray(nums,num);
+            resp = elimRep(nums,num);
+            printArray(nums,resp);
+            printf("Resposta: %d", resp);
+            break; }
             break;
         case 34:
             break;
@@ -644,5 +769,6 @@ int main(int argc, char const *argv[])
         case 49:
             break;
     }
+    printf("\n");
     return 0;
 }
