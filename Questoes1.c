@@ -87,7 +87,7 @@ char * mystrcat(char s1[], char s2[]) {
     while(s1[sz1]) sz1++;
     for(i = 0; s2[i]; i++)
         s1[i + sz1] = s2[i];
-    s1[sz1 + i + 1] = '\0';
+    s1[sz1 + i] = '\0';
     return s1;
 }
 
@@ -570,8 +570,8 @@ void printArray(int arr[], int lim) {
 
 int main(int argc, char const *argv[])
 {
-    char s1[MAXLINE];
-    char s2[MAXLINE];
+    char* s1 = malloc(MAXLINE * sizeof(char));
+    char* s2 = malloc(MAXLINE * sizeof(char));
     int opcao, num, num1, num2, resp;
     printf("Insere o numero correspondente ao exercicio: ");
     scanf("%d",&opcao);
