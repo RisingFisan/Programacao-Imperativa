@@ -429,18 +429,20 @@ int retiraNeg (int v[], int N) {
 // 30
 
 int menosFreq (int v[], int N) {
-    int freq = 1, minFreq = N + 1, ans = v[0];
-    for(int i = 1; i < N; i++) {
-        if(v[i] == v[i - 1]) {
-            freq++;
-        }
-        if(v[i] != v[i + 1] || i == N - 1) {
+    int freq = 1, minFreq = N, ans = v[0], i;
+    for(i = 1; i < N; i++) {
+        if(v[i] == v[i - 1]) freq++;
+        if(v[i] != v[i - 1]) {
             if(freq < minFreq) {
                 minFreq = freq;
-                ans = v[i];
+                ans = v[i - 1];
             }
             freq = 1;
         }
+    }
+    if(freq < minFreq) {
+        minFreq = freq;
+        ans = v[i - 1];
     }
     return ans;
 }
@@ -543,12 +545,180 @@ int minInd (int v[], int n) {
     return minIndex;
 }
 
+// 38
+
+void somasAc (int v[], int Ac [], int N) {
+    for(int i = 0; i < N; i++) {
+        Ac[i] = 0;
+        for(int j = 0; j <= i; j++) {
+            Ac[i] += v[j];
+        }
+    }
+}
+
+// 39
+
+int triSup (int N, float m [N][N]) {
+    int x = 1;
+    for(int i = 0; i < N; i++) {
+        for(int j = 0; j < i; j++) {
+            if(m[i][j]) x = 0;
+        }
+    }
+    return x;
+}
+
+// 40
+
+void transposta (int N, float m[N][N]) {
+    for(int i = 0; i < N; i++) {
+        for(int j = 0; j < i; j++) {
+            float temp = m[i][j];
+            m[i][j] = m[j][i];
+            m[j][i] = temp;
+        }
+    }
+}
+
+// 41
+
+void addTo (int N, int M, int a[N][M], int b[N][M]) {
+    for(int i = 0; i < N; i++) {
+        for(int j = 0; j < M; j++) {
+            *(*(a + i)+j) += b[i][j];
+        }
+    }
+}
+
+// 42
+
+int unionSet (int N, int v1[N], int v2[N], int r[N]) {
+    int len = 0;
+    for(int i = 0; i < N; i++) {
+        r[i] = v1[i] || v2[i];
+        len += r[i];
+    }
+    return len;
+}
+
+// 43
+
+int intersectSet (int N, int v1[N], int v2[N],int r[N]) {
+    int len = 0;
+    for(int i = 0; i < N; i++) {
+        r[i] = v1[i] && v2[i];
+        len += r[i];
+    }
+    return len;
+}
+
+// 44
+
+int intersectMSet (int N, int v1[N], int v2[N],int r[N]) {
+    int len = 0;
+    for(int i = 0; i < N; i++) {
+        r[i] = v1[i] < v2[i] ? v1[i] : v2[i];
+        len += r[i]; 
+    }
+    return len;
+}
+
+// 45
+
+int unionMSet (int N, int v1[N], int v2[N], int r[N]) {
+    int len = 0;
+    for(int i = 0; i < N; i++) {
+        r[i] = v1[i] < v2[i] ? v1[i] : v2[i];
+        len += r[i]; 
+    }
+    return len;
+}
+
+// 46
+
+int cardinalMSet (int N, int v[N]) {
+    int len = 0;
+    for(int i = 0; i < N; i++) len += v[i];
+    return len;
+}
+
+// 47
+
+typedef enum movimento {Norte, Oeste, Sul, Este} Movimento;
+typedef struct posicao {
+    int x, y;
+} Posicao;
+
+Posicao posFinal (Posicao inicial, Movimento mov[], int N) {
+    for(int i = 0; i < N; i++) {
+        Movimento x = mov[i];
+        if(x == Norte) inicial.y++;
+        if(x == Este) inicial.x++;
+        if(x == Sul) inicial.y--;
+        if(x == Oeste) inicial.x--;
+    }
+    return inicial;
+}
+
+// 48
+
+int caminho (Posicao inicial, Posicao final, Movimento mov[], int N) {
+    int* xi = &inicial.x;
+    int* yi = &inicial.y;
+    int xf = final.x, yf = final.y, i;
+    for(i = 0; i < N; i++) {
+        if((*xi) < xf) {
+            (*xi)++;
+            mov[i] = Este;
+        }
+        else if ((*xi) > xf) {
+            (*xi)--;
+            mov[i] = Oeste;
+        } 
+        else if ((*yi) < yf) {
+            (*yi)++;
+            mov[i] = Norte;
+        }
+        else if ((*yi) > yf) {
+            (*yi)--;
+            mov[i] = Sul;
+        }
+        else break;
+    }
+    if(inicial.x != final.x || inicial.y != final.y) return -1;
+    else return i;
+}
+
+// 49
+
+int manDist(int x, int y, int x0, int y0) {return abs(x - x0) + abs(y - y0);}
+
+int maisCentral (Posicao pos[], int N) {
+    int minDist = manDist(pos[0].x,pos[0].y,0,0);
+    int ans = 0, i;
+    for(i = 1; i < N; i++) {
+        if(manDist(pos[i].x,pos[i].y,0,0) < minDist) {
+            ans = i;
+            minDist = manDist(pos[i].x,pos[i].y,0,0);
+        }
+    }
+    return ans;
+}
+
+// 50
+
+int vizinhos (Posicao p, Posicao pos[], int N) {
+    int ans = 0;
+    for(int i = 0; i < N; i++) {
+        if(manDist(pos[i].x,pos[i].y,p.x,p.y) == 1) ans++;
+    }
+    return ans;
+}
+
 void getLine(char str[], int lim) {
     char c;
     int i = 0;
-    while((c = getchar()) != '\n' && i < lim) {
-        str[i++] = c;
-    }
+    while((c = getchar()) != '\n' && i < lim) str[i++] = c;
     str[i] = '\0';
 }
 
@@ -556,6 +726,24 @@ void getIntArray(int arr[], int lim) {
     for(int i = 0; i < lim; i++) {
         printf("Insere um valor: ");
         scanf("%d", arr + i);
+    }
+}
+
+void getIntMatrix(int m, int n, int mat[m][n]) {
+    for(int i = 0; i < m; i++) {
+        for(int j = 0; j < n; j++) {
+            printf("Linha %d, coluna %d: ",i,j);
+            scanf("%d",&mat[i][j]);
+        }
+    }
+}
+
+void getFloatMatrix(int m, int n, float mat[m][n]) {
+    for(int i = 0; i < m; i++) {
+        for(int j = 0; j < n; j++) {
+            printf("Linha %d, coluna %d: ",i,j);
+            scanf("%f", &mat[i][j]);
+        }
     }
 }
 
@@ -568,11 +756,54 @@ void printArray(int arr[], int lim) {
     printf("]\n");
 }
 
+void printFloatMatrix(int m, int n, float mat[m][n]) {
+    for(int i = 0; i < m; i++) {
+        for(int j = 0; j < n; j++)
+            printf("%.3f ",mat[i][j]);
+        putchar('\n');
+    }
+}
+
+void printIntMatrix(int m, int n, int mat[m][n]) {
+    for(int i = 0; i < m; i++) {
+        for(int j = 0; j < n; j++)
+            printf("%6d ",mat[i][j]);
+        putchar('\n');
+    }
+}
+
+void getPosArray(int N, Posicao poss[N]) {
+    for(int i = 0; i < N; i++) {
+        printf("Posição %d: ",i);
+        scanf("%d %d",&poss[i].x,&poss[i].y);
+    }
+}
+
+void getMovs(int len, Movimento movs[len]) {
+    for(int i = 0; i < len; i++) {
+        printf("Letra correspondente à direção (N,S,E,W): ");
+        char c, x;
+        while((x = getchar()) != '\n' && x) {}
+        switch(c = getchar()) {
+            case 'n':
+            case 'N': movs[i] = Norte; break;
+            case 'e':
+            case 'E': movs[i] = Este; break;
+            case 's':
+            case 'S': movs[i] = Sul; break;
+            case 'O':
+            case 'o':
+            case 'w':
+            case 'W': movs[i] = Oeste; break;
+        }
+    }
+}
+
 int main(int argc, char const *argv[])
 {
     char* s1 = malloc(MAXLINE * sizeof(char));
     char* s2 = malloc(MAXLINE * sizeof(char));
-    int opcao, num, num1, num2, resp;
+    int opcao, num, num1, num2, resp, x, y;
     printf("Insere o numero correspondente ao exercicio: ");
     scanf("%d",&opcao);
     char c;
@@ -813,29 +1044,158 @@ int main(int argc, char const *argv[])
             resp = minInd(nums,num);
             printf("Resposta: %d", resp);
             break; }
-        case 38:
-            break;
-        case 39:
-            break;
-        case 40:
-            break;
-        case 41:
-            break;
-        case 42:
-            break;
-        case 43:
-            break;
-        case 44:
-            break;
-        case 45:
-            break;
-        case 46:
-            break;
-        case 47:
-            break;
-        case 48:
-            break;
-        case 49:
+        case 38: {
+            printf("Tamanho da lista: ");
+            scanf("%d", &num);
+            int nums[num];
+            getIntArray(nums,num);
+            int nums1[num];
+            somasAc(nums,nums1,num);
+            printArray(nums1,num);
+            break; }
+        case 39: {
+            printf("Número de linhas: ");
+            scanf("%d", &num1);
+            float nums[num1][num1];
+            getFloatMatrix(num1,num1,nums);
+            resp = triSup(num1,nums);
+            printFloatMatrix(num1,num1,nums);
+            if(resp) printf("Verdadeiro\n");
+            else printf("Falso\n");
+            break; }
+        case 40: {
+            printf("Número de linhas: ");
+            scanf("%d", &num1);
+            float nums[num1][num1];
+            getFloatMatrix(num1,num1,nums);
+            transposta(num1,nums);
+            printFloatMatrix(num1,num1,nums);
+            break; }
+        case 41: {
+            printf("Número de linhas: ");
+            scanf("%d", &num1);
+            printf("Número de colunas: ");
+            scanf("%d", &num2);
+            printf("Matriz 1\n");
+            int mat1[num1][num2];
+            int mat2[num1][num2];
+            getIntMatrix(num1,num2,mat1);
+            printf("Matriz 2\n");
+            getIntMatrix(num1,num2,mat2);
+            addTo(num1,num2,mat1,mat2);
+            printIntMatrix(num1,num2,mat1);
+            break; }
+        case 42: {
+            printf("Tamanho dos sets:");
+            scanf("%d",&num);
+            printf("Set 1\n");
+            int set1[num];
+            int set2[num];
+            getIntArray(set1,num);
+            printf("Set 2\n");
+            getIntArray(set2,num);
+            int setx[num];
+            resp = unionSet(num,set1,set2,setx);
+            printArray(setx,num);
+            break; }
+        case 43: {
+            printf("Tamanho dos sets:");
+            scanf("%d",&num);
+            printf("Set 1\n");
+            int set1[num];
+            int set2[num];
+            getIntArray(set1,num);
+            printf("Set 2\n");
+            getIntArray(set2,num);
+            int setx[num];
+            resp = intersectSet(num,set1,set2,setx);
+            printArray(setx,num);
+            break; }
+        case 44: {
+            printf("Tamanho dos sets:");
+            scanf("%d",&num);
+            printf("Set 1\n");
+            int set1[num];
+            int set2[num];
+            getIntArray(set1,num);
+            printf("Set 2\n");
+            getIntArray(set2,num);
+            int setx[num];
+            resp = intersectMSet(num,set1,set2,setx);
+            printArray(setx,num);
+            break; }
+        case 45: {
+            printf("Tamanho dos sets:");
+            scanf("%d",&num);
+            printf("Set 1\n");
+            int set1[num];
+            int set2[num];
+            getIntArray(set1,num);
+            printf("Set 2\n");
+            getIntArray(set2,num);
+            int setx[num];
+            resp = unionMSet(num,set1,set2,setx);
+            printArray(setx,num);
+            break; }
+        case 46: {
+            printf("Tamanho do set: ");
+            scanf("%d", &num);
+            int set[num];
+            getIntArray(set,num);
+            resp = cardinalMSet(num,set);
+            printf("Resposta: %d", resp);
+            break; }
+        case 47: {
+            printf("Posição inicial (x , y): ");
+            scanf("%d %d",&num1,&num2);
+            printf("Número de movimentos: ");
+            scanf("%d",&num);
+            Posicao pi = {num1,num2};
+            Movimento movs[num];
+            getMovs(num,movs);
+            Posicao pf = posFinal(pi,movs,num);
+            printf("Posição final: (%d,%d)",pf.x,pf.y);
+            break; }
+        case 48: {
+            printf("Posição inicial (x, y): ");
+            scanf("%d %d",&num1,&num2);
+            printf("Posição final (x, y): ");
+            scanf("%d %d",&x,&y);
+            printf("Número de movimentos: ");
+            scanf("%d",&num);
+            Posicao pi = {num1,num2};
+            Posicao pf = {x,y};
+            Movimento movs[num];
+            int resp = caminho(pi,pf,movs,num);
+            if(resp < 0) printf("Caminho não encontrado.");
+            else {
+                printf("O caminho é: ");
+                for(int i = 0; i < resp; i++) {
+                    if(movs[i] == Norte) printf("Norte ");
+                    if(movs[i] == Sul) printf("Sul ");
+                    if(movs[i] == Este) printf("Este ");
+                    if(movs[i] == Oeste) printf("Oeste ");
+                }
+            }
+            break; }
+        case 49: {
+            printf("Número de posições: ");
+            scanf("%d", &num);
+            Posicao poss[num];
+            getPosArray(num,poss);
+            resp = maisCentral(poss,num);
+            printf("Resposta: %d",resp);
+            break; }
+        case 50:
+            printf("Posição central: ");
+            scanf("%d %d",&num1,&num2);
+            Posicao pc = {num1,num2};
+            printf("Número de posições: ");
+            scanf("%d", &num);
+            Posicao poss[num];
+            getPosArray(num,poss);
+            resp = vizinhos(pc,poss,num);
+            printf("Resposta: %d",resp);
             break;
     }
     printf("\n");
