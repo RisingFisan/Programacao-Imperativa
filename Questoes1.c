@@ -221,31 +221,28 @@ int iguaisConsecutivos (char s[]) {
 
 // 16
 
-int not_in(char c, char str[]) {
-    int acc = 1;
-    for(int i = 0; str[i]; i++) {
-        if(c == str[i]) acc = 0;
-        else continue;
-    } 
-    return acc;
-}
-
-int difConsecutivos (char s[]) {
-    char acc[256];
-    int differ = 0, max = 0;
-    for(int i = 0; s[i]; i++) {
-        if(not_in(s[i],acc)) acc[differ++] = s[i];
-        else {
-            if(differ > max) max = differ;
-            for(int j = 0; acc[j]; j++) {
-               acc[j] = '\0'; 
-            }
-            differ = 0;
-            acc[differ++] = s[i];
+int not_in_prev(char str[], int k, int n) {
+    int i, ans = 1;
+    for(i = k; i < n; i++) {
+        if(str[i] == str[n]) {
+            ans = 0;
+            break;
         }
     }
-    if(differ > max) max = differ;
-    return max;
+    return ans;
+}
+
+int difConsecutivos(char s[]) {
+    int i, j, ans = 0;
+    for(i = 0; s[i]; i++) {
+        int consec = 0;
+        for(j = i; s[j]; j++) {
+            if(not_in_prev(s,i,j)) consec++;
+            else break;
+        }
+        if (consec > ans) ans = consec;
+    }
+    return ans;
 }
 
 // 17
