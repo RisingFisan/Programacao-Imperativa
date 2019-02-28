@@ -122,7 +122,7 @@ int mystrcmp(char s1[], char s2[]) {
 char *mystrstr (char haystack[], char needle[]) {
     int i = 0, j = 0, startnum = 0;
     int isContained = 1;
-    while(needle[i] != '\0' && haystack[j] != '\0') {
+    while(needle[i] && haystack[j]) {
         if(haystack[j] == needle[i]) {
             if(!isContained) {
                 isContained = 1;
@@ -133,30 +133,24 @@ char *mystrstr (char haystack[], char needle[]) {
         else isContained = 0;
         j++;
     }
-    if (isContained) return &haystack[startnum];
+    if (isContained && !needle[i]) return &haystack[startnum];
     else return NULL;
 }
 
 // 11
 
 void mystrrev(char s[]) {
-    int len = 0;
-    for(int i = 0; s[i] != '\0'; i++) {
-        len++;    
-    }
+    int len;
+    for(len = 0; s[len]; len++);
     char rev[len];
-    for(int i = 0; i < len; i++) {
-        rev[i] = s[len - i - 1];
-    }
-    for(int i = 0; i < len; i++) {
-        s[i] = rev[i];
-    }
+    for(int i = 0; i < len; i++) rev[i] = s[len - i - 1];
+    for(int i = 0; i < len; i++) s[i] = rev[i];
 }
 
 // 12
 
 void removeIndex(char s[], int n) {
-    for(int j = n; s[j - 1] != '\0'; j++) {
+    for(int j = n; s[j]; j++) {
         s[j] = s[j + 1];
     }
 }
@@ -164,7 +158,7 @@ void removeIndex(char s[], int n) {
 void strnoV (char s[]) {
     int i = 0;
     char c;
-    while((c = s[i]) != '\0') {
+    while(c = s[i]) {
         if(c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U' || c == 'a'
         || c == 'e' || c == 'i' || c == 'o' || c == 'u') removeIndex(s, i);
         else i++;
@@ -189,6 +183,7 @@ void truncW (char t[], int n) {
 // 14
 
 char charMaisfreq (char s[]) {
+    if(!s[0]) return 0;
     int charFreq[256];
     int freqMax = 0;
     char maisFreq = s[0];
