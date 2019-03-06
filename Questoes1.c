@@ -83,11 +83,9 @@ int qDig (unsigned int n) {
 // 7
 
 char * mystrcat(char s1[], char s2[]) {
-    int sz1 = 0, i;
+    int sz1 = 0, j = 0;
     while(s1[sz1]) sz1++;
-    for(i = 0; s2[i]; i++)
-        s1[i + sz1] = s2[i];
-    s1[sz1 + i] = '\0';
+    while((s1[sz1++] = s2[j++]));
     return s1;
 }
 
@@ -879,7 +877,7 @@ int main(int argc, char const *argv[])
             break;
         case 16:
             getLine(s1,MAXLINE);
-            printf("%d\n",difConsecutivos(s1));
+            printf("Diferentes consecutivos: %d\n",difConsecutivos(s1));
             break;
         case 17:
             getLine(s1,MAXLINE);
