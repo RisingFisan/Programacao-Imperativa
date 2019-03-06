@@ -407,11 +407,13 @@ int crescente (int a[], int i, int j) {
 // 29
 
 int retiraNeg (int v[], int N) {
-    for(int i = 0; i < N; i++) {
+    int i = 0;
+    while(i < N) {
         if(v[i] < 0) {
             for(int j = i; j < N; j++) v[j] = v[j + 1];
             N--;
         }
+        else i++;
     }
     return N;
 }
