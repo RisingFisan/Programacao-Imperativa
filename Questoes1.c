@@ -166,8 +166,7 @@ void strnoV (char s[]) {
 // 13
 
 void truncW (char t[], int n) {
-    int wordLen = 0;
-    int i = 0;
+    int wordLen = 0, i = 0;
     char c;
     while((c = t[i]) != '\0') {
         if(c == ' ' || c == '\n' || c == '\t') {i++; wordLen = 0;}
@@ -186,7 +185,7 @@ char charMaisfreq (char s[]) {
     int freqMax = 0;
     char maisFreq = s[0];
     for(int i = 0; i < 256; i++) charFreq[i] = 0;
-    for(int i = 0; s[i] != '\0'; i++) {
+    for(int i = 0; s[i]; i++) {
         int c = s[i];
         charFreq[c] += 1;
         if(charFreq[c] > freqMax) {
@@ -241,35 +240,28 @@ int difConsecutivos(char s[]) {
 // 17
 
 int maiorPrefixo (char s1 [], char s2 []) {
-    int acc = 0;
-    for(int i = 0; s1[i] && s2[i]; i++) {
-        if(s1[i] == s2[i]) acc++;
-        else break;
-    }
-    return acc;
+    int i;
+    for(i = 0; s1[i] == s2[i] && s1[i]; i++);
+    return i;
 }
 
 // 18
 
 int maiorSufixo (char s1 [], char s2 []) {
-    mystrrev(s1);
-    mystrrev(s2);
-    return maiorPrefixo(s1,s2);
+    int i, j, ans = -1;
+    for(i = 0; s1[i]; i++);
+    for(j = 0; s2[j]; j++);
+    while(s1[i--] == s2[j--]) ans++;
+    return ans;
 }
 
 // 19
 
 int sufPref (char s1[], char s2[]) {
-    int ans = 1;
-    char s1x[strlen(s1)];
-    char s2x[strlen(s2)];
-    for(int i = 0; s1[i] && s2[i]; i++) {
-        mystrrev(s1);
-        strncpy(s1x,s1,i + 1);
-        mystrrev(s1);
-        mystrrev(s1x);
-        strncpy(s2x,s2,i + 1);
-        if(strcmp(s1x,s2x) == 0) ans = i + 1;
+    int ans = 0, i, j = 0;
+    for(i = 0; s1[i]; i++) {
+        if(s1[i] == s2[j++]) ans++;
+        else ans = j = 0;
     }
     return ans;
 }
@@ -277,14 +269,11 @@ int sufPref (char s1[], char s2[]) {
 // 20
 
 int contaPal (char s[]) {
-    int inWord = 0;
-    int total = 0;
+    int inWord = 0, total = 0;
     for(int i = 0; s[i] != '\0'; i++) {
-        if(s[i] == ' ' || s[i] == '\n' || s[i] == '\t') {
-            if(inWord) {
-                total++;
-                inWord = 0;
-            }
+        if(s[i] == ' ' || s[i] == '\n') {
+            if(inWord) total++;
+            inWord = 0;
         }
         else inWord = 1;
     }
@@ -328,16 +317,17 @@ int contida (char a[], char b[]) {
 int palindrome (char s[]) {
     int len = 0, pal = 1;
     for(int i = 0; s[i] != '\0'; i++) len++;
-    for(int i  =0; s[i] != '\0'; i++) if(s[i] != s[len - 1 - i]) pal = 0;
+    for(int i = 0; s[i] != '\0'; i++) if(s[i] != s[len - 1 - i]) pal = 0;
     return pal;
 }
 
 // 24
 
 int remRep (char x[]) {
+    if(!x[0]) return 0;
     int i = 1;
     char prev = x[0];
-    while(x[i] != '\0') {
+    while(x[i]) {
         if(x[i] == prev) removeIndex(x,i);
         else prev = x[i++];
     }
@@ -349,18 +339,12 @@ int remRep (char x[]) {
 int limpaEspacos (char t[]) {
     int i = 0;
     int prevSpace = 0;
-    while(t[i] != '\0') {
-        if(t[i] == ' ') {
-            if(prevSpace) removeIndex(t,i);
-            else {
-                prevSpace = 1;
-                i++;
-            }
+    while(t[i]) {
+        if(t[i++] == ' ') {
+            if(prevSpace) for(int j = --i; t[j]; j++) t[j] = t[j + 1];
+            else prevSpace = 1;
         }
-        else { 
-            prevSpace = 0;
-            i++;
-        }
+        else prevSpace = 0;
     }
     return i;
 }
@@ -387,7 +371,7 @@ void insere (int v[], int N, int x) {
 void merge (int r [], int a[], int b[], int na, int nb) {
     int i = 0, j = 0, k = 0;
     while(k < na + nb) {
-        if((a[i] < b[j] && i < na && j < nb) || j >= nb)
+        if((a[i] < b[j] && i < na) || j >= nb)
             r[k++] = a[i++];
         else
             r[k++] = b[j++];
@@ -620,7 +604,7 @@ int intersectMSet (int N, int v1[N], int v2[N],int r[N]) {
 int unionMSet (int N, int v1[N], int v2[N], int r[N]) {
     int len = 0;
     for(int i = 0; i < N; i++) {
-        r[i] = v1[i] < v2[i] ? v1[i] : v2[i];
+        r[i] = v1[i] + v2[i];
         len += r[i]; 
     }
     return len;
@@ -799,7 +783,7 @@ int main(int argc, char const *argv[])
     printf("Insere o numero correspondente ao exercicio: ");
     scanf("%d",&opcao);
     char c;
-    while((c= getchar()) != '\n' && c != EOF) {} // Ao usar o scanf, o caracter '\n' permanece no buffer. Este while vê-se livre do '\n', para não estragar os getLine em baixo.
+    while((c = getchar()) != '\n' && c != EOF); // Ao usar o scanf, o caracter '\n' permanece no buffer. Este while vê-se livre do '\n', para não estragar os getLine em baixo.
     switch (opcao)
     {
         case 1:
