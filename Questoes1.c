@@ -7,10 +7,9 @@
 // 1 - Maior da sequência
 
 void one() {
-    int maior;
+    int maior, num;
     scanf("%d", &maior);
     while(1) {
-        int num;
         scanf("%d", &num);
         if(num == 0) break;
         if(num > maior) maior = num;
@@ -93,13 +92,7 @@ char * mystrcat(char s1[], char s2[]) {
 
 char * mystrcpy(char * dest, char source[]) {
     int i;
-    for(i = 0; source[i] != '\0'; i++) {
-        dest[i] = source[i];
-    }
-    while(dest[i] != '\0') {
-        dest[i] = '\0';
-        i++;
-    }
+    for(i = 0; dest[i] = source[i]; i++);
     return dest;
 }
 
@@ -107,7 +100,7 @@ char * mystrcpy(char * dest, char source[]) {
 
 int mystrcmp(char s1[], char s2[]) {
     int i = 0;
-    while(s1[i] != '\0' || s2[i] != '\0') {
+    while(s1[i] || s2[i]) {
         if(s1[i] > s2[i]) return 1;
         else if(s2[i] > s1[i]) return -1;
         i++;
@@ -118,20 +111,20 @@ int mystrcmp(char s1[], char s2[]) {
 // 10
 
 char *mystrstr (char haystack[], char needle[]) {
-    int i = 0, j = 0, startnum = 0;
-    int isContained = 1;
+    int i = 0, j = 0, isContained = 1;
+    char* ans = haystack;
     while(needle[i] && haystack[j]) {
         if(haystack[j] == needle[i]) {
             if(!isContained) {
                 isContained = 1;
-                startnum = j;
+                ans = haystack + j;
             }
             i++;
         }
         else isContained = 0;
         j++;
     }
-    if (isContained && !needle[i]) return &haystack[startnum];
+    if (isContained && !needle[i]) return ans;
     else return NULL;
 }
 
@@ -168,11 +161,11 @@ void strnoV (char s[]) {
 void truncW (char t[], int n) {
     int wordLen = 0, i = 0;
     char c;
-    while((c = t[i]) != '\0') {
+    while(c = t[i]) {
         if(c == ' ' || c == '\n' || c == '\t') {i++; wordLen = 0;}
         else {
-            if(wordLen >= n) removeIndex(t, i);
-            else {i++; wordLen++;}
+            if(wordLen++ >= n) removeIndex(t, i);
+            else i++;
         }
     } 
 }
