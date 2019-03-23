@@ -70,12 +70,12 @@ int procuraBinRec(char *p, char *ps[], int N, int offset) {
     int xN = N / 2;
     int x = strcmp(p,ps[xN]);
     if(x == 0) return offset + xN + 1;
-    char **ps1 = malloc(sizeof *ps1 * xN);
+    char* ps1[xN];
     for(int i = 0; i < xN; i++) {
         ps1[i] = malloc(MAX_LINE + 1);
         strcpy(ps1[i],ps[i]);
     }
-    char **ps2 = malloc(sizeof *ps2 * (N - xN));
+    char* ps2[N - xN];
     for(int i = 0; i < N - xN - 1; i++) {
         ps2[i] = malloc(MAX_LINE + 1);
         strcpy(ps2[i],ps[i + xN + 1]);
@@ -85,29 +85,26 @@ int procuraBinRec(char *p, char *ps[], int N, int offset) {
 }
 
 int procuraBinIte(char *p, char *ps[], int N) {
-    int ans = 0, offset = 0, xN = 0;
+    int ans = 0, offset = 1, xN = 0;
     while(1) {
         if(N < 1) break;
         xN = N / 2;
         int x = strcmp(p,ps[xN]);
         if(x == 0) {
-            ans = xN; 
+            ans = xN;
             break; 
         }
-        char **ps1 = malloc(sizeof *ps1 * xN);
-        for(int i = 0; i < xN; i++) {
-            ps1[i] = malloc(MAX_LINE + 1);
-            strcpy(ps1[i],ps[i]);
+        if(x < 0) {
+            for(int i = xN; i < N; i++) ps[i] = "\0";
+            N = xN;
         }
-        char **ps2 = malloc(sizeof *ps2 * (N - xN));
-        for(int i = 0; i < N - xN - 1; i++) {
-            ps2[i] = malloc(MAX_LINE + 1);
-            strcpy(ps2[i],ps[i + xN + 1]);
-        }
-        if(x < 0) ps = ps1;
         else {
-            ps = ps2;
+            for(int i = 0; i < N; i++) {
+                if(i < N - xN - 1) strcpy(ps[i],ps[i + xN + 1]);
+                else strcpy(ps[i],"\0");
+            }
             offset += xN + 1;
+            N -= xN;
         }
     }
     return xN + offset;
