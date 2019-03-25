@@ -81,7 +81,7 @@ int qDig (unsigned int n) {
 
 // 7
 
-char * mystrcat(char s1[], char s2[]) {
+char* mystrcat(char s1[], char s2[]) {
     int sz1 = 0, j = 0;
     while(s1[sz1]) sz1++;
     while((s1[sz1++] = s2[j++]));
@@ -90,7 +90,7 @@ char * mystrcat(char s1[], char s2[]) {
 
 // 8
 
-char * mystrcpy(char * dest, char source[]) {
+char* mystrcpy(char* dest, char source[]) {
     int i;
     for(i = 0; dest[i] = source[i]; i++);
     return dest;
@@ -99,21 +99,18 @@ char * mystrcpy(char * dest, char source[]) {
 // 9
 
 int mystrcmp(char s1[], char s2[]) {
-    int i = 0;
-    while(s1[i] || s2[i]) {
-        if(s1[i] > s2[i]) return 1;
-        else if(s2[i] > s1[i]) return -1;
-        i++;
-    }
-    return 0;
+    int i;
+    for(i = 0; s1[i] == s2[i] && s1[i]; i++);
+    return s1[i] - s2[i];
 }
 
 // 10
 
-char *mystrstr (char haystack[], char needle[]) {
+char* mystrstr (char haystack[], char needle[]) {
     int i = 0, j = 0, isContained = 1;
     char* ans = haystack;
     while(needle[i] && haystack[j]) {
+        if(haystack[j] != needle[i]) isContained = i = 0;
         if(haystack[j] == needle[i]) {
             if(!isContained) {
                 isContained = 1;
@@ -121,7 +118,6 @@ char *mystrstr (char haystack[], char needle[]) {
             }
             i++;
         }
-        else isContained = 0;
         j++;
     }
     if (isContained && !needle[i]) return ans;
@@ -189,18 +185,37 @@ char charMaisfreq (char s[]) {
     return maisFreq;
 }
 
+int freqC(char ch, char s[]) {
+    int freq = 0;
+    for(int i = 0; s[i]; i++) {
+        if(s[i] == ch) freq++;
+    }
+    return freq;
+}
+
+char charMaisFreq(char s[]) {
+    char maisFreq = s[0];
+    int freqMax = 0, freq;
+    for(int i = 0; s[i]; i++) {
+        if((freq = freqC(s[i],s)) > freqMax) {
+            freqMax = freq;
+            maisFreq = s[i];
+        }
+    }
+    return maisFreq;
+}
+
 // 15
 
 int iguaisConsecutivos (char s[]) {
-    int consec = 0, max = 0;
+    int consec = 1, max = 0;
     for(int i = 0; s[i]; i++) {
-        if(s[i] == s[i - 1]) consec++;
+        if(s[i] == s[i + 1]) consec++;
         else {
             if(consec > max) max = consec;
             consec = 1;
         }
     }
-    if(consec > max) max = consec;
     return max;
 }
 
@@ -263,7 +278,7 @@ int sufPref (char s1[], char s2[]) {
 
 int contaPal (char s[]) {
     int inWord = 0, total = 0;
-    for(int i = 0; s[i] != '\0'; i++) {
+    for(int i = 0; s[i]; i++) {
         if(s[i] == ' ' || s[i] == '\n') {
             if(inWord) total++;
             inWord = 0;
@@ -278,7 +293,7 @@ int contaPal (char s[]) {
 
 int contaVogais (char s[]) {
     int total = 0;
-    for(int i = 0; s[i] != '\0'; i++) {
+    for(int i = 0; s[i]; i++) {
         switch(s[i]) {
             case 'a': case 'e': case 'i': case 'o': case 'u':
             case 'A': case 'E': case 'I': case 'O': case 'U':
@@ -292,9 +307,9 @@ int contaVogais (char s[]) {
 
 int contida (char a[], char b[]) {
     int cont = 1;
-    for(int i = 0; a[i] != '\0'; i++) {
+    for(int i = 0; a[i]; i++) {
         int pertence = 0;
-        for(int j = 0; b[j] != '\0'; j++) {
+        for(int j = 0; b[j]; j++) {
             if(a[i] == b[j]) pertence = 1;
         }
         if(!pertence) {
@@ -309,8 +324,8 @@ int contida (char a[], char b[]) {
 
 int palindrome (char s[]) {
     int len = 0, pal = 1;
-    for(int i = 0; s[i] != '\0'; i++) len++;
-    for(int i = 0; s[i] != '\0'; i++) if(s[i] != s[len - 1 - i]) pal = 0;
+    for(int i = 0; s[i]; i++) len++;
+    for(int i = 0; s[i]; i++) if(s[i] != s[len - 1 - i]) pal = 0;
     return pal;
 }
 
@@ -354,7 +369,7 @@ void insere (int v[], int N, int x) {
             break;
         }
         if(i == N - 1) {
-            v[i + 1] = x;
+            v[N] = x;
         }
     }
 }
@@ -422,7 +437,7 @@ int maisFreq (int v[], int N) {
     int freq = 1, maxFreq = 0, ans = v[0];
     for(int i = 1; i < N; i++) {
         if(v[i] == v[i - 1]) freq++;
-        if(v[i] != v[i - 1] || i == N - 1) {
+        if(v[i] != v[i - 1]) {
             if(freq > maxFreq) {
                 maxFreq = freq;
                 ans = v[i - 1];
@@ -478,7 +493,7 @@ int elimRepOrd (int v[], int n) {return elimRep(v,n);}
 int comunsOrd (int a[], int na, int b[], int nb) {
     int i = 0, j = 0, ans = 0;
     while(i < na && j < nb) {
-        if(a[i] == b[j]) {
+        if(a[i++] == b[j++]) {
             ans++;
             i++;
             j++;
@@ -504,13 +519,10 @@ int comuns (int a[], int na, int b[], int nb) {
 // 37
 
 int minInd (int v[], int n) {
-    int min = v[0], minIndex = 0;
-    for(int i = 1; i < n; i++) {
-        if(v[i] < min) { 
+    int minIndex = 0;
+    for(int i = 1; i < n; i++) 
+        if(v[i] < v[minIndex]) 
             minIndex = i;
-            min = v[i];
-        }
-    }
     return minIndex;
 }
 
