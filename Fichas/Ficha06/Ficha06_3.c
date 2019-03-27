@@ -1,13 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define MAX 100
-
 // Exercicio 1
 
 typedef struct stack {
+    int size;
     int sp;
-    int valores [MAX];
+    int* valores;
 } STACK;
 
 void printStack(STACK* s) {
@@ -21,6 +20,8 @@ void printStack(STACK* s) {
 
 void initStack (STACK *s) {
     s->sp = 0;
+    s->size = 1;
+    s->valores = (int*)malloc(sizeof(int));
 }
 
 // b)
@@ -32,12 +33,13 @@ int isEmptyS (STACK *s) {
 // c)
 
 int push (STACK *s, int x) {
-    int N = s->sp++;
-    if(N == MAX) return 1;
-    else {
-        s->valores[N] = x;
-        return 0;
+    if(s->size <= s->sp) {
+        s->valores = (int*)realloc(s->valores, 2 * s->size * sizeof(int));
+        s->size *= 2;
     }
+    int N = s->sp++;
+    s->valores[N] = x;
+    return 0;
 }
 
 // d)
@@ -61,8 +63,9 @@ int top (STACK *s, int *x) {
 // Exercicio 2
 
 typedef struct queue {
+    int size;
     int inicio, tamanho;
-    int valores [MAX];
+    int* valores;
 } QUEUE;
 
 void printQueue(QUEUE *q) {
@@ -75,6 +78,8 @@ void printQueue(QUEUE *q) {
 
 void initQueue (QUEUE *q) {
     q->tamanho = 0;
+    q->size = q->inicio;
+    q->valores = malloc(q->inicio * sizeof(int));
 }
 
 // b)
@@ -86,11 +91,12 @@ int isEmptyQ (QUEUE* q) {
 // c)
 
 int enqueue (QUEUE* q, int x) {
-    if(q->inicio + q->tamanho >= MAX) return 1;
-    else {
-        q->valores[q->inicio + q->tamanho++] = x;
-        return 0;
+    if(q->size <= q->inicio + q->tamanho) {
+        q->valores = realloc(q->valores,2 * q->size * sizeof(int));
+        q->size *= 2;
     }
+    q->valores[q->inicio + q->tamanho++] = x;
+    return 0;
 }
 
 // d)
@@ -116,8 +122,17 @@ int front (QUEUE* q, int* x) {
 int main() {
     char numQ, chrA;
     int num;
-    STACK stack1 = {3,{1,2,3}};
-    QUEUE queue1 = {2,3,{0,0,1,2,3}};
+    int SZ = 10;
+    STACK stack1;
+    stack1.size = stack1.sp = SZ;
+    stack1.valores = (int*)malloc(SZ * sizeof(int));
+    for(int i = 0; i < SZ; i++) stack1.valores[i] = i + 1;
+    QUEUE queue1;
+    queue1.tamanho = SZ;
+    queue1.inicio = 2;
+    queue1.size = 2 + SZ;
+    queue1.valores = malloc(2 + SZ * sizeof(int));
+    for(int i = 0; i < SZ; i++) queue1.valores[2+i] = i + 1;    
     printf("Número do exercicio: ");
     numQ = getchar();
     while(getchar() != '\n');
@@ -143,8 +158,8 @@ int main() {
                 case 'c':
                 case 'C':
                     printStack(&stack1);
-                    if(push(&stack1,4)) printf("ERRO - STACK CHEIA\n");
-                    else printStack(&stack1);
+                    push(&stack1,11);
+                    printStack(&stack1);
                     break;
                 case 'd':
                 case 'D':
@@ -180,8 +195,8 @@ int main() {
                 case 'c':
                 case 'C':
                     printQueue(&queue1);
-                    if(enqueue(&queue1,4)) printf("ERRO - QUEUE CHEIA\n");
-                    else printQueue(&queue1);
+                    enqueue(&queue1,11);
+                    printQueue(&queue1);
                     break;
                 case 'd':
                 case 'D':
@@ -199,4 +214,3 @@ int main() {
     }
     return 0;
 }
-
