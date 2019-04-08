@@ -101,7 +101,60 @@ void printLInt(LInt l) {
     printf("]\n");
 }
 
+// Exercicio 2
+
+// a)
+
+typedef struct Aluno{
+    char nome[60];
+    int numero;
+    double nota;
+} Aluno;
+
+typedef struct Turma{
+    Aluno aluno;
+    struct Turma* resto;
+} Turma;
+
+// b)
+
+int acrescentaAluno (Turma *t, Aluno a) {
+    Turma* new = malloc(sizeof(struct Turma));
+    new->aluno = a;
+    new->resto = NULL;
+    if(t == NULL) t = new;
+    else {
+        Turma* temp = t;
+        while(temp->resto != NULL) {
+            temp = temp->resto;
+        }
+        temp->resto = new;
+    }
+    return 0;
+}
+
+// c)
+
+Aluno *procura (Turma t, int numero) {
+    Turma* atual = &t;
+    while(atual) {
+        if(atual->aluno.numero == numero) {
+            return &(atual->aluno);
+        }
+        atual = atual->resto;
+    }
+    return NULL;
+}
+
+void printTurma(Turma* t) {
+    while(t) {
+        printf("Nome: %s - num: %d - nota: %lf\n",t->aluno.nome, t->aluno.numero, t->aluno.nota);
+        t = t->resto;
+    }
+}
+
 int main() {
+    int num;
     printf("Número do exercicio: ");
     char numP = getchar();
     while(getchar() != '\n');
@@ -120,7 +173,6 @@ int main() {
             printLInt(a);
         }
         else if(numP == 'b' || numP == 'B') {
-            int num;
             printf("Número da função: ");
             numP = getchar();
             while(getchar() != '\n');
@@ -156,5 +208,31 @@ int main() {
         }
 
     }    
+    else if(numP == '2') {
+        printf("Alínea: ");
+        numP = getchar();
+        while(getchar() != '\n');
+        Turma* t = malloc(sizeof(struct Turma));
+        t->aluno = (Aluno){"Sara",12,8};
+        t->resto = NULL;
+        if(numP == 'b' || numP == 'B') {
+            Aluno a1 = {"Sofia",89615,20.0};
+            acrescentaAluno(t,a1);
+            acrescentaAluno(t,(Aluno){"Filipa",69,16.0});
+            acrescentaAluno(t,(Aluno){"Santejo",420,15.5});
+            printTurma(t);
+        }
+        if(numP == 'c' || numP == 'C') {
+            Aluno a1 = {"Sofia",89615,20.0};
+            acrescentaAluno(t,a1);
+            acrescentaAluno(t,(Aluno){"Filipa",69,16.0});
+            acrescentaAluno(t,(Aluno){"Santejo",420,15.5});
+            printf("Número a procurar: ");
+            scanf("%d",&num);
+            Aluno ax = *procura(*t,num);
+            Turma tx = {ax,NULL};
+            printTurma(&tx);
+        }
+    }
     return 0;
 }
