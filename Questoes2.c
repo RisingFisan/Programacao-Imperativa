@@ -98,27 +98,16 @@ int removeOneOrd(LInt* l, int x) {
 // 7
 
 void merge(LInt* r, LInt a, LInt b) {
-    LInt temp = NULL;
-    while(a != NULL || b != NULL) {
-        LInt new = malloc(sizeof(struct lligada));
-        new->prox = NULL;
-        if(b == NULL || a != NULL && a->valor < b->valor) {
-            new->valor = a->valor;
-            a = a->prox;
-        }
-        else {
-            new->valor = b->valor;
-            b = b->prox;
-        }
-        if(temp == NULL) {
-            (*r) = new;
-            temp = (*r);
-        }
-        else {
-            temp->prox = new;
-            temp = temp->prox;
-        }
+    LInt new = malloc(sizeof(struct lligada));
+    if(b == NULL || a != NULL && a->valor < b->valor) {
+        new->valor = a->valor;
+        merge(&(new->prox),a->prox,b);
     }
+    else {
+        new->valor = b->valor;
+        merge(&(new->prox),a,b->prox);
+    }
+    (*r) = new;
 }
 
 // 8
