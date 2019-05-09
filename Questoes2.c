@@ -731,9 +731,19 @@ int quantosMaiores (ABin a, int x) {
 void listToBTree (LInt l, ABin *a) {
     if(!l) return;
     ABin new = malloc(sizeof(struct nodo));
-    new->valor = l->valor;
+    int meio = length(l) / 2;
+    LInt temp = l, prev = NULL;
+    int i;
+    for(i = 0; i < meio; i++) {
+        prev = temp;
+        temp = temp->prox;
+    }
+    new->valor = temp->valor;
     new->esq = new->dir = NULL;
-    listToBTree(l->prox,&(new->dir));
+    if(prev) prev->prox = NULL;
+    
+    if(l != temp) listToBTree(l,&(new->esq));
+    if(temp->prox) listToBTree(temp->prox,&(new->dir));
     (*a) = new;
 }
 
