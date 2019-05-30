@@ -80,7 +80,9 @@ void insertOrd (LInt* l, int x) {
 
 int removeOneOrd(LInt* l, int x) {
     if((*l)->valor == x) {
+        LInt temp = (*l);
         (*l) = (*l)->prox;
+        free(temp);
         return 0;
     }
     LInt prev = (*l);
@@ -88,6 +90,7 @@ int removeOneOrd(LInt* l, int x) {
         LInt list = prev->prox;
         if(list->valor == x) {
             prev->prox = list->prox;
+            free(list);
             return 0;
         }
         prev = prev->prox;
@@ -98,45 +101,30 @@ int removeOneOrd(LInt* l, int x) {
 // 7
 
 void merge(LInt* r, LInt a, LInt b) {
-    LInt new = malloc(sizeof(struct lligada));
-    new->prox = NULL;
     if(!a && !b) return;
     if(b == NULL || a != NULL && a->valor < b->valor) {
-        new->valor = a->valor;
-        merge(&(new->prox),a->prox,b);
+        (*r) = a;
+        merge(&((*r)->prox),a->prox,b);
     }
     else {
-        new->valor = b->valor;
-        merge(&(new->prox),a,b->prox);
+        (*r) = b;
+        merge(&((*r)->prox),a,b->prox);
     }
-    (*r) = new;
 }
 
 // 8
 
 void splitQS(LInt l, int x, LInt *mx, LInt *Mx) {
-    (*mx) = (*Mx) = NULL;
-    while(l) {
-        LInt temp;
-        LInt tempX = l->prox;
-        l->prox = NULL;
-        if(l->valor >= x) {
-            if(!(*Mx)) (*Mx) = l;
-            else {
-                temp = (*Mx);
-                while(temp->prox) temp = temp->prox;
-                temp->prox = l;
-            }
-        }
-        else {
-            if(!(*mx)) (*mx) = l;
-            else {
-                temp = (*mx);
-                while(temp->prox) temp = temp->prox;
-                temp->prox = l;
-            }
-        }
-        l = tempX;
+    if(!l) return;
+    if(l->valor < x) {
+        (*mx) = l;
+        (*Mx) = NULL;
+        splitQS(l->prox, x, &((*mx)->prox), Mx);
+    }
+    else {
+        (*Mx) = l;
+        (*mx) = NULL;
+        splitQS(l->prox, x, mx, &((*Mx)->prox));
     }
 }
 
