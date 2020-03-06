@@ -2,7 +2,10 @@
 #include <stdlib.h>
 #include <string.h>
 #include <limits.h>
+<<<<<<< HEAD
 #include <assert.h>
+=======
+>>>>>>> 87cecf13583e6dd87925e17f5f28b41323b46c47
 
 #define MAXLINE 1024
 
@@ -16,7 +19,11 @@ void one() {
     puts("Maior de uma sequência\nInsere uma lista de números (um por linha) terminada em 0:");
     while(1) {
         int num;
+<<<<<<< HEAD
         assert(scanf("%d",&num) == 1);
+=======
+        scanf("%d",&num);
+>>>>>>> 87cecf13583e6dd87925e17f5f28b41323b46c47
         if(num == 0) break;
         if(num > largest) largest = num;
     }
@@ -30,7 +37,11 @@ void two() {
     int n = 0;
     while(1) {
         int num;
+<<<<<<< HEAD
         assert(scanf("%d",&num) == 1);
+=======
+        scanf("%d",&num);
+>>>>>>> 87cecf13583e6dd87925e17f5f28b41323b46c47
         if(num == 0) break;
         soma += num;
         n++;
@@ -44,7 +55,11 @@ void two() {
 void three() {
     int biggest = INT_MIN, second_biggest = INT_MIN, num;
     while(1) {
+<<<<<<< HEAD
         assert(scanf("%d",&num) == 1);
+=======
+        scanf("%d", &num);
+>>>>>>> 87cecf13583e6dd87925e17f5f28b41323b46c47
         if(num == 0) break;
         if(num > biggest) {
             second_biggest = biggest;
@@ -106,20 +121,24 @@ int mystrcmp(char s1[], char s2[]) {
 // 10
 
 char* mystrstr (char haystack[], char needle[]) {
-    int i = 0, j = 0, isContained = 1;
+    int isContained = 1;
     char* ans = haystack;
-    while(needle[i] && haystack[j]) {
-        if(haystack[j] != needle[i]) isContained = i = 0;
-        if(haystack[j] == needle[i]) {
+    char* needleStart = needle;
+    while(*needle && *haystack) {
+        if(*haystack != *needle) {
+            isContained = 0;
+            needle = needleStart;
+        }
+        if(*haystack == *needle) {
             if(!isContained) {
                 isContained = 1;
-                ans = haystack + j;
+                ans = haystack;
             }
-            i++;
+            needle++;
         }
-        j++;
+        haystack++;
     }
-    if (isContained && !needle[i]) return ans;
+    if (isContained && !(*needle)) return ans;
     else return NULL;
 }
 
