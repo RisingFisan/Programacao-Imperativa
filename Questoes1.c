@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <limits.h>
+#include <assert.h>
 
 #define MAXLINE 1024
 
@@ -15,7 +16,7 @@ void one() {
     puts("Maior de uma sequência\nInsere uma lista de números (um por linha) terminada em 0:");
     while(1) {
         int num;
-        scanf("%d",&num);
+        assert(scanf("%d",&num) == 1);
         if(num == 0) break;
         if(num > largest) largest = num;
     }
@@ -29,7 +30,7 @@ void two() {
     int n = 0;
     while(1) {
         int num;
-        scanf("%d",&num);
+        assert(scanf("%d",&num) == 1);
         if(num == 0) break;
         soma += num;
         n++;
@@ -43,7 +44,7 @@ void two() {
 void three() {
     int biggest = INT_MIN, second_biggest = INT_MIN, num;
     while(1) {
-        scanf("%d", &num);
+        assert(scanf("%d",&num) == 1);
         if(num == 0) break;
         if(num > biggest) {
             second_biggest = biggest;
@@ -134,19 +135,16 @@ void mystrrev(char s[]) {
 
 // 12
 
-void removeIndex(char s[], int n) {
-    for(int j = n; s[j]; j++) {
-        s[j] = s[j + 1];
-    }
+void removeIndex(char* s) {
+    for(; *s; s++)
+        *s = *(s+1);
 }
 
 void strnoV (char s[]) {
-    int i = 0;
-    char c;
-    while(c = s[i]) {
-        if(c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U' || c == 'a'
-        || c == 'e' || c == 'i' || c == 'o' || c == 'u') removeIndex(s, i);
-        else i++;
+    while(*s) {
+        if(*s == 'A' || *s == 'E' || *s == 'I' || *s == 'O' || *s == 'U' || *s == 'a'
+        || *s == 'e' || *s == 'i' || *s == 'o' || *s == 'u') removeIndex(s);
+        else s++;
     }
 }
 
@@ -158,7 +156,7 @@ void truncW (char t[], int n) {
     while(c = t[i]) {
         if(c == ' ' || c == '\n' || c == '\t') {i++; wordLen = 0;}
         else {
-            if(wordLen++ >= n) removeIndex(t, i);
+            if(wordLen++ >= n) removeIndex(t + i);
             else i++;
         }
     } 
@@ -334,7 +332,7 @@ int remRep (char x[]) {
     int i = 1;
     char prev = x[0];
     while(x[i]) {
-        if(x[i] == prev) removeIndex(x,i);
+        if(x[i] == prev) removeIndex(x + i);
         else prev = x[i++];
     }
     return i;
@@ -730,7 +728,7 @@ int getInt() {
 void getIntArray(int* start, int* end) {
     for( ; start != end; start++) {
         printf("Insere um valor: ");
-        scanf("%d", start);
+        assert(scanf("%d", start) == 1);
     }
 }
 
@@ -738,7 +736,7 @@ void getIntMatrix(int m, int n, int mat[m][n]) {
     for(int i = 0; i < m; i++) {
         for(int j = 0; j < n; j++) {
             printf("Linha %d, coluna %d: ",i,j);
-            scanf("%d",&mat[i][j]);
+            assert(scanf("%d",&mat[i][j]) == 1);
         }
     }
 }
@@ -747,7 +745,7 @@ void getFloatMatrix(int m, int n, float mat[m][n]) {
     for(int i = 0; i < m; i++) {
         for(int j = 0; j < n; j++) {
             printf("Linha %d, coluna %d: ",i,j);
-            scanf("%f", &mat[i][j]);
+            assert(scanf("%f", &mat[i][j]) == 1);
         }
     }
 }
@@ -780,7 +778,7 @@ void printIntMatrix(int m, int n, int mat[m][n]) {
 void getPosArray(int N, Posicao poss[N]) {
     for(int i = 0; i < N; i++) {
         printf("Posição %d: ",i);
-        scanf("%d %d",&poss[i].x,&poss[i].y);
+        assert(scanf("%d %d",&poss[i].x,&poss[i].y) == 2);
     }
 }
 
@@ -812,7 +810,6 @@ int main(int argc, char const *argv[])
     printf("Insere o numero correspondente ao exercicio: ");
     getLine(buffer);
     opcao = atoi(buffer);
-    puts("");
     switch (opcao)
     {
         case 1:
@@ -837,7 +834,7 @@ int main(int argc, char const *argv[])
             break;
         case 6:
             printf("Introduz um valor: ");
-            scanf("%d",&num);
+            assert(scanf("%d",&num) == 1);
             printf("Resposta: %d\n",qDig(num));
             break;
         case 7:
@@ -878,7 +875,7 @@ int main(int argc, char const *argv[])
             break;
         case 13:
             getLine(s1);
-            scanf("%d",&num);
+            assert(scanf("%d",&num) == 1);
             truncW(s1,num);
             printf("%s",s1);
             break;
@@ -942,21 +939,21 @@ int main(int argc, char const *argv[])
             break;
         case 26: {
             printf("Tamanho da lista ordenada: ");
-            scanf("%d",&num);
+            assert(scanf("%d",&num) == 1);
             int nums[num+1];
             getIntArray(nums,nums + num);
             printf("Valor a inserir: ");
-            scanf("%d",&resp);
+            assert(scanf("%d",&resp) == 1);
             insere(nums,num,resp);
             for(int i = 0; i <= num; i++) printf("%d ", nums[i]);
             break; }
         case 27: {
             printf("Tamanho da lista ordenada 1: ");
-            scanf("%d", &num1);
+            assert(scanf("%d",&num1) == 1);
             int nums1[num1];
             getIntArray(nums1,nums1 + num1);
             printf("Tamanho da lista ordenada 2: ");
-            scanf("%d", &num2);
+            assert(scanf("%d",&num2) == 1);
             int nums2[num2];
             getIntArray(nums2,nums2 + num2);
             int r[num1+num2];
@@ -965,18 +962,18 @@ int main(int argc, char const *argv[])
             break; }
         case 28: {
             printf("Tamanho da lista: ");
-            scanf("%d", &num);
+            assert(scanf("%d",&num) == 1);
             int nums[num];
             getIntArray(nums, nums + num);
             printf("Limite mínimo e máximo: ");
-            scanf("%d %d",&num1,&num2);
+            assert(scanf("%d %d",&num1,&num2) == 2);
             resp = crescente(nums,num1,num2);
             if(resp) printf("Verdadeiro.\n");
             else printf("Falso.\n");
             break; }
         case 29: {
             printf("Tamanho da lista: ");
-            scanf("%d", &num);
+            assert(scanf("%d",&num) == 1);
             int nums[num];
             getIntArray(nums, nums + num);
             resp = retiraNeg(nums,num);
@@ -985,7 +982,7 @@ int main(int argc, char const *argv[])
             break; }
         case 30: {
             printf("Tamanho da lista crescente: ");
-            scanf("%d", &num);
+            assert(scanf("%d",&num) == 1);
             int nums[num];
             getIntArray(nums, nums + num);
             resp = menosFreq(nums,num);
@@ -993,7 +990,7 @@ int main(int argc, char const *argv[])
             break; }
         case 31: {
             printf("Tamanho da lista crescente: ");
-            scanf("%d", &num);
+            assert(scanf("%d",&num) == 1);
             int nums[num];
             getIntArray(nums, nums + num);
             resp = maisFreq(nums,num);
@@ -1001,7 +998,7 @@ int main(int argc, char const *argv[])
             break; }
         case 32: {
             printf("Tamanho da lista: ");
-            scanf("%d", &num);
+            assert(scanf("%d",&num) == 1);
             int nums[num];
             getIntArray(nums, nums + num);
             resp = maxCresc(nums,num);
@@ -1010,7 +1007,7 @@ int main(int argc, char const *argv[])
         case 33:
         case 34: {
             printf("Tamanho da lista: ");
-            scanf("%d", &num);
+            assert(scanf("%d",&num) == 1);
             int nums[num];
             getIntArray(nums, nums + num);
             resp = elimRep(nums,num);
@@ -1019,11 +1016,11 @@ int main(int argc, char const *argv[])
             break; }
         case 35: {
             printf("Tamanho da lista ordenada 1: ");
-            scanf("%d", &num1);
+            assert(scanf("%d",&num1) == 1);
             int nums1[num1];
             getIntArray(nums1, nums1 + num1);
             printf("Tamanho da lista ordenada 2: ");
-            scanf("%d", &num2);
+            assert(scanf("%d",&num2) == 1);
             int nums2[num2];
             getIntArray(nums2, nums2 + num2);
             resp = comunsOrd(nums1,num1,nums2,num2);
@@ -1031,11 +1028,11 @@ int main(int argc, char const *argv[])
             break; }
         case 36: {
             printf("Tamanho da lista ordenada 1: ");
-            scanf("%d", &num1);
+            assert(scanf("%d",&num1) == 1);
             int nums1[num1];
             getIntArray(nums1, nums1 + num1);
             printf("Tamanho da lista ordenada 2: ");
-            scanf("%d", &num2);
+            assert(scanf("%d",&num2) == 1);
             int nums2[num2];
             getIntArray(nums2, nums2 + num2);
             resp = comuns(nums1,num1,nums2,num2);
@@ -1043,7 +1040,7 @@ int main(int argc, char const *argv[])
             break; }
         case 37: {
             printf("Tamanho da lista: ");
-            scanf("%d", &num);
+            assert(scanf("%d",&num) == 1);
             int nums[num];
             getIntArray(nums, nums + num);
             resp = minInd(nums,num);
@@ -1051,7 +1048,7 @@ int main(int argc, char const *argv[])
             break; }
         case 38: {
             printf("Tamanho da lista: ");
-            scanf("%d", &num);
+            assert(scanf("%d",&num) == 1);
             int nums[num];
             getIntArray(nums, nums + num);
             int nums1[num];
@@ -1060,7 +1057,7 @@ int main(int argc, char const *argv[])
             break; }
         case 39: {
             printf("Número de linhas: ");
-            scanf("%d", &num1);
+            assert(scanf("%d",&num1) == 1);
             float nums[num1][num1];
             getFloatMatrix(num1,num1,nums);
             resp = triSup(num1,nums);
@@ -1070,7 +1067,7 @@ int main(int argc, char const *argv[])
             break; }
         case 40: {
             printf("Número de linhas: ");
-            scanf("%d", &num1);
+            assert(scanf("%d",&num1) == 1);
             float nums[num1][num1];
             getFloatMatrix(num1,num1,nums);
             transposta(num1,nums);
@@ -1078,9 +1075,9 @@ int main(int argc, char const *argv[])
             break; }
         case 41: {
             printf("Número de linhas: ");
-            scanf("%d", &num1);
+            assert(scanf("%d",&num1) == 1);
             printf("Número de colunas: ");
-            scanf("%d", &num2);
+            assert(scanf("%d",&num2) == 1);
             printf("Matriz 1\n");
             int mat1[num1][num2];
             int mat2[num1][num2];
@@ -1092,7 +1089,7 @@ int main(int argc, char const *argv[])
             break; }
         case 42: {
             printf("Tamanho dos sets:");
-            scanf("%d",&num);
+            assert(scanf("%d",&num) == 1);
             printf("Set 1\n");
             int set1[num];
             int set2[num];
@@ -1105,7 +1102,7 @@ int main(int argc, char const *argv[])
             break; }
         case 43: {
             printf("Tamanho dos sets:");
-            scanf("%d",&num);
+            assert(scanf("%d",&num) == 1);
             printf("Set 1\n");
             int set1[num];
             int set2[num];
@@ -1118,7 +1115,7 @@ int main(int argc, char const *argv[])
             break; }
         case 44: {
             printf("Tamanho dos sets:");
-            scanf("%d",&num);
+            assert(scanf("%d",&num) == 1);
             printf("Set 1\n");
             int set1[num];
             int set2[num];
@@ -1131,7 +1128,7 @@ int main(int argc, char const *argv[])
             break; }
         case 45: {
             printf("Tamanho dos sets:");
-            scanf("%d",&num);
+            assert(scanf("%d",&num) == 1);
             printf("Set 1\n");
             int set1[num];
             int set2[num];
@@ -1144,7 +1141,7 @@ int main(int argc, char const *argv[])
             break; }
         case 46: {
             printf("Tamanho do set: ");
-            scanf("%d", &num);
+            assert(scanf("%d", &num) == 1);
             int set[num];
             getIntArray(set, set + num);
             resp = cardinalMSet(num,set);
@@ -1152,9 +1149,9 @@ int main(int argc, char const *argv[])
             break; }
         case 47: {
             printf("Posição inicial (x , y): ");
-            scanf("%d %d",&num1,&num2);
+            assert(scanf("%d %d",&num1,&num2) == 2);
             printf("Número de movimentos: ");
-            scanf("%d",&num);
+            assert(scanf("%d",&num) == 1);
             Posicao pi = {num1,num2};
             Movimento movs[num];
             getMovs(num,movs);
@@ -1163,11 +1160,11 @@ int main(int argc, char const *argv[])
             break; }
         case 48: {
             printf("Posição inicial (x, y): ");
-            scanf("%d %d",&num1,&num2);
+            assert(scanf("%d %d",&num1,&num2) == 2);
             printf("Posição final (x, y): ");
-            scanf("%d %d",&x,&y);
+            assert(scanf("%d %d",&x,&y) == 2);
             printf("Número de movimentos: ");
-            scanf("%d",&num);
+            assert(scanf("%d",&num) == 1);
             Posicao pi = {num1,num2};
             Posicao pf = {x,y};
             Movimento movs[num];
@@ -1185,7 +1182,7 @@ int main(int argc, char const *argv[])
             break; }
         case 49: {
             printf("Número de posições: ");
-            scanf("%d", &num);
+            assert(scanf("%d", &num) == 1);
             Posicao poss[num];
             getPosArray(num,poss);
             resp = maisCentral(poss,num);
@@ -1193,10 +1190,10 @@ int main(int argc, char const *argv[])
             break; }
         case 50:
             printf("Posição central: ");
-            scanf("%d %d",&num1,&num2);
+            assert(scanf("%d %d",&num1,&num2) == 2);
             Posicao pc = {num1,num2};
             printf("Número de posições: ");
-            scanf("%d", &num);
+            assert(scanf("%d", &num) == 1);
             Posicao poss[num];
             getPosArray(num,poss);
             resp = vizinhos(pc,poss,num);
