@@ -2,10 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <limits.h>
-<<<<<<< HEAD
 #include <assert.h>
-=======
->>>>>>> 87cecf13583e6dd87925e17f5f28b41323b46c47
 
 #define MAXLINE 1024
 
@@ -19,11 +16,7 @@ void one() {
     puts("Maior de uma sequência\nInsere uma lista de números (um por linha) terminada em 0:");
     while(1) {
         int num;
-<<<<<<< HEAD
         assert(scanf("%d",&num) == 1);
-=======
-        scanf("%d",&num);
->>>>>>> 87cecf13583e6dd87925e17f5f28b41323b46c47
         if(num == 0) break;
         if(num > largest) largest = num;
     }
@@ -37,11 +30,7 @@ void two() {
     int n = 0;
     while(1) {
         int num;
-<<<<<<< HEAD
         assert(scanf("%d",&num) == 1);
-=======
-        scanf("%d",&num);
->>>>>>> 87cecf13583e6dd87925e17f5f28b41323b46c47
         if(num == 0) break;
         soma += num;
         n++;
@@ -55,11 +44,7 @@ void two() {
 void three() {
     int biggest = INT_MIN, second_biggest = INT_MIN, num;
     while(1) {
-<<<<<<< HEAD
         assert(scanf("%d",&num) == 1);
-=======
-        scanf("%d", &num);
->>>>>>> 87cecf13583e6dd87925e17f5f28b41323b46c47
         if(num == 0) break;
         if(num > biggest) {
             second_biggest = biggest;
