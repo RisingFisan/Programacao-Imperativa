@@ -105,20 +105,24 @@ int mystrcmp(char s1[], char s2[]) {
 // 10
 
 char* mystrstr (char haystack[], char needle[]) {
-    int i = 0, j = 0, isContained = 1;
+    int isContained = 1;
     char* ans = haystack;
-    while(needle[i] && haystack[j]) {
-        if(haystack[j] != needle[i]) isContained = i = 0;
-        if(haystack[j] == needle[i]) {
+    char* needleStart = needle;
+    while(*needle && *haystack) {
+        if(*haystack != *needle) {
+            isContained = 0;
+            needle = needleStart;
+        }
+        if(*haystack == *needle) {
             if(!isContained) {
                 isContained = 1;
-                ans = haystack + j;
+                ans = haystack;
             }
-            i++;
+            needle++;
         }
-        j++;
+        haystack++;
     }
-    if (isContained && !needle[i]) return ans;
+    if (isContained && !(*needle)) return ans;
     else return NULL;
 }
 
