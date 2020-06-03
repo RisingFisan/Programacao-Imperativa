@@ -98,7 +98,8 @@ int enqueue (QUEUE* q, int x) {
 int dequeue (QUEUE* q, int* x) {
     if(q->tamanho == 0) return 1;
     else {
-        *x = q->valores[q->inicio + --(q->tamanho)];
+        *x = q->valores[(q->inicio)++];
+        (q->tamanho)--;
         return 0;
     }    
 }
