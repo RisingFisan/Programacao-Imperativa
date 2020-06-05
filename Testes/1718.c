@@ -9,7 +9,7 @@ int retiraNeg (int v[], int N) {
     while(i < N) {
         if(v[i] < 0) {
             N--;
-            for(int j = i; j < N; j++) v[j] = v[j+1];
+            for(int j = i; j < N - 1; j++) v[j] = v[j+1];
         }
         else i++;
     }
