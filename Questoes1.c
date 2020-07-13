@@ -12,7 +12,6 @@ char buffer[MAXLINE];
 
 void one() {
     int largest = INT_MIN;
-    int num;
     puts("Maior de uma sequência\nInsere uma lista de números (um por linha) terminada em 0:");
     while(1) {
         int num;
@@ -36,7 +35,7 @@ void two() {
         n++;
     }
     double media = soma / n;
-    printf("Media: %.5f\n", media);
+    printf("Média: %.5f\n", media);
 }
 
 // 3 - Segundo maior da sequência
@@ -51,7 +50,7 @@ void three() {
             biggest = num;
         } else if (num > second_biggest) second_biggest = num;
     }
-    printf("Segundo maior numero: %d\n", second_biggest);
+    printf("Segundo maior número: %d\n", second_biggest);
 }
 
 // 4 - Nº de bits iguais a 1 na representação binária de n
@@ -60,7 +59,7 @@ int bitsUm (unsigned int n){
     int r = 0;
     while(n) {
         r += (n % 2);
-        n >>= 1; // Shifts the bits in n one bit to the right, i.e., n = n / 2
+        n >>= 1; // Shifts the bits in `n` one bit to the right, i.e., n = n / 2
     }
     return r;
 }
@@ -85,6 +84,7 @@ char* mystrcat(char s1[], char s2[]) {
     char* cat = s1;
     while(*s1) s1++;
     while((*s1 = *s2)) {s1++; s2++;}
+    *s1 = '\0';
     return cat;
 }
 
@@ -139,7 +139,7 @@ void mystrrev(char s[]) {
 
 // 12
 
-void removeIndex(char* s) {
+void tail(char* s) {
     for(; *s; s++)
         *s = *(s+1);
 }
@@ -147,7 +147,7 @@ void removeIndex(char* s) {
 void strnoV (char s[]) {
     while(*s) {
         if(*s == 'A' || *s == 'E' || *s == 'I' || *s == 'O' || *s == 'U' || *s == 'a'
-        || *s == 'e' || *s == 'i' || *s == 'o' || *s == 'u') removeIndex(s);
+        || *s == 'e' || *s == 'i' || *s == 'o' || *s == 'u') tail(s);
         else s++;
     }
 }
@@ -155,35 +155,17 @@ void strnoV (char s[]) {
 // 13
 
 void truncW (char t[], int n) {
-    int wordLen = 0, i = 0;
-    char c;
-    while(c = t[i]) {
-        if(c == ' ' || c == '\n' || c == '\t') {i++; wordLen = 0;}
+    int wordLen = 0;
+    while(*t) {
+        if(*t == ' ' || *t == '\n' || *t == '\t') {t++; wordLen = 0;}
         else {
-            if(wordLen++ >= n) removeIndex(t + i);
-            else i++;
+            if(wordLen++ >= n) tail(t);
+            else t++;
         }
     } 
 }
 
 // 14
-
-char charMaisfreq (char s[]) {
-    if(!s[0]) return 0;
-    int charFreq[256];
-    int freqMax = 0;
-    char maisFreq = s[0];
-    for(int i = 0; i < 256; i++) charFreq[i] = 0;
-    for(int i = 0; s[i]; i++) {
-        int c = s[i];
-        charFreq[c] += 1;
-        if(charFreq[c] > freqMax) {
-            freqMax = charFreq[c];
-            maisFreq = s[i];
-        }
-    }
-    return maisFreq;
-}
 
 int freqC(char ch, char s[]) {
     int freq = 0;
@@ -194,7 +176,7 @@ int freqC(char ch, char s[]) {
 }
 
 char charMaisFreq(char s[]) {
-    char maisFreq = s[0];
+    char maisFreq = 0;
     int freqMax = 0, freq;
     for(int i = 0; s[i]; i++) {
         if((freq = freqC(s[i],s)) > freqMax) {
@@ -222,21 +204,20 @@ int iguaisConsecutivos (char s[]) {
 // 16
 
 int not_in_prev(char str[], int k, int n) {
-    int i, ans = 1;
-    for(i = k; i < n; i++) {
+    int ans = 1;
+    for(int i = k; i < n; i++) {
         if(str[i] == str[n]) {
-            ans = 0;
-            break;
+            return 0;
         }
     }
     return ans;
 }
 
 int difConsecutivos(char s[]) {
-    int i, j, ans = 0;
-    for(i = 0; s[i]; i++) {
+    int ans = 0;
+    for(size_t i = 0; s[i]; i++) {
         int consec = 0;
-        for(j = i; s[j]; j++) {
+        for(size_t j = i; s[j]; j++) {
             if(not_in_prev(s,i,j)) consec++;
             else break;
         }
@@ -323,20 +304,20 @@ int contida (char a[], char b[]) {
 // 23
 
 int palindrome (char s[]) {
-    int len = 0, pal = 1;
+    int len = 0;
     for(int i = 0; s[i]; i++) len++;
-    for(int i = 0; s[i]; i++) if(s[i] != s[len - 1 - i]) pal = 0;
-    return pal;
+    for(int i = 0; s[i]; i++) if(s[i] != s[len - 1 - i]) return 0;
+    return 1;
 }
 
 // 24
 
 int remRep (char x[]) {
-    if(!x[0]) return 0;
+    if(!(*x)) return 0;
     int i = 1;
     char prev = x[0];
     while(x[i]) {
-        if(x[i] == prev) removeIndex(x + i);
+        if(x[i] == prev) tail(x + i);
         else prev = x[i++];
     }
     return i;
@@ -348,11 +329,15 @@ int limpaEspacos (char t[]) {
     int i = 0;
     int prevSpace = 0;
     while(t[i]) {
-        if(t[i++] == ' ') {
-            if(prevSpace) for(int j = --i; t[j]; j++) t[j] = t[j + 1];
+        if(t[i] == ' ') {
+            if(prevSpace) {
+                tail(t + i);
+                continue;
+            }
             else prevSpace = 1;
         }
         else prevSpace = 0;
+        i++;
     }
     return i;
 }
@@ -398,8 +383,10 @@ void recursive_merge(int r[], int a[], int b[], int na, int nb) {
                 recursive_merge(r+1, a+1, b, na-1, nb);
             }
         }
-        *r = *a;
-        recursive_merge(r+1, a+1, b, na-1, nb);
+        else {
+            *r = *a;
+            recursive_merge(r+1, a+1, b, na-1, nb);
+        }
     }
     else if(nb > 0) {
         *r = *b;
@@ -842,19 +829,23 @@ int main(int argc, char const *argv[])
             printf("Resposta: %d\n",qDig(num));
             break;
         case 7:
+            printf("String 1: ");
             getLine(s1);
+            printf("String 2: ");
             getLine(s2);
             mystrcat(s1,s2);
-            printf("%s",s1);
+            printf("String concatenada: %s",s1);
             break;
         case 8:
             getLine(s1);
             mystrcpy(s2,s1);
             printf("%s [ORIGINAL] - address %p\n",s1,s1);
-            printf("%s [COPIADA]- address %p\n",s2,s2);
+            printf("%s [COPIADA] - address %p\n",s2,s2);
             break;
         case 9:
+            printf("String 1: ");
             getLine(s1);
+            printf("String 2: ");
             getLine(s2);
             num = mystrcmp(s1,s2);
             printf("Resultado: %d", num);
@@ -878,14 +869,16 @@ int main(int argc, char const *argv[])
             printf("%s",s1);
             break;
         case 13:
+            printf("String: ");
             getLine(s1);
+            printf("Tamanho para truncar: ");
             assert(scanf("%d",&num) == 1);
             truncW(s1,num);
             printf("%s",s1);
             break;
         case 14:
             getLine(s1);
-            printf("%c",charMaisfreq(s1));
+            printf("%c",charMaisFreq(s1));
             break;
         case 15:
             getLine(s1);
@@ -961,7 +954,7 @@ int main(int argc, char const *argv[])
             int nums2[num2];
             getIntArray(nums2,nums2 + num2);
             int r[num1+num2];
-            merge(r,nums1,nums2,num1,num2);
+            recursive_merge(r,nums1,nums2,num1,num2);
             for(int i = 0; i < num1 + num2; i++) printf("%d ",r[i]);
             break; }
         case 28: {
