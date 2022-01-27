@@ -1,0 +1,67 @@
+---
+layout: default
+---
+
+{% assign i = page.dir | split: '/' | last | plus: 0 %}
+{% assign q = site.data.hundred_q[i] %}
+<div class="flex flex-col gap-12">
+  <div class="flex justify-between flex-col md:flex-row items-center gap-8 md:items-start">
+    <div class="md:w-2/3 xl:w-1/2 px-5 space-y-2 self-start">
+      <h1 class="text-2xl md:text-3xl xl:text-4xl font-bold">
+        Questão {{ i }}: {{ q.function }}
+      </h1>
+      <p>
+        {{ q.description | markdownify }}
+      </p>
+    </div>
+    <div class="flex gap-5">
+      {% unless i == 1 %} 
+        {% assign prev_page = i | minus: 1 %}
+        <a href={{ prev_page | prepend: "../" }} class="flex flex-col justify-center items-center w-24 h-24 rounded-full bg-blue-800 hover:bg-blue-600">
+          <p class="text-2xl font-bold"><</p>
+          <p>Anterior</p>
+        </a>
+      {% endunless %}
+      {% unless i == 101 %} 
+        {% assign next_page = i | plus: 1 %}
+        <a href={{ next_page | prepend: "../"  }} class="flex flex-col justify-center items-center w-24 h-24 rounded-full bg-blue-800 hover:bg-blue-600">
+          <p class="text-2xl font-bold">></p>
+          <p>Seguinte</p>
+        </a>
+      {% endunless %}
+    </div>
+  </div>
+  <div class="flex flex-col xl:flex-row items-center xl:items-start gap-8 justify-around">
+    <div class="w-full xl:w-1/3 xl:self-stretch">
+      <div class="flex flex-col justify-start md:flex-row md:justify-between xl:flex-col xl:justify-start gap-8 sticky top-10">
+        <div class="flex flex-col gap-3">
+          <p class="text-gray-200 text-2xl relative left-7 font-light max-w-min">Código</p>
+          <div class="bg-light-gray p-6 shadow-lg rounded-3xl md:text-lg xl:text-xl relative">
+            {% highlight c %}{% include_relative solution.c %}{% endhighlight %}
+            <a class="absolute top-0 left-0 w-full h-full rounded-3xl flex flex-col justify-center items-center" id="code-overlay">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+              </svg>
+              <p class="select-none">Clica para revelar</p>
+            </a>
+          </div>
+        </div>
+        <div class="flex flex-col gap-3 w-auto md:w-1/3 xl:w-auto flex-none">
+          <p class="text-gray-200 text-2xl relative left-7 font-light max-w-min">Exemplo</p>
+          <div class="bg-light-gray p-6 shadow-lg rounded-3xl md:text-lg xl:text-xl relative overflow-x-auto">
+            {% capture include_example %}{% include_relative example.md %}{% endcapture %}
+            {{ include_example | markdownify }}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="flex flex-col gap-3 w-full xl:w-1/2">
+      <p class="text-gray-200 text-2xl relative left-7 w-min font-light max-w-min">Explicação</p>
+      <div class="bg-light-gray p-6 shadow-lg rounded-3xl md:text-lg xl:text-xl space-y-4 explanation">
+        {% capture include_explanation %}{% include_relative explanation.md %}{% endcapture %}
+        {{ include_explanation | markdownify }}
+      </div>
+    </div>
+  </div>
+</div>

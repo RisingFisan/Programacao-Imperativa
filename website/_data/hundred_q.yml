@@ -1,0 +1,839 @@
+1:
+  function: maior
+  description: "Defina um programa que lê (usando a função `scanf` uma sequência de números inteiros terminada com o número 0 e imprime no ecrã o maior elemento da sequência."
+2:
+  function: media
+  description: "Defina um programa que lê (usando a função `scanf` uma sequência de números inteiros terminada com o número 0 e imprime no ecrã a media da sequência."
+3:
+  function: segundoMaior
+  description: "Defina um programa que lê (usando a função `scanf` uma sequência de números inteiros terminada com o número 0 e imprime no ecrã o segundo maior elemento."
+4:
+  function: bitsUm
+  description: "Defina uma função `int bitsUm (unsigned int n)` que calcula o número de bits iguais a 1 usados na representação binária de um dado número n. ([https://codeboard.io/projects/13548)](https://codeboard.io/projects/13548)"
+5:
+  function: trailingZ
+  description: "Defina uma função `int trailingZ (unsigned int n)` que calcula o número de bits a 0 no final da representação binária de um número (i.e., o expoente da maior potência de 2 que é divisor desse número). ([https://codeboard.io/projects/13549](https://codeboard.io/projects/13549))"
+6:
+  function: qDig
+  description: "Defina uma função `int qDig (unsigned int n)` que calcula o número de dígitos necessários para escrever o inteiro n em base decimal. ([https://codeboard.io/projects/13583](https://codeboard.io/projects/13583))"
+7:
+  function: strcat
+  description: "Apresente uma definição da função pré-definida em C `char *strcat (char s1[], char s2[])` que concatena a string `s2` a `s1` (retornando o endereço da primeira). ([https://codeboard.io/projects/14490](https://codeboard.io/projects/14490))"
+8:
+  function: strcpy
+  description: "Apresente uma definição da função pré-definida em C `char *strcpy (char *dest, char source[])` que copia a string `source` para `dest` retornando o valor desta última. ([https://codeboard.io/projects/14491](https://codeboard.io/projects/14491))"
+9:
+  function: strcmp
+  description: "Apresente uma definição da função pré-definida em C `int strcmp (char s1[], char s2[])` que compara (lexicograficamente) duas strings. O resultado deverá ser:
+
+- 0 se as strings forem iguais
+
+- < 0 se `s1` < `s2`
+
+- \\> 0 se `s1` > `s2`
+
+
+([https://codeboard.io/projects/14492](https://codeboard.io/projects/14492))"
+10:
+  function: strstr
+  description: "Apresente uma definição da função pré-definida em C `char *strstr (char s1[], char s2[])` que determina a posição onde a string `s2` ocorre em `s1`. A função deverá retornar `NULL` caso `s2` não ocorra em `s1`. ([https://codeboard.io/projects/14493](https://codeboard.io/projects/14493))"
+11:
+  function: strrev
+  description: "Defina uma função `void strrev (char s[])` que inverte uma string. ([https://codeboard.io/projects/14494](https://codeboard.io/projects/14494))"
+12:
+  function: strnoV
+  description: "Defina uma função `void strnoV (char s[])` que retira todas as vogais de uma string. ([https://codeboard.io/projects/13661](https://codeboard.io/projects/13661))"
+13:
+  function: truncW
+  description: "Defina uma função `void truncW (char t[], int n)` que dado um texto `t` com várias palavras (as palavras estão separadas em `t` por um ou mais espaços) e um inteiro `n`, trunca todas as palavras de forma a terem no maximo `n` caracteres. Por exemplo, se a string `txt` contiver \"liberdade, igualdade e fraternidade\", a invocação de `truncW (txt, 4)` deve fazer com que passe a estar lá armazenada a string \"libe igua e frat\". ([https://codeboard.io/projects/13659](https://codeboard.io/projects/13659))"
+14:
+  function: charMaisFreq
+  description: "Defina uma função `char charMaisFreq (char s[])` que determina qual o caracter mais frequente numa string. A função deverá retornar 0 no caso de `s` ser a string vazia. ([https://codeboard.io/projects/14577](https://codeboard.io/projects/14577))"
+15:
+  function: iguaisConsecutivos
+  description: "Defina uma função `int iguaisConsecutivos (char s[])` que, dada uma string `s` calcula o comprimento da maior sub-string com caracteres iguais. Por exemplo, `iguaisConsecutivos (\"aabcccaac\")` deve dar como resultado 3, correspondendo à repetição \"ccc\". ([https://codeboard.io/projects/14578](https://codeboard.io/projects/14578))"
+16:
+  function: difConsecutivos
+  description: "Defina uma função `int difConsecutivos (char s[])` que, dada uma string `s` calcula o comprimento da maior sub-string com caracteres diferentes. Por exemplo, `difConsecutivos (\"aabcccaac\")` deve dar como resultado 3, correspondendo à string \"abc\". ([https://codeboard.io/projects/14579](https://codeboard.io/projects/14579))"
+17:
+  function: maiorPrefixo
+  description: "Defina uma função `int maiorPrefixo (char s1 [], char s2 [])` que calcula o comprimento do maior prefixo comum entre as duas strings. ([https://codeboard.io/projects/14580](https://codeboard.io/projects/14580))"
+18:
+  function: maiorSufixo
+  description: "Defina uma função `int maiorSufixo (char s1 [], char s2 [])` que calcula o comprimento do maior sufixo comum entre as duas strings. ([https://codeboard.io/projects/14581](https://codeboard.io/projects/14581))"
+19:
+  function: sufPref
+  description: "Defina a função `int sufPref (char s1[], char s2[])` que calcula o tamanho do maior sufixo de s1 que é um prefixo de s2. Por exemplo, `sufPref(\"batota\", \"totalidade\")` deve dar como resultado 4, uma vez que a string \"tota\" é um suxo de \"batota\" e um prefixo de \"totalidade\". ([https://codeboard.io/projects/14582](https://codeboard.io/projects/14582))"
+20:
+  function: contaPal
+  description: "Defina uma função `int contaPal (char s[])` que conta as palavras de uma string. Uma palavra é uma sequência de caracteres (diferentes de espaço) terminada por um ou mais espaços. Assim se a string `p` tiver o valor \"a a bb a\", o resultado de `contaPal (p)` deve ser 4. ([https://codeboard.io/projects/14583](https://codeboard.io/projects/14583))"
+21:
+  function: contaVogais
+  description: "Defina uma função `int contaVogais (char s[])` que retorna o número de vogais da string `s`. Não se esqueça de considerar tanto maiúsculas como minúsculas. ([https://codeboard.io/projects/14585](https://codeboard.io/projects/14585))"
+22:
+  function: contida
+  description: "Defina uma função `int contida (char a[], char b[])` que testa se todos os caracteres da primeira string também aparecem na segunda. Por exemplo, `contida (\"braga\", \"bracara augusta\")` deve retornar verdadeiro enquanto que `contida (\"braga\", \"bracarense\")` deve retornar falso. ([https://codeboard.io/projects/14586](https://codeboard.io/projects/14586))"
+23:
+  function: palindrome
+  description: "Defina uma função `int palindrome (char s[])` que testa se uma palavra é palíndroma, i.e., lê-se de igual forma nos dois sentidos. ([https://codeboard.io/projects/14587](https://codeboard.io/projects/14587))"
+24:
+  function: remRep
+  description: "Defina uma função `int remRep (char x[])` que elimina de uma string todos os caracteres que se repetem sucessivamente deixando lá apenas uma cópia. A função deverá retornar o comprimento da string resultante. Assim, por exemplo, ao invocarmos a função com uma vetor contendo \"aaabaaabbbaaa\", o vetor deve passar a conter a string \"ababa\" e a função deverá retornar o valor 5. ([https://codeboard.io/projects/13663](https://codeboard.io/projects/13663))"
+25:
+  function: limpaEspacos
+  description: "Defina uma função `int limpaEspacos (char t[])` que elimina repetições sucessivas de espaços por um único espaço. A função deve retornar o comprimento da string resultante. ([https://codeboard.io/projects/13733](https://codeboard.io/projects/13733))"
+26:
+  function: insere
+  description: "Defina uma função `void insere (int v[], int N, int x)` que insere um elemento (`x`) num vetor ordenado. Assuma que as `N` primeiras posições do vetor estão ordenadas e que por isso, após a inserção, o vetor terá as primeiras `N+1` posições ordenadas. ([https://codeboard.io/projects/14836](https://codeboard.io/projects/14836))"
+27:
+  function: merge
+  description: "Defina uma função `void merge (int r [], int a[], int b[], int na, int nb)` que, dados os vetores ordenados `a` (com `na` elementos) e `b` (com `nb` elementos), preenche o vetor `r` (com `na+nb` elementos) com os elementos de `a` e `b` ordenados. ([https://codeboard.io/projects/14837](https://codeboard.io/projects/14837))"
+28:
+  function: crescente
+  description: "Defina uma função `int crescente (int a[], int i, int j)` que testa se os elementos do vetor `a`, entre as posições `i` e `j` (inclusive) estão ordenados por ordem crescente. A função deve retornar 1 ou 0 consoante o vetor esteja ou não ordenado. ([https://codeboard.io/projects/14838](https://codeboard.io/projects/14838))"
+29:
+  function: retiraNeg
+  description: "Defina uma função `int retiraNeg (int v[], int N)` que retira os números negativos de um vetor com `N` inteiros. A função deve retornar o número de elementos que não foram retirados. ([https://codeboard.io/projects/14839](https://codeboard.io/projects/14839))"
+30:
+  function: menosFreq
+  description: "Defina uma função `int menosFreq (int v[], int N)` que recebe um vetor `v` com `N` elementos ordenado por ordem crescente e retorna o menos frequente dos elementos do vetor. Se houver mais do que um elemento nessas condições deve retornar o que começa por aparecer no índice mais baixo. [(https://codeboard.io/projects/14840)](https://codeboard.io/projects/14840)"
+31:
+  function: maisFreq
+  description: "Defina uma função `int maisFreq (int v[], int N)` que recebe um vetor `v` com `N` elementos ordenado por ordem crescente e retorna o mais frequente dos elementos do vetor. Se houver mais do que um elemento nessas condições deve retornar o que começa por aparecer no índice mais baixo. [(https://codeboard.io/projects/14841)](https://codeboard.io/projects/14841)"
+32:
+  function: maxCresc
+  description: "Defina uma função `int maxCresc (int v[], int N)` que calcula o comprimento da maior sequência crescente de elementos consecutivos num vetor `v` com `N` elementos. Por exemplo, se o vetor contiver 10 elementos pela seguinte ordem: `1, 2, 3, 2, 1, 4, 10, 12, 5, 4`, a função deverá retornar 4, correspondendo ao tamanho da sequência `1, 4, 10, 12`. ([https: //codeboard.io/projects/14842](https://codeboard.io/projects/14842))"
+33:
+  function: elimRep
+  description: "Defina uma função `int elimRep (int v[], int n)` que recebe um vetor `v` com `n` inteiros e elimina as repetições. A função deverá retornar o número de elementos do vetor resultante.
+
+
+Por exemplo, se o vetor v contiver nas suas primeiras 10 posições os números: `{1, 2, 3, 2, 1, 4, 2, 4, 5, 4}`
+
+
+a invocação `elimRep (v,10)` deverá retornar 5 e colocar nas primeiras 5 posições do vetor os elementos `{1,2,3,4,5}`. ([https://codeboard.io/projects/14843](https://codeboard.io/projects/14843))"
+34:
+  function: elimRepOrd
+  description: "Defina uma função `int elimRepOrd (int v[], int n)` que recebe um vetor `v` com `n` inteiros ordenado por ordem crescente e elimina as repetições. A função deverá retornar o número de elementos do vetor resultante. ([https://codeboard.io/projects/14844](https://codeboard.io/projects/14844))"
+35:
+  function: comunsOrd
+  description: "Defina uma função `int comunsOrd (int a[], int na, int b[], int nb)` que calcula quantos elementos os vetores `a` (com `na` elementos) e `b` (com `nb` elementos) têm em comum. Assuma que os vetores `a` e `b` estão ordenados por ordem crescente. ([https://codeboard.io/projects/14845](https://codeboard.io/projects/14845))"
+36:
+  function: comuns
+  description: "Defina uma função `int comuns (int a[], int na, int b[], int nb)` que calcula quantos elementos os vetores `a` (com `na` elementos) e `b` (com `nb` elementos) têm em comum. Assuma que os vetores `a` e `b` não estão ordenados e defina a função sem alterar os vetores. ([https://codeboard.io/projects/14846](https://codeboard.io/projects/14846))"
+37:
+  function: minInd
+  description: "Defina uma função `int minInd (int v[], int n)` que, dado um vetor `v` com `n` inteiros, retorna o índice do menor elemento do vetor. ([https://codeboard.io/projects/14847](https://codeboard.io/projects/14847))"
+38:
+  function: somasAc
+  description: "Defina uma função `void somasAc (int v[], int Ac [], int N)` que preenche o vetor `Ac` com as somas acumuladas do vetor `v`. Por exemplo, na posição `Ac[3]` deve ser calculado como `v[0]+v[1]+v[2]+v[3]`. ([https://codeboard.io/projects/14848](https://codeboard.io/projects/14848))"
+39:
+  function: triSup
+  description: "Defina uma função `int triSup (int N, float m [N][N])` que testa se uma matriz quadrada é triangular superior, i.e., se todos os elementos abaixo da diagonal são zeros. ([https://codeboard.io/projects/14849](https://codeboard.io/projects/14849))"
+40:
+  function: transposta
+  description: "Defina uma função `void transposta (int N, float m [N][N])` que transforma uma matriz na sua transposta. ([https://codeboard.io/projects/14850](https://codeboard.io/projects/14850))"
+41:
+  function: addTo
+  description: "Defina uma função `void addTo (int N, int M, int a [N][M], int b[N][M])` que adiciona a segunda matriz à primeira. ([https://codeboard.io/projects/14851](https://codeboard.io/projects/14851))"
+42:
+  function: unionSet
+  description: "Uma forma de representar conjuntos de índices consiste em usar um array de inteiros contendo 1 ou 0 consoante esse índice pertença ou não ao conjunto. Assim o conjunto {1,4,7} seria representado por um array em que as primeiras 8 posições conteriam `{0,1,0,0,1,0,0,1}`.
+
+
+Apresente uma definição da função `int unionSet (int N, int v1[N], int v2[N], int r[N])` que coloca no array `r` o resultado da união dos conjuntos `v1` e `v2`. ([https://codeboard.io/projects/14685](https://codeboard.io/projects/14685))"
+43:
+  function: intersectSet
+  description: " Uma forma de representar conjuntos de índices consiste em usar um array de inteiros contendo 1 ou 0 consoante esse índice pertença ou não ao conjunto. Assim o conjunto {1,4,7} seria representado por um array em que as primeiras 8 posições conteriam `{0,1,0,0,1,0,0,1}`.
+
+
+Apresente uma definição da função `int intersectSet (int N, int v1[N], int v2[N], int r[N])` que coloca no array `r` o resultado da intersecção dos conjuntos `v1` e `v2`. ([https://codeboard.io/projects/14694](https://codeboard.io/projects/14694))"
+44:
+  function: intersectMSet
+  description: "Uma forma de representar multi-conjuntos de índices consiste em usar um array de inteiros contendo em cada posição o número de ocorrências desse índice. Assim o multi-conjunto {1,1,4,7,7,7} seria representado por um array em que as primeiras 8 posições conteriam `{0,2,0,0,1,0,0,3}`.
+
+
+Apresente uma definição da função `int intersectMSet (int N, int v1[N], int v2[N], int r[N])` que coloca no array `r` o resultado da intersecção dos multi-conjuntos `v1` e `v2`. ([https://codeboard.io/projects/14733](https://codeboard.io/projects/14733))"
+45:
+  function: unionMSet
+  description: "Uma forma de representar multi-conjuntos de índices consiste em usar um array de inteiros contendo em cada posição o número de ocorrências desse índice. Assim o multi-conjunto {1,1,4,7,7,7} seria representado por um array em que as primeiras 8 posições conteriam `{0,2,0,0,1,0,0,3}`.
+
+
+Apresente uma definição da função `int unionMSet (int N, int v1[N], int v2[N], int r[N])` que coloca no array `r` o resultado da união dos multi-conjuntos `v1` e `v2`."
+46:
+  function: cardinalMSet
+  description: "Uma forma de representar multi-conjuntos de índices consiste em usar um array de inteiros contendo em cada posição o número de ocorrências desse índice. Assim o multi-conjunto {1,1,4,7,7,7} seria representado por um array em que as primeiras 8 posições conteriam `{0,2,0,0,1,0,0,3}`.
+
+
+Apresente uma definição da função `int cardinalMSet (int N, int v[N])` que calcula a número de elementos do multi-conjunto `v`. ([https://codeboard.io/projects/14740](https://codeboard.io/projects/14740))"
+47:
+  function: posFinal
+  description: "Considere as seguintes denições para representar as posições e movimentos de um robot.
+
+
+`typedef enum movimento {Norte, Oeste, Sul, Este} Movimento;`<br>
+`typedef struct posicao {`<br>
+    ```    int x, y;```<br>
+`} Posicao;`
+
+
+Defina a função `Posicao posFinal (Posicao inicial, Movimento mov[], int N)` que, dada uma posição inicial e um array com `N` movimentos, calcula a posição final do robot depois de efetuar essa sequência de movimentos. ([https://codeboard.io/projects/73018](https://codeboard.io/projects/73018))"
+48:
+  function: caminho
+  description: "Considere as seguintes denições para representar as posições e movimentos de um robot.
+
+
+`typedef enum movimento {Norte, Oeste, Sul, Este} Movimento;`<br>
+`typedef struct posicao {`<br>
+    ```    int x, y;```<br>
+`} Posicao;`
+
+  
+Defina a função `int caminho (Posicao inicial, Posicao final, Movimento mov[], int N)` que, dadas as posições inicial e final do robot, preenche o array com os movimentos suficientes para que o robot passe de uma posição para a outra.
+
+
+A função deverá preencher no máximo `N` elementos do array e retornar o número de elementos preenchidos. Se não for possível atingir a posição final com `N` movimentos, a função deverá retornar um número negativo. ([https://codeboard.io/projects/73019](https://codeboard.io/projects/73019))"
+49:
+  function: maisCentral
+  description: "Considere as seguintes denições para representar as posições e movimentos de um robot.
+
+
+`typedef enum movimento {Norte, Oeste, Sul, Este} Movimento;`<br>
+`typedef struct posicao {`<br>
+    ```    int x, y;```<br>
+`} Posicao;`
+
+  
+Defina a função `int maisCentral (Posicao pos[], int N)` que, dado um array com `N` posições, determina o índice da posição que está mais perto da origem (note que as coordenadas de cada ponto são números inteiros). ([https://codeboard.io/projects/73020](https://codeboard.io/projects/73020))"
+50:
+  function: vizinhos
+  description: "Considere as seguintes denições para representar as posições e movimentos de um robot.
+
+
+`typedef enum movimento {Norte, Oeste, Sul, Este} Movimento;`<br>
+`typedef struct posicao {`<br>
+```    int x, y;```<br>
+`} Posicao;`
+
+
+Defina a função `int vizinhos (Posicao p, Posicao pos[], int N)` que, dada uma posição e um array com `N` posições, calcula quantas dessas posições são adjacentes à posição dada. ([https://codeboard.io/projects/73021](https://codeboard.io/projects/73021))"
+51:
+  function: length
+  description: "Considere o seguinte tipo para representar listas ligadas de inteiros
+
+
+`typedef struct lligada {`<br>
+```    int valor;```<br>
+```    struct lligada *prox;```<br>
+`} *LInt;`
+
+
+Apresente uma definição não recursiva da função `int length (LInt)` que calcula o comprimento de uma lista ligada. (https://codeboard.io/projects/16161)
+"
+
+52:
+  function: freeL
+  description: "Considere o seguinte tipo para representar listas ligadas de inteiros
+
+
+`typedef struct lligada {`<br>
+```    int valor;```<br>
+```    struct lligada *prox;```<br>
+`} *LInt;`
+
+  
+Apresente uma definição não recursiva da função `void freeL (LInt)` que liberta o espaço ocupado por uma lista."
+53:
+  function: imprimeL
+  description: "Considere o seguinte tipo para representar listas ligadas de inteiros
+
+
+`typedef struct lligada {`<br>
+```    int valor;```<br>
+```    struct lligada *prox;```<br>
+`} *LInt;`
+
+  
+Apresente uma definição não recursiva da função `void imprimeL (LInt)` que imprime no ecrã os elementos de uma lista (um por linha)."
+54:
+  function: reverseL
+  description: "Considere o seguinte tipo para representar listas ligadas de inteiros
+
+
+`typedef struct lligada {`<br>
+```    int valor;```<br>
+```    struct lligada *prox;```<br>
+`} *LInt;`
+
+  
+Apresente uma definição não recursiva da função `LInt reverseL (LInt)` que inverte uma lista (sem criar uma nova lista). (https://codeboard.io/projects/16243)"
+55:
+  function: insertOrd
+  description: "Considere o seguinte tipo para representar listas ligadas de inteiros
+
+
+`typedef struct lligada {`<br>
+```    int valor;```<br>
+```    struct lligada *prox;```<br>
+`} *LInt;`
+
+  
+Apresente uma definição não recursiva da função `void insertOrd (LInt *, int)` que insere ordenadamente um elemento numa lista ordenada. (https://codeboard.io/projects/16244)"
+56:
+  function: removeOneOrd
+  description: "Considere o seguinte tipo para representar listas ligadas de inteiros
+
+
+`typedef struct lligada {`<br>
+```    int valor;```<br>
+```    struct lligada *prox;```<br>
+`} *LInt;`
+
+  
+Apresente uma definição não recursiva da função `int removeOneOrd (LInt *, int)` que remove um elemento de uma lista ordenada. Retorna 1 caso o elemento a remover não exista, 0 no outro caso. (https://codeboard.io/projects/16245)"
+57:
+  function: merge
+  description: "Considere o seguinte tipo para representar listas ligadas de inteiros
+
+
+`typedef struct lligada {`<br>
+```    int valor;```<br>
+```    struct lligada *prox;```<br>
+`} *LInt;`
+
+  
+Defina uma função `merge (LInt *r, LInt a, LInt b)` que junta duas listas ordenadas (`a` e `b`) numa única lista ordenada (`r`). (https://codeboard.io/projects/16246)"
+58:
+  function: splitQS
+  description: "Considere o seguinte tipo para representar listas ligadas de inteiros
+
+
+`typedef struct lligada {`<br>
+```    int valor;```<br>
+```    struct lligada *prox;```<br>
+`} *LInt;`
+
+  
+Defina uma função `void splitQS (LInt l, int x, LInt *mx, LInt *Mx)` que, dada uma lista ligada `l` e um inteiro `x`, parte a lista em duas (retornando os endereços dos primeiros elementos da lista em `*mx` e `*Mx`): uma com os elementos de `l` menores do que `x` e a outra com os restantes. Note que esta função não deverá criar cópias dos elementos da lista. (https://codeboard.io/projects/16247)"
+59:
+  function: parteAmeio
+  description: "Considere o seguinte tipo para representar listas ligadas de inteiros
+
+
+`typedef struct lligada {`<br>
+```    int valor;```<br>
+```    struct lligada *prox;```<br>
+`} *LInt;`
+
+  
+Defina uma função `LInt parteAmeio (LInt *l)` que parte uma lista não vazia `*l` a meio. Se `x` contiver os elementos `{1,2,3,4,5}`, após a invocação `y=parteAmeio(&x)` a lista `y` deverá conter os elementos `{1,2}` e a lista `x` os restantes `{3,4,5}`. (https://codeboard.io/projects/17392)"
+60:
+  function: removeAll
+  description: "Considere o seguinte tipo para representar listas ligadas de inteiros
+
+
+`typedef struct lligada {`<br>
+```    int valor;```<br>
+```    struct lligada *prox;```<br>
+`} *LInt;`
+
+  
+Apresente uma definição não recursiva da função `int removeAll (LInt *, int)` que remove todas as ocorrências de um dado inteiro de uma lista, retornando o número de células removidas. (https://codeboard.io/projects/16249)"
+61:
+  function: removeDups
+  description: "Considere o seguinte tipo para representar listas ligadas de inteiros
+
+
+`typedef struct lligada {`<br>
+```    int valor;```<br>
+```    struct lligada *prox;```<br>
+`} *LInt;`
+
+  
+Apresente uma definição da função `int removeDups (LInt *)` que remove os valores repetidos de uma lista (deixando apenas a primeira ocorrência). (https://codeboard.io/projects/16250)"
+62:
+  function: removeMaiorL
+  description: "Considere o seguinte tipo para representar listas ligadas de inteiros
+
+
+`typedef struct lligada {`<br>
+```    int valor;```<br>
+```    struct lligada *prox;```<br>
+`} *LInt;`
+
+  
+Apresente uma definição da função `int removeMaiorL (LInt *)` que remove (a primeira ocorrência d)o maior elemento de uma lista não vazia, retornando o valor desse elemento. (https://codeboard.io/projects/16251)"
+63:
+  function: init
+  description: "Considere o seguinte tipo para representar listas ligadas de inteiros
+
+
+`typedef struct lligada {`<br>
+```    int valor;```<br>
+```    struct lligada *prox;```<br>
+`} *LInt;`
+
+  
+Apresente uma definição não recursiva da função `void init (LInt *)` que remove o último elemento de uma lista não vazia (libertando o correspondente espaço). (https://codeboard.io/projects/16252)"
+64:
+  function: appendL
+  description: "Considere o seguinte tipo para representar listas ligadas de inteiros
+
+
+`typedef struct lligada {`<br>
+```    int valor;```<br>
+```    struct lligada *prox;```<br>
+`} *LInt;`
+
+  
+Apresente uma definição não recursiva da função `void appendL (LInt *, int)` que acrescenta um elemento no fim da lista. (https://codeboard.io/projects/16253)"
+65:
+  function: concatL
+  description: "Considere o seguinte tipo para representar listas ligadas de inteiros
+
+
+`typedef struct lligada {`<br>
+```    int valor;```<br>
+```    struct lligada *prox;```<br>
+`} *LInt;`
+
+  
+Apresente uma definição da função void concatL (LInt *a, LInt b) que acrescenta a lista `b` à lista `*a`. (https://codeboard.io/projects/16254)"
+66:
+  function: imprimeL
+  description: "Considere o seguinte tipo para representar listas ligadas de inteiros
+
+
+`typedef struct lligada {`<br>
+```    int valor;```<br>
+```    struct lligada *prox;```<br>
+`} *LInt;`
+
+  
+Apresente uma definição da função `LInt cloneL (LInt)` que cria uma nova lista ligada com os elementos pela ordem em que aparecem na lista argumento."
+67:
+  function: cloneRev
+  description: "Considere o seguinte tipo para representar listas ligadas de inteiros
+
+
+`typedef struct lligada {`<br>
+```    int valor;```<br>
+```    struct lligada *prox;```<br>
+`} *LInt;`
+
+  
+Apresente uma definição não recursiva da função `LInt cloneRev (LInt)` que cria uma nova lista ligada com os elementos por ordem inversa. 
+
+
+Por exemplo, se a lista `l` tiver 5 elementos com os valores `{1,2,3,4,5}` por esta ordem, a invocação `cloneRev(l)` deve corresponder a uma nova lista com os elementos `{5,4,3,2,1}` por esta ordem. (https://codeboard.io/projects/16256)"
+68:
+  function: maximo
+  description: "Considere o seguinte tipo para representar listas ligadas de inteiros
+
+
+`typedef struct lligada {`<br>
+```    int valor;```<br>
+```    struct lligada *prox;```<br>
+`} *LInt;`
+
+  
+Defina uma função `int maximo (LInt l)` que calcula qual o maior valor armazenado numa lista não vazia. (https://codeboard.io/projects/16257)"
+69:
+  function: take
+  description: "Considere o seguinte tipo para representar listas ligadas de inteiros
+
+
+`typedef struct lligada {`<br>
+```    int valor;```<br>
+```    struct lligada *prox;```<br>
+`} *LInt;`
+
+  
+Apresente uma definição iterativa da função `int take (int n, LInt *l)` que, dado um inteiro `n` e uma lista ligada de inteiros `l`, apaga de `l` todos os nodos para além do n-ésimo (libertando o respectivo espaço). Se a lista tiver `n` ou menos nodos, a função não altera a lista. A função deve retornar o comprimento final da lista. (https://codeboard.io/projects/16258)"
+70:
+  function: drop
+  description: "Considere o seguinte tipo para representar listas ligadas de inteiros
+
+
+`typedef struct lligada {`<br>
+```    int valor;```<br>
+```    struct lligada *prox;```<br>
+`} *LInt;`
+
+  
+Apresente uma definição iterativa da função `int drop (int n, LInt *l)` que, dado um inteiro `n` e uma lista ligada de inteiros `l`, apaga de `l` os `n` primeiros elementos da lista (libertando o respectivo espaço). Se a lista tiver `n` ou menos nodos, a função liberta a totalidade da lista. A função deve retornar o número de elementos removidos. (https://codeboard.io/projects/16259)"
+71:
+  function: Nforward
+  description: "Considere o seguinte tipo para representar listas ligadas de inteiros
+
+
+`typedef struct lligada {`<br>
+```    int valor;```<br>
+```    struct lligada *prox;```<br>
+`} *LInt;`
+
+  
+O tipo `LInt` pode ser usado ainda para implementar listas circulares. Defina uma função `LInt Nforward (LInt l, int N)` que, dada uma lista circular, dá como resultado o endereço do elemento da lista que está `N` posições à frente. (https://codeboard.io/projects/16260)"
+72:
+  function: listToArray
+  description: "Considere o seguinte tipo para representar listas ligadas de inteiros
+
+
+`typedef struct lligada {`<br>
+```    int valor;```<br>
+```    struct lligada *prox;```<br>
+`} *LInt;`
+
+  
+Defina uma função `int listToArray (LInt l, int v[], int N)` que, dada uma lista `l`, preenche o array `v` com os elementos da lista. A função deverá preencher no máximo `N` elementos e retornar o número de elementos preenchidos. (https://codeboard.io/projects/16261)"
+73:
+  function: arrayToList
+  description: "Considere o seguinte tipo para representar listas ligadas de inteiros
+
+
+`typedef struct lligada {`<br>
+```    int valor;```<br>
+```    struct lligada *prox;```<br>
+`} *LInt;`
+
+  
+Defina uma função `LInt arrayToList (int v[], int N)` que constrói uma lista com os elementos de um array, pela mesma ordem em que aparecem no array. (https://codeboard.io/projects/16262)"
+74:
+  function: somasAcL
+  description: "Considere o seguinte tipo para representar listas ligadas de inteiros
+
+
+`typedef struct lligada {`<br>
+```    int valor;```<br>
+```    struct lligada *prox;```<br>
+`} *LInt;`
+
+  
+Defina uma função `LInt somasAcL (LInt l)` que, dada uma lista de inteiros, constrói uma nova lista de inteiros contendo as somas acumuladas da lista  original (que deverá permanecer inalterada).
+
+
+Por exemplo, se a lista `l` tiver os valores `[1,2,3,4]`, a lista contruída pela invocação de `somasAcL (l)` deverá conter os valores `[1,3,6,10]`. (https://codeboard.io/projects/16263)"
+75:
+  function: remreps
+  description: "Considere o seguinte tipo para representar listas ligadas de inteiros
+
+
+`typedef struct lligada {`<br>
+```    int valor;```<br>
+```    struct lligada *prox;```<br>
+`} *LInt;`
+
+  
+Defina uma função `void remreps (LInt l)` que, dada uma lista ordenada de inteiros, elimina dessa lista todos os valores repetidos assegurando que o espaço de memória correspondente aos nós removidos é correctamente libertado. (https://codeboard.io/projects/16264)"
+76:
+  function: rotateL
+  description: "Considere o seguinte tipo para representar listas ligadas de inteiros
+
+
+`typedef struct lligada {`<br>
+```    int valor;```<br>
+```    struct lligada *prox;```<br>
+`} *LInt;`
+
+  
+Defina uma função `LInt rotateL (LInt l)` que coloca o primeiro elemento de uma lista no fim. Se a lista for vazia ou tiver apenas um elemento, a função não tem qualquer efeito prático (i.e., devolve a mesma lista que recebe como argumento). Note que a sua função não deve alocar nem libertar memória. Apenas re-organizar as células da lista. (https://codeboard.io/projects/16265)"
+77:
+  function: parte
+  description: "Considere o seguinte tipo para representar listas ligadas de inteiros
+
+
+`typedef struct lligada {`<br>
+```    int valor;```<br>
+```    struct lligada *prox;```<br>
+`} *LInt;`
+
+
+Defina uma função `LInt parte (LInt l)` que parte uma lista `l` em duas: na lista `l` ficam apenas os elementos das posições ímpares; na lista resultante ficam os restantes elementos. Assim, se a lista `x` tiver os elementos `{1,2,3,4,5,6}` a chamada `y = parte (x)` coloca na lista `y` os elementos `{2,4,6}` ficando em `x` apenas os elementos `{1,3,5}`. (https://codeboard.io/projects/16266)"
+78:
+  function: altura
+  description: "Considere o seguinte tipo para representar árvores binárias de inteiros
+
+
+`typedef struct nodo {`<br>
+```    int valor;```<br>
+```    struct nodo *esq, *dir;```<br>
+`} *ABin;`
+
+
+Apresente uma definição da função `int altura (ABin)` que calcula a altura de uma árvore binária. (https://codeboard.io/projects/16220)"
+79:
+  function: cloneAB
+  description: "Considere o seguinte tipo para representar árvores binárias de inteiros
+
+
+`typedef struct nodo {`<br>
+```    int valor;```<br>
+```    struct nodo *esq, *dir;```<br>
+`} *ABin;`
+
+
+Defina uma função `ABin cloneAB (ABin)` que cria uma cópia de uma árvore. (https://codeboard.io/projects/16267)"
+80:
+  function: mirror
+  description: "Considere o seguinte tipo para representar árvores binárias de inteiros
+
+
+`typedef struct nodo {`<br>
+```    int valor;```<br>
+```    struct nodo *esq, *dir;```<br>
+`} *ABin;`
+
+
+Defina uma função `void mirror (ABin *)` que inverte uma árvore (sem criar uma nova árvore). (https://codeboard.io/projects/16268)"
+81:
+  function: inorder
+  description: "Considere o seguinte tipo para representar árvores binárias de inteiros
+
+
+`typedef struct nodo {`<br>
+```    int valor;```<br>
+```    struct nodo *esq, *dir;```<br>
+`} *ABin;`
+
+
+Defina a função `void inorder (ABin , LInt *)` que cria uma lista ligada de inteiros a partir de uma travessia [inorder](https://www.geeksforgeeks.org/tree-traversals-inorder-preorder-and-postorder/) de uma árvore binária. (https://codeboard.io/projects/16269)"
+82:
+  function: preorder
+  description: "Considere o seguinte tipo para representar árvores binárias de inteiros
+
+
+`typedef struct nodo {`<br>
+```    int valor;```<br>
+```    struct nodo *esq, *dir;```<br>
+`} *ABin;`
+
+
+Defina a função `void preorder (ABin , LInt *)` que cria uma lista ligada de inteiros a partir de uma travessia [preorder](https://www.geeksforgeeks.org/tree-traversals-inorder-preorder-and-postorder/) de uma árvore binária. (https://codeboard.io/projects/16270)"
+83:
+  function: posorder
+  description: "Considere o seguinte tipo para representar árvores binárias de inteiros
+
+
+`typedef struct nodo {`<br>
+```    int valor;```<br>
+```    struct nodo *esq, *dir;```<br>
+`} *ABin;`
+
+
+Defina a função void posorder (ABin , LInt *) que cria uma lista ligada de inteiros a partir de uma travessia [posorder](https://www.geeksforgeeks.org/tree-traversals-inorder-preorder-and-postorder/) de uma árvore binária. (https://codeboard.io/projects/16272)"
+84:
+  function: depth
+  description: "Considere o seguinte tipo para representar árvores binárias de inteiros
+
+
+`typedef struct nodo {`<br>
+```    int valor;```<br>
+```    struct nodo *esq, *dir;```<br>
+`} *ABin;`
+
+
+Apresente uma definição da função `int depth (ABin a, int x)` que calcula o nível (menor) a que um elemento está numa árvore binária (-1 caso não exista). (https://codeboard.io/projects/16273)"
+85:
+  function: freeAB
+  description: "Considere o seguinte tipo para representar árvores binárias de inteiros
+
+
+`typedef struct nodo {`<br>
+```    int valor;```<br>
+```    struct nodo *esq, *dir;```<br>
+`} *ABin;`
+
+
+Defina uma função `int freeAB (ABin a)` que liberta o espaço ocupado por uma árvore binária, retornando o número de nodos libertados. (https://codeboard.io/projects/16274)"
+86:
+  function: pruneAB
+  description: "Considere o seguinte tipo para representar árvores binárias de inteiros
+
+
+`typedef struct nodo {`<br>
+```    int valor;```<br>
+```    struct nodo *esq, *dir;```<br>
+`} *ABin;`
+
+
+Defina uma função `int pruneAB (ABin *a, int l)` que remove (libertando o espaço respectivo) todos os elementos da árvore `*a` que estão a uma profundidade superior a `l`, retornando o número de elementos removidos. Assuma que a profundidade da raiz da árvore é 1, e por isso a invocação `pruneAB(&a,0)` corresponde a remover todos os elementos da árvore `a`. (https://codeboard.io/projects/16275)"
+87:
+  function: iguaisAB
+  description: "Considere o seguinte tipo para representar árvores binárias de inteiros
+
+
+`typedef struct nodo {`<br>
+```    int valor;```<br>
+```    struct nodo *esq, *dir;```<br>
+`} *ABin;`
+
+
+Defina uma função `int iguaisAB (ABin a, ABin b)` que testa se duas árvores são iguais (têm os mesmos elementos e a mesma forma). (https://codeboard.io/projects/16276)"
+88:
+  function: nivelL
+  description: "Considere o seguinte tipo para representar árvores binárias de inteiros
+
+
+`typedef struct nodo {`<br>
+```    int valor;```<br>
+```    struct nodo *esq, *dir;```<br>
+`} *ABin;`
+
+
+Defina uma função `LInt nivelL (ABin a, int n)` que, dada uma árvore binária, constrói uma lista com os valores dos elementos que estão armazenados na árvore ao nível `n` (assuma que a raiz da árvore está ao nível 1). (https://codeboard.io/projects/16277)"
+89:
+  function: nivelV
+  description: "Considere o seguinte tipo para representar árvores binárias de inteiros
+
+
+`typedef struct nodo {`<br>
+```    int valor;```<br>
+```    struct nodo *esq, *dir;```<br>
+`} *ABin;`
+
+
+Defina uma função `int nivelV (ABin a, int n, int v[])` que preenche o vetor `v` com os elementos de `a` que se encontram no nível `n`. Considere que a raiz da árvore se encontra no nível 1. A função deverá retornar o número de posições preenchidas do array. (https://codeboard.io/projects/16278)"
+90:
+  function: dumpAbin
+  description: "Considere o seguinte tipo para representar árvores binárias de inteiros
+
+
+`typedef struct nodo {`<br>
+```    int valor;```<br>
+```    struct nodo *esq, *dir;```<br>
+`} *ABin;`
+
+
+Defina uma função `int dumpAbin (ABin a, int v[], int N)` que dada uma árvore `a`, preenche o array `v` com os elementos da árvore segundo uma travessia inorder. A função deverá preencher no máximo `N` elementos e retornar o número de elementos preenchidos. (https://codeboard.io/projects/16279)"
+91:
+  function: somasAcA
+  description: "Considere o seguinte tipo para representar árvores binárias de inteiros
+
+
+`typedef struct nodo {`<br>
+```    int valor;```<br>
+```    struct nodo *esq, *dir;```<br>
+`} *ABin;`
+
+
+Defina uma função `ABin somasAcA (ABin a)` que, dada uma árvore de inteiros, calcula a árvore das somas acumuladas dessa árvore. A árvore calculada deve ter a mesma forma da árvore recebida como argumento e em cada nodo deve conter a soma dos elementos da sub-árvore que aí se inicia. (https://codeboard.io/projects/16280)"
+92:
+  function: contaFolhas
+  description: "Considere o seguinte tipo para representar árvores binárias de inteiros
+
+
+`typedef struct nodo {`<br>
+```    int valor;```<br>
+```    struct nodo *esq, *dir;```<br>
+`} *ABin;`
+
+
+Apresente uma definição da função `int contaFolhas (ABin a)` que dada uma árvore binária de inteiros, conta quantos dos seus nodos são folhas, i.e., que não têm nenhum descendente. (https://codeboard.io/projects/16281)"
+93:
+  function: cloneMirror
+  description: "Considere o seguinte tipo para representar árvores binárias de inteiros
+
+
+`typedef struct nodo {`<br>
+```    int valor;```<br>
+```    struct nodo *esq, *dir;```<br>
+`} *ABin;`
+
+
+Defina uma função `ABin cloneMirror (ABin a)` que cria uma árvore nova, com o resultado de inverter a árvore (efeito de espelho). (https://codeboard.io/projects/16282)"
+94:
+  function: addOrd
+  description: "Considere o seguinte tipo para representar árvores binárias de inteiros
+
+
+`typedef struct nodo {`<br>
+```    int valor;```<br>
+```    struct nodo *esq, *dir;```<br>
+`} *ABin;`
+
+
+Apresente uma definição não recursiva da função `int addOrd (ABin *a, int x)` que adiciona um elemento a uma árvore binária de procura. A função deverá retornar 1 se o elemento a inserir já existir na árvore ou 0 no outro caso. (https://codeboard.io/projects/16283)"
+95:
+  function: lookupAB
+  description: "Considere o seguinte tipo para representar árvores binárias de inteiros
+
+
+`typedef struct nodo {`<br>
+```    int valor;```<br>
+```    struct nodo *esq, *dir;```<br>
+`} *ABin;`
+
+
+Apresente uma definição não recursiva da função `int lookupAB (ABin a, int x)` que testa se um elemento pertence a uma árvore binária de procura. (https://codeboard.io/projects/16284)"
+96:
+  function: depthOrd
+  description: "Considere o seguinte tipo para representar árvores binárias de inteiros
+
+
+`typedef struct nodo {`<br>
+```    int valor;```<br>
+```    struct nodo *esq, *dir;```<br>
+`} *ABin;`
+
+
+Apresente uma definição da função `int depthOrd (ABin a, int x)` que calcula o nı́vel a que um elemento está numa árvore binária de procura (-1 caso não exista). (https://codeboard.io/projects/16285)"
+97:
+  function: maiorAB
+  description: "Considere o seguinte tipo para representar árvores binárias de inteiros
+
+
+`typedef struct nodo {`<br>
+```    int valor;```<br>
+```    struct nodo *esq, *dir;```<br>
+`} *ABin;`
+
+
+Apresente uma definição não recursiva da função `int maiorAB (ABin)` que calcula o maior elemento de uma árvore binária de procura não vazia. (https://codeboard.io/projects/16286)"
+98:
+  function: removeMaiorA
+  description: "Considere o seguinte tipo para representar árvores binárias de inteiros
+
+
+`typedef struct nodo {`<br>
+```    int valor;```<br>
+```    struct nodo *esq, *dir;```<br>
+`} *ABin;`
+
+
+Defina uma função `void removeMaiorA (ABin *)` que remove o maior elemento de uma árvore binária de procura. (https://codeboard.io/projects/16287)"
+99:
+  function: quantosMaiores
+  description: "Considere o seguinte tipo para representar árvores binárias de inteiros
+
+
+`typedef struct nodo {`<br>
+```    int valor;```<br>
+```    struct nodo *esq, *dir;```<br>
+`} *ABin;`
+
+
+Apresente uma definição da função `int quantosMaiores (ABin a, int x)` que, dada uma árvore binária de procura de inteiros e um inteiro, conta quantos elementos da árvore são maiores que o inteiro dado. (https://codeboard.io/projects/16288)"
+100:
+  function: listToBTree
+  description: "Considere o seguinte tipo para representar árvores binárias de inteiros
+
+
+`typedef struct nodo {`<br>
+```    int valor;```<br>
+```    struct nodo *esq, *dir;```<br>
+`} *ABin;`
+
+
+Apresente uma definição da função `void listToBTree (LInt l, ABin *a)` que constrói uma árvore binária de procura a partir de uma lista ligada ordenada. (https://codeboard.io/projects/16289)"
+101:
+  function: deProcura
+  description: "Considere o seguinte tipo para representar árvores binárias de inteiros
+
+
+`typedef struct nodo {`<br>
+```    int valor;```<br>
+```    struct nodo *esq, *dir;```<br>
+`} *ABin;`
+
+
+Apresente uma definição da função `int deProcura (ABin a)` que testa se uma árvore é de procura. (https://codeboard.io/projects/16290)"

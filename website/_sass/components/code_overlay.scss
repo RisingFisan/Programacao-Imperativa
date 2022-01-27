@@ -1,0 +1,11 @@
+#code-overlay {
+    display: none;
+    backdrop-filter: blur(6px);
+    cursor: pointer;
+}
+
+@supports not (backdrop-filter: blur(6px)) {
+    #code-overlay {
+        @apply bg-dark-gray;
+    }
+}

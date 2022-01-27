@@ -1,0 +1,42 @@
+---
+title: "100 Questões"
+layout: "default"
+---
+
+<div class="flex flex-col items-center gap-12">
+  <div class="text-center space-y-3">
+    <h1 class="text-4xl">100 Questões</h1>
+    <h2 class="font-light">As explicações para cada questão assumem que as anteriores foram lidas, por isso recomendo começar pela primeira questão.</h2>
+  </div>
+  <div class="bg-light-gray shadow-lg p-6 rounded-2xl">
+    <h3 class="font-bold uppercase text-center w-full mb-5 text-2xl">1ª Parte</h3>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 3xl:grid-cols-5 gap-5">
+      {% for i in (1..50) %}
+      <a href="{{ i }}" title="{{site.data.hundred_q[i].function}}" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>{{ i }}: {{ site.data.hundred_q[i].function }}</p>
+      </a>
+      {% endfor %}
+    </div>
+    <div class="w-full my-8 h-1 bg-lighter-gray"></div>
+    <h3 class="font-bold uppercase text-center w-full mb-5 text-2xl">2ª Parte</h3>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 3xl:grid-cols-5 gap-5">
+      {% for i in (1..50) %}
+      {% assign x = i | plus: 50 %}
+      <a href="{{ x }}" title="{{site.data.hundred_q[x].function}}" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>{{ i }}: {{ site.data.hundred_q[x].function }}</p>
+      </a>
+      {% endfor %}
+      <div class="relative">
+        <a href="101" title="{{site.data.hundred_q[101].function}}" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+          <p>51: {{ site.data.hundred_q[101].function }}</p>
+        </a>
+        <span class="popup absolute top-0 left-0 w-full bg-lighter-gray border-2 border-gray-300 rounded-xl p-3">Sim, eu sei, deviam ser 100 questões e aparecem 101, mas a culpa não é minha, os professores é que meteram 51 questões na 2ª ficha, por isso vão implicar com eles, não comigo 😢</span>
+      </div>
+    </div>
+  </div>
+  <!-- <div>
+    <a href="old/" class="p-5 bg-blue-800 hover:bg-blue-600 flex justify-center items-center rounded-xl">
+      <p>Questões de anos anteriores</p>
+    </a>
+  </div> -->
+</div>

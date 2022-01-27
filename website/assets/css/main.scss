@@ -1,0 +1,116 @@
+---
+# this ensures Jekyll reads the file to be transformed into CSS later
+# only Main files contain this front matter, not partials.
+---
+
+@import "tailwindcss/base.css";
+@import "tailwindcss/components.css";
+@import "tailwindcss/utilities.css";
+
+@import "_sass/base.scss";
+
+code {
+    white-space: pre-wrap;
+
+    .o, .kr, .kt, .se, .k {
+        @apply text-purple-400;
+    }
+
+    .p, .nf {
+        @apply text-blue-300;
+    }
+
+    .s {
+        @apply text-yellow-200;
+    }
+
+    .c1 {
+       @apply text-lightest-gray;
+    }
+}
+
+.explanation code {
+    @apply text-purple-300;
+}
+
+.explanation .language-haskell {
+    @apply bg-lighter-gray p-2 px-8 rounded-2xl;
+    code {
+        @apply text-white;
+    }
+}
+
+p > a {
+    @apply text-blue-400;
+}
+
+ul {
+    @apply list-disc list-inside;
+}
+
+ol {
+    @apply list-lower-latin;
+}
+
+.popup {
+    visibility: hidden;
+    transform: translateY(-110%);
+}
+
+a:hover + .popup {
+    visibility: visible;
+}
+
+#resolution {
+    h1 {
+        @apply text-xl;
+    }
+    h1 + ul {
+        @apply text-xl ml-5;
+    }
+    h2 {
+        @apply text-lg font-light ml-12 mt-5 mb-2;
+    }
+    h3 {
+        @apply text-lg font-thin ml-20 mt-5 mb-2;
+    }
+    .language-haskell {
+        @apply bg-lighter-gray py-2 px-8 rounded-2xl;
+        code {
+            @apply text-white inline-block w-full;
+        }
+    }
+    h1 + .language-plaintext {
+        @apply text-xl ml-6 my-6;
+    }
+    h2 + .language-plaintext {
+        @apply text-lg font-light ml-20 mb-2;
+    }
+    h3 + .language-plaintext {
+        @apply text-lg font-light ml-28 mb-2;
+    }
+    h1 + .language-haskell {
+        @apply mt-4;
+    }
+    .language-plaintext + h2 {
+        @apply mt-0;
+    }
+    code {
+        @apply text-purple-300;
+    }
+    h1 + code, h2 + code {
+        @apply pl-6;
+    }
+    div + h1 {
+        @apply mt-16;
+    }
+    .language-plaintext + h1 {
+        @apply mt-0;
+    }
+    table, th, td {
+        @apply border-gray-200 border-2 table-fixed w-full md:w-1/3 text-center;
+    }
+    h3 + table {
+        @apply md:ml-28 mb-4;
+    }
+}

@@ -1,0 +1,12 @@
+title: "Programação Imperativa" # the name of your site, e.g. ACME Corp.
+baseurl: /Programacao-Imperativa
+
+sass:
+  load_paths:
+    - _sass
+    - node_modules
+
+include: ["node_modules/tailwindcss"]
+
+plugins:
+  - jekyll-postcss

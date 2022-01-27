@@ -1,0 +1,37 @@
+---
+layout: default
+---
+
+{% assign f = site.data.fichas[page.i] %}
+{% assign n = site.data.fichas | size %}
+<div class="flex flex-col gap-3">
+  <div class="flex justify-between flex-col md:flex-row items-center gap-8 md:items-start">
+    <div class="md:w-2/3 xl:w-1/2 px-5 space-y-2 self-start">
+      <h1 class="text-2xl md:text-3xl xl:text-4xl font-bold">
+        Ficha {{ page.i }}: {{ f.topic }}
+      </h1>
+    </div>
+    <div class="flex gap-5">
+      {% unless page.i == 1 %} 
+        {% assign prev_page = page.i | minus: 1 %}
+        {% assign prev_page_url = prev_page | prepend: "/fichas/" %}
+        <a href={{ prev_page_url | relative_url }} class="flex flex-col justify-center items-center w-24 h-24 rounded-full bg-purple-800 hover:bg-purple-600">
+          <p class="text-2xl font-bold"><</p>
+          <p>Anterior</p>
+        </a>
+      {% endunless %}
+      {% unless page.i == n %}
+        {% assign next_page = page.i | plus: 1 %}
+        {% assign next_page_url = next_page | prepend: "/fichas/" %}
+        <a href={{ next_page_url | relative_url }} class="flex flex-col justify-center items-center w-24 h-24 rounded-full bg-purple-800 hover:bg-purple-600">
+          <p class="text-2xl font-bold">></p>
+          <p>Seguinte</p>
+        </a>
+      {% endunless %}
+    </div>
+  </div>
+  <div class="md:px-20" id="resolution">
+    {% capture include_resolution %}{% include_relative resolution.md %}{% endcapture %}
+    {{ include_resolution | markdownify }}
+  </div>
+</div>
