@@ -45,16 +45,16 @@
   description: "Defina uma função `void strnoV (char s[])` que retira todas as vogais de uma string. ([https://codeboard.io/projects/13661](https://codeboard.io/projects/13661))"
 13:
   function: truncW
-  description: "Defina uma função `void truncW (char t[], int n)` que dado um texto `t` com várias palavras (as palavras estão separadas em `t` por um ou mais espaços) e um inteiro `n`, trunca todas as palavras de forma a terem no maximo `n` caracteres. Por exemplo, se a string `txt` contiver \"liberdade, igualdade e fraternidade\", a invocação de `truncW (txt, 4)` deve fazer com que passe a estar lá armazenada a string \"libe igua e frat\". ([https://codeboard.io/projects/13659](https://codeboard.io/projects/13659))"
+  description: "Defina uma função `void truncW (char t[], int n)` que dado um texto `t` com várias palavras (as palavras estão separadas em `t` por um ou mais espaços) e um inteiro `n`, trunca todas as palavras de forma a terem no maximo `n` caracteres. ([https://codeboard.io/projects/13659](https://codeboard.io/projects/13659))"
 14:
   function: charMaisFreq
   description: "Defina uma função `char charMaisFreq (char s[])` que determina qual o caracter mais frequente numa string. A função deverá retornar 0 no caso de `s` ser a string vazia. ([https://codeboard.io/projects/14577](https://codeboard.io/projects/14577))"
 15:
   function: iguaisConsecutivos
-  description: "Defina uma função `int iguaisConsecutivos (char s[])` que, dada uma string `s` calcula o comprimento da maior sub-string com caracteres iguais. Por exemplo, `iguaisConsecutivos (\"aabcccaac\")` deve dar como resultado 3, correspondendo à repetição \"ccc\". ([https://codeboard.io/projects/14578](https://codeboard.io/projects/14578))"
+  description: "Defina uma função `int iguaisConsecutivos (char s[])` que, dada uma string `s` calcula o comprimento da maior sub-string com caracteres iguais. ([https://codeboard.io/projects/14578](https://codeboard.io/projects/14578))"
 16:
   function: difConsecutivos
-  description: "Defina uma função `int difConsecutivos (char s[])` que, dada uma string `s` calcula o comprimento da maior sub-string com caracteres diferentes. Por exemplo, `difConsecutivos (\"aabcccaac\")` deve dar como resultado 3, correspondendo à string \"abc\". ([https://codeboard.io/projects/14579](https://codeboard.io/projects/14579))"
+  description: "Defina uma função `int difConsecutivos (char s[])` que, dada uma string `s` calcula o comprimento da maior sub-string com caracteres diferentes. ([https://codeboard.io/projects/14579](https://codeboard.io/projects/14579))"
 17:
   function: maiorPrefixo
   description: "Defina uma função `int maiorPrefixo (char s1 [], char s2 [])` que calcula o comprimento do maior prefixo comum entre as duas strings. ([https://codeboard.io/projects/14580](https://codeboard.io/projects/14580))"
@@ -63,22 +63,22 @@
   description: "Defina uma função `int maiorSufixo (char s1 [], char s2 [])` que calcula o comprimento do maior sufixo comum entre as duas strings. ([https://codeboard.io/projects/14581](https://codeboard.io/projects/14581))"
 19:
   function: sufPref
-  description: "Defina a função `int sufPref (char s1[], char s2[])` que calcula o tamanho do maior sufixo de s1 que é um prefixo de s2. Por exemplo, `sufPref(\"batota\", \"totalidade\")` deve dar como resultado 4, uma vez que a string \"tota\" é um suxo de \"batota\" e um prefixo de \"totalidade\". ([https://codeboard.io/projects/14582](https://codeboard.io/projects/14582))"
+  description: "Defina a função `int sufPref (char s1[], char s2[])` que calcula o tamanho do maior sufixo de s1 que é um prefixo de s2. ([https://codeboard.io/projects/14582](https://codeboard.io/projects/14582))"
 20:
   function: contaPal
-  description: "Defina uma função `int contaPal (char s[])` que conta as palavras de uma string. Uma palavra é uma sequência de caracteres (diferentes de espaço) terminada por um ou mais espaços. Assim se a string `p` tiver o valor \"a a bb a\", o resultado de `contaPal (p)` deve ser 4. ([https://codeboard.io/projects/14583](https://codeboard.io/projects/14583))"
+  description: "Defina uma função `int contaPal (char s[])` que conta as palavras de uma string. Uma palavra é uma sequência de caracteres (diferentes de espaço) terminada por um ou mais espaços. ([https://codeboard.io/projects/14583](https://codeboard.io/projects/14583))"
 21:
   function: contaVogais
   description: "Defina uma função `int contaVogais (char s[])` que retorna o número de vogais da string `s`. Não se esqueça de considerar tanto maiúsculas como minúsculas. ([https://codeboard.io/projects/14585](https://codeboard.io/projects/14585))"
 22:
   function: contida
-  description: "Defina uma função `int contida (char a[], char b[])` que testa se todos os caracteres da primeira string também aparecem na segunda. Por exemplo, `contida (\"braga\", \"bracara augusta\")` deve retornar verdadeiro enquanto que `contida (\"braga\", \"bracarense\")` deve retornar falso. ([https://codeboard.io/projects/14586](https://codeboard.io/projects/14586))"
+  description: "Defina uma função `int contida (char a[], char b[])` que testa se todos os caracteres da primeira string também aparecem na segunda. ([https://codeboard.io/projects/14586](https://codeboard.io/projects/14586))"
 23:
   function: palindrome
   description: "Defina uma função `int palindrome (char s[])` que testa se uma palavra é palíndroma, i.e., lê-se de igual forma nos dois sentidos. ([https://codeboard.io/projects/14587](https://codeboard.io/projects/14587))"
 24:
   function: remRep
-  description: "Defina uma função `int remRep (char x[])` que elimina de uma string todos os caracteres que se repetem sucessivamente deixando lá apenas uma cópia. A função deverá retornar o comprimento da string resultante. Assim, por exemplo, ao invocarmos a função com uma vetor contendo \"aaabaaabbbaaa\", o vetor deve passar a conter a string \"ababa\" e a função deverá retornar o valor 5. ([https://codeboard.io/projects/13663](https://codeboard.io/projects/13663))"
+  description: "Defina uma função `int remRep (char x[])` que elimina de uma string todos os caracteres que se repetem sucessivamente deixando lá apenas uma cópia. A função deverá retornar o comprimento da string resultante. ([https://codeboard.io/projects/13663](https://codeboard.io/projects/13663))"
 25:
   function: limpaEspacos
   description: "Defina uma função `int limpaEspacos (char t[])` que elimina repetições sucessivas de espaços por um único espaço. A função deve retornar o comprimento da string resultante. ([https://codeboard.io/projects/13733](https://codeboard.io/projects/13733))"
@@ -87,7 +87,7 @@
   description: "Defina uma função `void insere (int v[], int N, int x)` que insere um elemento (`x`) num vetor ordenado. Assuma que as `N` primeiras posições do vetor estão ordenadas e que por isso, após a inserção, o vetor terá as primeiras `N+1` posições ordenadas. ([https://codeboard.io/projects/14836](https://codeboard.io/projects/14836))"
 27:
   function: merge
-  description: "Defina uma função `void merge (int r [], int a[], int b[], int na, int nb)` que, dados os vetores ordenados `a` (com `na` elementos) e `b` (com `nb` elementos), preenche o vetor `r` (com `na+nb` elementos) com os elementos de `a` e `b` ordenados. ([https://codeboard.io/projects/14837](https://codeboard.io/projects/14837))"
+  description: "Defina uma função `void merge (int r[], int a[], int b[], int na, int nb)` que, dados os vetores ordenados `a` (com `na` elementos) e `b` (com `nb` elementos), preenche o vetor `r` (com `na+nb` elementos) com os elementos de `a` e `b` ordenados. ([https://codeboard.io/projects/14837](https://codeboard.io/projects/14837))"
 28:
   function: crescente
   description: "Defina uma função `int crescente (int a[], int i, int j)` que testa se os elementos do vetor `a`, entre as posições `i` e `j` (inclusive) estão ordenados por ordem crescente. A função deve retornar 1 ou 0 consoante o vetor esteja ou não ordenado. ([https://codeboard.io/projects/14838](https://codeboard.io/projects/14838))"
@@ -102,16 +102,10 @@
   description: "Defina uma função `int maisFreq (int v[], int N)` que recebe um vetor `v` com `N` elementos ordenado por ordem crescente e retorna o mais frequente dos elementos do vetor. Se houver mais do que um elemento nessas condições deve retornar o que começa por aparecer no índice mais baixo. [(https://codeboard.io/projects/14841)](https://codeboard.io/projects/14841)"
 32:
   function: maxCresc
-  description: "Defina uma função `int maxCresc (int v[], int N)` que calcula o comprimento da maior sequência crescente de elementos consecutivos num vetor `v` com `N` elementos. Por exemplo, se o vetor contiver 10 elementos pela seguinte ordem: `1, 2, 3, 2, 1, 4, 10, 12, 5, 4`, a função deverá retornar 4, correspondendo ao tamanho da sequência `1, 4, 10, 12`. ([https: //codeboard.io/projects/14842](https://codeboard.io/projects/14842))"
+  description: "Defina uma função `int maxCresc (int v[], int N)` que calcula o comprimento da maior sequência crescente de elementos consecutivos num vetor `v` com `N` elementos. ([https://codeboard.io/projects/14842](https://codeboard.io/projects/14842))"
 33:
   function: elimRep
-  description: "Defina uma função `int elimRep (int v[], int n)` que recebe um vetor `v` com `n` inteiros e elimina as repetições. A função deverá retornar o número de elementos do vetor resultante.
-
-
-Por exemplo, se o vetor v contiver nas suas primeiras 10 posições os números: `{1, 2, 3, 2, 1, 4, 2, 4, 5, 4}`
-
-
-a invocação `elimRep (v,10)` deverá retornar 5 e colocar nas primeiras 5 posições do vetor os elementos `{1,2,3,4,5}`. ([https://codeboard.io/projects/14843](https://codeboard.io/projects/14843))"
+  description: "Defina uma função `int elimRep (int v[], int n)` que recebe um vetor `v` com `n` inteiros e elimina as repetições. A função deverá retornar o número de elementos do vetor resultante. ([https://codeboard.io/projects/14843](https://codeboard.io/projects/14843))"
 34:
   function: elimRepOrd
   description: "Defina uma função `int elimRepOrd (int v[], int n)` que recebe um vetor `v` com `n` inteiros ordenado por ordem crescente e elimina as repetições. A função deverá retornar o número de elementos do vetor resultante. ([https://codeboard.io/projects/14844](https://codeboard.io/projects/14844))"
