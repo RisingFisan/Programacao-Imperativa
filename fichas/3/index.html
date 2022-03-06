@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta property="og:title" content="Programação Imperativa">
+    <meta property="og:description" content="Resolução de exercícios, fichas e testes.">
+    <meta property="og:image" content="./C-Logo.png">
+    <meta property="og:image:secure_url" content="./C-Logo.png">
+    <title>
+      
+       
+        Ficha 3 |
+       Programação Imperativa</title>
+    <link rel="stylesheet" href="/Programacao-Imperativa/assets/css/main.css">
+    <link rel="shortcut icon" href="/Programacao-Imperativa/favicon.ico" >
+    <script type="text/javascript">
+
+      // Wait for the page to load first
+      window.onload = function() {
+
+        //Get a reference to the link on the page
+        // with an id of "mylink"
+        var a = document.getElementById("code-overlay");
+        a.style.display = "flex";
+
+        //Set code to run when the link is clicked
+        // by assigning a function to "onclick"
+        a.onclick = function() {
+
+          // Your code here...
+          a.remove();
+
+          //If you don't want the link to actually 
+          // redirect the browser to another page,
+          // then return false at the end of this block.
+          // Note that this also prevents event bubbling,
+          // which is probably what we want here, but won't 
+          // always be the case.
+          return false;
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="bg-darker-gray w-full min-h-screen text-white flex flex-col">
+      <header class="bg-dark-gray p-8 lg:px-14 flex flex-col md:flex-row gap-6 justify-between items-center">
+        <div class="flex flex-col items-center sm:flex-row sm:items-start gap-5 sm:gap-10">
+          <a href=/Programacao-Imperativa/ class="flex-none">
+            <img src=/Programacao-Imperativa/C-Logo.png class="relative h-16 top-2 md:items-center">
+          </a>
+          <div class="space-y-2 text-center sm:text-left">
+            <p class="text-4xl font-bold">Programação Imperativa</p>
+            <p class="text-lg font-light">Resolução de exercícios, fichas e testes.</p>
+          </div>
+        </div>
+        
+          <!--
+          <div class="flex gap-3 md:gap-6 justify-end items-center flex-col lg:flex-row w-full md:w-auto">
+            <a href=/Programacao-Imperativa/50q/index.html class="bg-blue-800 hover:bg-blue-600 p-5 w-full sm:w-1/2 md:w-36 flex justify-center items-center rounded-xl">
+              <p class="uppercase font-bold">50 Questões</p>
+            </a>
+            <a href=/Programacao-Imperativa/fichas/index.html class="bg-blue-800 hover:bg-blue-600 p-5 w-full sm:w-1/2 md:w-36 flex justify-center items-center rounded-xl">
+              <p class="uppercase font-bold">Fichas</p>
+            </a>
+          </div>
+          -->
+          <a href="../" class="bg-blue-800 hover:bg-blue-600 p-5 w-full sm:w-1/2 md:w-36 flex justify-center items-center rounded-xl">
+            <p class="uppercase font-bold">ᐸ Voltar</p>
+          </a>
+        
+      </header>
+      <div class="px-3 py-10 sm:p-20 flex-grow">
+      
+
+<div class="flex flex-col gap-3">
+  <div class="flex justify-between flex-col md:flex-row items-center gap-8 md:items-start">
+    <div class="md:w-2/3 xl:w-1/2 px-5 space-y-2 self-start">
+      <h1 class="text-2xl md:text-3xl xl:text-4xl font-bold">
+        Ficha : 
+      </h1>
+    </div>
+    <div class="flex gap-5">
+       
+        
+        
+        <a href=/Programacao-Imperativa/fichas/-1 class="flex flex-col justify-center items-center w-24 h-24 rounded-full bg-purple-800 hover:bg-purple-600">
+          <p class="text-2xl font-bold"><</p>
+          <p>Anterior</p>
+        </a>
+      
+      
+        
+        
+        <a href=/Programacao-Imperativa/fichas/1 class="flex flex-col justify-center items-center w-24 h-24 rounded-full bg-purple-800 hover:bg-purple-600">
+          <p class="text-2xl font-bold">></p>
+          <p>Seguinte</p>
+        </a>
+      
+    </div>
+  </div>
+  <div class="md:px-20" id="resolution">
+    
+    <h1 id="1-assumindo-que-uma-hora-é-representada-por-um-par-de-inteiros-uma-viagem-pode-ser-representada-por-uma-sequência-de-etapas-onde-cada-etapa-é-representada-por-um-par-de-horas-partida-chegada">1) Assumindo que uma hora é representada por um par de inteiros, uma viagem pode ser representada por uma sequência de etapas, onde cada etapa é representada por um par de horas (partida, chegada):</h1>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>data Hora = H Int Int
+            deriving Show
+
+type Etapa = (Hora,Hora)
+type Viagem = [Etapa]
+</code></pre></div></div>
+
+<h1 id="por-exemplo-se-uma-viagem-for">Por exemplo, se uma viagem for</h1>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[(H 9 30, H 10 25), (H 11 20, H 12 45), (H 13 30, H 14 45)]
+</code></pre></div></div>
+
+<h1 id="significa-que-teve-três-etapas">significa que teve três etapas:</h1>
+
+<ul>
+  <li>a primeira começou às 9 e um quarto e terminou às 10 e 25;</li>
+  <li>a segunda começou às 11 e 20 e terminou à uma menos um quarto;</li>
+  <li>a terceira começou às 1 e meia e terminou às 3 menos um quarto;</li>
+</ul>
+
+<h1 id="para-este-problema-vamos-trabalhar-apenas-com-viagens-que-começam-e-acabam-no-mesmo-dia-utilizando-as-funções-sobre-horas-que-definiu-na-ficha-1-defina-as-seguintes-funções">Para este problema, vamos trabalhar apenas com viagens que começam e acabam no mesmo dia. Utilizando as funções sobre horas que definiu na Ficha 1, defina as seguintes funções:</h1>
+
+<h2 id="a-testar-se-uma-etapa-está-bem-construída-ie-o-tempo-de-chegada-é-superior-ao-de-partida-e-as-horas-são-válidas">a) Testar se uma etapa está bem construída (i.e., o tempo de chegada é superior ao de partida e as horas são válidas).</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">etapaBemConstruida</span> <span class="o">::</span> <span class="kt">Etapa</span> <span class="o">-&gt;</span> <span class="kt">Bool</span>
+<span class="n">etapaBemConstruida</span> <span class="p">(</span><span class="n">h1</span><span class="p">,</span><span class="n">h2</span><span class="p">)</span> <span class="o">=</span> <span class="n">horaValida</span> <span class="n">h1</span> <span class="o">&amp;&amp;</span> <span class="n">horaValida</span> <span class="n">h2</span> <span class="o">&amp;&amp;</span> <span class="n">h2</span> <span class="p">`</span><span class="n">horaDepois</span><span class="p">`</span> <span class="n">h1</span>
+</code></pre></div></div>
+
+<h2 id="b-testa-se-uma-viagem-está-bem-construída-ie-se-para-cada-etapa-o-tempo-de-chegada-é-superior-ao-de-partida-e-se-a-etapa-seguinte-começa-depois-da-etapa-anterior-ter-terminado">b) Testa se uma viagem está bem construída (i.e., se para cada etapa, o tempo de chegada é superior ao de partida, e se a etapa seguinte começa depois da etapa anterior ter terminado).</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">viagemBemConstruida</span> <span class="o">::</span> <span class="kt">Viagem</span> <span class="o">-&gt;</span> <span class="kt">Bool</span>
+<span class="n">viagemBemConstruida</span> <span class="kt">[]</span> <span class="o">=</span> <span class="kt">True</span>
+<span class="n">viagemBemConstruida</span> <span class="p">[</span><span class="n">e</span><span class="p">]</span> <span class="o">=</span> <span class="n">etapaBemConstruida</span> <span class="n">e</span>
+<span class="n">viagemBemConstruida</span> <span class="p">((</span><span class="n">h1</span><span class="p">,</span><span class="n">h2</span><span class="p">)</span><span class="o">:</span><span class="p">(</span><span class="n">h3</span><span class="p">,</span><span class="n">h4</span><span class="p">)</span><span class="o">:</span><span class="n">et</span><span class="p">)</span> <span class="o">=</span> <span class="n">etapaBemConstruida</span> <span class="p">(</span><span class="n">h1</span><span class="p">,</span><span class="n">h2</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="n">etapaBemConstruida</span> <span class="p">(</span><span class="n">h2</span><span class="p">,</span><span class="n">h3</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="n">viagemBemConstruida</span> <span class="p">((</span><span class="n">h3</span><span class="p">,</span><span class="n">h4</span><span class="p">)</span><span class="o">:</span><span class="n">et</span><span class="p">)</span>
+
+<span class="c1">-- Precisamos de pelo menos duas etapas na definição recursiva pois precisamos de comparar o tempo de fim da primeira etapa com o tempo de início da segunda etapa.</span>
+</code></pre></div></div>
+
+<h2 id="c-calcular-a-hora-de-partida-e-de-chegada-de-uma-dada-viagem">c) Calcular a hora de partida e de chegada de uma dada viagem.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">partidaEChegada</span> <span class="o">::</span> <span class="kt">Viagem</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="kt">F1</span><span class="o">.</span><span class="kt">Hora</span><span class="p">,</span><span class="kt">F1</span><span class="o">.</span><span class="kt">Hora</span><span class="p">)</span>
+<span class="n">partidaEChegada</span> <span class="p">[(</span><span class="n">h1</span><span class="p">,</span><span class="n">h2</span><span class="p">)]</span> <span class="o">=</span> <span class="p">(</span><span class="n">h1</span><span class="p">,</span><span class="n">h2</span><span class="p">)</span>
+<span class="n">partidaEChegada</span> <span class="p">((</span><span class="n">h1</span><span class="p">,</span><span class="kr">_</span><span class="p">)</span><span class="o">:</span><span class="p">(</span><span class="kr">_</span><span class="p">,</span><span class="n">h4</span><span class="p">)</span><span class="o">:</span><span class="n">et</span><span class="p">)</span> <span class="o">=</span> <span class="n">partidaEChegada</span> <span class="p">((</span><span class="n">h1</span><span class="p">,</span><span class="n">h4</span><span class="p">)</span><span class="o">:</span><span class="n">et</span><span class="p">)</span> 
+</code></pre></div></div>
+
+<h2 id="d-dada-uma-viagem-válida-calcular-o-tempo-total-de-viagem-efectiva">d) Dada uma viagem válida, calcular o tempo total de viagem efectiva.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">tempoDeViagem</span> <span class="o">::</span> <span class="kt">Viagem</span> <span class="o">-&gt;</span> <span class="kt">Hora</span>
+<span class="n">tempoDeViagem</span> <span class="p">[(</span><span class="n">h1</span><span class="p">,</span><span class="n">h2</span><span class="p">)]</span> <span class="o">=</span> <span class="n">hourDiff</span> <span class="n">h1</span> <span class="n">h2</span>
+<span class="n">tempoDeViagem</span> <span class="p">((</span><span class="n">h1</span><span class="p">,</span><span class="n">h2</span><span class="p">)</span><span class="o">:</span><span class="n">et</span><span class="p">)</span> <span class="o">=</span> <span class="n">addMins</span> <span class="p">(</span><span class="n">hourDiff</span> <span class="n">h1</span> <span class="n">h2</span><span class="p">)</span> <span class="p">(</span><span class="n">hour2min</span><span class="p">(</span><span class="n">tempoDeViagem</span> <span class="n">et</span><span class="p">))</span>
+</code></pre></div></div>
+
+<h2 id="e-calcular-o-tempo-total-de-espera">e) Calcular o tempo total de espera.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">tempoDeEspera</span> <span class="o">::</span> <span class="kt">Viagem</span> <span class="o">-&gt;</span> <span class="kt">Hora</span>
+<span class="n">tempoDeEspera</span> <span class="p">[(</span><span class="n">h1</span><span class="p">,</span><span class="n">h2</span><span class="p">)]</span> <span class="o">=</span> <span class="kt">H</span> <span class="mi">0</span> <span class="mi">0</span>
+<span class="n">tempoDeEspera</span> <span class="p">((</span><span class="n">h1</span><span class="p">,</span><span class="n">h2</span><span class="p">)</span><span class="o">:</span><span class="p">(</span><span class="n">h3</span><span class="p">,</span><span class="n">h4</span><span class="p">)</span><span class="o">:</span><span class="n">et</span><span class="p">)</span> <span class="o">=</span> <span class="n">addMins</span> <span class="p">(</span><span class="n">hourDiff</span> <span class="n">h2</span> <span class="n">h3</span><span class="p">)</span> <span class="p">(</span><span class="n">hour2min</span> <span class="p">(</span><span class="n">tempoDeEspera</span> <span class="p">((</span><span class="n">h3</span><span class="p">,</span><span class="n">h4</span><span class="p">)</span><span class="o">:</span><span class="n">et</span><span class="p">)))</span>
+</code></pre></div></div>
+
+<h2 id="f-calcular-o-tempo-total-da-viagem-a-soma-dos-tempos-de-espera-e-de-viagem-efectiva">f) Calcular o tempo total da viagem (a soma dos tempos de espera e de viagem efectiva).</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">tempoTotalViagem</span> <span class="o">::</span> <span class="kt">Viagem</span> <span class="o">-&gt;</span> <span class="kt">Hora</span>
+<span class="n">tempoTotalViagem</span> <span class="n">v</span> <span class="o">=</span> <span class="n">addMins</span> <span class="p">(</span><span class="n">tempoDeViagem</span> <span class="n">v</span><span class="p">)</span> <span class="p">(</span><span class="n">hour2min</span> <span class="p">(</span><span class="n">tempoDeEspera</span> <span class="n">v</span><span class="p">))</span>
+</code></pre></div></div>
+
+<h1 id="2-considere-as-seguinte-definição-de-um-tipo-para-representar-linhas-poligonais">2) Considere as seguinte definição de um tipo para representar linhas poligonais.</h1>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>type Poligonal = [Ponto]
+</code></pre></div></div>
+
+<h1 id="o-tipo-ponto-é-idêntico-ao-definido-na-ficha-1-nas-resolução-das-alíneas-seguintes-pode-utilizar-funções-definidas-nessa-ficha">O tipo <code class="language-plaintext highlighter-rouge">Ponto</code> é idêntico ao definido na Ficha 1. Nas resolução das alíneas seguintes pode utilizar funções definidas nessa ficha.</h1>
+
+<h2 id="a-defina-a-função-para-calcular-o-comprimento-de-uma-linha-poligonal">a) Defina a função para calcular o comprimento de uma linha poligonal</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">comprimento</span> <span class="o">::</span> <span class="kt">Poligonal</span> <span class="o">-&gt;</span> <span class="kt">Double</span>
+<span class="n">comprimento</span> <span class="n">p</span> <span class="o">=</span> <span class="kr">case</span> <span class="n">p</span> <span class="kr">of</span> <span class="kt">[]</span> <span class="o">-&gt;</span> <span class="mi">0</span>
+                          <span class="p">[</span><span class="kr">_</span><span class="p">]</span> <span class="o">-&gt;</span> <span class="mi">0</span>
+                          <span class="p">(</span><span class="n">a</span><span class="o">:</span><span class="n">b</span><span class="o">:</span><span class="n">t</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">dist</span> <span class="n">a</span> <span class="n">b</span> <span class="o">+</span> <span class="n">comprimento</span> <span class="p">(</span><span class="n">b</span><span class="o">:</span><span class="n">t</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="b-defina-uma-função-para-testar-se-uma-dada-linha-poligonal-é-ou-não-fechada">b) Defina uma função para testar se uma dada linha poligonal é ou não fechada.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">linhaFechada</span> <span class="o">::</span> <span class="kt">Poligonal</span> <span class="o">-&gt;</span> <span class="kt">Bool</span>
+<span class="n">linhaFechada</span> <span class="n">p</span> <span class="o">=</span> <span class="n">length</span> <span class="n">p</span> <span class="o">&gt;=</span> <span class="mi">3</span> <span class="o">&amp;&amp;</span> <span class="n">head</span> <span class="n">p</span> <span class="o">==</span> <span class="n">last</span> <span class="n">p</span>
+
+<span class="c1">-- Escrever `head p == last p` e `dist (head p) (last p) == 0` deverá ser equivalente. Neste caso só podemos escrever da primeira forma porque o tipo `Ponto` deriva a classe `Eq`, permitindo-nos assim verificar a equivalência de valores deste tipo com a função `(==)`.</span>
+</code></pre></div></div>
+
+<h2 id="c-defina-a-função-triangula--poligonal---figura-que-dada-uma-linha-poligonal-fechada-e-convexa-calcule-uma-lista-de-triângulos-cuja-soma-das-áreas-seja-igual-à-àrea-delimitada-pela-linha-poligonal-o-tipo-figura-é-idêntico-ao-definido-na-ficha-1">c) Defina a função <code class="language-plaintext highlighter-rouge">triangula :: Poligonal -&gt; [Figura]</code> que, dada uma linha poligonal fechada e convexa, calcule uma lista de triângulos cuja soma das áreas seja igual à àrea delimitada pela linha poligonal. O tipo <code class="language-plaintext highlighter-rouge">Figura</code> é idêntico ao definido na Ficha 1.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">triangula</span> <span class="o">::</span> <span class="kt">Poligonal</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">Figura</span><span class="p">]</span>
+<span class="n">triangula</span> <span class="p">[</span><span class="n">p1</span><span class="p">,</span><span class="n">p2</span><span class="p">,</span><span class="n">p3</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="kt">Triangulo</span> <span class="n">p1</span> <span class="n">p2</span> <span class="n">p3</span><span class="p">]</span>
+<span class="n">triangula</span> <span class="p">(</span><span class="n">p1</span><span class="o">:</span><span class="n">p2</span><span class="o">:</span><span class="n">p3</span><span class="o">:</span><span class="n">ps</span><span class="p">)</span> <span class="o">=</span> <span class="kt">Triangulo</span> <span class="n">p1</span> <span class="n">p2</span> <span class="n">p3</span> <span class="o">:</span> <span class="n">triangula</span> <span class="p">(</span><span class="n">p1</span><span class="o">:</span><span class="n">p3</span><span class="o">:</span><span class="n">ps</span><span class="p">)</span>
+<span class="n">triangula</span> <span class="kr">_</span> <span class="o">=</span> <span class="kt">[]</span>
+
+<span class="c1">-- Com esta função, criamos um leque de triângulos (https://pt.wikipedia.org/wiki/Leque_de_tri%C3%A2ngulos).</span>
+</code></pre></div></div>
+
+<h2 id="d-defina-uma-função-para-calcular-a-área-delimitada-por-uma-linha-poligonal-fechada-e-convexa">d) Defina uma função para calcular a área delimitada por uma linha poligonal fechada e convexa.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">areaPol</span> <span class="o">::</span> <span class="kt">Poligonal</span> <span class="o">-&gt;</span> <span class="kt">Double</span>
+<span class="n">areaPol</span> <span class="n">p</span> <span class="o">=</span> <span class="n">sum</span> <span class="p">[</span><span class="n">area</span> <span class="n">t</span> <span class="o">|</span> <span class="n">t</span> <span class="o">&lt;-</span> <span class="n">triangula</span> <span class="n">p</span><span class="p">]</span>
+
+<span class="c1">-- Aqui, dividimos o polígono em triângulos, calculamos a área de cada um e fazemos a soma destas áreas.</span>
+</code></pre></div></div>
+
+<h2 id="e-defina-a-função-mover--poligonal---ponto---poligonal-que-dada-uma-linha-poligonal-e-um-ponto-dá-como-resultado-uma-linha-poligonal-idêntica-à-primeira-mas-tendo-como-ponto-inicial-o-ponto-dado">e) Defina a função <code class="language-plaintext highlighter-rouge">mover :: Poligonal -&gt; Ponto -&gt; Poligonal</code> que, dada uma linha poligonal e um ponto, dá como resultado uma linha poligonal idêntica à primeira mas tendo como ponto inicial o ponto dado.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">mover</span> <span class="o">::</span> <span class="kt">Poligonal</span> <span class="o">-&gt;</span> <span class="kt">Ponto</span> <span class="o">-&gt;</span> <span class="kt">Poligonal</span>
+<span class="n">mover</span> <span class="n">pol</span> <span class="n">p</span> <span class="o">=</span> <span class="n">p</span> <span class="o">:</span> <span class="n">pol</span>
+</code></pre></div></div>
+
+<h2 id="a-defina-a-função-zoom--double---poligonal---poligonal-que-dada-um-factor-de-escala-e-uma-linha-poligonal-dê-como-resultado-uma-linha-poligonal-semelhante-e-com-o-mesmo-ponto-inicial-mas-em-que-o-comprimento-de-cada-segmento-de-recta-é-multiplicado-pelo-factor-dado">a) Defina a função <code class="language-plaintext highlighter-rouge">zoom :: Double -&gt; Poligonal -&gt; Poligonal</code> que, dada um factor de escala e uma linha poligonal, dê como resultado uma linha poligonal semelhante e com o mesmo ponto inicial mas em que o comprimento de cada segmento de recta é multiplicado pelo factor dado.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">zoom</span> <span class="o">::</span> <span class="kt">Double</span> <span class="o">-&gt;</span> <span class="kt">Poligonal</span> <span class="o">-&gt;</span> <span class="kt">Poligonal</span>
+<span class="n">zoom</span> <span class="n">z</span> <span class="p">[</span><span class="n">p1</span><span class="p">,</span><span class="n">p2</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">p1</span><span class="p">,</span><span class="n">multP</span> <span class="n">z</span> <span class="n">p2</span><span class="p">]</span>
+<span class="n">zoom</span> <span class="n">z</span> <span class="p">(</span><span class="n">p1</span><span class="o">:</span><span class="n">p2</span><span class="o">:</span><span class="n">pol</span><span class="p">)</span> <span class="o">=</span> <span class="n">p1</span> <span class="o">:</span> <span class="n">zoom</span> <span class="n">z</span> <span class="p">(</span><span class="n">p2'</span> <span class="o">:</span> <span class="n">pol</span><span class="p">)</span>
+    <span class="kr">where</span> <span class="n">p2'</span> <span class="o">=</span> <span class="n">multP</span> <span class="n">z</span> <span class="n">p2</span>
+<span class="n">zoom</span> <span class="kr">_</span> <span class="n">p</span> <span class="o">=</span> <span class="n">p</span>
+
+<span class="n">multP</span> <span class="o">::</span> <span class="kt">Double</span> <span class="o">-&gt;</span> <span class="kt">Ponto</span> <span class="o">-&gt;</span> <span class="kt">Ponto</span>
+<span class="n">multP</span> <span class="n">z</span> <span class="n">p</span> <span class="o">=</span> <span class="kt">Cartesiano</span> <span class="p">(</span><span class="n">z</span> <span class="o">*</span> <span class="n">posx</span> <span class="n">p</span><span class="p">)</span> <span class="p">(</span><span class="n">z</span> <span class="o">*</span> <span class="n">posy</span> <span class="n">p</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h1 id="3-para-armazenar-uma-agenda-de-contactos-telefónicos-e-de-correio-electrónico-definiram-se-os-seguintes-tipos-de-dados-não-existem-nomes-repetidos-na-agenda-e-para-cada-nome-existe-uma-lista-de-contactos">3) Para armazenar uma agenda de contactos telefónicos e de correio electrónico definiram-se os seguintes tipos de dados. Não existem nomes repetidos na agenda e para cada nome existe uma lista de contactos.</h1>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>data Contacto = Casa Integer
+              | Trab Integer
+              | Tlm Integer
+              | Email String
+              deriving Show
+
+type Nome = String
+type Agenda = [(Nome, [Contacto])]
+</code></pre></div></div>
+
+<h2 id="a-defina-a-função-acrescemail--nome---string---agenda---agenda-que-dado-um-nome-um-email-e-uma-agenda-acrescenta-essa-informação-à-agenda">a) Defina a função <code class="language-plaintext highlighter-rouge">acrescEmail :: Nome -&gt; String -&gt; Agenda -&gt; Agenda</code> que, dado um nome, um email e uma agenda, acrescenta essa informação à agenda.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">acrescEmail</span> <span class="o">::</span> <span class="kt">Nome</span> <span class="o">-&gt;</span> <span class="kt">String</span> <span class="o">-&gt;</span> <span class="kt">Agenda</span> <span class="o">-&gt;</span> <span class="kt">Agenda</span>
+<span class="n">acrescEmail</span> <span class="n">nome</span> <span class="n">email</span> <span class="n">agenda</span> <span class="o">=</span> <span class="n">agenda</span> <span class="o">++</span> <span class="p">[(</span><span class="n">nome</span><span class="p">,</span> <span class="p">[</span><span class="kt">Email</span> <span class="n">email</span><span class="p">])]</span>
+</code></pre></div></div>
+
+<h2 id="b-defina-a-função-veremails--nome---agenda---maybe-string-que-dado-um-nome-e-uma-agenda-retorna-a-lista-dos-emails-associados-a-esse-nome-se-esse-nome-não-existir-na-agenda-a-função-deve-retornar-nothing">b) Defina a função <code class="language-plaintext highlighter-rouge">verEmails :: Nome -&gt; Agenda -&gt; Maybe [String]</code> que, dado um nome e uma agenda, retorna a lista dos emails associados a esse nome. Se esse nome não existir na agenda a função deve retornar <code class="language-plaintext highlighter-rouge">Nothing</code>.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">verEmails</span> <span class="o">::</span> <span class="kt">Nome</span> <span class="o">-&gt;</span> <span class="kt">Agenda</span> <span class="o">-&gt;</span> <span class="kt">Maybe</span> <span class="p">[</span><span class="kt">String</span><span class="p">]</span>
+<span class="n">verEmails</span> <span class="kr">_</span> <span class="kt">[]</span> <span class="o">=</span> <span class="kt">Nothing</span>
+<span class="n">verEmails</span> <span class="n">nome</span> <span class="p">[(</span><span class="n">n</span><span class="p">,</span><span class="n">c</span><span class="p">)]</span> <span class="o">=</span> <span class="kr">if</span> <span class="n">nome</span> <span class="o">==</span> <span class="n">n</span> <span class="kr">then</span> <span class="kt">Just</span> <span class="p">[</span><span class="n">e</span> <span class="o">|</span> <span class="n">x</span><span class="o">@</span><span class="p">(</span><span class="kt">Email</span> <span class="n">e</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="n">c</span><span class="p">]</span> <span class="kr">else</span> <span class="kt">Nothing</span>
+<span class="n">verEmails</span> <span class="n">nome</span> <span class="p">((</span><span class="n">n</span><span class="p">,</span><span class="n">c</span><span class="p">)</span><span class="o">:</span><span class="n">agenda</span><span class="p">)</span> <span class="o">=</span> <span class="kr">if</span> <span class="n">nome</span> <span class="o">==</span> <span class="n">n</span> <span class="kr">then</span> <span class="n">verEmails</span> <span class="n">nome</span> <span class="p">[(</span><span class="n">n</span><span class="p">,</span><span class="n">c</span><span class="p">)]</span> <span class="kr">else</span> <span class="n">verEmails</span> <span class="n">nome</span> <span class="n">agenda</span>
+</code></pre></div></div>
+
+<h2 id="c-defina-a-função-constelefs--contacto---integer-que-dada-uma-lista-de-contactos-retorna-a-lista-de-todos-os-números-de-telefone-dessa-lista-tanto-telefones-fixos-como-telemóveis">c) Defina a função <code class="language-plaintext highlighter-rouge">consTelefs :: [Contacto] -&gt; [Integer]</code> que, dada uma lista de contactos, retorna a lista de todos os números de telefone dessa lista (tanto telefones fixos como telemóveis).</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">consTelefs</span> <span class="o">::</span> <span class="p">[</span><span class="kt">Contacto</span><span class="p">]</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">Integer</span><span class="p">]</span>
+<span class="n">consTelefs</span> <span class="kt">[]</span> <span class="o">=</span> <span class="kt">[]</span>
+<span class="n">consTelefs</span> <span class="p">(</span><span class="n">c</span><span class="o">:</span><span class="n">cs</span><span class="p">)</span> <span class="o">=</span> <span class="kr">case</span> <span class="n">c</span> <span class="kr">of</span> <span class="kt">Casa</span> <span class="n">x</span> <span class="o">-&gt;</span> <span class="n">x</span><span class="o">:</span><span class="n">consTelefs</span> <span class="n">cs</span>
+                              <span class="kt">Trab</span> <span class="n">x</span> <span class="o">-&gt;</span> <span class="n">x</span><span class="o">:</span><span class="n">consTelefs</span> <span class="n">cs</span>
+                              <span class="kt">Tlm</span> <span class="n">x</span> <span class="o">-&gt;</span> <span class="n">x</span><span class="o">:</span><span class="n">consTelefs</span> <span class="n">cs</span> 
+                              <span class="kr">_</span> <span class="o">-&gt;</span> <span class="n">consTelefs</span> <span class="n">cs</span>
+</code></pre></div></div>
+
+<h2 id="d-defina-a-função-casa--nome---agenda---maybe-integer-que-dado-um-nome-e-uma-agenda-retorna-o-número-de-telefone-de-casa-caso-exista">d) Defina a função <code class="language-plaintext highlighter-rouge">casa :: Nome -&gt; Agenda -&gt; Maybe Integer</code> que, dado um nome e uma agenda, retorna o número de telefone de casa (caso exista).</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">casa</span> <span class="o">::</span> <span class="kt">Nome</span> <span class="o">-&gt;</span> <span class="kt">Agenda</span> <span class="o">-&gt;</span> <span class="kt">Maybe</span> <span class="kt">Integer</span>
+<span class="n">casa</span> <span class="kr">_</span> <span class="kt">[]</span> <span class="o">=</span> <span class="kt">Nothing</span>
+<span class="n">casa</span> <span class="n">nome</span> <span class="p">[(</span><span class="n">n</span><span class="p">,</span><span class="n">c</span><span class="o">:</span><span class="n">cs</span><span class="p">)]</span> <span class="o">=</span> <span class="kr">if</span> <span class="n">nome</span> <span class="o">==</span> <span class="n">n</span> 
+                       <span class="kr">then</span> <span class="kr">case</span> <span class="n">c</span> <span class="kr">of</span> <span class="kt">Casa</span> <span class="n">x</span> <span class="o">-&gt;</span> <span class="kt">Just</span> <span class="n">x</span>
+                                      <span class="kr">_</span> <span class="o">-&gt;</span> <span class="n">casa</span> <span class="n">nome</span> <span class="p">[(</span><span class="n">n</span><span class="p">,</span><span class="n">cs</span><span class="p">)]</span> 
+                       <span class="kr">else</span> <span class="kt">Nothing</span>
+<span class="n">casa</span> <span class="n">nome</span> <span class="p">((</span><span class="n">n</span><span class="p">,</span><span class="n">c</span><span class="p">)</span><span class="o">:</span><span class="n">agenda</span><span class="p">)</span> <span class="o">=</span> <span class="kr">if</span> <span class="n">nome</span> <span class="o">==</span> <span class="n">n</span> 
+                           <span class="kr">then</span> <span class="n">casa</span> <span class="n">nome</span> <span class="p">[(</span><span class="n">n</span><span class="p">,</span><span class="n">c</span><span class="p">)]</span>
+                           <span class="kr">else</span> <span class="n">casa</span> <span class="n">nome</span> <span class="n">agenda</span>
+</code></pre></div></div>
+
+<h1 id="4-pretende-se-guardar-informação-sobre-os-aniversários-das-pessoas-numa-tabela-que-associa-o-nome-de-cada-pessoa-à-sua-data-de-nascimento-para-isso-declarou-se-a-seguinte-estrutura-de-dados">4) Pretende-se guardar informação sobre os aniversários das pessoas numa tabela que associa o nome de cada pessoa à sua data de nascimento. Para isso, declarou-se a seguinte estrutura de dados:</h1>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>type Dia = Int
+type Mes = Int
+type Ano = Int
+type Nome = String
+
+data Data = D Dia Mes Ano
+    deriving Show
+
+type TabDN = [(Nome,Data)]
+</code></pre></div></div>
+
+<h2 id="a-defina-a-função-procura--nome---tabdn---maybe-data-que-indica-a-data-de-nascimento-de-uma-dada-pessoa-caso-o-seu-nome-exista-na-tabela">a) Defina a função <code class="language-plaintext highlighter-rouge">procura :: Nome -&gt; TabDN -&gt; Maybe Data</code> que indica a data de nascimento de uma dada pessoa, caso o seu nome exista na tabela.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">procura</span> <span class="o">::</span> <span class="kt">Nome</span> <span class="o">-&gt;</span> <span class="kt">TabDN</span> <span class="o">-&gt;</span> <span class="kt">Maybe</span> <span class="kt">Data</span>
+<span class="n">procura</span> <span class="kr">_</span> <span class="kt">[]</span> <span class="o">=</span> <span class="kt">Nothing</span>
+<span class="n">procura</span> <span class="n">nome</span> <span class="p">((</span><span class="n">n</span><span class="p">,</span><span class="n">d</span><span class="p">)</span><span class="o">:</span><span class="n">ts</span><span class="p">)</span> <span class="o">=</span> <span class="kr">if</span> <span class="n">nome</span> <span class="o">==</span> <span class="n">n</span> <span class="kr">then</span> <span class="kt">Just</span> <span class="n">d</span> <span class="kr">else</span> <span class="n">procura</span> <span class="n">nome</span> <span class="n">ts</span>
+</code></pre></div></div>
+
+<h2 id="b-defina-a-função-idade--data---nome---tabdn---maybe-int-que-calcula-a-idade-de-uma-pessoa-numa-dada-data">b) Defina a função <code class="language-plaintext highlighter-rouge">idade :: Data -&gt; Nome -&gt; TabDN -&gt; Maybe Int</code> que calcula a idade de uma pessoa numa dada data.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">idade</span> <span class="o">::</span> <span class="kt">Data</span> <span class="o">-&gt;</span> <span class="kt">Nome</span> <span class="o">-&gt;</span> <span class="kt">TabDN</span> <span class="o">-&gt;</span> <span class="kt">Maybe</span> <span class="kt">Int</span>
+<span class="n">idade</span> <span class="kr">_</span> <span class="kr">_</span> <span class="kt">[]</span> <span class="o">=</span> <span class="kt">Nothing</span>
+<span class="n">idade</span> <span class="kr">data</span><span class="o">@</span><span class="p">(</span><span class="kt">D</span> <span class="n">dx</span> <span class="n">mx</span> <span class="n">ax</span><span class="p">)</span> <span class="n">nome</span> <span class="p">((</span><span class="n">n</span><span class="p">,</span><span class="kt">D</span> <span class="n">d</span> <span class="n">m</span> <span class="n">a</span><span class="p">)</span><span class="o">:</span><span class="n">ts</span><span class="p">)</span> <span class="o">=</span> <span class="kr">if</span> <span class="n">nome</span> <span class="o">==</span> <span class="n">n</span> <span class="kr">then</span> <span class="kr">if</span> <span class="n">mx</span> <span class="o">&gt;</span> <span class="n">m</span> <span class="o">||</span> <span class="n">mx</span> <span class="o">==</span> <span class="n">m</span> <span class="o">&amp;&amp;</span> <span class="n">dx</span> <span class="o">&gt;</span> <span class="n">d</span> <span class="kr">then</span> <span class="kt">Just</span> <span class="p">(</span><span class="n">ax</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span> <span class="kr">else</span> <span class="kt">Just</span> <span class="p">((</span><span class="n">ax</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="kr">else</span> <span class="n">idade</span> <span class="kr">data</span> <span class="n">nome</span> <span class="n">ts</span>
+</code></pre></div></div>
+
+<h2 id="c-defina-a-função-anterior--data---data---bool-que-testa-se-uma-data-é-anterior-a-outra-data">c) Defina a função <code class="language-plaintext highlighter-rouge">anterior :: Data -&gt; Data -&gt; Bool</code> que testa se uma data é anterior a outra data.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">anterior</span> <span class="o">::</span> <span class="kt">Data</span> <span class="o">-&gt;</span> <span class="kt">Data</span> <span class="o">-&gt;</span> <span class="kt">Bool</span>
+<span class="n">anterior</span> <span class="p">(</span><span class="kt">D</span> <span class="n">d</span> <span class="n">m</span> <span class="n">a</span><span class="p">)</span> <span class="p">(</span><span class="kt">D</span> <span class="n">d2</span> <span class="n">m2</span> <span class="n">a2</span><span class="p">)</span> <span class="o">=</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="n">a2</span> <span class="o">||</span> <span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="n">a2</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">m</span> <span class="o">&lt;</span> <span class="n">m2</span> <span class="o">||</span> <span class="p">(</span><span class="n">m</span> <span class="o">==</span> <span class="n">m2</span> <span class="o">&amp;&amp;</span> <span class="n">d</span> <span class="o">&lt;</span> <span class="n">d2</span><span class="p">)))</span>
+</code></pre></div></div>
+
+<h2 id="d-defina-a-função-ordena--tabdn---tabdn-que-ordena-uma-tabela-de-datas-de-nascimento-por-ordem-crescente-das-datas-de-nascimento">d) Defina a função <code class="language-plaintext highlighter-rouge">ordena :: TabDN -&gt; TabDN</code> que ordena uma tabela de datas de nascimento por ordem crescente das datas de nascimento.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">ordena</span> <span class="o">::</span> <span class="kt">TabDN</span> <span class="o">-&gt;</span> <span class="kt">TabDN</span>
+<span class="n">ordena</span> <span class="kt">[]</span> <span class="o">=</span> <span class="kt">[]</span>
+<span class="n">ordena</span> <span class="p">((</span><span class="n">n</span><span class="p">,</span><span class="n">d</span><span class="p">)</span><span class="o">:</span><span class="n">ts</span><span class="p">)</span> <span class="o">=</span> <span class="n">insere</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">d</span><span class="p">)</span> <span class="p">(</span><span class="n">ordena</span> <span class="n">ts</span><span class="p">)</span>
+    <span class="kr">where</span> <span class="n">insere</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">d</span><span class="p">)</span> <span class="kt">[]</span> <span class="o">=</span> <span class="p">[(</span><span class="n">n</span><span class="p">,</span><span class="n">d</span><span class="p">)]</span>
+          <span class="n">insere</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">d</span><span class="p">)</span> <span class="p">((</span><span class="n">nh</span><span class="p">,</span><span class="n">dh</span><span class="p">)</span><span class="o">:</span><span class="n">t</span><span class="p">)</span> <span class="o">|</span> <span class="n">anterior</span> <span class="n">dh</span> <span class="n">d</span> <span class="o">=</span> <span class="p">(</span><span class="n">nh</span><span class="p">,</span><span class="n">dh</span><span class="p">)</span><span class="o">:</span><span class="n">insere</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">d</span><span class="p">)</span> <span class="n">t</span>
+                                   <span class="o">|</span> <span class="n">otherwise</span> <span class="o">=</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">d</span><span class="p">)</span><span class="o">:</span><span class="p">(</span><span class="n">nh</span><span class="p">,</span><span class="n">dh</span><span class="p">)</span><span class="o">:</span><span class="n">t</span>
+</code></pre></div></div>
+
+<h2 id="e-defina-a-função-poridade-data---tabdn---nomeint-que-apresenta-o-nome-e-a-idade-das-pessoas-numa-dada-data-por-ordem-crescente-da-idade-das-pessoas">e) Defina a função <code class="language-plaintext highlighter-rouge">porIdade:: Data -&gt; TabDN -&gt; [(Nome,Int)]</code> que apresenta o nome e a idade das pessoas, numa dada data, por ordem crescente da idade das pessoas.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">porIdade</span><span class="o">::</span> <span class="kt">Data</span> <span class="o">-&gt;</span> <span class="kt">TabDN</span> <span class="o">-&gt;</span> <span class="p">[(</span><span class="kt">Nome</span><span class="p">,</span><span class="kt">Int</span><span class="p">)]</span>
+<span class="n">porIdade</span> <span class="kr">_</span> <span class="kt">[]</span> <span class="o">=</span> <span class="kt">[]</span>
+<span class="n">porIdade</span> <span class="p">(</span><span class="kt">D</span> <span class="n">d</span> <span class="n">m</span> <span class="n">a</span><span class="p">)</span> <span class="n">tabela</span> <span class="o">=</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">idade</span><span class="p">)</span> <span class="o">:</span> <span class="n">porIdade</span> <span class="p">(</span><span class="kt">D</span> <span class="n">d</span> <span class="n">m</span> <span class="n">a</span><span class="p">)</span> <span class="n">ts</span>
+    <span class="kr">where</span> <span class="p">((</span><span class="n">n</span><span class="p">,</span><span class="kt">D</span> <span class="n">dx</span> <span class="n">mx</span> <span class="n">ax</span><span class="p">)</span><span class="o">:</span><span class="n">ts</span><span class="p">)</span> <span class="o">=</span> <span class="n">ordena</span> <span class="n">tabela</span>
+          <span class="n">idade</span> <span class="o">=</span> <span class="kr">if</span> <span class="n">m</span> <span class="o">&gt;</span> <span class="n">mx</span> <span class="o">||</span> <span class="n">mx</span> <span class="o">==</span> <span class="n">m</span> <span class="o">&amp;&amp;</span> <span class="n">d</span> <span class="o">&gt;</span> <span class="n">dx</span> <span class="kr">then</span> <span class="n">a</span> <span class="o">-</span> <span class="n">ax</span> <span class="kr">else</span> <span class="p">(</span><span class="n">a</span> <span class="o">-</span> <span class="n">ax</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+</code></pre></div></div>
+
+<h1 id="5-considere-o-seguinte-tipo-de-dados-que-descreve-a-informação-de-um-extracto-bancário-cada-valor-deste-tipo-indica-o-saldo-inicial-e-uma-lista-de-movimentos-cada-movimento-é-representado-por-um-triplo-que-indica-a-data-da-operação-a-sua-descrição-e-a-quantia-movimentada-em-que-os-valores-são-sempre-números-positivos">5) Considere o seguinte tipo de dados que descreve a informação de um extracto bancário. Cada valor deste tipo indica o saldo inicial e uma lista de movimentos. Cada movimento é representado por um triplo que indica a data da operação, a sua descrição e a quantia movimentada (em que os valores são sempre números positivos).</h1>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>data Movimento = Credito Float | Debito Float
+    deriving Show
+
+data Data = D Int Int Int
+    deriving Show
+
+data Extracto = Ext Float [(Data, String, Movimento)]
+    deriving Show
+</code></pre></div></div>
+
+<h2 id="a-construa-a-função-extvalor--extracto---float---movimento-que-produz-uma-lista-de-todos-os-movimentos-créditos-ou-débitos-superiores-a-um-determinado-valor">a) Construa a função <code class="language-plaintext highlighter-rouge">extValor :: Extracto -&gt; Float -&gt; [Movimento]</code> que produz uma lista de todos os movimentos (créditos ou débitos) superiores a um determinado valor.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">extValor</span> <span class="o">::</span> <span class="kt">Extracto</span> <span class="o">-&gt;</span> <span class="kt">Float</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">Movimento</span><span class="p">]</span>
+<span class="n">extValor</span> <span class="p">(</span><span class="kt">Ext</span> <span class="kr">_</span> <span class="kt">[]</span><span class="p">)</span> <span class="kr">_</span> <span class="o">=</span> <span class="kt">[]</span>
+<span class="n">extValor</span> <span class="p">(</span><span class="kt">Ext</span> <span class="n">x</span> <span class="p">((</span><span class="kr">_</span><span class="p">,</span><span class="kr">_</span><span class="p">,</span><span class="n">mov</span><span class="p">)</span><span class="o">:</span><span class="n">ls</span><span class="p">))</span> <span class="n">valor</span> <span class="o">=</span> <span class="kr">if</span> <span class="n">n</span> <span class="o">&gt;=</span> <span class="n">valor</span> <span class="kr">then</span> <span class="n">mov</span> <span class="o">:</span> <span class="n">extValor</span> <span class="p">(</span><span class="kt">Ext</span> <span class="n">x</span> <span class="n">ls</span><span class="p">)</span> <span class="n">valor</span> <span class="kr">else</span> <span class="n">extValor</span> <span class="p">(</span><span class="kt">Ext</span> <span class="n">x</span> <span class="n">ls</span><span class="p">)</span> <span class="n">valor</span>
+    <span class="kr">where</span> <span class="n">n</span> <span class="o">=</span> <span class="kr">case</span> <span class="n">mov</span> <span class="kr">of</span> <span class="kt">Credito</span> <span class="n">x</span> <span class="o">-&gt;</span> <span class="n">x</span>
+                          <span class="kt">Debito</span> <span class="n">x</span> <span class="o">-&gt;</span> <span class="n">x</span>
+</code></pre></div></div>
+
+<h2 id="b-defina-a-função-filtro--extracto---string---datamovimento-que-retorna-informação-relativa-apenas-aos-movimentos-cuja-descrição-esteja-incluída-na-lista-fornecida-no-segundo-parâmetro">b) Defina a função <code class="language-plaintext highlighter-rouge">filtro :: Extracto -&gt; [String] -&gt; [(Data,Movimento)]</code> que retorna informação relativa apenas aos movimentos cuja descrição esteja incluída na lista fornecida no segundo parâmetro.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">filtro</span> <span class="o">::</span> <span class="kt">Extracto</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">String</span><span class="p">]</span> <span class="o">-&gt;</span> <span class="p">[(</span><span class="kt">Data</span><span class="p">,</span><span class="kt">Movimento</span><span class="p">)]</span>
+<span class="n">filtro</span> <span class="p">(</span><span class="kt">Ext</span> <span class="kr">_</span> <span class="kt">[]</span><span class="p">)</span> <span class="kr">_</span> <span class="o">=</span> <span class="kt">[]</span>
+<span class="n">filtro</span> <span class="p">(</span><span class="kt">Ext</span> <span class="n">x</span> <span class="p">((</span><span class="n">dat</span><span class="p">,</span><span class="n">desc</span><span class="p">,</span><span class="n">mov</span><span class="p">)</span><span class="o">:</span><span class="n">ls</span><span class="p">))</span> <span class="n">listaStr</span> <span class="o">=</span> <span class="kr">if</span> <span class="n">desc</span> <span class="p">`</span><span class="n">elem</span><span class="p">`</span> <span class="n">listaStr</span> <span class="kr">then</span> <span class="p">(</span><span class="n">dat</span><span class="p">,</span><span class="n">mov</span><span class="p">)</span> <span class="o">:</span> <span class="n">filtro</span> <span class="p">(</span><span class="kt">Ext</span> <span class="n">x</span> <span class="n">ls</span><span class="p">)</span> <span class="n">listaStr</span> <span class="kr">else</span> <span class="n">filtro</span> <span class="p">(</span><span class="kt">Ext</span> <span class="n">x</span> <span class="n">ls</span><span class="p">)</span> <span class="n">listaStr</span>
+</code></pre></div></div>
+
+<h2 id="c-defina-a-função-credeb--extracto---floatfloat-que-retorna-o-total-de-créditos-e-de-débitos-de-um-extracto-no-primeiro-e-segundo-elementos-de-um-par-respectivamente">c) Defina a função <code class="language-plaintext highlighter-rouge">creDeb :: Extracto -&gt; (Float,Float)</code> que retorna o total de créditos e de débitos de um extracto no primeiro e segundo elementos de um par, respectivamente.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">creDeb</span> <span class="o">::</span> <span class="kt">Extracto</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="kt">Float</span><span class="p">,</span><span class="kt">Float</span><span class="p">)</span>
+<span class="n">creDeb</span> <span class="p">(</span><span class="kt">Ext</span> <span class="kr">_</span> <span class="n">lm</span><span class="p">)</span> <span class="o">=</span> <span class="n">foldl</span> <span class="p">(</span><span class="nf">\</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="n">d</span><span class="p">)</span> <span class="p">(</span><span class="kr">_</span><span class="p">,</span><span class="kr">_</span><span class="p">,</span><span class="n">mov</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kr">case</span> <span class="n">mov</span> <span class="kr">of</span> <span class="kt">Credito</span> <span class="n">x</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="n">c</span> <span class="o">+</span> <span class="n">x</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
+                                                           <span class="kt">Debito</span> <span class="n">x</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">d</span> <span class="o">+</span> <span class="n">x</span><span class="p">))</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="n">lm</span>
+</code></pre></div></div>
+
+<h2 id="a-defina-a-função-saldo--extracto---float-que-devolve-o-saldo-final-que-resulta-da-execução-de-todos-os-movimentos-no-extracto-sobre-o-saldo-inicial">a) Defina a função <code class="language-plaintext highlighter-rouge">saldo :: Extracto -&gt; Float</code> que devolve o saldo final que resulta da execução de todos os movimentos no extracto sobre o saldo inicial.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">saldo</span> <span class="o">::</span> <span class="kt">Extracto</span> <span class="o">-&gt;</span> <span class="kt">Float</span>
+<span class="n">saldo</span> <span class="p">(</span><span class="kt">Ext</span> <span class="n">x</span> <span class="n">lm</span><span class="p">)</span> <span class="o">=</span> <span class="n">foldl</span> <span class="p">(</span><span class="nf">\</span><span class="n">acc</span> <span class="p">(</span><span class="kr">_</span><span class="p">,</span><span class="kr">_</span><span class="p">,</span><span class="n">mov</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kr">case</span> <span class="n">mov</span> <span class="kr">of</span> <span class="kt">Credito</span> <span class="n">n</span> <span class="o">-&gt;</span> <span class="n">acc</span> <span class="o">+</span> <span class="n">n</span>
+                                                        <span class="kt">Debito</span> <span class="n">n</span> <span class="o">-&gt;</span> <span class="n">acc</span> <span class="o">-</span> <span class="n">n</span><span class="p">)</span> <span class="n">x</span> <span class="n">lm</span>
+</code></pre></div></div>
+
+  </div>
+</div>
+      </div>
+      <footer class="bg-dark-gray p-8 lg:px-14 flex flex-col md:flex-row gap-6 justify-between items-center justify-self-end">
+        <p>Made with 💙 by <a href="https://github.com/RisingFisan" target="_blank" rel="noopener noreferrer">RisingFisan</a>.</p>
+        <p class="inline">If you want to support this project, you can <a href="https://paypal.me/sofirs" target="_blank" rel="noopener noreferrer">buy me a coffee <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="paypal" class="w-4 inline" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path fill="currentColor" d="M111.4 295.9c-3.5 19.2-17.4 108.7-21.5 134-.3 1.8-1 2.5-3 2.5H12.3c-7.6 0-13.1-6.6-12.1-13.9L58.8 46.6c1.5-9.6 10.1-16.9 20-16.9 152.3 0 165.1-3.7 204 11.4 60.1 23.3 65.6 79.5 44 140.3-21.5 62.6-72.5 89.5-140.1 90.3-43.4.7-69.5-7-75.3 24.2zM357.1 152c-1.8-1.3-2.5-1.8-3 1.3-2 11.4-5.1 22.5-8.8 33.6-39.9 113.8-150.5 103.9-204.5 103.9-6.1 0-10.1 3.3-10.9 9.4-22.6 140.4-27.1 169.7-27.1 169.7-1 7.1 3.5 12.9 10.6 12.9h63.5c8.6 0 15.7-6.3 17.4-14.9.7-5.4-1.1 6.1 14.4-91.3 4.6-22 14.3-19.7 29.3-19.7 71 0 126.4-28.8 142.9-112.3 6.5-34.8 4.6-71.4-23.8-92.6z"></path></svg></a>! 😁☕</p>
+      </footer>
+    </div>
+  </body>
+</html>

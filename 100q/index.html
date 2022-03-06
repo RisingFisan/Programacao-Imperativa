@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta property="og:title" content="Programação Imperativa">
+    <meta property="og:description" content="Resolução de exercícios, fichas e testes.">
+    <meta property="og:image" content="./C-Logo.png">
+    <meta property="og:image:secure_url" content="./C-Logo.png">
+    <title>
+      
+       
+        100 Questões |
+       Programação Imperativa</title>
+    <link rel="stylesheet" href="/Programacao-Imperativa/assets/css/main.css">
+    <link rel="shortcut icon" href="/Programacao-Imperativa/favicon.ico" >
+    <script type="text/javascript">
+
+      // Wait for the page to load first
+      window.onload = function() {
+
+        //Get a reference to the link on the page
+        // with an id of "mylink"
+        var a = document.getElementById("code-overlay");
+        a.style.display = "flex";
+
+        //Set code to run when the link is clicked
+        // by assigning a function to "onclick"
+        a.onclick = function() {
+
+          // Your code here...
+          a.remove();
+
+          //If you don't want the link to actually 
+          // redirect the browser to another page,
+          // then return false at the end of this block.
+          // Note that this also prevents event bubbling,
+          // which is probably what we want here, but won't 
+          // always be the case.
+          return false;
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="bg-darker-gray w-full min-h-screen text-white flex flex-col">
+      <header class="bg-dark-gray p-8 lg:px-14 flex flex-col md:flex-row gap-6 justify-between items-center">
+        <div class="flex flex-col items-center sm:flex-row sm:items-start gap-5 sm:gap-10">
+          <a href=/Programacao-Imperativa/ class="flex-none">
+            <img src=/Programacao-Imperativa/C-Logo.png class="relative h-16 top-2 md:items-center">
+          </a>
+          <div class="space-y-2 text-center sm:text-left">
+            <p class="text-4xl font-bold">Programação Imperativa</p>
+            <p class="text-lg font-light">Resolução de exercícios, fichas e testes.</p>
+          </div>
+        </div>
+        
+          <!--
+          <div class="flex gap-3 md:gap-6 justify-end items-center flex-col lg:flex-row w-full md:w-auto">
+            <a href=/Programacao-Imperativa/50q/index.html class="bg-blue-800 hover:bg-blue-600 p-5 w-full sm:w-1/2 md:w-36 flex justify-center items-center rounded-xl">
+              <p class="uppercase font-bold">50 Questões</p>
+            </a>
+            <a href=/Programacao-Imperativa/fichas/index.html class="bg-blue-800 hover:bg-blue-600 p-5 w-full sm:w-1/2 md:w-36 flex justify-center items-center rounded-xl">
+              <p class="uppercase font-bold">Fichas</p>
+            </a>
+          </div>
+          -->
+          <a href="../" class="bg-blue-800 hover:bg-blue-600 p-5 w-full sm:w-1/2 md:w-36 flex justify-center items-center rounded-xl">
+            <p class="uppercase font-bold">ᐸ Voltar</p>
+          </a>
+        
+      </header>
+      <div class="px-3 py-10 sm:p-20 flex-grow">
+      <div class="flex flex-col items-center gap-12">
+  <div class="text-center space-y-3">
+    <h1 class="text-4xl">100 Questões</h1>
+    <h2 class="font-light">As explicações para cada questão assumem que as anteriores foram lidas, por isso recomendo começar pela primeira questão.</h2>
+  </div>
+  <div class="bg-light-gray shadow-lg p-6 rounded-2xl">
+    <h3 class="font-bold uppercase text-center w-full mb-5 text-2xl">1ª Parte</h3>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 3xl:grid-cols-5 gap-5">
+      
+      <a href="1" title="maior" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>1: maior</p>
+      </a>
+      
+      <a href="2" title="media" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>2: media</p>
+      </a>
+      
+      <a href="3" title="segundoMaior" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>3: segundoMaior</p>
+      </a>
+      
+      <a href="4" title="bitsUm" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>4: bitsUm</p>
+      </a>
+      
+      <a href="5" title="trailingZ" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>5: trailingZ</p>
+      </a>
+      
+      <a href="6" title="qDig" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>6: qDig</p>
+      </a>
+      
+      <a href="7" title="strcat" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>7: strcat</p>
+      </a>
+      
+      <a href="8" title="strcpy" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>8: strcpy</p>
+      </a>
+      
+      <a href="9" title="strcmp" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>9: strcmp</p>
+      </a>
+      
+      <a href="10" title="strstr" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>10: strstr</p>
+      </a>
+      
+      <a href="11" title="strrev" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>11: strrev</p>
+      </a>
+      
+      <a href="12" title="strnoV" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>12: strnoV</p>
+      </a>
+      
+      <a href="13" title="truncW" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>13: truncW</p>
+      </a>
+      
+      <a href="14" title="charMaisFreq" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>14: charMaisFreq</p>
+      </a>
+      
+      <a href="15" title="iguaisConsecutivos" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>15: iguaisConsecutivos</p>
+      </a>
+      
+      <a href="16" title="difConsecutivos" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>16: difConsecutivos</p>
+      </a>
+      
+      <a href="17" title="maiorPrefixo" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>17: maiorPrefixo</p>
+      </a>
+      
+      <a href="18" title="maiorSufixo" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>18: maiorSufixo</p>
+      </a>
+      
+      <a href="19" title="sufPref" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>19: sufPref</p>
+      </a>
+      
+      <a href="20" title="contaPal" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>20: contaPal</p>
+      </a>
+      
+      <a href="21" title="contaVogais" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>21: contaVogais</p>
+      </a>
+      
+      <a href="22" title="contida" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>22: contida</p>
+      </a>
+      
+      <a href="23" title="palindrome" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>23: palindrome</p>
+      </a>
+      
+      <a href="24" title="remRep" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>24: remRep</p>
+      </a>
+      
+      <a href="25" title="limpaEspacos" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>25: limpaEspacos</p>
+      </a>
+      
+      <a href="26" title="insere" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>26: insere</p>
+      </a>
+      
+      <a href="27" title="merge" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>27: merge</p>
+      </a>
+      
+      <a href="28" title="crescente" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>28: crescente</p>
+      </a>
+      
+      <a href="29" title="retiraNeg" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>29: retiraNeg</p>
+      </a>
+      
+      <a href="30" title="menosFreq" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>30: menosFreq</p>
+      </a>
+      
+      <a href="31" title="maisFreq" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>31: maisFreq</p>
+      </a>
+      
+      <a href="32" title="maxCresc" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>32: maxCresc</p>
+      </a>
+      
+      <a href="33" title="elimRep" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>33: elimRep</p>
+      </a>
+      
+      <a href="34" title="elimRepOrd" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>34: elimRepOrd</p>
+      </a>
+      
+      <a href="35" title="comunsOrd" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>35: comunsOrd</p>
+      </a>
+      
+      <a href="36" title="comuns" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>36: comuns</p>
+      </a>
+      
+      <a href="37" title="minInd" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>37: minInd</p>
+      </a>
+      
+      <a href="38" title="somasAc" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>38: somasAc</p>
+      </a>
+      
+      <a href="39" title="triSup" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>39: triSup</p>
+      </a>
+      
+      <a href="40" title="transposta" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>40: transposta</p>
+      </a>
+      
+      <a href="41" title="addTo" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>41: addTo</p>
+      </a>
+      
+      <a href="42" title="unionSet" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>42: unionSet</p>
+      </a>
+      
+      <a href="43" title="intersectSet" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>43: intersectSet</p>
+      </a>
+      
+      <a href="44" title="intersectMSet" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>44: intersectMSet</p>
+      </a>
+      
+      <a href="45" title="unionMSet" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>45: unionMSet</p>
+      </a>
+      
+      <a href="46" title="cardinalMSet" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>46: cardinalMSet</p>
+      </a>
+      
+      <a href="47" title="posFinal" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>47: posFinal</p>
+      </a>
+      
+      <a href="48" title="caminho" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>48: caminho</p>
+      </a>
+      
+      <a href="49" title="maisCentral" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>49: maisCentral</p>
+      </a>
+      
+      <a href="50" title="vizinhos" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>50: vizinhos</p>
+      </a>
+      
+    </div>
+    <div class="w-full my-8 h-1 bg-lighter-gray"></div>
+    <h3 class="font-bold uppercase text-center w-full mb-5 text-2xl">2ª Parte</h3>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 3xl:grid-cols-5 gap-5">
+      
+      
+      <a href="51" title="length" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>1: length</p>
+      </a>
+      
+      
+      <a href="52" title="freeL" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>2: freeL</p>
+      </a>
+      
+      
+      <a href="53" title="imprimeL" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>3: imprimeL</p>
+      </a>
+      
+      
+      <a href="54" title="reverseL" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>4: reverseL</p>
+      </a>
+      
+      
+      <a href="55" title="insertOrd" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>5: insertOrd</p>
+      </a>
+      
+      
+      <a href="56" title="removeOneOrd" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>6: removeOneOrd</p>
+      </a>
+      
+      
+      <a href="57" title="merge" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>7: merge</p>
+      </a>
+      
+      
+      <a href="58" title="splitQS" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>8: splitQS</p>
+      </a>
+      
+      
+      <a href="59" title="parteAmeio" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>9: parteAmeio</p>
+      </a>
+      
+      
+      <a href="60" title="removeAll" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>10: removeAll</p>
+      </a>
+      
+      
+      <a href="61" title="removeDups" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>11: removeDups</p>
+      </a>
+      
+      
+      <a href="62" title="removeMaiorL" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>12: removeMaiorL</p>
+      </a>
+      
+      
+      <a href="63" title="init" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>13: init</p>
+      </a>
+      
+      
+      <a href="64" title="appendL" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>14: appendL</p>
+      </a>
+      
+      
+      <a href="65" title="concatL" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>15: concatL</p>
+      </a>
+      
+      
+      <a href="66" title="imprimeL" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>16: imprimeL</p>
+      </a>
+      
+      
+      <a href="67" title="cloneRev" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>17: cloneRev</p>
+      </a>
+      
+      
+      <a href="68" title="maximo" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>18: maximo</p>
+      </a>
+      
+      
+      <a href="69" title="take" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>19: take</p>
+      </a>
+      
+      
+      <a href="70" title="drop" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>20: drop</p>
+      </a>
+      
+      
+      <a href="71" title="Nforward" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>21: Nforward</p>
+      </a>
+      
+      
+      <a href="72" title="listToArray" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>22: listToArray</p>
+      </a>
+      
+      
+      <a href="73" title="arrayToList" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>23: arrayToList</p>
+      </a>
+      
+      
+      <a href="74" title="somasAcL" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>24: somasAcL</p>
+      </a>
+      
+      
+      <a href="75" title="remreps" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>25: remreps</p>
+      </a>
+      
+      
+      <a href="76" title="rotateL" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>26: rotateL</p>
+      </a>
+      
+      
+      <a href="77" title="parte" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>27: parte</p>
+      </a>
+      
+      
+      <a href="78" title="altura" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>28: altura</p>
+      </a>
+      
+      
+      <a href="79" title="cloneAB" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>29: cloneAB</p>
+      </a>
+      
+      
+      <a href="80" title="mirror" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>30: mirror</p>
+      </a>
+      
+      
+      <a href="81" title="inorder" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>31: inorder</p>
+      </a>
+      
+      
+      <a href="82" title="preorder" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>32: preorder</p>
+      </a>
+      
+      
+      <a href="83" title="posorder" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>33: posorder</p>
+      </a>
+      
+      
+      <a href="84" title="depth" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>34: depth</p>
+      </a>
+      
+      
+      <a href="85" title="freeAB" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>35: freeAB</p>
+      </a>
+      
+      
+      <a href="86" title="pruneAB" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>36: pruneAB</p>
+      </a>
+      
+      
+      <a href="87" title="iguaisAB" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>37: iguaisAB</p>
+      </a>
+      
+      
+      <a href="88" title="nivelL" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>38: nivelL</p>
+      </a>
+      
+      
+      <a href="89" title="nivelV" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>39: nivelV</p>
+      </a>
+      
+      
+      <a href="90" title="dumpAbin" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>40: dumpAbin</p>
+      </a>
+      
+      
+      <a href="91" title="somasAcA" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>41: somasAcA</p>
+      </a>
+      
+      
+      <a href="92" title="contaFolhas" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>42: contaFolhas</p>
+      </a>
+      
+      
+      <a href="93" title="cloneMirror" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>43: cloneMirror</p>
+      </a>
+      
+      
+      <a href="94" title="addOrd" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>44: addOrd</p>
+      </a>
+      
+      
+      <a href="95" title="lookupAB" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>45: lookupAB</p>
+      </a>
+      
+      
+      <a href="96" title="depthOrd" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>46: depthOrd</p>
+      </a>
+      
+      
+      <a href="97" title="maiorAB" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>47: maiorAB</p>
+      </a>
+      
+      
+      <a href="98" title="removeMaiorA" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>48: removeMaiorA</p>
+      </a>
+      
+      
+      <a href="99" title="quantosMaiores" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>49: quantosMaiores</p>
+      </a>
+      
+      
+      <a href="100" title="listToBTree" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+        <p>50: listToBTree</p>
+      </a>
+      
+      <div class="relative">
+        <a href="101" title="deProcura" class="text-2xl md:text-xl xl:text-2xl bg-lighter-gray hover:bg-blue-600 shadow-md flex justify-start items-center px-5 py-3 rounded-full">
+          <p>51: deProcura</p>
+        </a>
+        <span class="popup absolute top-0 left-0 w-full bg-lighter-gray border-2 border-gray-300 rounded-xl p-3">Sim, eu sei, deviam ser 100 questões e aparecem 101, mas a culpa não é minha, os professores é que meteram 51 questões na 2ª ficha, por isso vão implicar com eles, não comigo 😢</span>
+      </div>
+    </div>
+  </div>
+  <!-- <div>
+    <a href="old/" class="p-5 bg-blue-800 hover:bg-blue-600 flex justify-center items-center rounded-xl">
+      <p>Questões de anos anteriores</p>
+    </a>
+  </div> -->
+</div>
+      </div>
+      <footer class="bg-dark-gray p-8 lg:px-14 flex flex-col md:flex-row gap-6 justify-between items-center justify-self-end">
+        <p>Made with 💙 by <a href="https://github.com/RisingFisan" target="_blank" rel="noopener noreferrer">RisingFisan</a>.</p>
+        <p class="inline">If you want to support this project, you can <a href="https://paypal.me/sofirs" target="_blank" rel="noopener noreferrer">buy me a coffee <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="paypal" class="w-4 inline" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path fill="currentColor" d="M111.4 295.9c-3.5 19.2-17.4 108.7-21.5 134-.3 1.8-1 2.5-3 2.5H12.3c-7.6 0-13.1-6.6-12.1-13.9L58.8 46.6c1.5-9.6 10.1-16.9 20-16.9 152.3 0 165.1-3.7 204 11.4 60.1 23.3 65.6 79.5 44 140.3-21.5 62.6-72.5 89.5-140.1 90.3-43.4.7-69.5-7-75.3 24.2zM357.1 152c-1.8-1.3-2.5-1.8-3 1.3-2 11.4-5.1 22.5-8.8 33.6-39.9 113.8-150.5 103.9-204.5 103.9-6.1 0-10.1 3.3-10.9 9.4-22.6 140.4-27.1 169.7-27.1 169.7-1 7.1 3.5 12.9 10.6 12.9h63.5c8.6 0 15.7-6.3 17.4-14.9.7-5.4-1.1 6.1 14.4-91.3 4.6-22 14.3-19.7 29.3-19.7 71 0 126.4-28.8 142.9-112.3 6.5-34.8 4.6-71.4-23.8-92.6z"></path></svg></a>! 😁☕</p>
+      </footer>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta property="og:title" content="Programação Imperativa">
+    <meta property="og:description" content="Resolução de exercícios, fichas e testes.">
+    <meta property="og:image" content="./C-Logo.png">
+    <meta property="og:image:secure_url" content="./C-Logo.png">
+    <title>
+      
+       
+        Ficha 1 |
+       Programação Imperativa</title>
+    <link rel="stylesheet" href="/Programacao-Imperativa/assets/css/main.css">
+    <link rel="shortcut icon" href="/Programacao-Imperativa/favicon.ico" >
+    <script type="text/javascript">
+
+      // Wait for the page to load first
+      window.onload = function() {
+
+        //Get a reference to the link on the page
+        // with an id of "mylink"
+        var a = document.getElementById("code-overlay");
+        a.style.display = "flex";
+
+        //Set code to run when the link is clicked
+        // by assigning a function to "onclick"
+        a.onclick = function() {
+
+          // Your code here...
+          a.remove();
+
+          //If you don't want the link to actually 
+          // redirect the browser to another page,
+          // then return false at the end of this block.
+          // Note that this also prevents event bubbling,
+          // which is probably what we want here, but won't 
+          // always be the case.
+          return false;
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="bg-darker-gray w-full min-h-screen text-white flex flex-col">
+      <header class="bg-dark-gray p-8 lg:px-14 flex flex-col md:flex-row gap-6 justify-between items-center">
+        <div class="flex flex-col items-center sm:flex-row sm:items-start gap-5 sm:gap-10">
+          <a href=/Programacao-Imperativa/ class="flex-none">
+            <img src=/Programacao-Imperativa/C-Logo.png class="relative h-16 top-2 md:items-center">
+          </a>
+          <div class="space-y-2 text-center sm:text-left">
+            <p class="text-4xl font-bold">Programação Imperativa</p>
+            <p class="text-lg font-light">Resolução de exercícios, fichas e testes.</p>
+          </div>
+        </div>
+        
+          <!--
+          <div class="flex gap-3 md:gap-6 justify-end items-center flex-col lg:flex-row w-full md:w-auto">
+            <a href=/Programacao-Imperativa/50q/index.html class="bg-blue-800 hover:bg-blue-600 p-5 w-full sm:w-1/2 md:w-36 flex justify-center items-center rounded-xl">
+              <p class="uppercase font-bold">50 Questões</p>
+            </a>
+            <a href=/Programacao-Imperativa/fichas/index.html class="bg-blue-800 hover:bg-blue-600 p-5 w-full sm:w-1/2 md:w-36 flex justify-center items-center rounded-xl">
+              <p class="uppercase font-bold">Fichas</p>
+            </a>
+          </div>
+          -->
+          <a href="../" class="bg-blue-800 hover:bg-blue-600 p-5 w-full sm:w-1/2 md:w-36 flex justify-center items-center rounded-xl">
+            <p class="uppercase font-bold">ᐸ Voltar</p>
+          </a>
+        
+      </header>
+      <div class="px-3 py-10 sm:p-20 flex-grow">
+      
+
+<div class="flex flex-col gap-3">
+  <div class="flex justify-between flex-col md:flex-row items-center gap-8 md:items-start">
+    <div class="md:w-2/3 xl:w-1/2 px-5 space-y-2 self-start">
+      <h1 class="text-2xl md:text-3xl xl:text-4xl font-bold">
+        Ficha : 
+      </h1>
+    </div>
+    <div class="flex gap-5">
+       
+        
+        
+        <a href=/Programacao-Imperativa/fichas/-1 class="flex flex-col justify-center items-center w-24 h-24 rounded-full bg-purple-800 hover:bg-purple-600">
+          <p class="text-2xl font-bold"><</p>
+          <p>Anterior</p>
+        </a>
+      
+      
+        
+        
+        <a href=/Programacao-Imperativa/fichas/1 class="flex flex-col justify-center items-center w-24 h-24 rounded-full bg-purple-800 hover:bg-purple-600">
+          <p class="text-2xl font-bold">></p>
+          <p>Seguinte</p>
+        </a>
+      
+    </div>
+  </div>
+  <div class="md:px-20" id="resolution">
+    
+    <h1 id="1-usando-as-seguintes-funções-pré-definidas-do-haskell">1) Usando as seguintes funções pré-definidas do Haskell:</h1>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">length l</code>: o número de elementos da lista <code class="language-plaintext highlighter-rouge">l</code></li>
+  <li><code class="language-plaintext highlighter-rouge">head l</code>: a cabeça da lista (não vazia) <code class="language-plaintext highlighter-rouge">l</code></li>
+  <li><code class="language-plaintext highlighter-rouge">tail l</code>: a cauda da lista (não vazia) <code class="language-plaintext highlighter-rouge">l</code></li>
+  <li><code class="language-plaintext highlighter-rouge">last l</code>: o último elemento da lista (não vazia) <code class="language-plaintext highlighter-rouge">l</code></li>
+  <li><code class="language-plaintext highlighter-rouge">sqrt x</code>: a raiz quadrada de <code class="language-plaintext highlighter-rouge">x</code></li>
+  <li><code class="language-plaintext highlighter-rouge">div x y</code>: a divisão inteira de <code class="language-plaintext highlighter-rouge">x</code> por <code class="language-plaintext highlighter-rouge">y</code></li>
+  <li><code class="language-plaintext highlighter-rouge">mod x y</code>: o resto da divisão inteira de <code class="language-plaintext highlighter-rouge">x</code> por <code class="language-plaintext highlighter-rouge">y</code></li>
+</ul>
+
+<h1 id="defina-as-seguintes-funções-e-os-respetivos-tipos">Defina as seguintes funções e os respetivos tipos:</h1>
+
+<h2 id="a-perimetro---que-calcula-o-perímetro-de-uma-circunferência-dado-o-comprimento-do-seu-raio">a) <code class="language-plaintext highlighter-rouge">perimetro</code> - que calcula o perímetro de uma circunferência, dado o comprimento do seu raio.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">perimetro</span> <span class="o">::</span> <span class="kt">Double</span> <span class="o">-&gt;</span> <span class="kt">Double</span>
+<span class="n">perimetro</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">pi</span> <span class="o">*</span> <span class="n">x</span>
+</code></pre></div></div>
+
+<h2 id="b-dist---que-calcula-a-distância-entre-dois-pontos-no-plano-cartesiano-cada-ponto-é-um-par-de-valores-do-tipo-double">b) <code class="language-plaintext highlighter-rouge">dist</code> - que calcula a distância entre dois pontos no plano Cartesiano. Cada ponto é um par de valores do tipo <code class="language-plaintext highlighter-rouge">Double</code>.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">dist</span> <span class="o">::</span> <span class="p">(</span><span class="kt">Double</span><span class="p">,</span> <span class="kt">Double</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="kt">Double</span><span class="p">,</span> <span class="kt">Double</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Double</span>
+<span class="n">dist</span> <span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">)</span> <span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">)</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">dx</span> <span class="o">^</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">dy</span> <span class="o">^</span> <span class="mi">2</span><span class="p">)</span> 
+    <span class="kr">where</span> <span class="n">dx</span> <span class="o">=</span> <span class="n">x1</span> <span class="o">-</span> <span class="n">x2</span>
+          <span class="n">dy</span> <span class="o">=</span> <span class="n">y1</span> <span class="o">-</span> <span class="n">y2</span>
+</code></pre></div></div>
+
+<h2 id="c-primult---que-recebe-uma-lista-e-devolve-um-par-com-o-primeiro-e-o-último-elemento-dessa-lista">c) <code class="language-plaintext highlighter-rouge">primUlt</code> - que recebe uma lista e devolve um par com o primeiro e o último elemento dessa lista.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">primUlt</span> <span class="o">::</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+<span class="n">primUlt</span> <span class="n">l</span> <span class="o">=</span> <span class="p">(</span><span class="n">head</span> <span class="n">l</span><span class="p">,</span> <span class="n">last</span> <span class="n">l</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="d-multiplo---tal-que-multiplo-m-n-testa-se-o-número-inteiro-m-é-múltiplo-de-n">d) <code class="language-plaintext highlighter-rouge">multiplo</code> - tal que <code class="language-plaintext highlighter-rouge">multiplo m n</code> testa se o número inteiro <code class="language-plaintext highlighter-rouge">m</code> é múltiplo de <code class="language-plaintext highlighter-rouge">n</code>.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">multiplo</span> <span class="o">::</span> <span class="kt">Int</span> <span class="o">-&gt;</span> <span class="kt">Int</span> <span class="o">-&gt;</span> <span class="kt">Bool</span>
+<span class="n">multiplo</span> <span class="n">x</span> <span class="n">y</span> <span class="o">=</span> <span class="n">mod</span> <span class="n">x</span> <span class="n">y</span> <span class="o">==</span> <span class="mi">0</span>
+</code></pre></div></div>
+
+<h2 id="e-truncaimpar--que-recebe-uma-lista-e-se-o-comprimento-da-lista-for-ímpar-retira-lhe-o-primeiro-elemento-caso-contrário-devolve-a-própria-lista">e) <code class="language-plaintext highlighter-rouge">truncaImpar</code> – que recebe uma lista e, se o comprimento da lista for ímpar, retira-lhe o primeiro elemento, caso contrário devolve a própria lista.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">truncaImpar</span> <span class="o">::</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span>
+<span class="n">truncaImpar</span> <span class="n">l</span> <span class="o">=</span> <span class="kr">if</span> <span class="n">even</span> <span class="p">(</span><span class="n">length</span> <span class="n">l</span><span class="p">)</span> <span class="kr">then</span> <span class="n">l</span> <span class="kr">else</span> <span class="n">tail</span> <span class="n">l</span> 
+</code></pre></div></div>
+
+<h2 id="f-max2--que-calcula-o-maior-de-dois-números-inteiros">f) <code class="language-plaintext highlighter-rouge">max2</code> – que calcula o maior de dois números inteiros.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">max2</span> <span class="o">::</span> <span class="kt">Ord</span> <span class="n">p</span> <span class="o">=&gt;</span> <span class="n">p</span> <span class="o">-&gt;</span> <span class="n">p</span> <span class="o">-&gt;</span> <span class="n">p</span>
+<span class="n">max2</span> <span class="n">x</span> <span class="n">y</span> <span class="o">=</span> <span class="kr">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="n">y</span> <span class="kr">then</span> <span class="n">x</span> <span class="kr">else</span> <span class="n">y</span>
+</code></pre></div></div>
+
+<h2 id="g-max3--que-calcula-o-maior-de-três-números-inteiros-usando-a-função-max2">g) <code class="language-plaintext highlighter-rouge">max3</code> – que calcula o maior de três números inteiros, usando a função <code class="language-plaintext highlighter-rouge">max2</code>.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">max3</span> <span class="o">::</span> <span class="kt">Ord</span> <span class="n">p</span> <span class="o">=&gt;</span> <span class="n">p</span> <span class="o">-&gt;</span> <span class="n">p</span> <span class="o">-&gt;</span> <span class="n">p</span> <span class="o">-&gt;</span> <span class="n">p</span>
+<span class="n">max3</span> <span class="n">x</span> <span class="n">y</span> <span class="n">z</span> <span class="o">=</span> <span class="n">max2</span> <span class="p">(</span><span class="n">max2</span> <span class="n">x</span> <span class="n">y</span><span class="p">)</span> <span class="n">z</span>
+</code></pre></div></div>
+
+<h1 id="2-defina-as-seguintes-funções-sobre-polinómios-de-2º-grau">2) Defina as seguintes funções sobre polinómios de 2º grau:</h1>
+
+<h2 id="a-a-função-nraizes-que-recebe-os-3-coeficientes-de-um-polinómio-de-2º-grau-e-que-calcula-o-número-de-raízes-reais-desse-polinómio">a) A função nRaizes que recebe os (3) coeficientes de um polinómio de 2º grau e que calcula o número de raízes (reais) desse polinómio.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">nRaizes</span> <span class="o">::</span> <span class="kt">Double</span> <span class="o">-&gt;</span> <span class="kt">Double</span> <span class="o">-&gt;</span> <span class="kt">Double</span> <span class="o">-&gt;</span> <span class="kt">Int</span>
+<span class="n">nRaizes</span> <span class="n">a</span> <span class="n">b</span> <span class="n">c</span> 
+    <span class="o">|</span> <span class="n">delta</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">=</span> <span class="mi">2</span> 
+    <span class="o">|</span> <span class="n">delta</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="o">|</span> <span class="n">delta</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">=</span> <span class="mi">0</span> 
+    <span class="kr">where</span> <span class="n">delta</span> <span class="o">=</span> <span class="n">b</span><span class="o">^</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">4</span><span class="o">*</span><span class="n">a</span><span class="o">*</span><span class="n">c</span>
+</code></pre></div></div>
+
+<h2 id="b-a-função-raizes-que-usando-a-função-anterior-recebe-os-coeficientes-do-polinómio-e-calcula-a-lista-das-suas-raízes-reais">b) A função raizes que, usando a função anterior, recebe os coeficientes do polinómio e calcula a lista das suas raízes reais.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">raizes</span> <span class="o">::</span> <span class="kt">Double</span> <span class="o">-&gt;</span> <span class="kt">Double</span> <span class="o">-&gt;</span> <span class="kt">Double</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">Double</span><span class="p">]</span>
+<span class="n">raizes</span> <span class="n">a</span> <span class="n">b</span> <span class="n">c</span> 
+    <span class="o">|</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">2</span> <span class="o">=</span> <span class="p">[</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">]</span> 
+    <span class="o">|</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span> <span class="o">=</span> <span class="p">[</span><span class="n">x1</span><span class="p">]</span> <span class="c1">-- Neste caso x1 e x2 são iguais, por isso podemos devolver apenas um dos valores</span>
+    <span class="o">|</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">=</span> <span class="kt">[]</span> 
+    <span class="kr">where</span> <span class="n">n</span> <span class="o">=</span> <span class="n">nRaizes</span> <span class="n">a</span> <span class="n">b</span> <span class="n">c</span>
+          <span class="n">delta</span> <span class="o">=</span> <span class="n">b</span><span class="o">^</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">4</span><span class="o">*</span><span class="n">a</span><span class="o">*</span><span class="n">c</span>
+          <span class="p">(</span><span class="n">x1</span><span class="p">,</span><span class="n">x2</span><span class="p">)</span> <span class="o">=</span> <span class="p">(((</span><span class="o">-</span><span class="n">b</span><span class="p">)</span> <span class="o">+</span> <span class="n">sqrt</span> <span class="n">delta</span><span class="p">)</span><span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">a</span><span class="p">),</span> <span class="p">((</span><span class="o">-</span><span class="n">b</span><span class="p">)</span> <span class="o">-</span> <span class="n">sqrt</span> <span class="n">delta</span><span class="p">)</span><span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">a</span><span class="p">))</span>
+</code></pre></div></div>
+
+<h1 id="3-vamos-representar-horas-por-um-par-de-números-inteiros">3) Vamos representar horas por um par de números inteiros:</h1>
+
+<h1 id="type-hora--intint"><code class="language-plaintext highlighter-rouge">type Hora = (Int,Int)</code></h1>
+
+<h1 id="assim-o-par-015-significa-meia-noite-e-um-quarto-e-1345-duas-menos-um-quarto-defina-funções-para">Assim o par <code class="language-plaintext highlighter-rouge">(0,15)</code> significa <em>meia noite e um quarto</em> e <code class="language-plaintext highlighter-rouge">(13,45)</code> <em>duas menos um quarto</em>. Defina funções para:</h1>
+
+<h2 id="a-testar-se-um-par-de-inteiros-representa-uma-hora-do-dia-válida">a) testar se um par de inteiros representa uma hora do dia válida;</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">horaValida</span> <span class="o">::</span> <span class="kt">Hora</span> <span class="o">-&gt;</span> <span class="kt">Bool</span>
+<span class="n">horaValida</span> <span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">m</span><span class="p">)</span> <span class="o">=</span> <span class="n">elem</span> <span class="n">h</span> <span class="p">[</span><span class="mi">0</span><span class="o">..</span><span class="mi">23</span><span class="p">]</span> <span class="o">&amp;&amp;</span> <span class="n">elem</span> <span class="n">m</span> <span class="p">[</span><span class="mi">0</span><span class="o">..</span><span class="mi">59</span><span class="p">]</span>
+</code></pre></div></div>
+
+<h2 id="b-testar-se-uma-hora-é-ou-não-depois-de-outra-comparação">b) testar se uma hora é ou não depois de outra (comparação);</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">horaDepois</span> <span class="o">::</span> <span class="kt">Hora</span> <span class="o">-&gt;</span> <span class="kt">Hora</span> <span class="o">-&gt;</span> <span class="kt">Bool</span>
+<span class="n">horaDepois</span> <span class="p">(</span><span class="n">h1</span><span class="p">,</span> <span class="n">m1</span><span class="p">)</span> <span class="p">(</span><span class="n">h2</span><span class="p">,</span> <span class="n">m2</span><span class="p">)</span> <span class="o">=</span> <span class="n">h1</span> <span class="o">&gt;</span> <span class="n">h2</span> <span class="o">||</span> <span class="p">(</span><span class="n">h1</span> <span class="o">==</span> <span class="n">h2</span> <span class="o">&amp;&amp;</span> <span class="n">m1</span> <span class="o">&gt;</span> <span class="n">m2</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="c-converter-um-valor-em-horas-par-de-inteiros-para-minutos-inteiro">c) converter um valor em horas (par de inteiros) para minutos (inteiro);</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">hour2min</span> <span class="o">::</span> <span class="kt">Hora</span> <span class="o">-&gt;</span> <span class="kt">Int</span>
+<span class="n">hour2min</span> <span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">m</span><span class="p">)</span> <span class="o">=</span> <span class="mi">60</span> <span class="o">*</span> <span class="n">h</span> <span class="o">+</span> <span class="n">m</span>
+</code></pre></div></div>
+
+<h2 id="d-converter-um-valor-em-minutos-para-horas">d) converter um valor em minutos para horas;</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">min2hour</span> <span class="o">::</span> <span class="kt">Int</span> <span class="o">-&gt;</span> <span class="kt">Hora</span>
+<span class="n">min2hour</span> <span class="n">min</span> <span class="o">=</span> <span class="p">(</span><span class="n">div</span> <span class="n">min</span> <span class="mi">60</span><span class="p">,</span> <span class="n">mod</span> <span class="n">min</span> <span class="mi">60</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="e-calcular-a-diferença-entre-duas-horas-cujo-resultado-deve-ser-o-número-de-minutos">e) calcular a diferença entre duas horas (cujo resultado deve ser o número de minutos);</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">hourDiff</span> <span class="o">::</span> <span class="kt">Hora</span> <span class="o">-&gt;</span> <span class="kt">Hora</span> <span class="o">-&gt;</span> <span class="kt">Int</span>
+<span class="n">hourDiff</span> <span class="n">h1</span> <span class="n">h2</span> <span class="o">=</span> <span class="n">abs</span> <span class="p">(</span><span class="n">hour2min</span> <span class="n">h1</span> <span class="o">-</span> <span class="n">hour2min</span> <span class="n">h2</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="f-adicionar-um-determinado-número-de-minutos-a-uma-dada-hora">f) adicionar um determinado número de minutos a uma dada hora;</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">addMins</span> <span class="o">::</span> <span class="kt">Hora</span> <span class="o">-&gt;</span> <span class="kt">Int</span> <span class="o">-&gt;</span> <span class="kt">Hora</span>
+<span class="n">addMins</span> <span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">m</span><span class="p">)</span> <span class="n">min</span> <span class="o">=</span> <span class="n">min2hour</span> <span class="p">(</span><span class="n">hour2min</span> <span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">m</span><span class="p">)</span> <span class="o">+</span> <span class="n">min</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h1 id="4-repita-o-exercício-anterior-assumindo-agora-que-as-horas-são-representadas-por-um-novo-tipo-de-dados">4) Repita o exercício anterior assumindo agora que as horas são representadas por um novo tipo de dados:</h1>
+
+<h1 id="data-hora--h-int-int-deriving-showeq"><code class="language-plaintext highlighter-rouge">data Hora = H Int Int deriving (Show,Eq)</code></h1>
+
+<h1 id="com-este-novo-tipo-a-hora-meia-noite-e-um-quarto-é-representada-por-h-0-15-e-a-hora-duas-menos-um-quarto-por-h-13-45">Com este novo tipo a hora <em>meia noite e um quarto</em> é representada por <code class="language-plaintext highlighter-rouge">H 0 15</code> e a hora <em>duas menos um quarto</em> por <code class="language-plaintext highlighter-rouge">H 13 45</code>.</h1>
+
+<h2 id="a-testar-se-um-par-de-inteiros-representa-uma-hora-do-dia-válida-1">a) testar se um par de inteiros representa uma hora do dia válida;</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">horaValida</span> <span class="o">::</span> <span class="kt">Hora</span> <span class="o">-&gt;</span> <span class="kt">Bool</span>
+<span class="n">horaValida</span> <span class="p">(</span><span class="kt">H</span> <span class="n">h</span> <span class="n">m</span><span class="p">)</span> <span class="o">=</span> <span class="n">elem</span> <span class="n">h</span> <span class="p">[</span><span class="mi">0</span><span class="o">..</span><span class="mi">23</span><span class="p">]</span> <span class="o">&amp;&amp;</span> <span class="n">elem</span> <span class="n">m</span> <span class="p">[</span><span class="mi">0</span><span class="o">..</span><span class="mi">59</span><span class="p">]</span>
+</code></pre></div></div>
+
+<h2 id="b-testar-se-uma-hora-é-ou-não-depois-de-outra-comparação-1">b) testar se uma hora é ou não depois de outra (comparação);</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">horaDepois</span> <span class="o">::</span> <span class="kt">Hora</span> <span class="o">-&gt;</span> <span class="kt">Hora</span> <span class="o">-&gt;</span> <span class="kt">Bool</span>
+<span class="n">horaDepois</span> <span class="p">(</span><span class="kt">H</span> <span class="n">h1</span> <span class="n">m1</span><span class="p">)</span> <span class="p">(</span><span class="kt">H</span> <span class="n">h2</span> <span class="n">m2</span><span class="p">)</span> <span class="o">=</span> <span class="n">h1</span> <span class="o">&gt;</span> <span class="n">h2</span> <span class="o">||</span> <span class="p">(</span><span class="n">h1</span> <span class="o">==</span> <span class="n">h2</span> <span class="o">&amp;&amp;</span> <span class="n">m1</span> <span class="o">&gt;</span> <span class="n">m2</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="c-converter-um-valor-em-horas-par-de-inteiros-para-minutos-inteiro-1">c) converter um valor em horas (par de inteiros) para minutos (inteiro);</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">hour2min</span> <span class="o">::</span> <span class="kt">Hora</span> <span class="o">-&gt;</span> <span class="kt">Int</span>
+<span class="n">hour2min</span> <span class="p">(</span><span class="kt">H</span> <span class="n">h</span> <span class="n">m</span><span class="p">)</span> <span class="o">=</span> <span class="mi">60</span> <span class="o">*</span> <span class="n">h</span> <span class="o">+</span> <span class="n">m</span>
+</code></pre></div></div>
+
+<h2 id="d-converter-um-valor-em-minutos-para-horas-1">d) converter um valor em minutos para horas;</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">min2hour</span> <span class="o">::</span> <span class="kt">Int</span> <span class="o">-&gt;</span> <span class="kt">Hora</span>
+<span class="n">min2hour</span> <span class="n">min</span> <span class="o">=</span> <span class="kt">H</span> <span class="p">(</span><span class="n">div</span> <span class="n">min</span> <span class="mi">60</span><span class="p">)</span> <span class="p">(</span><span class="n">mod</span> <span class="n">min</span> <span class="mi">60</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="e-calcular-a-diferença-entre-duas-horas-cujo-resultado-deve-ser-o-número-de-minutos-1">e) calcular a diferença entre duas horas (cujo resultado deve ser o número de minutos);</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">hourDiff</span> <span class="o">::</span> <span class="kt">Hora</span> <span class="o">-&gt;</span> <span class="kt">Hora</span> <span class="o">-&gt;</span> <span class="kt">Int</span>
+<span class="n">hourDiff</span> <span class="n">h1</span> <span class="n">h2</span> <span class="o">=</span> <span class="n">abs</span> <span class="p">(</span><span class="n">hour2min</span> <span class="n">h1</span> <span class="o">-</span> <span class="n">hour2min</span> <span class="n">h2</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="f-adicionar-um-determinado-número-de-minutos-a-uma-dada-hora-1">f) adicionar um determinado número de minutos a uma dada hora;</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">addMins</span> <span class="o">::</span> <span class="kt">Hora</span> <span class="o">-&gt;</span> <span class="kt">Int</span> <span class="o">-&gt;</span> <span class="kt">Hora</span>
+<span class="n">addMins</span> <span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">m</span><span class="p">)</span> <span class="n">min</span> <span class="o">=</span> <span class="n">min2hour</span> <span class="p">(</span><span class="n">hour2min</span> <span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">m</span><span class="p">)</span> <span class="o">+</span> <span class="n">min</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h1 id="5-considere-o-seguinte-tipo-de-dados-para-representar-os-possíveis-estados-de-um-semáforo">5) Considere o seguinte tipo de dados para representar os possíveis estados de um semáforo:</h1>
+
+<h1 id="data-semaforo--verde--amarelo--vermelho-deriving-show-eq"><code class="language-plaintext highlighter-rouge">data Semaforo = Verde | Amarelo | Vermelho deriving (Show, Eq)</code></h1>
+
+<h2 id="a-defina-a-função-next--semaforo---semaforo-que-calcula-o-próximo-estado-de-um-semáforo">a) Defina a função <code class="language-plaintext highlighter-rouge">next :: Semaforo -&gt; Semaforo</code> que calcula o próximo estado de um semáforo.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">next</span> <span class="o">::</span> <span class="kt">Semaforo</span> <span class="o">-&gt;</span> <span class="kt">Semaforo</span>
+<span class="n">next</span> <span class="n">s</span> <span class="o">=</span> <span class="kr">case</span> <span class="n">s</span> <span class="kr">of</span> <span class="kt">Verde</span> <span class="o">-&gt;</span> <span class="kt">Amarelo</span>
+                   <span class="kt">Amarelo</span> <span class="o">-&gt;</span> <span class="kt">Vermelho</span>
+                   <span class="kt">Vermelho</span> <span class="o">-&gt;</span> <span class="kt">Verde</span>
+</code></pre></div></div>
+
+<h2 id="b-defina-a-função-stop--semaforo---bool-que-determina-se-é-obrigatório-parar-num-semáforo">b) Defina a função <code class="language-plaintext highlighter-rouge">stop :: Semaforo -&gt; Bool</code> que determina se é obrigatório parar num semáforo.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">stop</span> <span class="o">::</span> <span class="kt">Semaforo</span> <span class="o">-&gt;</span> <span class="kt">Bool</span>
+<span class="n">stop</span> <span class="n">s</span> <span class="o">=</span> <span class="n">s</span> <span class="o">==</span> <span class="kt">Vermelho</span>
+</code></pre></div></div>
+
+<h2 id="c-defina-a-função-safe--semaforo---semaforo---bool-que-testa-se-o-estado-de-dois-semáforos-num-cruzamento-é-seguro">c) Defina a função <code class="language-plaintext highlighter-rouge">safe :: Semaforo -&gt; Semaforo -&gt; Bool</code> que testa se o estado de dois semáforos num cruzamento é seguro.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">safe</span> <span class="o">::</span> <span class="kt">Semaforo</span> <span class="o">-&gt;</span> <span class="kt">Semaforo</span> <span class="o">-&gt;</span> <span class="kt">Bool</span>
+<span class="n">safe</span> <span class="n">s1</span> <span class="n">s2</span> <span class="o">=</span> <span class="n">s1</span> <span class="o">==</span> <span class="kt">Vermelho</span> <span class="o">||</span> <span class="n">s2</span> <span class="o">==</span> <span class="kt">Vermelho</span>
+</code></pre></div></div>
+
+<h1 id="6-um-ponto-num-plano-pode-ser-representado-por-um-sistema-de-coordenadas-cartesiano-distâncias-aos-eixos-vertical-e-horizontal-ou-por-um-sistema-de-coordenadas-polar-distância-à-origem-e-ângulo-do-respetivo-vector-com-o-eixo-horizontal">6) Um ponto num plano pode ser representado por um sistema de coordenadas Cartesiano (distâncias aos eixos vertical e horizontal) ou por um sistema de coordenadas Polar (distância à origem e ângulo do respetivo vector com o eixo horizontal).</h1>
+
+<h1 id="data-ponto--cartesiano-double-double--polar-double-double-deriving-showeq"><code class="language-plaintext highlighter-rouge">data Ponto = Cartesiano Double Double | Polar Double Double deriving (Show,Eq)</code></h1>
+
+<h1 id="com-este-tipo-o-ponto-cartesiano--1-0-pode-alternativamente-ser-representado-por-polar-1-pi-defina-as-seguintes-funções">Com este tipo o ponto Cartesiano (-1) 0 pode alternativamente ser representado por Polar 1 pi. Defina as seguintes funções:</h1>
+
+<h2 id="a-posx--ponto---double-que-calcula-a-distância-de-um-ponto-ao-eixo-vertical">a) <code class="language-plaintext highlighter-rouge">posx :: Ponto -&gt; Double</code> que calcula a distância de um ponto ao eixo vertical.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">posx</span> <span class="o">::</span> <span class="kt">Ponto</span> <span class="o">-&gt;</span> <span class="kt">Double</span>
+<span class="n">posx</span> <span class="n">ponto</span> <span class="o">=</span> <span class="kr">case</span> <span class="n">ponto</span> <span class="kr">of</span> <span class="kt">Cartesiano</span> <span class="n">x</span> <span class="kr">_</span> <span class="o">-&gt;</span> <span class="n">x</span>
+                           <span class="kt">Polar</span> <span class="n">d</span> <span class="n">a</span> <span class="o">-&gt;</span> <span class="kr">if</span> <span class="n">a</span> <span class="o">==</span> <span class="n">pi</span><span class="o">/</span><span class="mi">2</span> <span class="kr">then</span> <span class="mi">0</span> <span class="kr">else</span> <span class="n">d</span> <span class="o">*</span> <span class="n">cos</span> <span class="n">a</span>
+<span class="c1">-- Utilizamos aqui um `if` porque `cos (pi/2)` não dá exatamente 0, devido à forma como os valores do tipo Double são armazenados no computador.</span>
+</code></pre></div></div>
+
+<h2 id="b-posy--ponto---double-que-calcula-a-distância-de-um-ponto-ao-eixo-horizontal">b) <code class="language-plaintext highlighter-rouge">posy :: Ponto -&gt; Double</code> que calcula a distância de um ponto ao eixo horizontal.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">posy</span> <span class="o">::</span> <span class="kt">Ponto</span> <span class="o">-&gt;</span> <span class="kt">Double</span>
+<span class="n">posy</span> <span class="n">ponto</span> <span class="o">=</span> <span class="kr">case</span> <span class="n">ponto</span> <span class="kr">of</span> <span class="kt">Cartesiano</span> <span class="kr">_</span> <span class="n">y</span> <span class="o">-&gt;</span> <span class="n">y</span>
+                           <span class="kt">Polar</span> <span class="n">d</span> <span class="n">a</span> <span class="o">-&gt;</span> <span class="kr">if</span> <span class="n">a</span> <span class="o">==</span> <span class="n">pi</span> <span class="kr">then</span> <span class="mi">0</span> <span class="kr">else</span> <span class="n">d</span> <span class="o">*</span> <span class="n">sin</span> <span class="n">a</span>
+</code></pre></div></div>
+
+<h2 id="c-raio--ponto---double-que-calcula-a-distância-de-um-ponto-à-origem">c) <code class="language-plaintext highlighter-rouge">raio :: Ponto -&gt; Double</code> que calcula a distância de um ponto à origem.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">raio</span> <span class="o">::</span> <span class="kt">Ponto</span> <span class="o">-&gt;</span> <span class="kt">Double</span>
+<span class="n">raio</span> <span class="n">ponto</span> <span class="o">=</span> <span class="kr">case</span> <span class="n">ponto</span> <span class="kr">of</span> <span class="kt">Cartesiano</span> <span class="n">x</span> <span class="n">y</span> <span class="o">-&gt;</span> <span class="n">sqrt</span> <span class="p">(</span><span class="n">x</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span><span class="o">^</span><span class="mi">2</span><span class="p">)</span>
+                           <span class="kt">Polar</span> <span class="n">d</span> <span class="kr">_</span> <span class="o">-&gt;</span> <span class="n">d</span>
+</code></pre></div></div>
+
+<h2 id="d-angulo--ponto---double-que-calcula-o-ângulo-entre-o-vector-que-liga-a-origem-a-um-ponto-e-o-eixo-horizontal">d) <code class="language-plaintext highlighter-rouge">angulo :: Ponto -&gt; Double</code> que calcula o ângulo entre o vector que liga a origem a um ponto e o eixo horizontal.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">angulo</span> <span class="o">::</span> <span class="kt">Ponto</span> <span class="o">-&gt;</span> <span class="kt">Double</span>
+<span class="n">angulo</span> <span class="n">ponto</span> <span class="o">=</span> <span class="kr">case</span> <span class="n">ponto</span> <span class="kr">of</span> <span class="kt">Cartesiano</span> <span class="n">x</span> <span class="n">y</span> <span class="o">-&gt;</span> <span class="kr">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">y</span> <span class="o">==</span> <span class="mi">0</span> <span class="kr">then</span> <span class="n">pi</span> <span class="kr">else</span>
+                                               <span class="kr">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="kr">then</span> <span class="n">pi</span> <span class="o">+</span> <span class="n">atan</span> <span class="p">(</span><span class="n">y</span><span class="o">/</span><span class="n">x</span><span class="p">)</span> <span class="kr">else</span>
+                                               <span class="n">atan</span> <span class="p">(</span><span class="n">y</span><span class="o">/</span><span class="n">x</span><span class="p">)</span>
+                             <span class="kt">Polar</span> <span class="kr">_</span> <span class="n">a</span> <span class="o">-&gt;</span> <span class="n">a</span>
+</code></pre></div></div>
+
+<h2 id="e-dist--ponto---ponto---double-que-calcula-a-distância-entre-dois-pontos">e) <code class="language-plaintext highlighter-rouge">dist :: Ponto -&gt; Ponto -&gt; Double</code> que calcula a distância entre dois pontos.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">dist</span> <span class="o">::</span> <span class="kt">Ponto</span> <span class="o">-&gt;</span> <span class="kt">Ponto</span> <span class="o">-&gt;</span> <span class="kt">Double</span>
+<span class="n">dist</span> <span class="n">ponto1</span> <span class="n">ponto2</span> <span class="o">=</span> <span class="n">sqrt</span> <span class="p">(((</span><span class="n">posx</span> <span class="n">ponto1</span> <span class="o">-</span> <span class="n">posx</span> <span class="n">ponto2</span><span class="p">)</span> <span class="o">^</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">posy</span> <span class="n">ponto1</span> <span class="o">-</span> <span class="n">posy</span> <span class="n">ponto2</span><span class="p">)</span> <span class="o">^</span> <span class="mi">2</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h1 id="7-considere-o-seguinte-tipo-de-dados-para-representar-figuras-geométricas-num-plano">7) Considere o seguinte tipo de dados para representar figuras geométricas num plano.</h1>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>data Figura = Circulo Ponto Double
+            | Rectangulo Ponto Ponto
+            | Triangulo Ponto Ponto Ponto
+              deriving (Show,Eq)
+</code></pre></div></div>
+
+<h1 id="uma-figura-pode-ser-um-círculo-centrado-um-determinado-ponto-e-com-um-determinado-raio-um-retângulo-paralelo-aos-eixos-representado-por-dois-pontos-que-são-vértices-da-sua-diagonal-ou-um-triângulo-representado-pelos-três-pontos-dos-seus-vértices-defina-as-seguintes-funções">Uma figura pode ser um círculo centrado um determinado ponto e com um determinado raio, um retângulo paralelo aos eixos representado por dois pontos que são vértices da sua diagonal, ou um triângulo representado pelos três pontos dos seus vértices. Defina as seguintes funções:</h1>
+
+<h2 id="a-defina-a-função-poligono--figura---bool-que-testa-se-uma-figura-é-um-polígono">a) Defina a função <code class="language-plaintext highlighter-rouge">poligono :: Figura -&gt; Bool</code> que testa se uma figura é um polígono.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">poligono</span> <span class="o">::</span> <span class="kt">Figura</span> <span class="o">-&gt;</span> <span class="kt">Bool</span>
+<span class="n">poligono</span> <span class="p">(</span><span class="kt">Circulo</span> <span class="n">c</span> <span class="n">r</span><span class="p">)</span> <span class="o">=</span> <span class="kt">False</span>
+<span class="n">poligono</span> <span class="p">(</span><span class="kt">Retangulo</span> <span class="n">p1</span> <span class="n">p2</span><span class="p">)</span> <span class="o">=</span> <span class="n">posx</span> <span class="n">p1</span> <span class="o">/=</span> <span class="n">posx</span> <span class="n">p2</span> <span class="o">&amp;&amp;</span> <span class="n">posy</span> <span class="n">p1</span> <span class="o">/=</span> <span class="n">posy</span> <span class="n">p2</span> <span class="c1">-- Verifica que os pontos não têm o mesmo valor de x ou y</span>
+<span class="n">poligono</span> <span class="p">(</span><span class="kt">Triangulo</span> <span class="n">p1</span> <span class="n">p2</span> <span class="n">p3</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="n">posy</span> <span class="n">p2</span> <span class="o">-</span> <span class="n">posy</span> <span class="n">p1</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">posx</span> <span class="n">p2</span> <span class="o">-</span> <span class="n">posx</span> <span class="n">p1</span><span class="p">)</span> <span class="o">/=</span> <span class="p">(</span><span class="n">posy</span> <span class="n">p3</span> <span class="o">-</span> <span class="n">posy</span> <span class="n">p2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">posx</span> <span class="n">p3</span> <span class="o">-</span> <span class="n">posx</span> <span class="n">p2</span><span class="p">)</span> <span class="c1">-- Verifica que os pontos não pertencem todos à mesma reta</span>
+</code></pre></div></div>
+
+<h2 id="b-defina-a-função-vertices--figura---ponto-que-calcula-a-lista-dos-vertices-de-uma-figura">b) Defina a função <code class="language-plaintext highlighter-rouge">vertices :: Figura -&gt; [Ponto]</code> que calcula a lista dos vertices de uma figura.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">vertices</span> <span class="o">::</span> <span class="kt">Figura</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">Ponto</span><span class="p">]</span>
+<span class="n">vertices</span> <span class="p">(</span><span class="kt">Circulo</span> <span class="kr">_</span> <span class="kr">_</span><span class="p">)</span> <span class="o">=</span> <span class="kt">[]</span>
+<span class="n">vertices</span> <span class="n">retang</span><span class="o">@</span><span class="p">(</span><span class="kt">Retangulo</span> <span class="n">p1</span> <span class="n">p2</span><span class="p">)</span> <span class="o">=</span> <span class="kr">if</span> <span class="n">poligono</span> <span class="n">retang</span> <span class="kr">then</span> <span class="p">[</span><span class="n">p1</span><span class="p">,</span> <span class="kt">Cartesiano</span> <span class="p">(</span><span class="n">posx</span> <span class="n">p1</span><span class="p">)</span> <span class="p">(</span><span class="n">posy</span> <span class="n">p2</span><span class="p">),</span> <span class="kt">Cartesiano</span> <span class="p">(</span><span class="n">posx</span> <span class="n">p2</span><span class="p">)</span> <span class="p">(</span><span class="n">posy</span> <span class="n">p1</span><span class="p">),</span> <span class="n">p2</span><span class="p">]</span> <span class="kr">else</span> <span class="kt">[]</span>
+<span class="n">vertices</span> <span class="n">triang</span><span class="o">@</span><span class="p">(</span><span class="kt">Triangulo</span> <span class="n">p1</span> <span class="n">p2</span> <span class="n">p3</span><span class="p">)</span> <span class="o">=</span> <span class="kr">if</span> <span class="n">poligono</span> <span class="n">triang</span> <span class="kr">then</span> <span class="p">[</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">,</span> <span class="n">p3</span><span class="p">]</span> <span class="kr">else</span> <span class="kt">[]</span>
+</code></pre></div></div>
+
+<h2 id="c-complete-a-seguinte-definição-cujo-objectivo-é-calcular-a-área-de-uma-figura">c) Complete a seguinte definição cujo objectivo é calcular a área de uma figura:</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>area :: Figura -&gt; Double
+area (Triangulo p1 p2 p3) =
+    let a = dist p1 p2
+        b = dist p2 p3
+        c = dist p3 p1
+        s = (a+b+c) / 2 -- semi-perimetro
+    in sqrt (s*(s-a)*(s-b)*(s-c)) -- formula de Heron
+</code></pre></div></div>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">area</span> <span class="o">::</span> <span class="kt">Figura</span> <span class="o">-&gt;</span> <span class="kt">Double</span>
+<span class="n">area</span> <span class="p">(</span><span class="kt">Triangulo</span> <span class="n">p1</span> <span class="n">p2</span> <span class="n">p3</span><span class="p">)</span> <span class="o">=</span>
+    <span class="kr">let</span> <span class="n">a</span> <span class="o">=</span> <span class="n">dist</span> <span class="n">p1</span> <span class="n">p2</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="n">dist</span> <span class="n">p2</span> <span class="n">p3</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="n">dist</span> <span class="n">p3</span> <span class="n">p1</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="o">+</span><span class="n">c</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span> <span class="c1">-- semi-perimetro</span>
+    <span class="kr">in</span> <span class="n">sqrt</span> <span class="p">(</span><span class="n">s</span><span class="o">*</span><span class="p">(</span><span class="n">s</span><span class="o">-</span><span class="n">a</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">s</span><span class="o">-</span><span class="n">b</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">s</span><span class="o">-</span><span class="n">c</span><span class="p">))</span> <span class="c1">-- fórmula de Heron</span>
+<span class="n">area</span> <span class="p">(</span><span class="kt">Circulo</span> <span class="kr">_</span> <span class="n">r</span><span class="p">)</span> <span class="o">=</span> <span class="n">pi</span> <span class="o">*</span> <span class="p">(</span><span class="n">r</span> <span class="o">^</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">area</span> <span class="p">(</span><span class="kt">Retangulo</span> <span class="n">p1</span> <span class="n">p2</span><span class="p">)</span> <span class="o">=</span> <span class="n">abs</span> <span class="p">(</span><span class="n">posx</span> <span class="n">p2</span> <span class="o">-</span> <span class="n">posx</span> <span class="n">p1</span><span class="p">)</span> <span class="o">*</span> <span class="n">abs</span> <span class="p">(</span><span class="n">posy</span> <span class="n">p2</span> <span class="o">-</span> <span class="n">posy</span> <span class="n">p1</span><span class="p">)</span> 
+</code></pre></div></div>
+
+<h2 id="d-defina-a-função-perimetro--figura---double-que-calcula-o-perímetro-de-uma-figura">d) Defina a função <code class="language-plaintext highlighter-rouge">perimetro :: Figura -&gt; Double</code> que calcula o perímetro de uma figura.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">perimetro</span> <span class="o">::</span> <span class="kt">Figura</span> <span class="o">-&gt;</span> <span class="kt">Double</span>
+<span class="n">perimetro</span> <span class="p">(</span><span class="kt">Circulo</span> <span class="kr">_</span> <span class="n">r</span><span class="p">)</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">pi</span> <span class="o">*</span> <span class="n">r</span>
+<span class="n">perimetro</span> <span class="p">(</span><span class="kt">Retangulo</span> <span class="n">p1</span> <span class="n">p2</span><span class="p">)</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">abs</span> <span class="p">(</span><span class="n">posx</span> <span class="n">p2</span> <span class="o">-</span> <span class="n">posx</span> <span class="n">p1</span><span class="p">)</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">abs</span> <span class="p">(</span><span class="n">posy</span> <span class="n">p2</span> <span class="o">-</span> <span class="n">posy</span> <span class="n">p1</span><span class="p">)</span>
+<span class="n">perimetro</span> <span class="p">(</span><span class="kt">Triangulo</span> <span class="n">p1</span> <span class="n">p2</span> <span class="n">p3</span><span class="p">)</span> <span class="o">=</span> <span class="n">dist</span> <span class="n">p1</span> <span class="n">p2</span> <span class="o">+</span> <span class="n">dist</span> <span class="n">p2</span> <span class="n">p3</span> <span class="o">+</span> <span class="n">dist</span> <span class="n">p1</span> <span class="n">p3</span>
+</code></pre></div></div>
+
+<h1 id="8-utilizando-as-funções-ord--char---int-e-chr--int---char-do-módulo-datachar-defina-as-seguintes-funções-note-que-todas-estas-funções-já-estão-também-pré-definidas-nesse-módulo">8) Utilizando as funções <code class="language-plaintext highlighter-rouge">ord :: Char -&gt; Int</code> e <code class="language-plaintext highlighter-rouge">chr :: Int -&gt; Char</code> do módulo Data.Char, defina as seguintes funções (note que todas estas funções já estão também pré-definidas nesse módulo):</h1>
+
+<h2 id="a-islower--char---bool-que-testa-se-um-char-é-uma-minúscula">a) <code class="language-plaintext highlighter-rouge">isLower :: Char -&gt; Bool</code>, que testa se um <code class="language-plaintext highlighter-rouge">Char</code> é uma minúscula.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">isLower</span> <span class="o">::</span> <span class="kt">Char</span> <span class="o">-&gt;</span> <span class="kt">Bool</span>
+<span class="n">isLower</span> <span class="n">ch</span> <span class="o">=</span> <span class="n">ord</span> <span class="n">ch</span> <span class="o">&gt;=</span> <span class="n">ord</span> <span class="sc">'a'</span> <span class="o">&amp;&amp;</span> <span class="n">ord</span> <span class="n">ch</span> <span class="o">&lt;=</span> <span class="n">ord</span> <span class="sc">'z'</span>
+
+<span class="c1">-- Pode ser simplificado para:</span>
+
+<span class="n">isLower'</span> <span class="o">::</span> <span class="kt">Char</span> <span class="o">-&gt;</span> <span class="kt">Bool</span>
+<span class="n">isLower'</span> <span class="n">ch</span> <span class="o">=</span> <span class="n">ch</span> <span class="p">`</span><span class="n">elem</span><span class="p">`</span> <span class="p">[</span><span class="sc">'a'</span><span class="o">..</span><span class="sc">'z'</span><span class="p">]</span>
+</code></pre></div></div>
+
+<h2 id="b-isdigit--char---bool-que-testa-se-um-char-é-um-dígito">b) <code class="language-plaintext highlighter-rouge">isDigit :: Char -&gt; Bool</code>, que testa se um <code class="language-plaintext highlighter-rouge">Char</code> é um dígito.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">isDigit</span> <span class="o">::</span> <span class="kt">Char</span> <span class="o">-&gt;</span> <span class="kt">Bool</span>
+<span class="n">isDigit</span> <span class="n">d</span> <span class="o">=</span> <span class="n">ord</span> <span class="n">ch</span> <span class="o">&gt;=</span> <span class="n">ord</span> <span class="sc">'0'</span> <span class="o">&amp;&amp;</span> <span class="n">ord</span> <span class="n">ch</span> <span class="o">&lt;=</span> <span class="n">ord</span> <span class="sc">'9'</span>
+</code></pre></div></div>
+
+<h2 id="c-isalpha--char---bool-que-testa-se-um-char-é-uma-letra">c) <code class="language-plaintext highlighter-rouge">isAlpha :: Char -&gt; Bool</code>, que testa se um <code class="language-plaintext highlighter-rouge">Char</code> é uma letra.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">isAlpha</span> <span class="o">::</span> <span class="kt">Char</span> <span class="o">-&gt;</span> <span class="kt">Bool</span>
+<span class="n">isAlpha</span> <span class="n">ch</span> <span class="o">=</span> <span class="n">isLower</span> <span class="n">ch</span> <span class="o">||</span> <span class="n">isUpper</span> <span class="n">ch</span>
+    <span class="kr">where</span> <span class="n">isUpper</span> <span class="n">ch</span> <span class="o">=</span> <span class="n">ord</span> <span class="n">ch</span> <span class="o">&gt;=</span> <span class="n">ord</span> <span class="sc">'A'</span> <span class="o">&amp;&amp;</span> <span class="n">ord</span> <span class="n">ch</span> <span class="o">&lt;=</span> <span class="n">ord</span> <span class="sc">'Z'</span>
+</code></pre></div></div>
+
+<h2 id="d-toupper--char---char-que-converte-uma-letra-para-a-respectiva-maiúscula">d) <code class="language-plaintext highlighter-rouge">toUpper :: Char -&gt; Char</code>, que converte uma letra para a respectiva maiúscula.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">toUpper</span> <span class="o">::</span> <span class="kt">Char</span> <span class="o">-&gt;</span> <span class="kt">Char</span>
+<span class="n">toUpper</span> <span class="n">ch</span> <span class="o">=</span> <span class="kr">if</span> <span class="n">isLower</span> <span class="n">ch</span> <span class="kr">then</span> <span class="n">chr</span> <span class="p">(</span><span class="n">ord</span> <span class="n">ch</span> <span class="o">-</span> <span class="mi">32</span><span class="p">)</span> <span class="kr">else</span> <span class="n">ch</span>
+<span class="c1">-- 32 é o resultado de `ord 'a' - ord 'A'`</span>
+</code></pre></div></div>
+
+<h2 id="e-inttodigit--int---char-que-converte-um-número-entre-0-e-9-para-o-respetivo-dígito">e) <code class="language-plaintext highlighter-rouge">intToDigit :: Int -&gt; Char</code>, que converte um número entre 0 e 9 para o respetivo dígito.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">intToDigit</span> <span class="o">::</span> <span class="kt">Int</span> <span class="o">-&gt;</span> <span class="kt">Char</span>
+<span class="n">intToDigit</span> <span class="n">n</span> <span class="o">=</span> <span class="n">chr</span> <span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">48</span><span class="p">)</span>
+<span class="c1">-- 48 é o resultado de `ord '0' - 0`</span>
+</code></pre></div></div>
+
+<h2 id="f-digittoint--char---int-que-converte-um-dígito-para-o-respetivo-inteiro">f) <code class="language-plaintext highlighter-rouge">digitToInt :: Char -&gt; Int</code>, que converte um dígito para o respetivo inteiro.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">digitToInt</span> <span class="o">::</span> <span class="kt">Char</span> <span class="o">-&gt;</span> <span class="kt">Int</span> 
+<span class="n">digitToInt</span> <span class="n">ch</span> <span class="o">=</span> <span class="n">ord</span> <span class="n">ch</span> <span class="o">-</span> <span class="mi">48</span>
+</code></pre></div></div>
+
+  </div>
+</div>
+      </div>
+      <footer class="bg-dark-gray p-8 lg:px-14 flex flex-col md:flex-row gap-6 justify-between items-center justify-self-end">
+        <p>Made with 💙 by <a href="https://github.com/RisingFisan" target="_blank" rel="noopener noreferrer">RisingFisan</a>.</p>
+        <p class="inline">If you want to support this project, you can <a href="https://paypal.me/sofirs" target="_blank" rel="noopener noreferrer">buy me a coffee <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="paypal" class="w-4 inline" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path fill="currentColor" d="M111.4 295.9c-3.5 19.2-17.4 108.7-21.5 134-.3 1.8-1 2.5-3 2.5H12.3c-7.6 0-13.1-6.6-12.1-13.9L58.8 46.6c1.5-9.6 10.1-16.9 20-16.9 152.3 0 165.1-3.7 204 11.4 60.1 23.3 65.6 79.5 44 140.3-21.5 62.6-72.5 89.5-140.1 90.3-43.4.7-69.5-7-75.3 24.2zM357.1 152c-1.8-1.3-2.5-1.8-3 1.3-2 11.4-5.1 22.5-8.8 33.6-39.9 113.8-150.5 103.9-204.5 103.9-6.1 0-10.1 3.3-10.9 9.4-22.6 140.4-27.1 169.7-27.1 169.7-1 7.1 3.5 12.9 10.6 12.9h63.5c8.6 0 15.7-6.3 17.4-14.9.7-5.4-1.1 6.1 14.4-91.3 4.6-22 14.3-19.7 29.3-19.7 71 0 126.4-28.8 142.9-112.3 6.5-34.8 4.6-71.4-23.8-92.6z"></path></svg></a>! 😁☕</p>
+      </footer>
+    </div>
+  </body>
+</html>

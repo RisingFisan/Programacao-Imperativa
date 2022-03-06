@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta property="og:title" content="Programação Imperativa">
+    <meta property="og:description" content="Resolução de exercícios, fichas e testes.">
+    <meta property="og:image" content="./C-Logo.png">
+    <meta property="og:image:secure_url" content="./C-Logo.png">
+    <title>
+      
+       
+        Ficha 2 |
+       Programação Imperativa</title>
+    <link rel="stylesheet" href="/Programacao-Imperativa/assets/css/main.css">
+    <link rel="shortcut icon" href="/Programacao-Imperativa/favicon.ico" >
+    <script type="text/javascript">
+
+      // Wait for the page to load first
+      window.onload = function() {
+
+        //Get a reference to the link on the page
+        // with an id of "mylink"
+        var a = document.getElementById("code-overlay");
+        a.style.display = "flex";
+
+        //Set code to run when the link is clicked
+        // by assigning a function to "onclick"
+        a.onclick = function() {
+
+          // Your code here...
+          a.remove();
+
+          //If you don't want the link to actually 
+          // redirect the browser to another page,
+          // then return false at the end of this block.
+          // Note that this also prevents event bubbling,
+          // which is probably what we want here, but won't 
+          // always be the case.
+          return false;
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="bg-darker-gray w-full min-h-screen text-white flex flex-col">
+      <header class="bg-dark-gray p-8 lg:px-14 flex flex-col md:flex-row gap-6 justify-between items-center">
+        <div class="flex flex-col items-center sm:flex-row sm:items-start gap-5 sm:gap-10">
+          <a href=/Programacao-Imperativa/ class="flex-none">
+            <img src=/Programacao-Imperativa/C-Logo.png class="relative h-16 top-2 md:items-center">
+          </a>
+          <div class="space-y-2 text-center sm:text-left">
+            <p class="text-4xl font-bold">Programação Imperativa</p>
+            <p class="text-lg font-light">Resolução de exercícios, fichas e testes.</p>
+          </div>
+        </div>
+        
+          <!--
+          <div class="flex gap-3 md:gap-6 justify-end items-center flex-col lg:flex-row w-full md:w-auto">
+            <a href=/Programacao-Imperativa/50q/index.html class="bg-blue-800 hover:bg-blue-600 p-5 w-full sm:w-1/2 md:w-36 flex justify-center items-center rounded-xl">
+              <p class="uppercase font-bold">50 Questões</p>
+            </a>
+            <a href=/Programacao-Imperativa/fichas/index.html class="bg-blue-800 hover:bg-blue-600 p-5 w-full sm:w-1/2 md:w-36 flex justify-center items-center rounded-xl">
+              <p class="uppercase font-bold">Fichas</p>
+            </a>
+          </div>
+          -->
+          <a href="../" class="bg-blue-800 hover:bg-blue-600 p-5 w-full sm:w-1/2 md:w-36 flex justify-center items-center rounded-xl">
+            <p class="uppercase font-bold">ᐸ Voltar</p>
+          </a>
+        
+      </header>
+      <div class="px-3 py-10 sm:p-20 flex-grow">
+      
+
+<div class="flex flex-col gap-3">
+  <div class="flex justify-between flex-col md:flex-row items-center gap-8 md:items-start">
+    <div class="md:w-2/3 xl:w-1/2 px-5 space-y-2 self-start">
+      <h1 class="text-2xl md:text-3xl xl:text-4xl font-bold">
+        Ficha : 
+      </h1>
+    </div>
+    <div class="flex gap-5">
+       
+        
+        
+        <a href=/Programacao-Imperativa/fichas/-1 class="flex flex-col justify-center items-center w-24 h-24 rounded-full bg-purple-800 hover:bg-purple-600">
+          <p class="text-2xl font-bold"><</p>
+          <p>Anterior</p>
+        </a>
+      
+      
+        
+        
+        <a href=/Programacao-Imperativa/fichas/1 class="flex flex-col justify-center items-center w-24 h-24 rounded-full bg-purple-800 hover:bg-purple-600">
+          <p class="text-2xl font-bold">></p>
+          <p>Seguinte</p>
+        </a>
+      
+    </div>
+  </div>
+  <div class="md:px-20" id="resolution">
+    
+    <h1 id="1-indique-como-é-que-o-interpretador-de-haskell-avalia-as-expressões-das-alíneas-que-se-seguem-apresentando-a-cadeia-de-redução-de-cada-uma-dessas-expressões-ie-os-vários-passos-intermédios-até-se-chegar-ao-valor-final">1) Indique como é que o interpretador de haskell avalia as expressões das alíneas que se seguem, apresentando a cadeia de redução de cada uma dessas expressões (i.e., os vários passos intermédios até se chegar ao valor final).</h1>
+
+<h2 id="a-considere-a-seguinte-definição">a) Considere a seguinte definição:</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>funA :: [Double] -&gt; Double
+funA [] = 0
+funA (y:ys) = y^2 + (funA ys)
+</code></pre></div></div>
+
+<h2 id="diga-justificando-qual-é-o-valor-de-funa-2351">Diga, justificando, qual é o valor de <code class="language-plaintext highlighter-rouge">funA [2,3,5,1]</code>.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">funA</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">funA</span> <span class="p">(</span><span class="mi">2</span><span class="o">:</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span> 
+               <span class="o">=</span> <span class="mi">2</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="n">funA</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+               <span class="o">=</span> <span class="mi">4</span> <span class="o">+</span> <span class="n">funA</span> <span class="p">(</span><span class="mi">3</span><span class="o">:</span><span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+               <span class="o">=</span> <span class="mi">4</span> <span class="o">+</span> <span class="mi">3</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="n">funA</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+               <span class="o">=</span> <span class="mi">13</span> <span class="o">+</span> <span class="n">funA</span> <span class="p">(</span><span class="mi">5</span><span class="o">:</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+               <span class="o">=</span> <span class="mi">13</span> <span class="o">+</span> <span class="mi">5</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="n">funA</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span> 
+               <span class="o">=</span> <span class="mi">38</span> <span class="o">+</span> <span class="n">funA</span> <span class="p">(</span><span class="mi">1</span><span class="o">:</span><span class="kt">[]</span><span class="p">)</span>
+               <span class="o">=</span> <span class="mi">38</span> <span class="o">+</span> <span class="mi">1</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="n">funA</span> <span class="kt">[]</span>
+               <span class="o">=</span> <span class="mi">39</span> <span class="o">+</span> <span class="mi">0</span> <span class="o">=</span> <span class="mi">39</span>
+</code></pre></div></div>
+
+<h2 id="b-considere-a-seguinte-definição">b) Considere a seguinte definição:</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>funB :: [Int] -&gt; [Int]
+funB [] = []
+funB (h:t) = if (mod h 2)==0 then h : (funB t)
+                             else (funB t)
+</code></pre></div></div>
+
+<h2 id="diga-justificando-qual-é-o-valor-de-funb-8512">Diga, justificando, qual é o valor de <code class="language-plaintext highlighter-rouge">funB [8,5,12]</code>.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">funB</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">12</span><span class="p">]</span> <span class="o">=</span> <span class="n">funB</span> <span class="p">(</span><span class="mi">8</span><span class="o">:</span><span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">12</span><span class="p">])</span> 
+              <span class="o">=</span> <span class="mi">8</span><span class="o">:</span><span class="n">funB</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">12</span><span class="p">]</span> 
+              <span class="o">=</span> <span class="mi">8</span><span class="o">:</span><span class="n">funB</span> <span class="p">(</span><span class="mi">5</span><span class="o">:</span><span class="p">[</span><span class="mi">12</span><span class="p">])</span> 
+              <span class="o">=</span> <span class="mi">8</span><span class="o">:</span><span class="n">funB</span> <span class="p">[</span><span class="mi">12</span><span class="p">]</span> 
+              <span class="o">=</span> <span class="mi">8</span><span class="o">:</span><span class="n">funB</span> <span class="p">(</span><span class="mi">12</span><span class="o">:</span><span class="kt">[]</span><span class="p">)</span> 
+              <span class="o">=</span> <span class="mi">8</span><span class="o">:</span><span class="mi">12</span><span class="o">:</span><span class="n">funB</span> <span class="kt">[]</span> 
+              <span class="o">=</span> <span class="mi">8</span><span class="o">:</span><span class="mi">12</span><span class="o">:</span><span class="kt">[]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span><span class="mi">12</span><span class="p">]</span>
+</code></pre></div></div>
+
+<h2 id="c-considere-a-seguinte-definição">c) Considere a seguinte definição:</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>funC (x:y:t) = funC t
+funC [x] = []
+funC [] = []
+</code></pre></div></div>
+
+<h2 id="diga-justificando-qual-é-o-valor-de-func-12345">Diga, justificando, qual é o valor de <code class="language-plaintext highlighter-rouge">funC [1,2,3,4,5]</code>.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">funC</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="n">funC</span> <span class="p">(</span><span class="mi">1</span><span class="o">:</span><span class="mi">2</span><span class="o">:</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span> 
+                 <span class="o">=</span> <span class="n">funC</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span> 
+                 <span class="o">=</span> <span class="n">funC</span> <span class="p">(</span><span class="mi">3</span><span class="o">:</span><span class="mi">4</span><span class="o">:</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span> 
+                 <span class="o">=</span> <span class="n">funC</span> <span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="kt">[]</span>
+</code></pre></div></div>
+
+<h2 id="d-considere-a-seguinte-definição">d) Considere a seguinte definição:</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>funD l = g [] l
+g l [] = l
+g l (h:t) = g (h:l) t
+</code></pre></div></div>
+
+<h2 id="diga-justificando-qual-é-o-valor-de-fund-otrec">Diga, justificando, qual é o valor de <code class="language-plaintext highlighter-rouge">funD "otrec"</code>.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">funD</span> <span class="s">"otrec"</span> <span class="o">=</span> <span class="n">g</span> <span class="kt">[]</span> <span class="s">"otrec"</span> 
+             <span class="o">=</span> <span class="n">g</span> <span class="kt">[]</span> <span class="sc">'o'</span><span class="o">:</span><span class="s">"trec"</span> 
+             <span class="o">=</span> <span class="n">g</span> <span class="sc">'o'</span><span class="o">:</span><span class="kt">[]</span> <span class="s">"trec"</span> 
+             <span class="o">=</span> <span class="n">g</span> <span class="p">[</span><span class="sc">'o'</span><span class="p">]</span> <span class="sc">'t'</span><span class="o">:</span><span class="s">"rec"</span> 
+             <span class="o">=</span> <span class="n">g</span> <span class="sc">'t'</span><span class="o">:</span><span class="p">[</span><span class="sc">'o'</span><span class="p">]</span> <span class="s">"rec"</span> 
+             <span class="o">=</span> <span class="n">g</span> <span class="s">"to"</span> <span class="sc">'r'</span><span class="o">:</span><span class="s">"ec"</span> 
+             <span class="o">=</span> <span class="n">g</span> <span class="sc">'r'</span><span class="o">:</span><span class="s">"to"</span> <span class="s">"ec"</span> 
+             <span class="o">=</span> <span class="n">g</span> <span class="s">"rto"</span> <span class="sc">'e'</span><span class="o">:</span><span class="p">[</span><span class="sc">'c'</span><span class="p">]</span> 
+             <span class="o">=</span> <span class="n">g</span> <span class="sc">'e'</span><span class="o">:</span><span class="s">"rto"</span> <span class="p">[</span><span class="sc">'c'</span><span class="p">]</span> 
+             <span class="o">=</span> <span class="n">g</span> <span class="s">"erto"</span> <span class="sc">'c'</span><span class="o">:</span><span class="kt">[]</span> 
+             <span class="o">=</span> <span class="n">g</span> <span class="sc">'c'</span><span class="o">:</span><span class="s">"erto"</span> <span class="kt">[]</span> <span class="o">=</span> <span class="s">"certo"</span>
+</code></pre></div></div>
+
+<h1 id="2-defina-recursivamente-as-seguintes-funções-sobre-listas">2) Defina recursivamente as seguintes funções sobre listas:</h1>
+
+<h2 id="a-dobros--float---float-que-recebe-uma-lista-e-produz-a-lista-em-que-cada-elemento-é-o-dobro-do-valor-correspondente-na-lista-de-entrada">a) <code class="language-plaintext highlighter-rouge">dobros :: [Float] -&gt; [Float]</code> que recebe uma lista e produz a lista em que cada elemento é o dobro do valor correspondente na lista de entrada.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">dobros</span> <span class="o">::</span> <span class="p">[</span><span class="kt">Float</span><span class="p">]</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">Float</span><span class="p">]</span>
+<span class="n">dobros</span> <span class="kt">[]</span> <span class="o">=</span> <span class="kt">[]</span>
+<span class="n">dobros</span> <span class="p">(</span><span class="n">h</span><span class="o">:</span><span class="n">t</span><span class="p">)</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">h</span> <span class="o">:</span> <span class="n">dobros</span> <span class="n">t</span>
+</code></pre></div></div>
+
+<h2 id="b-numocorre--char---string---int-que-calcula-o-número-de-vezes-que-um-caracter-ocorre-numa-string">b) <code class="language-plaintext highlighter-rouge">numOcorre :: Char -&gt; String -&gt; Int</code> que calcula o número de vezes que um caracter ocorre numa string.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">numOcorre</span> <span class="o">::</span> <span class="kt">Char</span> <span class="o">-&gt;</span> <span class="kt">String</span> <span class="o">-&gt;</span> <span class="kt">Int</span>
+<span class="n">numOcorre</span> <span class="kr">_</span> <span class="kt">[]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">numOcorre</span> <span class="n">x</span> <span class="p">(</span><span class="n">c</span><span class="o">:</span><span class="n">str</span><span class="p">)</span> <span class="o">=</span> <span class="kr">if</span> <span class="n">x</span> <span class="o">==</span> <span class="n">c</span> <span class="kr">then</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">numOcorre</span> <span class="n">x</span> <span class="n">str</span> 
+                                <span class="kr">else</span> <span class="n">numOcorre</span> <span class="n">x</span> <span class="n">str</span>
+</code></pre></div></div>
+
+<h2 id="c-positivos--int---bool-que-testa-se-uma-lista-só-tem-elementos-positivos">c) <code class="language-plaintext highlighter-rouge">positivos :: [Int] -&gt; Bool</code> que testa se uma lista só tem elementos positivos.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">positivos</span> <span class="o">::</span> <span class="p">[</span><span class="kt">Int</span><span class="p">]</span> <span class="o">-&gt;</span> <span class="kt">Bool</span>
+<span class="n">positivos</span> <span class="kt">[]</span> <span class="o">=</span> <span class="kt">True</span>
+<span class="n">positivos</span> <span class="p">(</span><span class="n">n</span><span class="o">:</span><span class="n">ns</span><span class="p">)</span>
+    <span class="o">|</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">=</span> <span class="kt">False</span>
+    <span class="o">|</span> <span class="n">otherwise</span> <span class="o">=</span> <span class="n">positivos</span> <span class="n">ns</span>
+</code></pre></div></div>
+
+<h2 id="d-sopos--int---int-que-retira-todos-os-elementos-não-positivos-de-uma-lista-de-inteiros">d) <code class="language-plaintext highlighter-rouge">soPos :: [Int] -&gt; [Int]</code> que retira todos os elementos não positivos de uma lista de inteiros.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">soPos</span> <span class="o">::</span> <span class="p">[</span><span class="kt">Int</span><span class="p">]</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">Int</span><span class="p">]</span>
+<span class="n">soPos</span> <span class="kt">[]</span> <span class="o">=</span> <span class="kt">[]</span>
+<span class="n">soPos</span> <span class="p">(</span><span class="n">n</span><span class="o">:</span><span class="n">ns</span><span class="p">)</span>
+    <span class="o">|</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">=</span> <span class="n">soPos</span> <span class="n">ns</span>
+    <span class="o">|</span> <span class="n">otherwise</span> <span class="o">=</span> <span class="n">n</span> <span class="o">:</span> <span class="n">soPos</span> <span class="n">ns</span>
+</code></pre></div></div>
+
+<h2 id="e-somaneg--int---int-que-soma-todos-os-números-negativos-da-lista-de-entrada">e) <code class="language-plaintext highlighter-rouge">somaNeg :: [Int] -&gt; Int</code> que soma todos os números negativos da lista de entrada.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">somaNeg</span> <span class="o">::</span> <span class="p">[</span><span class="kt">Int</span><span class="p">]</span> <span class="o">-&gt;</span> <span class="kt">Int</span>
+<span class="n">somaNeg</span> <span class="kt">[]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">somaNeg</span> <span class="p">(</span><span class="n">n</span><span class="o">:</span><span class="n">ns</span><span class="p">)</span> <span class="o">=</span> <span class="kr">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="kr">then</span> <span class="n">n</span> <span class="o">+</span> <span class="n">somaNeg</span> <span class="n">ns</span> 
+                          <span class="kr">else</span> <span class="n">somaNeg</span> <span class="n">ns</span>
+</code></pre></div></div>
+
+<h2 id="f-tresult--a---a-devolve-os-últimos-três-elementos-de-uma-lista-se-a-lista-de-entrada-tiver-menos-de-três-elementos-devolve-a-própria-lista">f) <code class="language-plaintext highlighter-rouge">tresUlt :: [a] -&gt; [a]</code> devolve os últimos três elementos de uma lista. Se a lista de entrada tiver menos de três elementos, devolve a própria lista.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">tresUlt</span> <span class="o">::</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span>
+<span class="n">tresUlt</span> <span class="n">l</span> <span class="o">=</span> <span class="kr">case</span> <span class="n">l</span> <span class="kr">of</span> <span class="p">(</span><span class="kr">_</span><span class="o">:</span><span class="n">b</span><span class="o">:</span><span class="n">c</span><span class="o">:</span><span class="n">d</span><span class="o">:</span><span class="n">xs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">tresUlt</span> <span class="p">(</span><span class="n">b</span><span class="o">:</span><span class="n">c</span><span class="o">:</span><span class="n">d</span><span class="o">:</span><span class="n">xs</span><span class="p">)</span>
+                      <span class="kr">_</span> <span class="o">-&gt;</span> <span class="n">l</span>
+</code></pre></div></div>
+
+<h2 id="g-segundos--ab---b-que-calcula-a-lista-das-segundas-componentes-dos-pares">g) <code class="language-plaintext highlighter-rouge">segundos :: [(a,b)] -&gt; [b]</code> que calcula a lista das segundas componentes dos pares.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">segundos</span> <span class="o">::</span> <span class="p">[(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)]</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="n">b</span><span class="p">]</span>
+<span class="n">segundos</span> <span class="kt">[]</span> <span class="o">=</span> <span class="kt">[]</span>
+<span class="n">segundos</span> <span class="p">((</span><span class="kr">_</span><span class="p">,</span><span class="n">b</span><span class="p">)</span><span class="o">:</span><span class="n">l</span><span class="p">)</span> <span class="o">=</span> <span class="n">b</span> <span class="o">:</span> <span class="n">segundos</span> <span class="n">l</span>
+</code></pre></div></div>
+
+<h2 id="h-nosprimeiros--eq-a--a---ab---bool-que-testa-se-um-elemento-aparece-na-lista-como-primeira-componente-de-algum-dos-pares">h) <code class="language-plaintext highlighter-rouge">nosPrimeiros :: (Eq a) =&gt; a -&gt; [(a,b)] -&gt; Bool</code> que testa se um elemento aparece na lista como primeira componente de algum dos pares.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">nosPrimeiros</span> <span class="o">::</span> <span class="p">(</span><span class="kt">Eq</span> <span class="n">a</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="n">a</span> <span class="o">-&gt;</span> <span class="p">[(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)]</span> <span class="o">-&gt;</span> <span class="kt">Bool</span>
+<span class="n">nosPrimeiros</span> <span class="n">x</span> <span class="p">[(</span><span class="n">a</span><span class="p">,</span><span class="kr">_</span><span class="p">)]</span> <span class="o">=</span> <span class="n">x</span> <span class="o">==</span> <span class="n">a</span>
+<span class="n">nosPrimeiros</span> <span class="n">x</span> <span class="p">(</span><span class="n">s</span><span class="o">:</span><span class="n">ss</span><span class="p">)</span> <span class="o">=</span> <span class="n">x</span> <span class="o">==</span> <span class="n">fst</span> <span class="n">s</span> <span class="o">||</span> <span class="n">nosPrimeiros</span> <span class="n">x</span> <span class="n">ss</span>
+</code></pre></div></div>
+
+<h2 id="i-sumtriplos--num-a-num-b-num-c--abc---abc-soma-uma-lista-de-triplos-componente-a-componente">i) <code class="language-plaintext highlighter-rouge">sumTriplos :: (Num a, Num b, Num c) =&gt; [(a,b,c)] -&gt; (a,b,c)</code> soma uma lista de triplos componente a componente.</h2>
+
+<h2 id="por-exemplo-sumtriplos-2411-31-5-10-36--15212">Por exemplo, <code class="language-plaintext highlighter-rouge">sumTriplos [(2,4,11), (3,1,-5), (10,-3,6)] = (15,2,12)</code></h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">sumTriplos</span> <span class="o">::</span> <span class="p">(</span><span class="kt">Num</span> <span class="n">a</span><span class="p">,</span> <span class="kt">Num</span> <span class="n">b</span><span class="p">,</span> <span class="kt">Num</span> <span class="n">c</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">[(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">)]</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">)</span>
+<span class="n">sumTriplos</span> <span class="p">[(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">)]</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">)</span>
+<span class="n">sumTriplos</span> <span class="p">((</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">)</span><span class="o">:</span><span class="n">ts</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">sumX</span><span class="p">,</span> <span class="n">y</span> <span class="o">+</span> <span class="n">sumY</span><span class="p">,</span> <span class="n">z</span> <span class="o">+</span> <span class="n">sumZ</span><span class="p">)</span>
+        <span class="kr">where</span> <span class="p">(</span><span class="n">sumX</span><span class="p">,</span> <span class="n">sumY</span><span class="p">,</span> <span class="n">sumZ</span><span class="p">)</span> <span class="o">=</span> <span class="n">sumTriplos</span> <span class="n">ts</span>
+</code></pre></div></div>
+
+<h1 id="3-recorrendo-a-funções-do-módulo-datachar-defina-recursivamente-as-seguintes-funções-sobre-strings">3) Recorrendo a funções do módulo <code class="language-plaintext highlighter-rouge">Data.Char</code>, defina recursivamente as seguintes funções sobre strings:</h1>
+
+<h2 id="a-sodigitos--char---char-que-recebe-uma-lista-de-caracteres-e-seleciona-dessa-lista-os-caracteres-que-são-algarismos">a) <code class="language-plaintext highlighter-rouge">soDigitos :: [Char] -&gt; [Char]</code> que recebe uma lista de caracteres, e seleciona dessa lista os caracteres que são algarismos.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">soDigitos</span> <span class="o">::</span> <span class="p">[</span><span class="kt">Char</span><span class="p">]</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">Char</span><span class="p">]</span>
+<span class="n">soDigitos</span> <span class="kt">[]</span> <span class="o">=</span> <span class="kt">[]</span>
+<span class="n">soDigitos</span> <span class="p">(</span><span class="n">h</span><span class="o">:</span><span class="n">t</span><span class="p">)</span>
+        <span class="o">|</span> <span class="n">isDigit</span> <span class="n">h</span> <span class="o">=</span> <span class="n">h</span> <span class="o">:</span> <span class="n">soDigitos</span> <span class="n">t</span>
+        <span class="o">|</span> <span class="n">otherwise</span> <span class="o">=</span> <span class="n">soDigitos</span> <span class="n">t</span>
+</code></pre></div></div>
+
+<h2 id="b-minusculas--char---int-que-recebe-uma-lista-de-caracteres-e-conta-quantos-desses-caracteres-são-letras-minúsculas">b) <code class="language-plaintext highlighter-rouge">minusculas :: [Char] -&gt; Int</code> que recebe uma lista de caracteres, e conta quantos desses caracteres são letras minúsculas.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">minusculas</span> <span class="o">::</span> <span class="p">[</span><span class="kt">Char</span><span class="p">]</span> <span class="o">-&gt;</span> <span class="kt">Int</span>
+<span class="n">minusculas</span> <span class="kt">[]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">minusculas</span> <span class="p">(</span><span class="n">c</span><span class="o">:</span><span class="n">str</span><span class="p">)</span> <span class="o">=</span> <span class="kr">if</span> <span class="n">isLower</span> <span class="n">c</span> <span class="kr">then</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">minusculas</span> <span class="n">str</span>
+                                  <span class="kr">else</span> <span class="n">minusculas</span> <span class="n">str</span>
+</code></pre></div></div>
+
+<h2 id="c-nums--string---int-que-recebe-uma-string-e-devolve-uma-lista-com-os-algarismos-que-ocorrem-nessa-string-pela-mesma-ordem">c) <code class="language-plaintext highlighter-rouge">nums :: String -&gt; [Int]</code> que recebe uma string e devolve uma lista com os algarismos que ocorrem nessa string, pela mesma ordem.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">nums</span> <span class="o">::</span> <span class="p">[</span><span class="kt">Char</span><span class="p">]</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">Int</span><span class="p">]</span>
+<span class="n">nums</span> <span class="kt">[]</span> <span class="o">=</span> <span class="kt">[]</span>
+<span class="n">nums</span> <span class="p">(</span><span class="n">c</span><span class="o">:</span><span class="n">str</span><span class="p">)</span> <span class="o">=</span> <span class="kr">if</span> <span class="n">isDigit</span> <span class="n">c</span> <span class="kr">then</span> <span class="n">digitToInt</span> <span class="n">c</span> <span class="o">:</span> <span class="n">nums</span> <span class="n">str</span> 
+                            <span class="kr">else</span> <span class="n">nums</span> <span class="n">str</span>
+</code></pre></div></div>
+
+<h1 id="4-uma-forma-de-representar-polinómios-de-uma-variável-é-usar-listas-de-monómios-representados-por-pares-coeficiente-expoente">4) Uma forma de representar polinómios de uma variável é usar listas de monómios representados por pares <em>(coeficiente, expoente)</em></h1>
+
+<h1 id="type-polinomio--monomio"><code class="language-plaintext highlighter-rouge">type Polinomio = [Monomio]</code></h1>
+<h1 id="type-monomio--floatint"><code class="language-plaintext highlighter-rouge">type Monomio = (Float,Int)</code></h1>
+
+<h1 id="por-exemplo-23-34-53-45-representa-o-polinómio-2x3--3x4--5x3--4x5-defina-as-seguintes-funções">Por exemplo, <code class="language-plaintext highlighter-rouge">[(2,3), (3,4), (5,3), (4,5)]</code> representa o polinómio 2x<sup>3</sup> + 3x<sup>4</sup> + 5x<sup>3</sup> + 4x<sup>5</sup>. Defina as seguintes funções:</h1>
+
+<h2 id="a-conta--int---polinomio---int-de-forma-a-que-conta-n-p-indica-quantos-monómios-de-grau-n-existem-em-p">a) <code class="language-plaintext highlighter-rouge">conta :: Int -&gt; Polinomio -&gt; Int</code> de forma a que <code class="language-plaintext highlighter-rouge">(conta n p)</code> indica quantos monómios de grau <code class="language-plaintext highlighter-rouge">n</code> existem em <code class="language-plaintext highlighter-rouge">p</code>.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">conta</span> <span class="o">::</span> <span class="kt">Int</span> <span class="o">-&gt;</span> <span class="kt">Polinomio</span> <span class="o">-&gt;</span> <span class="kt">Int</span>
+<span class="n">conta</span> <span class="kr">_</span> <span class="kt">[]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">conta</span> <span class="n">n</span> <span class="p">((</span><span class="kr">_</span><span class="p">,</span><span class="n">e</span><span class="p">)</span><span class="o">:</span><span class="n">ps</span><span class="p">)</span> <span class="o">=</span> <span class="kr">if</span> <span class="n">e</span> <span class="o">==</span> <span class="n">n</span> <span class="kr">then</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">conta</span> <span class="n">n</span> <span class="n">ps</span> 
+                               <span class="kr">else</span> <span class="n">conta</span> <span class="n">n</span> <span class="n">ps</span>
+</code></pre></div></div>
+
+<h2 id="b-grau--polinomio---int-que-indica-o-grau-de-um-polinómio">b) <code class="language-plaintext highlighter-rouge">grau :: Polinomio -&gt; Int</code> que indica o grau de um polinómio.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">grau</span> <span class="o">::</span> <span class="kt">Polinomio</span> <span class="o">-&gt;</span> <span class="kt">Int</span>
+<span class="n">grau</span> <span class="p">[(</span><span class="n">b</span><span class="p">,</span><span class="n">e</span><span class="p">)]</span> <span class="o">=</span> <span class="n">e</span>
+<span class="n">grau</span> <span class="p">((</span><span class="n">b</span><span class="p">,</span><span class="n">e</span><span class="p">)</span><span class="o">:</span><span class="n">ps</span><span class="p">)</span> <span class="o">=</span> <span class="kr">if</span> <span class="n">e</span> <span class="o">&gt;</span> <span class="n">grau</span> <span class="n">ps</span> <span class="kr">then</span> <span class="n">e</span> <span class="kr">else</span> <span class="n">grau</span> <span class="n">ps</span>
+</code></pre></div></div>
+
+<h2 id="c-selgrau--int---polinomio---polinomio-que-seleciona-os-monómios-com-um-dado-grau-de-um-polinómio">c) <code class="language-plaintext highlighter-rouge">selgrau :: Int -&gt; Polinomio -&gt; Polinomio</code> que seleciona os monómios com um dado grau de um polinómio.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">selgrau</span> <span class="o">::</span> <span class="kt">Int</span> <span class="o">-&gt;</span> <span class="kt">Polinomio</span> <span class="o">-&gt;</span> <span class="kt">Polinomio</span>
+<span class="n">selgrau</span> <span class="kr">_</span> <span class="kt">[]</span> <span class="o">=</span> <span class="kt">[]</span>
+<span class="n">selgrau</span> <span class="n">n</span> <span class="p">((</span><span class="n">b</span><span class="p">,</span><span class="n">e</span><span class="p">)</span><span class="o">:</span><span class="n">ps</span><span class="p">)</span>
+    <span class="o">|</span> <span class="n">n</span> <span class="o">==</span> <span class="n">e</span> <span class="o">=</span> <span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="n">e</span><span class="p">)</span> <span class="o">:</span> <span class="n">selgrau</span> <span class="n">n</span> <span class="n">ps</span>
+    <span class="o">|</span> <span class="n">otherwise</span> <span class="o">=</span> <span class="n">selgrau</span> <span class="n">n</span> <span class="n">ps</span>
+</code></pre></div></div>
+
+<h2 id="d-deriv--polinomio---polinomio-que-calcula-a-derivada-de-um-polinómio">d) <code class="language-plaintext highlighter-rouge">deriv :: Polinomio -&gt; Polinomio</code> que calcula a derivada de um polinómio.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">deriv</span> <span class="o">::</span> <span class="kt">Polinomio</span> <span class="o">-&gt;</span> <span class="kt">Polinomio</span>
+<span class="n">deriv</span> <span class="kt">[]</span> <span class="o">=</span> <span class="kt">[]</span>
+<span class="n">deriv</span> <span class="p">((</span><span class="n">b</span><span class="p">,</span><span class="n">e</span><span class="p">)</span><span class="o">:</span><span class="n">ps</span><span class="p">)</span> <span class="o">=</span> <span class="kr">if</span> <span class="n">e</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="kr">then</span> <span class="p">(</span><span class="n">b</span><span class="o">*</span><span class="n">fromIntegral</span> <span class="n">e</span><span class="p">,</span> <span class="n">e</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">:</span> <span class="n">deriv</span> <span class="n">ps</span> 
+                            <span class="kr">else</span> <span class="n">deriv</span> <span class="n">ps</span>
+<span class="c1">-- a função `fromIntegral` converte um valor inteiro num valor de vírgula flutuante</span>
+<span class="c1">-- em haskell, é necessário que ambos os fatores de uma multiplicação sejam do mesmo tipo, ele não converte automaticamente</span>
+</code></pre></div></div>
+
+<h2 id="e-calcula--float---polinomio---float-que-calcula-o-valor-de-um-polinómio-para-um-dado-valor-de-x">e) <code class="language-plaintext highlighter-rouge">calcula :: Float -&gt; Polinomio -&gt; Float</code> que calcula o valor de um polinómio para um dado valor de x.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">calcula</span> <span class="o">::</span> <span class="kt">Float</span> <span class="o">-&gt;</span> <span class="kt">Polinomio</span> <span class="o">-&gt;</span> <span class="kt">Float</span>
+<span class="n">calcula</span> <span class="n">x</span> <span class="kt">[]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">calcula</span> <span class="n">x</span> <span class="p">((</span><span class="n">b</span><span class="p">,</span><span class="n">e</span><span class="p">)</span><span class="o">:</span><span class="n">ps</span><span class="p">)</span> <span class="o">=</span> <span class="n">b</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">^</span><span class="n">e</span><span class="p">)</span> <span class="o">+</span> <span class="n">calcula</span> <span class="n">x</span> <span class="n">ps</span>
+</code></pre></div></div>
+
+<h2 id="f-simp--polinomio---polinomio-que-retira-de-um-polinómio-os-monómios-de-coeficiente-zero">f) <code class="language-plaintext highlighter-rouge">simp :: Polinomio -&gt; Polinomio</code> que retira de um polinómio os monómios de coeficiente zero.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">simp</span> <span class="o">::</span> <span class="kt">Polinomio</span> <span class="o">-&gt;</span> <span class="kt">Polinomio</span>
+<span class="n">simp</span> <span class="kt">[]</span> <span class="o">=</span> <span class="kt">[]</span>
+<span class="n">simp</span> <span class="p">((</span><span class="n">b</span><span class="p">,</span><span class="n">e</span><span class="p">)</span><span class="o">:</span><span class="n">ps</span><span class="p">)</span> <span class="o">=</span> <span class="kr">if</span> <span class="n">e</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="kr">then</span> <span class="n">simp</span> <span class="n">ps</span> 
+                           <span class="kr">else</span> <span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="n">e</span><span class="p">)</span> <span class="o">:</span> <span class="n">simp</span> <span class="n">ps</span>
+</code></pre></div></div>
+
+<h2 id="g-mult--monomio---polinomio---polinomio-que-calcula-o-resultado-da-multiplicação-de-um-monómio-por-um-polinómio">g) <code class="language-plaintext highlighter-rouge">mult :: Monomio -&gt; Polinomio -&gt; Polinomio</code> que calcula o resultado da multiplicação de um monómio por um polinómio.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">mult</span> <span class="o">::</span> <span class="kt">Monomio</span> <span class="o">-&gt;</span> <span class="kt">Polinomio</span> <span class="o">-&gt;</span> <span class="kt">Polinomio</span>
+<span class="n">mult</span> <span class="kr">_</span> <span class="kt">[]</span> <span class="o">=</span> <span class="kt">[]</span>
+<span class="n">mult</span> <span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="n">e</span><span class="p">)</span> <span class="p">((</span><span class="n">bp</span><span class="p">,</span><span class="n">ep</span><span class="p">)</span><span class="o">:</span><span class="n">ps</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="n">b</span><span class="o">*</span><span class="n">bp</span><span class="p">,</span><span class="n">e</span><span class="o">+</span><span class="n">ep</span><span class="p">)</span> <span class="o">:</span> <span class="n">mult</span> <span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="n">e</span><span class="p">)</span> <span class="n">ps</span>
+</code></pre></div></div>
+
+<h2 id="h-normaliza--polinomio---polinomio-que-dado-um-polinómio-constrói-um-polinómio-equivalente-em-que-não-podem-aparecer-varios-monómios-com-o-mesmo-grau">h) <code class="language-plaintext highlighter-rouge">normaliza :: Polinomio -&gt; Polinomio</code> que dado um polinómio constrói um polinómio equivalente em que não podem aparecer varios monómios com o mesmo grau.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">normaliza</span> <span class="o">::</span> <span class="kt">Polinomio</span> <span class="o">-&gt;</span> <span class="kt">Polinomio</span>
+<span class="n">normaliza</span> <span class="kt">[]</span> <span class="o">=</span> <span class="kt">[]</span>
+<span class="n">normaliza</span> <span class="p">((</span><span class="n">b</span><span class="p">,</span><span class="n">e</span><span class="p">)</span><span class="o">:</span><span class="n">ps</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="n">sum</span> <span class="p">[</span><span class="n">bs</span> <span class="o">|</span> <span class="p">(</span><span class="n">bs</span><span class="p">,</span><span class="n">es</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="n">selgrau</span> <span class="n">e</span> <span class="n">ps</span><span class="p">]</span> <span class="o">+</span> <span class="n">b</span><span class="p">,</span><span class="n">e</span><span class="p">)</span> <span class="o">:</span> <span class="n">normaliza</span> <span class="p">[(</span><span class="n">bo</span><span class="p">,</span><span class="n">eo</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">bo</span><span class="p">,</span><span class="n">eo</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="n">ps</span><span class="p">,</span> <span class="n">eo</span> <span class="o">/=</span> <span class="n">e</span><span class="p">]</span>
+<span class="c1">-- Nesta função, começamos por selecionar da cauda da lista todos os monómios com o mesmo grau da cabeça da lista e fazemos a soma dos seus coeficientes, colocando esta soma num novo monómio com o grau da cabeça da lista. Depois, apenas precisamos de normalizar os monómios de grau diferente ao da cabeça da lista, por isso filtramos da cauda da lista todos os monómios com expoente diferente do expoente da cabeça e chamamos a função recursivamente com esta nova lista.</span>
+
+<span class="c1">-- Em alternativa, esta versão não usa compreensão de listas, mas é mais complexa:</span>
+
+<span class="n">normaliza'</span> <span class="o">::</span> <span class="kt">Polinomio</span> <span class="o">-&gt;</span> <span class="kt">Polinomio</span>
+<span class="n">normaliza'</span> <span class="kt">[]</span> <span class="o">=</span> <span class="kt">[]</span>
+<span class="n">normaliza'</span> <span class="p">[(</span><span class="n">b</span><span class="p">,</span><span class="n">e</span><span class="p">)]</span> <span class="o">=</span> <span class="p">[(</span><span class="n">b</span><span class="p">,</span><span class="n">e</span><span class="p">)]</span>
+<span class="n">normaliza'</span> <span class="p">((</span><span class="n">b</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span> <span class="o">:</span> <span class="p">(</span><span class="n">b2</span><span class="p">,</span> <span class="n">e2</span><span class="p">)</span> <span class="o">:</span> <span class="n">ps</span><span class="p">)</span>
+  <span class="o">|</span> <span class="n">e</span> <span class="o">==</span> <span class="n">e2</span> <span class="o">=</span> <span class="n">normaliza'</span> <span class="p">((</span><span class="n">b</span> <span class="o">+</span> <span class="n">b2</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span> <span class="o">:</span> <span class="n">ps</span><span class="p">)</span>
+  <span class="o">|</span> <span class="n">conta</span> <span class="n">e</span> <span class="n">ps</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">=</span> <span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span> <span class="o">:</span> <span class="n">normaliza'</span> <span class="p">((</span><span class="n">b2</span><span class="p">,</span> <span class="n">e2</span><span class="p">)</span> <span class="o">:</span> <span class="n">ps</span><span class="p">)</span>
+  <span class="o">|</span> <span class="n">otherwise</span> <span class="o">=</span> <span class="n">normaliza'</span> <span class="p">((</span><span class="n">b</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span> <span class="o">:</span> <span class="n">ps</span> <span class="o">++</span> <span class="p">[(</span><span class="n">b2</span><span class="p">,</span> <span class="n">e2</span><span class="p">)])</span>
+</code></pre></div></div>
+
+<h2 id="i-soma--polinomio---polinomio---polinomio-que-faz-a-soma-de-dois-polinómios-de-forma-que-se-os-polinómios-que-recebe-estiverem-normalizados-produz-também-um-polinómio-normalizado">i) <code class="language-plaintext highlighter-rouge">soma :: Polinomio -&gt; Polinomio -&gt; Polinomio</code> que faz a soma de dois polinómios de forma que se os polinómios que recebe estiverem normalizados produz também um polinómio normalizado.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">soma</span> <span class="o">::</span> <span class="kt">Polinomio</span> <span class="o">-&gt;</span> <span class="kt">Polinomio</span> <span class="o">-&gt;</span> <span class="kt">Polinomio</span>
+<span class="n">soma</span> <span class="n">p1</span> <span class="n">p2</span> <span class="o">=</span> <span class="n">normaliza</span> <span class="p">(</span><span class="n">p1</span> <span class="o">++</span> <span class="n">p2</span><span class="p">)</span>
+
+<span class="c1">-- Esta primeira versão é mais "preguiçosa". Se quisermos respeitar a 100% o enunciado, podemos defini-la da seguinte forma:</span>
+
+<span class="n">soma'</span> <span class="o">::</span> <span class="kt">Polinomio</span> <span class="o">-&gt;</span> <span class="kt">Polinomio</span> <span class="o">-&gt;</span> <span class="kt">Polinomio</span>
+<span class="n">soma'</span> <span class="kt">[]</span> <span class="n">p</span> <span class="o">=</span> <span class="n">p</span>
+<span class="n">soma'</span> <span class="n">p</span> <span class="kt">[]</span> <span class="o">=</span> <span class="n">p</span>
+<span class="n">soma'</span> <span class="p">((</span><span class="n">b1</span><span class="p">,</span><span class="n">e1</span><span class="p">)</span><span class="o">:</span><span class="n">p1</span><span class="p">)</span> <span class="n">p2</span> <span class="o">=</span> <span class="n">adiciona</span> <span class="p">(</span><span class="n">b1</span><span class="p">,</span><span class="n">e1</span><span class="p">)</span> <span class="p">(</span><span class="n">soma'</span> <span class="n">p1</span> <span class="n">p2</span><span class="p">)</span>
+    <span class="kr">where</span> <span class="n">adiciona</span> <span class="o">::</span> <span class="kt">Monomio</span> <span class="o">-&gt;</span> <span class="kt">Polinomio</span> <span class="o">-&gt;</span> <span class="kt">Polinomio</span>
+          <span class="n">adiciona</span> <span class="n">p</span> <span class="kt">[]</span> <span class="o">=</span> <span class="n">p</span>
+          <span class="n">adiciona</span> <span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="n">e</span><span class="p">)</span> <span class="p">((</span><span class="n">bp</span><span class="p">,</span><span class="n">ep</span><span class="p">)</span><span class="o">:</span><span class="n">p</span><span class="p">)</span>
+              <span class="o">|</span> <span class="n">e</span> <span class="o">==</span> <span class="n">ep</span> <span class="o">=</span> <span class="p">(</span><span class="n">b</span> <span class="o">+</span> <span class="n">bp</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span> <span class="o">:</span> <span class="n">p</span>
+              <span class="o">|</span> <span class="n">otherwise</span> <span class="o">=</span> <span class="p">(</span><span class="n">bp</span><span class="p">,</span><span class="n">ep</span><span class="p">)</span> <span class="o">:</span> <span class="n">adiciona</span> <span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="n">e</span><span class="p">)</span> <span class="n">p</span>
+</code></pre></div></div>
+
+<h2 id="j-produto--polinomio---polinomio---polinomio-que-calcula-o-produto-de-dois-polinómios">j) <code class="language-plaintext highlighter-rouge">produto :: Polinomio -&gt; Polinomio -&gt; Polinomio</code> que calcula o produto de dois polinómios.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">produto</span> <span class="o">::</span> <span class="kt">Polinomio</span> <span class="o">-&gt;</span> <span class="kt">Polinomio</span> <span class="o">-&gt;</span> <span class="kt">Polinomio</span>
+<span class="n">produto</span> <span class="kt">[]</span> <span class="kr">_</span> <span class="o">=</span> <span class="kt">[]</span>
+<span class="n">produto</span> <span class="p">(</span><span class="n">p</span><span class="o">:</span><span class="n">p1</span><span class="p">)</span> <span class="n">p2</span> <span class="o">=</span> <span class="n">soma</span> <span class="p">(</span><span class="n">mult</span> <span class="n">p</span> <span class="n">p2</span><span class="p">)</span> <span class="p">(</span><span class="n">produto</span> <span class="n">p1</span> <span class="n">p2</span><span class="p">)</span> 
+</code></pre></div></div>
+
+<h2 id="k-ordena--polinomio---polinomio-que-ordena-um-polonómio-por-ordem-crescente-dos-graus-dos-seus-monómios">k) <code class="language-plaintext highlighter-rouge">ordena :: Polinomio -&gt; Polinomio</code> que ordena um polonómio por ordem crescente dos graus dos seus monómios.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">ordena</span> <span class="o">::</span> <span class="kt">Polinomio</span> <span class="o">-&gt;</span> <span class="kt">Polinomio</span>
+<span class="n">ordena</span> <span class="kt">[]</span> <span class="o">=</span> <span class="kt">[]</span>
+<span class="n">ordena</span> <span class="p">((</span><span class="n">b</span><span class="p">,</span><span class="n">e</span><span class="p">)</span><span class="o">:</span><span class="n">ps</span><span class="p">)</span> <span class="o">=</span> <span class="n">ordena</span> <span class="p">(</span><span class="n">maisAltos</span> <span class="n">ps</span><span class="p">)</span> <span class="o">++</span> <span class="p">[(</span><span class="n">b</span><span class="p">,</span><span class="n">e</span><span class="p">)]</span> <span class="o">++</span> <span class="n">ordena</span> <span class="p">(</span><span class="n">maisBaixos</span> <span class="n">ps</span><span class="p">)</span>
+    <span class="kr">where</span> <span class="n">maisAltos</span> <span class="kt">[]</span> <span class="o">=</span> <span class="kt">[]</span>
+          <span class="n">maisAltos</span> <span class="p">((</span><span class="n">bx</span><span class="p">,</span><span class="n">ex</span><span class="p">)</span><span class="o">:</span><span class="n">xs</span><span class="p">)</span> <span class="o">=</span> <span class="kr">if</span> <span class="n">ex</span> <span class="o">&gt;</span> <span class="n">e</span> <span class="o">||</span> <span class="p">(</span><span class="n">ex</span> <span class="o">==</span> <span class="n">e</span> <span class="o">&amp;&amp;</span> <span class="n">bx</span> <span class="o">&gt;=</span> <span class="n">b</span><span class="p">)</span> <span class="kr">then</span> <span class="p">(</span><span class="n">bx</span><span class="p">,</span><span class="n">ex</span><span class="p">)</span> <span class="o">:</span> <span class="n">maisAltos</span> <span class="n">xs</span> <span class="kr">else</span> <span class="n">maisAltos</span> <span class="n">xs</span>
+          <span class="n">maisBaixos</span> <span class="kt">[]</span> <span class="o">=</span> <span class="kt">[]</span>
+          <span class="n">maisBaixos</span> <span class="p">((</span><span class="n">bx</span><span class="p">,</span><span class="n">ex</span><span class="p">)</span><span class="o">:</span><span class="n">xs</span><span class="p">)</span> <span class="o">=</span> <span class="kr">if</span> <span class="n">ex</span> <span class="o">&lt;</span> <span class="n">e</span> <span class="o">||</span> <span class="p">(</span><span class="n">ex</span> <span class="o">==</span> <span class="n">e</span> <span class="o">&amp;&amp;</span> <span class="n">bx</span> <span class="o">&lt;</span> <span class="n">b</span><span class="p">)</span> <span class="kr">then</span> <span class="p">(</span><span class="n">bx</span><span class="p">,</span><span class="n">ex</span><span class="p">)</span> <span class="o">:</span> <span class="n">maisBaixos</span> <span class="n">xs</span> <span class="kr">else</span> <span class="n">maisBaixos</span> <span class="n">xs</span>
+<span class="c1">-- A este método de ordenar listas chamamos "quick sort"</span>
+</code></pre></div></div>
+
+<h2 id="l-equiv--polinomio---polinomio---bool-que-testa-se-dois-polinómios-são-equivalentes">l) <code class="language-plaintext highlighter-rouge">equiv :: Polinomio -&gt; Polinomio -&gt; Bool</code> que testa se dois polinómios são equivalentes.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">equiv</span> <span class="o">::</span> <span class="kt">Polinomio</span> <span class="o">-&gt;</span> <span class="kt">Polinomio</span> <span class="o">-&gt;</span> <span class="kt">Bool</span>
+<span class="n">equiv</span> <span class="n">p1</span> <span class="n">p2</span> <span class="o">=</span> <span class="n">ordena</span> <span class="p">(</span><span class="n">normaliza</span> <span class="n">p1</span><span class="p">)</span> <span class="o">==</span> <span class="n">ordena</span> <span class="p">(</span><span class="n">normaliza</span> <span class="n">p2</span><span class="p">)</span>
+
+<span class="c1">-- Para ir de acordo à ficha, esta função deveria estar definida de forma recursiva, mas, visto que esta definição apenas usa funções recursivas, seria fácil replicá-la de forma recursiva. Por uma questão de simplicidade, não incluo essa definição nesta resolução.</span>
+
+<span class="c1">-- Um método alternativo de resolver esta alínea seria definir uma função que subtrai um polinómio do outro e, se o resultado fosse zero, os polinómios seriam equivalentes.</span>
+</code></pre></div></div>
+
+  </div>
+</div>
+      </div>
+      <footer class="bg-dark-gray p-8 lg:px-14 flex flex-col md:flex-row gap-6 justify-between items-center justify-self-end">
+        <p>Made with 💙 by <a href="https://github.com/RisingFisan" target="_blank" rel="noopener noreferrer">RisingFisan</a>.</p>
+        <p class="inline">If you want to support this project, you can <a href="https://paypal.me/sofirs" target="_blank" rel="noopener noreferrer">buy me a coffee <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="paypal" class="w-4 inline" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path fill="currentColor" d="M111.4 295.9c-3.5 19.2-17.4 108.7-21.5 134-.3 1.8-1 2.5-3 2.5H12.3c-7.6 0-13.1-6.6-12.1-13.9L58.8 46.6c1.5-9.6 10.1-16.9 20-16.9 152.3 0 165.1-3.7 204 11.4 60.1 23.3 65.6 79.5 44 140.3-21.5 62.6-72.5 89.5-140.1 90.3-43.4.7-69.5-7-75.3 24.2zM357.1 152c-1.8-1.3-2.5-1.8-3 1.3-2 11.4-5.1 22.5-8.8 33.6-39.9 113.8-150.5 103.9-204.5 103.9-6.1 0-10.1 3.3-10.9 9.4-22.6 140.4-27.1 169.7-27.1 169.7-1 7.1 3.5 12.9 10.6 12.9h63.5c8.6 0 15.7-6.3 17.4-14.9.7-5.4-1.1 6.1 14.4-91.3 4.6-22 14.3-19.7 29.3-19.7 71 0 126.4-28.8 142.9-112.3 6.5-34.8 4.6-71.4-23.8-92.6z"></path></svg></a>! 😁☕</p>
+      </footer>
+    </div>
+  </body>
+</html>

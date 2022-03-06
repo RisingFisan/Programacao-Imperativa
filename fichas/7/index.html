@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta property="og:title" content="Programação Imperativa">
+    <meta property="og:description" content="Resolução de exercícios, fichas e testes.">
+    <meta property="og:image" content="./C-Logo.png">
+    <meta property="og:image:secure_url" content="./C-Logo.png">
+    <title>
+      
+       
+        Ficha 7 |
+       Programação Imperativa</title>
+    <link rel="stylesheet" href="/Programacao-Imperativa/assets/css/main.css">
+    <link rel="shortcut icon" href="/Programacao-Imperativa/favicon.ico" >
+    <script type="text/javascript">
+
+      // Wait for the page to load first
+      window.onload = function() {
+
+        //Get a reference to the link on the page
+        // with an id of "mylink"
+        var a = document.getElementById("code-overlay");
+        a.style.display = "flex";
+
+        //Set code to run when the link is clicked
+        // by assigning a function to "onclick"
+        a.onclick = function() {
+
+          // Your code here...
+          a.remove();
+
+          //If you don't want the link to actually 
+          // redirect the browser to another page,
+          // then return false at the end of this block.
+          // Note that this also prevents event bubbling,
+          // which is probably what we want here, but won't 
+          // always be the case.
+          return false;
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="bg-darker-gray w-full min-h-screen text-white flex flex-col">
+      <header class="bg-dark-gray p-8 lg:px-14 flex flex-col md:flex-row gap-6 justify-between items-center">
+        <div class="flex flex-col items-center sm:flex-row sm:items-start gap-5 sm:gap-10">
+          <a href=/Programacao-Imperativa/ class="flex-none">
+            <img src=/Programacao-Imperativa/C-Logo.png class="relative h-16 top-2 md:items-center">
+          </a>
+          <div class="space-y-2 text-center sm:text-left">
+            <p class="text-4xl font-bold">Programação Imperativa</p>
+            <p class="text-lg font-light">Resolução de exercícios, fichas e testes.</p>
+          </div>
+        </div>
+        
+          <!--
+          <div class="flex gap-3 md:gap-6 justify-end items-center flex-col lg:flex-row w-full md:w-auto">
+            <a href=/Programacao-Imperativa/50q/index.html class="bg-blue-800 hover:bg-blue-600 p-5 w-full sm:w-1/2 md:w-36 flex justify-center items-center rounded-xl">
+              <p class="uppercase font-bold">50 Questões</p>
+            </a>
+            <a href=/Programacao-Imperativa/fichas/index.html class="bg-blue-800 hover:bg-blue-600 p-5 w-full sm:w-1/2 md:w-36 flex justify-center items-center rounded-xl">
+              <p class="uppercase font-bold">Fichas</p>
+            </a>
+          </div>
+          -->
+          <a href="../" class="bg-blue-800 hover:bg-blue-600 p-5 w-full sm:w-1/2 md:w-36 flex justify-center items-center rounded-xl">
+            <p class="uppercase font-bold">ᐸ Voltar</p>
+          </a>
+        
+      </header>
+      <div class="px-3 py-10 sm:p-20 flex-grow">
+      
+
+<div class="flex flex-col gap-3">
+  <div class="flex justify-between flex-col md:flex-row items-center gap-8 md:items-start">
+    <div class="md:w-2/3 xl:w-1/2 px-5 space-y-2 self-start">
+      <h1 class="text-2xl md:text-3xl xl:text-4xl font-bold">
+        Ficha : 
+      </h1>
+    </div>
+    <div class="flex gap-5">
+       
+        
+        
+        <a href=/Programacao-Imperativa/fichas/-1 class="flex flex-col justify-center items-center w-24 h-24 rounded-full bg-purple-800 hover:bg-purple-600">
+          <p class="text-2xl font-bold"><</p>
+          <p>Anterior</p>
+        </a>
+      
+      
+        
+        
+        <a href=/Programacao-Imperativa/fichas/1 class="flex flex-col justify-center items-center w-24 h-24 rounded-full bg-purple-800 hover:bg-purple-600">
+          <p class="text-2xl font-bold">></p>
+          <p>Seguinte</p>
+        </a>
+      
+    </div>
+  </div>
+  <div class="md:px-20" id="resolution">
+    
+    <h1 id="1-considere-o-seguinte-tipo-para-representar-expressões-inteiras">1) Considere o seguinte tipo para representar expressões inteiras.</h1>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>data ExpInt = Const Int
+            | Simetrico ExpInt
+            | Mais ExpInt ExpInt
+            | Menos ExpInt ExpInt
+            | Mult ExpInt ExpInt
+</code></pre></div></div>
+
+<h1 id="os-termos-deste-tipo-expint-podem-ser-vistos-como-árvores-cujas-folhas-são-inteiros-e-cujos-nodos-não-folhas-são-operadores">Os termos deste tipo ExpInt podem ser vistos como árvores cujas folhas são inteiros e cujos nodos (não folhas) são operadores.</h1>
+
+<h2 id="a-defina-uma-função-calcula--expint---int-que-dada-uma-destas-expressões-calcula-o-seu-valor">a) Defina uma função <code class="language-plaintext highlighter-rouge">calcula :: ExpInt -&gt; Int</code> que, dada uma destas expressões, calcula o seu valor.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">calcula</span> <span class="o">::</span> <span class="kt">ExpInt</span> <span class="o">-&gt;</span> <span class="kt">Int</span>
+<span class="n">calcula</span> <span class="p">(</span><span class="kt">Const</span> <span class="n">num</span><span class="p">)</span> <span class="o">=</span> <span class="n">num</span>
+<span class="n">calcula</span> <span class="p">(</span><span class="kt">Simetrico</span> <span class="n">exp</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span> <span class="n">calcula</span> <span class="n">exp</span><span class="p">)</span>
+<span class="n">calcula</span> <span class="p">(</span><span class="kt">Mais</span> <span class="n">a</span> <span class="n">b</span><span class="p">)</span> <span class="o">=</span> <span class="n">calcula</span> <span class="n">a</span> <span class="o">+</span> <span class="n">calcula</span> <span class="n">b</span>
+<span class="n">calcula</span> <span class="p">(</span><span class="kt">Menos</span> <span class="n">a</span> <span class="n">b</span><span class="p">)</span> <span class="o">=</span> <span class="n">calcula</span> <span class="n">a</span> <span class="o">-</span> <span class="n">calcula</span> <span class="n">b</span>
+<span class="n">calcula</span> <span class="p">(</span><span class="kt">Mult</span> <span class="n">a</span> <span class="n">b</span><span class="p">)</span> <span class="o">=</span> <span class="n">calcula</span> <span class="n">a</span> <span class="o">*</span> <span class="n">calcula</span> <span class="n">b</span>
+</code></pre></div></div>
+
+<h2 id="b-defina-uma-função-infixa--expint---string-de-forma-a-que-infixa-mais-const-3-menos-const-2-const-5-dˆe-como-resultado-3--2---5">b) Defina uma função <code class="language-plaintext highlighter-rouge">infixa :: ExpInt -&gt; String</code> de forma a que <code class="language-plaintext highlighter-rouge">infixa (Mais (Const 3) (Menos (Const 2) (Const 5)))</code> dˆe como resultado <code class="language-plaintext highlighter-rouge">"(3 + (2 - 5))"</code>.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">infixa</span> <span class="o">::</span> <span class="kt">ExpInt</span> <span class="o">-&gt;</span> <span class="kt">String</span>
+<span class="n">infixa</span> <span class="p">(</span><span class="kt">Const</span> <span class="n">num</span><span class="p">)</span> <span class="o">=</span> <span class="n">show</span> <span class="n">num</span> <span class="c1">-- A função pré-definida `show` converte um valor para a sua representação textual (String).</span>
+<span class="n">infixa</span> <span class="p">(</span><span class="kt">Simetrico</span> <span class="n">exp</span><span class="p">)</span> <span class="o">=</span> <span class="s">"(-("</span> <span class="o">++</span> <span class="n">infixa</span> <span class="n">exp</span> <span class="o">++</span> <span class="s">"))"</span>
+<span class="n">infixa</span> <span class="p">(</span><span class="kt">Mais</span> <span class="n">a</span> <span class="n">b</span><span class="p">)</span> <span class="o">=</span> <span class="sc">'('</span><span class="o">:</span><span class="n">infixa</span> <span class="n">a</span> <span class="o">++</span> <span class="s">" + "</span> <span class="o">++</span> <span class="n">infixa</span> <span class="n">b</span> <span class="o">++</span> <span class="s">")"</span>
+<span class="n">infixa</span> <span class="p">(</span><span class="kt">Menos</span> <span class="n">a</span> <span class="n">b</span><span class="p">)</span> <span class="o">=</span> <span class="sc">'('</span><span class="o">:</span><span class="n">infixa</span> <span class="n">a</span> <span class="o">++</span> <span class="s">" - "</span> <span class="o">++</span> <span class="n">infixa</span> <span class="n">b</span> <span class="o">++</span> <span class="s">")"</span>
+<span class="n">infixa</span> <span class="p">(</span><span class="kt">Mult</span> <span class="n">a</span> <span class="n">b</span><span class="p">)</span> <span class="o">=</span> <span class="sc">'('</span><span class="o">:</span><span class="n">infixa</span> <span class="n">a</span> <span class="o">++</span> <span class="s">" * "</span> <span class="o">++</span> <span class="n">infixa</span> <span class="n">b</span> <span class="o">++</span> <span class="s">")"</span>
+</code></pre></div></div>
+
+<h2 id="c-defina-uma-outra-função-de-conversão-para-strings-posfixa--expint---string-de-forma-a-que-quando-aplicada-à-expressão-acima-dˆe-como-resultado-3-2-5---">c) Defina uma outra função de conversão para strings <code class="language-plaintext highlighter-rouge">posfixa :: ExpInt -&gt; String</code> de forma a que quando aplicada à expressão acima dˆe como resultado <code class="language-plaintext highlighter-rouge">"3 2 5 - +"</code>.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">posfixa</span> <span class="o">::</span> <span class="kt">ExpInt</span> <span class="o">-&gt;</span> <span class="kt">String</span>
+<span class="n">posfixa</span> <span class="p">(</span><span class="kt">Const</span> <span class="n">num</span><span class="p">)</span> <span class="o">=</span> <span class="n">show</span> <span class="n">num</span> <span class="o">++</span> <span class="s">" "</span>
+<span class="n">posfixa</span> <span class="p">(</span><span class="kt">Simetrico</span> <span class="n">exp</span><span class="p">)</span> <span class="o">=</span> <span class="sc">'-'</span><span class="o">:</span><span class="n">posfixa</span> <span class="n">exp</span>
+<span class="n">posfixa</span> <span class="p">(</span><span class="kt">Mais</span> <span class="n">a</span> <span class="n">b</span><span class="p">)</span> <span class="o">=</span> <span class="n">posfixa</span> <span class="n">a</span> <span class="o">++</span> <span class="n">posfixa</span> <span class="n">b</span> <span class="o">++</span> <span class="s">"+ "</span>
+<span class="n">posfixa</span> <span class="p">(</span><span class="kt">Menos</span> <span class="n">a</span> <span class="n">b</span><span class="p">)</span> <span class="o">=</span> <span class="n">posfixa</span> <span class="n">a</span> <span class="o">++</span> <span class="n">posfixa</span> <span class="n">b</span> <span class="o">++</span> <span class="s">"- "</span>
+<span class="n">posfixa</span> <span class="p">(</span><span class="kt">Mult</span> <span class="n">a</span> <span class="n">b</span><span class="p">)</span> <span class="o">=</span> <span class="n">posfixa</span> <span class="n">a</span> <span class="o">++</span> <span class="n">posfixa</span> <span class="n">b</span> <span class="o">++</span> <span class="s">"* "</span>
+</code></pre></div></div>
+
+<h1 id="2-considere-o-seguinte-tipo-para-representar-árvores-irregulares-rose-trees">2) Considere o seguinte tipo para representar árvores irregulares (<em>rose trees</em>).</h1>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>data RTree a = R a [RTree a]
+</code></pre></div></div>
+
+<h1 id="árvore-de-exemplo-para-testar-as-funções">Árvore de exemplo para testar as funções:</h1>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>arvore = R 6 [R 4 [R 7 [R 1 [],
+                        R 3 []],
+                   R 9 []],
+              R 3 [R 12 []],
+              R 6 [],
+              R 11 []]
+</code></pre></div></div>
+
+<h1 id="defina-as-seguintes-funções-sobre-estas-árvores">Defina as seguintes funções sobre estas árvores:</h1>
+
+<h2 id="a-soma--num-a--rtree-a---a-que-soma-os-elementos-da-árvore">a) <code class="language-plaintext highlighter-rouge">soma :: Num a =&gt; RTree a -&gt; a</code> que soma os elementos da árvore.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">soma</span> <span class="o">::</span> <span class="kt">Num</span> <span class="n">a</span> <span class="o">=&gt;</span> <span class="kt">RTree</span> <span class="n">a</span> <span class="o">-&gt;</span> <span class="n">a</span>
+<span class="n">soma</span> <span class="p">(</span><span class="kt">R</span> <span class="n">e</span> <span class="kt">[]</span><span class="p">)</span> <span class="o">=</span> <span class="n">e</span>
+<span class="n">soma</span> <span class="p">(</span><span class="kt">R</span> <span class="n">e</span> <span class="n">es</span><span class="p">)</span> <span class="o">=</span> <span class="n">e</span> <span class="o">+</span> <span class="n">sum</span> <span class="p">(</span><span class="n">map</span> <span class="n">soma</span> <span class="n">es</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="b-altura--rtree-a---int-que-calcula-a-altura-da-árvore">b) <code class="language-plaintext highlighter-rouge">altura :: RTree a -&gt; Int</code> que calcula a altura da árvore.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">altura</span> <span class="o">::</span> <span class="kt">RTree</span> <span class="n">a</span> <span class="o">-&gt;</span> <span class="kt">Int</span>
+<span class="n">altura</span> <span class="p">(</span><span class="kt">R</span> <span class="n">e</span> <span class="kt">[]</span><span class="p">)</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">altura</span> <span class="p">(</span><span class="kt">R</span> <span class="n">e</span> <span class="n">es</span><span class="p">)</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">maximum</span> <span class="p">(</span><span class="n">map</span> <span class="n">altura</span> <span class="n">es</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="c-prune--int---rtree-a---rtree-a-que-remove-de-uma-árvore-todos-os-elementos-a-partir-de-uma-determinada-profundidade">c) <code class="language-plaintext highlighter-rouge">prune :: Int -&gt; RTree a -&gt; RTree a</code> que remove de uma árvore todos os elementos a partir de uma determinada profundidade.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">prune</span> <span class="o">::</span> <span class="kt">Int</span> <span class="o">-&gt;</span> <span class="kt">RTree</span> <span class="n">a</span> <span class="o">-&gt;</span> <span class="kt">RTree</span> <span class="n">a</span>
+<span class="n">prune</span> <span class="mi">0</span> <span class="p">(</span><span class="kt">R</span> <span class="n">e</span> <span class="n">es</span><span class="p">)</span> <span class="o">=</span> <span class="kt">R</span> <span class="n">e</span> <span class="kt">[]</span>
+<span class="n">prune</span> <span class="n">n</span> <span class="p">(</span><span class="kt">R</span> <span class="n">e</span> <span class="n">es</span><span class="p">)</span> <span class="o">=</span> <span class="kt">R</span> <span class="n">e</span> <span class="p">(</span><span class="n">map</span> <span class="p">(</span><span class="n">prune</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span> <span class="n">es</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="d-mirror--rtree-a---rtree-a-que-gera-a-árvore-simétrica">d) <code class="language-plaintext highlighter-rouge">mirror :: RTree a -&gt; RTree a</code> que gera a árvore simétrica.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">mirror</span> <span class="o">::</span> <span class="kt">RTree</span> <span class="n">a</span> <span class="o">-&gt;</span> <span class="kt">RTree</span> <span class="n">a</span>
+<span class="n">mirror</span> <span class="p">(</span><span class="kt">R</span> <span class="n">e</span> <span class="n">es</span><span class="p">)</span> <span class="o">=</span> <span class="kt">R</span> <span class="n">e</span> <span class="p">(</span><span class="n">map</span> <span class="n">mirror</span> <span class="p">(</span><span class="n">reverse</span> <span class="n">es</span><span class="p">))</span>
+</code></pre></div></div>
+
+<h2 id="e-postorder--rtree-a---a-que-corresponde-à-travessia-postorder-da-árvore">e) <code class="language-plaintext highlighter-rouge">postorder :: RTree a -&gt; [a]</code> que corresponde à travessia postorder da árvore.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">postorder</span> <span class="o">::</span> <span class="kt">RTree</span> <span class="n">a</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span>
+<span class="n">postorder</span> <span class="p">(</span><span class="kt">R</span> <span class="n">e</span> <span class="kt">[]</span><span class="p">)</span> <span class="o">=</span> <span class="p">[</span><span class="n">e</span><span class="p">]</span>
+<span class="n">postorder</span> <span class="p">(</span><span class="kt">R</span> <span class="n">e</span> <span class="n">es</span><span class="p">)</span> <span class="o">=</span> <span class="n">concatMap</span> <span class="n">postorder</span> <span class="n">es</span> <span class="o">++</span> <span class="p">[</span><span class="n">e</span><span class="p">]</span>
+</code></pre></div></div>
+
+<h1 id="3-relembre-a-definição-de-árvores-binárias-apresentada-na-ficha-anterior">3) Relembre a definição de árvores binárias apresentada na ficha anterior:</h1>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>data BTree a = Empty | Node a (BTree a) (BTree a)
+</code></pre></div></div>
+
+<h1 id="nestas-árvores-a-informação-está-nos-nodos-as-extremidades-da-árvore-tˆem-apenas-uma-marca--empty-é-também-habitual-definirem-se-árvores-em-que-a-informação-está-apenas-nas-extermidades-leaf-trees">Nestas árvores a informação está nos nodos (as <em>extremidades</em> da árvore tˆem apenas uma marca – <code class="language-plaintext highlighter-rouge">Empty</code>). É também habitual definirem-se árvores em que a informação está apenas nas extermidades (<em>leaf trees</em>):</h1>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>data LTree a = Tip a | Fork (LTree a) (LTree a)
+</code></pre></div></div>
+
+<h1 id="árvore-de-exemplo-para-testar-as-funções-1">Árvore de exemplo para testar as funções:</h1>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>arvore = Fork (Fork (Tip 5)
+                    (Fork (Tip 6)
+                          (Tip 4)))
+              (Fork (Fork (Tip 3)
+                          (Tip 7))
+                    (Tip 5))
+</code></pre></div></div>
+
+<h1 id="defina-sobre-este-tipo-as-seguintes-funções">Defina sobre este tipo as seguintes funções:</h1>
+
+<h2 id="a-ltsum--num-a--ltree-a---a-que-soma-as-folhas-de-uma-árvore">a) <code class="language-plaintext highlighter-rouge">ltSum :: Num a =&gt; LTree a -&gt; a</code> que soma as folhas de uma árvore.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">ltSum</span> <span class="o">::</span> <span class="kt">Num</span> <span class="n">a</span> <span class="o">=&gt;</span> <span class="kt">LTree</span> <span class="n">a</span> <span class="o">-&gt;</span> <span class="n">a</span>
+<span class="n">ltSum</span> <span class="p">(</span><span class="kt">Tip</span> <span class="n">n</span><span class="p">)</span> <span class="o">=</span> <span class="n">n</span>
+<span class="n">ltSum</span> <span class="p">(</span><span class="kt">Fork</span> <span class="n">a</span> <span class="n">b</span><span class="p">)</span> <span class="o">=</span> <span class="n">ltSum</span> <span class="n">a</span> <span class="o">+</span> <span class="n">ltSum</span> <span class="n">b</span> 
+</code></pre></div></div>
+
+<h2 id="b-listalt--ltree-a---a-que-lista-as-folhas-de-uma-árvore-da-esquerda-para-a-direita">b) <code class="language-plaintext highlighter-rouge">listaLT :: LTree a -&gt; [a]</code> que lista as folhas de uma árvore (da esquerda para a direita).</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">listaLT</span> <span class="o">::</span> <span class="kt">LTree</span> <span class="n">a</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span>
+<span class="n">listaLT</span> <span class="p">(</span><span class="kt">Tip</span> <span class="n">n</span><span class="p">)</span> <span class="o">=</span> <span class="p">[</span><span class="n">n</span><span class="p">]</span>
+<span class="n">listaLT</span> <span class="p">(</span><span class="kt">Fork</span> <span class="n">a</span> <span class="n">b</span><span class="p">)</span> <span class="o">=</span> <span class="n">listaLT</span> <span class="n">a</span> <span class="o">++</span> <span class="n">listaLT</span> <span class="n">b</span>
+</code></pre></div></div>
+
+<h2 id="c-ltheight--ltree-a---int-que-calcula-a-altura-de-uma-árvore">c) <code class="language-plaintext highlighter-rouge">ltHeight :: LTree a -&gt; Int</code> que calcula a altura de uma árvore.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">ltHeight</span> <span class="o">::</span> <span class="kt">LTree</span> <span class="n">a</span> <span class="o">-&gt;</span> <span class="kt">Int</span>
+<span class="n">ltHeight</span> <span class="p">(</span><span class="kt">Tip</span> <span class="kr">_</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">ltHeight</span> <span class="p">(</span><span class="kt">Fork</span> <span class="n">a</span> <span class="n">b</span><span class="p">)</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">max</span> <span class="p">(</span><span class="n">ltHeight</span> <span class="n">a</span><span class="p">)</span> <span class="p">(</span><span class="n">ltHeight</span> <span class="n">b</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h1 id="4-estes-dois-conceitos-podem-ser-agrupados-num-só-definindo-o-seguinte-tipo">4) Estes dois conceitos podem ser agrupados num só, definindo o seguinte tipo:</h1>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>data FTree a b = Leaf b | No a (FTree a b) (FTree a b)
+</code></pre></div></div>
+
+<h1 id="árvore-de-exemplo-para-testar-as-funções-2">Árvore de exemplo para testar as funções:</h1>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>arvore = No 8 (No 1 (Leaf 5)
+                    (No 2 (Leaf 6)
+                          (Leaf 4)))
+              (No 9 (No 10 (Leaf 3)
+                           (Leaf 7))
+                    (Leaf 5))
+</code></pre></div></div>
+
+<h1 id="são-as-chamadas-full-trees-onde-a-informação-está-não-só-nos-nodos-como-também-nas-folhas-note-que-o-tipo-da-informação-nos-nodos-e-nas-folhas-não-tem-que-ser-o-mesmo">São as chamadas <em>full trees</em> onde a informação está não só nos nodos, como também nas folhas (note que o tipo da informação nos nodos e nas folhas não tem que ser o mesmo).</h1>
+
+<h2 id="a-defina-a-função-splitftree--ftree-a-b---btree-a-ltree-b-que-separa-uma-árvore-com-informação-nos-nodos-e-nas-folhas-em-duas-árvores-de-tipos-diferentes">a) Defina a função <code class="language-plaintext highlighter-rouge">splitFTree :: FTree a b -&gt; (BTree a, LTree b)</code> que separa uma árvore com informação nos nodos e nas folhas em duas árvores de tipos diferentes.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">splitFTree</span> <span class="o">::</span> <span class="kt">FTree</span> <span class="n">a</span> <span class="n">b</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="kt">BTree</span> <span class="n">a</span><span class="p">,</span> <span class="kt">LTree</span> <span class="n">b</span><span class="p">)</span>
+<span class="n">splitFTree</span> <span class="p">(</span><span class="kt">Leaf</span> <span class="n">n</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="kt">Empty</span><span class="p">,</span> <span class="kt">Tip</span> <span class="n">n</span><span class="p">)</span>
+<span class="n">splitFTree</span> <span class="p">(</span><span class="kt">No</span> <span class="n">a</span> <span class="n">b</span> <span class="n">c</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="kt">Node</span> <span class="n">a</span> <span class="n">b'</span> <span class="n">c'</span><span class="p">,</span> <span class="kt">Fork</span> <span class="n">b''</span> <span class="n">c''</span><span class="p">)</span>
+    <span class="kr">where</span> <span class="p">(</span><span class="n">b'</span><span class="p">,</span> <span class="n">b''</span><span class="p">)</span> <span class="o">=</span> <span class="n">splitFTree</span> <span class="n">b</span>
+          <span class="p">(</span><span class="n">c'</span><span class="p">,</span> <span class="n">c''</span><span class="p">)</span> <span class="o">=</span> <span class="n">splitFTree</span> <span class="n">c</span> 
+</code></pre></div></div>
+
+<h2 id="b-defina-ainda-a-função-jointrees--btree-a---ltree-b---maybe-ftree-a-b-que-sempre-que-as-árvores-sejam-compatíveis-as-junta-numa-só">b) Defina ainda a função <code class="language-plaintext highlighter-rouge">joinTrees :: BTree a -&gt; LTree b -&gt; Maybe (FTree a b)</code> que sempre que as árvores sejam compatíveis as junta numa só.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">joinTrees</span> <span class="o">::</span> <span class="kt">BTree</span> <span class="n">a</span> <span class="o">-&gt;</span> <span class="kt">LTree</span> <span class="n">b</span> <span class="o">-&gt;</span> <span class="kt">Maybe</span> <span class="p">(</span><span class="kt">FTree</span> <span class="n">a</span> <span class="n">b</span><span class="p">)</span>
+<span class="n">joinTrees</span> <span class="p">(</span><span class="kt">Empty</span><span class="p">)</span> <span class="p">(</span><span class="kt">Tip</span> <span class="n">n</span><span class="p">)</span> <span class="o">=</span> <span class="kt">Just</span> <span class="p">(</span><span class="kt">Leaf</span> <span class="n">n</span><span class="p">)</span>
+<span class="n">joinTrees</span> <span class="p">(</span><span class="kt">Node</span> <span class="n">e</span> <span class="n">l</span> <span class="n">r</span><span class="p">)</span> <span class="p">(</span><span class="kt">Fork</span> <span class="n">a</span> <span class="n">b</span><span class="p">)</span> <span class="o">=</span> <span class="kt">Just</span> <span class="p">(</span><span class="kt">No</span> <span class="n">e</span> <span class="n">aux</span> <span class="n">aux2</span><span class="p">)</span>
+    <span class="kr">where</span> <span class="kt">Just</span> <span class="n">aux</span> <span class="o">=</span> <span class="n">joinTrees</span> <span class="n">l</span> <span class="n">a</span>
+          <span class="kt">Just</span> <span class="n">aux2</span> <span class="o">=</span> <span class="n">joinTrees</span> <span class="n">r</span> <span class="n">b</span>
+<span class="n">joinTrees</span> <span class="kr">_</span> <span class="kr">_</span> <span class="o">=</span> <span class="kt">Nothing</span>
+</code></pre></div></div>
+
+  </div>
+</div>
+      </div>
+      <footer class="bg-dark-gray p-8 lg:px-14 flex flex-col md:flex-row gap-6 justify-between items-center justify-self-end">
+        <p>Made with 💙 by <a href="https://github.com/RisingFisan" target="_blank" rel="noopener noreferrer">RisingFisan</a>.</p>
+        <p class="inline">If you want to support this project, you can <a href="https://paypal.me/sofirs" target="_blank" rel="noopener noreferrer">buy me a coffee <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="paypal" class="w-4 inline" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path fill="currentColor" d="M111.4 295.9c-3.5 19.2-17.4 108.7-21.5 134-.3 1.8-1 2.5-3 2.5H12.3c-7.6 0-13.1-6.6-12.1-13.9L58.8 46.6c1.5-9.6 10.1-16.9 20-16.9 152.3 0 165.1-3.7 204 11.4 60.1 23.3 65.6 79.5 44 140.3-21.5 62.6-72.5 89.5-140.1 90.3-43.4.7-69.5-7-75.3 24.2zM357.1 152c-1.8-1.3-2.5-1.8-3 1.3-2 11.4-5.1 22.5-8.8 33.6-39.9 113.8-150.5 103.9-204.5 103.9-6.1 0-10.1 3.3-10.9 9.4-22.6 140.4-27.1 169.7-27.1 169.7-1 7.1 3.5 12.9 10.6 12.9h63.5c8.6 0 15.7-6.3 17.4-14.9.7-5.4-1.1 6.1 14.4-91.3 4.6-22 14.3-19.7 29.3-19.7 71 0 126.4-28.8 142.9-112.3 6.5-34.8 4.6-71.4-23.8-92.6z"></path></svg></a>! 😁☕</p>
+      </footer>
+    </div>
+  </body>
+</html>

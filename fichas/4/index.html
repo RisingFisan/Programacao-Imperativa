@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta property="og:title" content="Programação Imperativa">
+    <meta property="og:description" content="Resolução de exercícios, fichas e testes.">
+    <meta property="og:image" content="./C-Logo.png">
+    <meta property="og:image:secure_url" content="./C-Logo.png">
+    <title>
+      
+       
+        Ficha 4 |
+       Programação Imperativa</title>
+    <link rel="stylesheet" href="/Programacao-Imperativa/assets/css/main.css">
+    <link rel="shortcut icon" href="/Programacao-Imperativa/favicon.ico" >
+    <script type="text/javascript">
+
+      // Wait for the page to load first
+      window.onload = function() {
+
+        //Get a reference to the link on the page
+        // with an id of "mylink"
+        var a = document.getElementById("code-overlay");
+        a.style.display = "flex";
+
+        //Set code to run when the link is clicked
+        // by assigning a function to "onclick"
+        a.onclick = function() {
+
+          // Your code here...
+          a.remove();
+
+          //If you don't want the link to actually 
+          // redirect the browser to another page,
+          // then return false at the end of this block.
+          // Note that this also prevents event bubbling,
+          // which is probably what we want here, but won't 
+          // always be the case.
+          return false;
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="bg-darker-gray w-full min-h-screen text-white flex flex-col">
+      <header class="bg-dark-gray p-8 lg:px-14 flex flex-col md:flex-row gap-6 justify-between items-center">
+        <div class="flex flex-col items-center sm:flex-row sm:items-start gap-5 sm:gap-10">
+          <a href=/Programacao-Imperativa/ class="flex-none">
+            <img src=/Programacao-Imperativa/C-Logo.png class="relative h-16 top-2 md:items-center">
+          </a>
+          <div class="space-y-2 text-center sm:text-left">
+            <p class="text-4xl font-bold">Programação Imperativa</p>
+            <p class="text-lg font-light">Resolução de exercícios, fichas e testes.</p>
+          </div>
+        </div>
+        
+          <!--
+          <div class="flex gap-3 md:gap-6 justify-end items-center flex-col lg:flex-row w-full md:w-auto">
+            <a href=/Programacao-Imperativa/50q/index.html class="bg-blue-800 hover:bg-blue-600 p-5 w-full sm:w-1/2 md:w-36 flex justify-center items-center rounded-xl">
+              <p class="uppercase font-bold">50 Questões</p>
+            </a>
+            <a href=/Programacao-Imperativa/fichas/index.html class="bg-blue-800 hover:bg-blue-600 p-5 w-full sm:w-1/2 md:w-36 flex justify-center items-center rounded-xl">
+              <p class="uppercase font-bold">Fichas</p>
+            </a>
+          </div>
+          -->
+          <a href="../" class="bg-blue-800 hover:bg-blue-600 p-5 w-full sm:w-1/2 md:w-36 flex justify-center items-center rounded-xl">
+            <p class="uppercase font-bold">ᐸ Voltar</p>
+          </a>
+        
+      </header>
+      <div class="px-3 py-10 sm:p-20 flex-grow">
+      
+
+<div class="flex flex-col gap-3">
+  <div class="flex justify-between flex-col md:flex-row items-center gap-8 md:items-start">
+    <div class="md:w-2/3 xl:w-1/2 px-5 space-y-2 self-start">
+      <h1 class="text-2xl md:text-3xl xl:text-4xl font-bold">
+        Ficha : 
+      </h1>
+    </div>
+    <div class="flex gap-5">
+       
+        
+        
+        <a href=/Programacao-Imperativa/fichas/-1 class="flex flex-col justify-center items-center w-24 h-24 rounded-full bg-purple-800 hover:bg-purple-600">
+          <p class="text-2xl font-bold"><</p>
+          <p>Anterior</p>
+        </a>
+      
+      
+        
+        
+        <a href=/Programacao-Imperativa/fichas/1 class="flex flex-col justify-center items-center w-24 h-24 rounded-full bg-purple-800 hover:bg-purple-600">
+          <p class="text-2xl font-bold">></p>
+          <p>Seguinte</p>
+        </a>
+      
+    </div>
+  </div>
+  <div class="md:px-20" id="resolution">
+    
+    <h1 id="1-para-cada-uma-das-expressões-seguintes-exprima-por-enumeração-a-lista-correspondente-tente-ainda-para-cada-caso-descobrir-uma-outra-forma-de-obter-o-mesmo-resultado">1) Para cada uma das expressões seguintes, exprima por enumeração a lista correspondente. Tente ainda, para cada caso, descobrir uma outra forma de obter o mesmo resultado.</h1>
+
+<h2 id="a-x--x---120-mod-x-2--0-mod-x-3--0">a) <code class="language-plaintext highlighter-rouge">[x | x &lt;- [1..20], mod x 2 == 0, mod x 3 == 0]</code></h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">18</span><span class="p">]</span>
+
+<span class="p">[</span><span class="n">x</span> <span class="o">|</span> <span class="n">x</span> <span class="o">&lt;-</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">20</span><span class="p">],</span> <span class="n">mod</span> <span class="n">x</span> <span class="mi">6</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
+</code></pre></div></div>
+
+<h2 id="b-x--x---y--y---120-mod-y-2--0-mod-x-3--0">b) <code class="language-plaintext highlighter-rouge">[x | x &lt;- [y | y &lt;- [1..20], mod y 2 == 0], mod x 3 == 0]</code></h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">18</span><span class="p">]</span>
+
+<span class="p">[</span><span class="n">x</span> <span class="o">|</span> <span class="n">x</span> <span class="o">&lt;-</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">20</span><span class="p">],</span> <span class="n">mod</span> <span class="n">x</span> <span class="mi">6</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
+</code></pre></div></div>
+
+<h2 id="c-xy--x---020-y---020-xy--30">c) <code class="language-plaintext highlighter-rouge">[(x,y) | x &lt;- [0..20], y &lt;- [0..20], x+y == 30]</code></h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[(</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">),(</span><span class="mi">11</span><span class="p">,</span><span class="mi">19</span><span class="p">),(</span><span class="mi">12</span><span class="p">,</span><span class="mi">18</span><span class="p">),(</span><span class="mi">13</span><span class="p">,</span><span class="mi">17</span><span class="p">),(</span><span class="mi">14</span><span class="p">,</span><span class="mi">16</span><span class="p">),(</span><span class="mi">15</span><span class="p">,</span><span class="mi">15</span><span class="p">),(</span><span class="mi">16</span><span class="p">,</span><span class="mi">14</span><span class="p">),(</span><span class="mi">17</span><span class="p">,</span><span class="mi">13</span><span class="p">),(</span><span class="mi">18</span><span class="p">,</span><span class="mi">12</span><span class="p">),(</span><span class="mi">19</span><span class="p">,</span><span class="mi">11</span><span class="p">),(</span><span class="mi">20</span><span class="p">,</span><span class="mi">10</span><span class="p">)]</span>
+
+<span class="p">[(</span><span class="n">x</span><span class="p">,</span> <span class="mi">30</span> <span class="o">-</span> <span class="n">x</span><span class="p">)</span> <span class="o">|</span> <span class="n">x</span> <span class="o">&lt;-</span> <span class="p">[</span><span class="mi">10</span><span class="o">..</span><span class="mi">20</span><span class="p">]]</span>
+</code></pre></div></div>
+
+<h2 id="d-sum-y--y---1x-odd-y--x---110">d) <code class="language-plaintext highlighter-rouge">[sum [y | y &lt;- [1..x], odd y] | x &lt;- [1..10]]</code></h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">25</span><span class="p">,</span><span class="mi">25</span><span class="p">]</span>
+
+<span class="p">[</span> <span class="n">x</span><span class="o">^</span><span class="mi">2</span> <span class="o">|</span> <span class="n">x</span> <span class="o">&lt;-</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">5</span><span class="p">],</span> <span class="n">y</span> <span class="o">&lt;-</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">2</span><span class="p">]]</span>
+</code></pre></div></div>
+
+<h1 id="2-defina-cada-uma-das-listas-seguintes-por-compreensão">2) Defina cada uma das listas seguintes por compreensão.</h1>
+
+<h2 id="a-12481632641282565121024">a) <code class="language-plaintext highlighter-rouge">[1,2,4,8,16,32,64,128,256,512,1024]</code></h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span> <span class="mi">2</span><span class="o">^</span><span class="n">x</span> <span class="o">|</span> <span class="n">x</span> <span class="o">&lt;-</span> <span class="p">[</span><span class="mi">0</span><span class="o">..</span><span class="mi">10</span><span class="p">]]</span>
+</code></pre></div></div>
+
+<h2 id="b-1524334251">b) <code class="language-plaintext highlighter-rouge">[(1,5),(2,4),(3,3),(4,2),(5,1)]</code></h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span> <span class="o">|</span> <span class="n">x</span> <span class="o">&lt;-</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">5</span><span class="p">],</span> <span class="n">y</span> <span class="o">&lt;-</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">5</span><span class="p">],</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">==</span> <span class="mi">6</span><span class="p">]</span>
+</code></pre></div></div>
+
+<h2 id="c-112123123412345">c) <code class="language-plaintext highlighter-rouge">[[1],[1,2],[1,2,3],[1,2,3,4],[1,2,3,4,5]]</code></h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[[</span><span class="mi">1</span><span class="o">..</span><span class="n">x</span><span class="p">]</span> <span class="o">|</span> <span class="n">x</span> <span class="o">&lt;-</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">5</span><span class="p">]]</span>
+</code></pre></div></div>
+
+<h2 id="d-111111111111111">d) <code class="language-plaintext highlighter-rouge">[[1],[1,1],[1,1,1],[1,1,1,1],[1,1,1,1,1]]</code></h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span> <span class="n">replicate</span> <span class="n">x</span> <span class="mi">1</span> <span class="o">|</span> <span class="n">x</span> <span class="o">&lt;-</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">5</span><span class="p">]]</span>
+</code></pre></div></div>
+
+<h2 id="e-12624120720">e) <code class="language-plaintext highlighter-rouge">[1,2,6,24,120,720]</code></h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span> <span class="n">product</span> <span class="p">[</span><span class="n">y</span> <span class="o">|</span> <span class="n">y</span> <span class="o">&lt;-</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="n">x</span><span class="p">]]</span> <span class="o">|</span> <span class="n">x</span> <span class="o">&lt;-</span> <span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">6</span><span class="p">]]</span>
+
+<span class="c1">-- A função `product` calcula o produto de todos os elementos da lista.</span>
+</code></pre></div></div>
+
+<h1 id="3-defina-a-função-digitalpha--string---stringstring-que-dada-uma-string-devolve-um-par-de-strings-uma-apenas-com-as-letras-presentes-nessa-string-e-a-outra-apenas-com-os-números-presentes-na-string-implemente-a-função-de-modo-a-fazer-uma-única-travessia-da-string-relembre-que-as-funções-isdigit-isalpha--char---bool-estão-já-definidas-no-módulo-datachar">3) Defina a função <code class="language-plaintext highlighter-rouge">digitAlpha :: String -&gt; (String,String)</code>, que dada uma string, devolve um par de strings: uma apenas com as letras presentes nessa string, e a outra apenas com os números presentes na string. Implemente a função de modo a fazer uma única travessia da string. Relembre que as funções <code class="language-plaintext highlighter-rouge">isDigit</code>, <code class="language-plaintext highlighter-rouge">isAlpha :: Char -&gt; Bool</code> estão já definidas no módulo <code class="language-plaintext highlighter-rouge">Data.Char</code>.</h1>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">digitAlpha</span> <span class="o">::</span> <span class="kt">String</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="kt">String</span><span class="p">,</span><span class="kt">String</span><span class="p">)</span>
+<span class="n">digitAlpha</span> <span class="s">""</span> <span class="o">=</span> <span class="p">(</span><span class="s">""</span><span class="p">,</span><span class="s">""</span><span class="p">)</span>
+<span class="n">digitAlpha</span> <span class="p">(</span><span class="n">h</span><span class="o">:</span><span class="n">t</span><span class="p">)</span>
+    <span class="o">|</span> <span class="n">isAlpha</span> <span class="n">h</span> <span class="o">=</span> <span class="p">(</span><span class="n">h</span><span class="o">:</span><span class="n">letters</span><span class="p">,</span> <span class="n">digits</span><span class="p">)</span>
+    <span class="o">|</span> <span class="n">isDigit</span> <span class="n">h</span> <span class="o">=</span> <span class="p">(</span><span class="n">letters</span><span class="p">,</span> <span class="n">h</span><span class="o">:</span><span class="n">digits</span><span class="p">)</span>
+    <span class="o">|</span> <span class="n">otherwise</span> <span class="o">=</span> <span class="p">(</span><span class="n">letters</span><span class="p">,</span> <span class="n">digits</span><span class="p">)</span>
+    <span class="kr">where</span> <span class="p">(</span><span class="n">letters</span><span class="p">,</span> <span class="n">digits</span><span class="p">)</span> <span class="o">=</span> <span class="n">digitAlpha</span> <span class="n">t</span>
+</code></pre></div></div>
+
+<h1 id="4-defina-a-função-nzp--int---intintint-que-dada-uma-lista-de-inteiros-conta-o-número-de-valores-nagativos-o-número-de-zeros-e-o-número-de-valores-positivos-devolvendo-um-triplo-com-essa-informação-certifique-se-que-a-função-que-definiu-percorre-a-lista-apenas-uma-vez">4) Defina a função <code class="language-plaintext highlighter-rouge">nzp :: [Int] -&gt; (Int,Int,Int)</code> que, dada uma lista de inteiros, conta o número de valores nagativos, o número de zeros e o número de valores positivos, devolvendo um triplo com essa informação. Certifique-se que a função que definiu percorre a lista apenas uma vez.</h1>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">nzp</span> <span class="o">::</span> <span class="p">[</span><span class="kt">Int</span><span class="p">]</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="kt">Int</span><span class="p">,</span><span class="kt">Int</span><span class="p">,</span><span class="kt">Int</span><span class="p">)</span>
+<span class="n">nzp</span> <span class="kt">[]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">nzp</span> <span class="p">(</span><span class="n">h</span><span class="o">:</span><span class="n">t</span><span class="p">)</span>
+    <span class="o">|</span> <span class="n">h</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">=</span> <span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+    <span class="o">|</span> <span class="n">h</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">=</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">z</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+    <span class="o">|</span> <span class="n">otherwise</span> <span class="o">=</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">p</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="kr">where</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span> <span class="o">=</span> <span class="n">nzp</span> <span class="n">t</span>
+</code></pre></div></div>
+
+<h1 id="5-defina-a-função-divmod--integral-a--a---a---a-a-que-calcula-simultaneamente-a-divisão-e-o-resto-da-divisão-inteira-por-subtrações-sucessivas">5) Defina a função <code class="language-plaintext highlighter-rouge">divMod :: Integral a =&gt; a -&gt; a -&gt; (a, a)</code> que calcula simultaneamente a divisão e o resto da divisão inteira por subtrações sucessivas.</h1>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">divMod</span> <span class="o">::</span> <span class="kt">Integral</span> <span class="n">a</span> <span class="o">=&gt;</span> <span class="n">a</span> <span class="o">-&gt;</span> <span class="n">a</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+<span class="n">divMod</span> <span class="n">x</span> <span class="n">y</span> 
+    <span class="o">|</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="o">=</span> <span class="kr">if</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="kr">then</span> <span class="n">divMod</span> <span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">)</span> <span class="p">(</span><span class="o">-</span><span class="n">y</span><span class="p">)</span> <span class="kr">else</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+    <span class="o">|</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">=</span> <span class="kr">let</span> <span class="p">(</span><span class="n">q'</span><span class="p">,</span> <span class="n">r'</span><span class="p">)</span> <span class="o">=</span> <span class="n">divMod</span> <span class="n">x</span> <span class="p">(</span><span class="o">-</span><span class="n">y</span><span class="p">)</span> <span class="kr">in</span> <span class="p">(</span><span class="o">-</span><span class="n">q'</span><span class="p">,</span> <span class="n">r'</span><span class="p">)</span>
+    <span class="o">|</span> <span class="n">x</span> <span class="o">&gt;=</span> <span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">q</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="o">|</span> <span class="n">otherwise</span> <span class="o">=</span> <span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+    <span class="kr">where</span> <span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span> <span class="o">=</span> <span class="n">divMod</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span> <span class="n">y</span>
+
+<span class="c1">-- Esta função infelizmente não devolve o resultado correto se o denominador for negativo, visto que usamos o denominador nulo ou negativo como indicador do caso de paragem. Para corrigir este problema, teríamos que ter uma função auxiliar que invertesse o sinal do denominador antes de correr a função principal, e que no fim inverteria o sinal do quociente.</span>
+</code></pre></div></div>
+
+<h1 id="6-utilizando-uma-função-auxiliar-com-um-acumulador-otimize-a-seguinte-definição-recursiva-que-determina-qual-o-número-que-corresponde-a-uma-lista-de-digitos">6) Utilizando uma função auxiliar com um acumulador, otimize a seguinte definição recursiva que determina qual o número que corresponde a uma lista de digitos.</h1>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>fromDigits :: [Int] -&gt; Int
+fromDigits [] = 0
+fromDigits (h:t) = h*10^(length t) + fromDigits t
+</code></pre></div></div>
+
+<h1 id="note-que-fromdigits-1234--1--103--2--102--3--101--4--100--4--10-3--10-2--10-1--10--0">Note que <code class="language-plaintext highlighter-rouge">fromDigits [1,2,3,4]</code> = 1 * 10<sup>3</sup> + 2 * 10<sup>2</sup> + 3 * 10<sup>1</sup> + 4 * 10<sup>0</sup> = 4 + 10 (3 + 10 (2 + 10 (1 + 10 * 0)))</h1>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">fromDigits</span> <span class="o">::</span> <span class="p">[</span><span class="kt">Int</span><span class="p">]</span> <span class="o">-&gt;</span> <span class="kt">Int</span>
+<span class="n">fromDigits</span> <span class="n">l</span> <span class="o">=</span> <span class="n">fromDigitsAux</span> <span class="n">l</span> <span class="mi">0</span>
+
+<span class="n">fromDigitsAux</span> <span class="o">::</span> <span class="p">[</span><span class="kt">Int</span><span class="p">]</span> <span class="o">-&gt;</span> <span class="kt">Int</span> <span class="o">-&gt;</span> <span class="kt">Int</span>
+<span class="n">fromDigitsAux</span> <span class="kt">[]</span> <span class="n">acc</span> <span class="o">=</span> <span class="n">acc</span>
+<span class="n">fromDigitsAux</span> <span class="p">(</span><span class="n">h</span><span class="o">:</span><span class="n">t</span><span class="p">)</span> <span class="n">acc</span> <span class="o">=</span> <span class="n">fromDigitsAux</span> <span class="n">t</span> <span class="p">(</span><span class="n">h</span> <span class="o">+</span> <span class="mi">10</span> <span class="o">*</span> <span class="n">acc</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h1 id="7-utilizando-uma-função-auxiliar-com-acumuladores-otimize-seguinte-definição-que-determina-a-soma-do-segmento-inicial-de-uma-lista-com-soma-máxima">7) Utilizando uma função auxiliar com acumuladores, otimize seguinte definição que determina a soma do segmento inicial de uma lista com soma máxima.</h1>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>maxSumInit :: (Num a, Ord a) =&gt; [a] -&gt; a
+maxSumInit l = maximum [sum m | m &lt;- inits l]
+</code></pre></div></div>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">maxSumInit</span> <span class="o">::</span> <span class="p">(</span><span class="kt">Num</span> <span class="n">a</span><span class="p">,</span> <span class="kt">Ord</span> <span class="n">a</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="o">-&gt;</span> <span class="n">a</span>
+<span class="n">maxSumInit</span> <span class="p">(</span><span class="n">h</span><span class="o">:</span><span class="n">t</span><span class="p">)</span> <span class="o">=</span> <span class="n">maxSumInitAux</span> <span class="n">l</span> <span class="n">h</span> <span class="n">h</span>
+
+<span class="n">maxSumInitAux</span> <span class="o">::</span> <span class="p">(</span><span class="kt">Num</span> <span class="n">a</span><span class="p">,</span> <span class="kt">Ord</span> <span class="n">a</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="o">-&gt;</span> <span class="n">a</span> <span class="o">-&gt;</span> <span class="n">a</span> <span class="o">-&gt;</span> <span class="n">a</span>
+<span class="n">maxSumInitAux</span> <span class="kt">[]</span> <span class="kr">_</span> <span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
+<span class="n">maxSumInitAux</span> <span class="p">(</span><span class="n">h</span><span class="o">:</span><span class="n">t</span><span class="p">)</span> <span class="n">prevSum</span> <span class="n">prevMax</span> <span class="o">=</span> <span class="n">maxSumInitAux</span> <span class="n">t</span> <span class="n">newSum</span> <span class="p">(</span><span class="kr">if</span> <span class="n">newSum</span> <span class="o">&gt;</span> <span class="n">prevMax</span> <span class="kr">then</span> <span class="n">newSum</span> <span class="kr">else</span> <span class="n">prevMax</span><span class="p">)</span>
+    <span class="kr">where</span> <span class="n">newSum</span> <span class="o">=</span> <span class="n">prevSum</span> <span class="o">+</span> <span class="n">h</span>
+</code></pre></div></div>
+
+<h1 id="8-otimize-a-seguinte-definição-recursiva-da-função-que-calcula-o-n-ésimo-número-da-sequência-de-fibonacci-usando-uma-função-auxiliar-com-2-acumuladores-que-representam-respectivamente-o-n-ésimo-e-o-n1-ésimo-números-dessa-sequência">8) Otimize a seguinte definição recursiva da função que calcula o n-ésimo número da sequência de Fibonacci, usando uma função auxiliar com 2 acumuladores que representam, respectivamente, o n-ésimo e o n+1-ésimo números dessa sequência.</h1>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>fib :: Int -&gt; Int
+fib 0 = 0
+fib 1 = 1
+fib n = fib (n-1) + fib (n-2)
+</code></pre></div></div>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">fib</span> <span class="o">::</span> <span class="kt">Int</span> <span class="o">-&gt;</span> <span class="kt">Int</span>
+<span class="n">fib</span> <span class="n">n</span> <span class="o">=</span> <span class="n">fibAux</span> <span class="n">n</span> <span class="mi">0</span> <span class="mi">1</span>
+
+<span class="n">fibAux</span> <span class="o">::</span> <span class="kt">Int</span> <span class="o">-&gt;</span> <span class="kt">Int</span> <span class="o">-&gt;</span> <span class="kt">Int</span> <span class="o">-&gt;</span> <span class="kt">Int</span>
+<span class="n">fibAux</span> <span class="mi">0</span> <span class="n">n</span> <span class="kr">_</span> <span class="o">=</span> <span class="n">n</span>
+<span class="n">fibAux</span> <span class="n">n</span> <span class="n">fib_n</span> <span class="n">fib_n_plus_1</span> <span class="o">=</span> <span class="n">fibAux</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="n">fib_n_plus_1</span> <span class="p">(</span><span class="n">fib_n</span> <span class="o">+</span> <span class="n">fib_n_plus_1</span><span class="p">)</span>
+</code></pre></div></div>
+
+  </div>
+</div>
+      </div>
+      <footer class="bg-dark-gray p-8 lg:px-14 flex flex-col md:flex-row gap-6 justify-between items-center justify-self-end">
+        <p>Made with 💙 by <a href="https://github.com/RisingFisan" target="_blank" rel="noopener noreferrer">RisingFisan</a>.</p>
+        <p class="inline">If you want to support this project, you can <a href="https://paypal.me/sofirs" target="_blank" rel="noopener noreferrer">buy me a coffee <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="paypal" class="w-4 inline" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path fill="currentColor" d="M111.4 295.9c-3.5 19.2-17.4 108.7-21.5 134-.3 1.8-1 2.5-3 2.5H12.3c-7.6 0-13.1-6.6-12.1-13.9L58.8 46.6c1.5-9.6 10.1-16.9 20-16.9 152.3 0 165.1-3.7 204 11.4 60.1 23.3 65.6 79.5 44 140.3-21.5 62.6-72.5 89.5-140.1 90.3-43.4.7-69.5-7-75.3 24.2zM357.1 152c-1.8-1.3-2.5-1.8-3 1.3-2 11.4-5.1 22.5-8.8 33.6-39.9 113.8-150.5 103.9-204.5 103.9-6.1 0-10.1 3.3-10.9 9.4-22.6 140.4-27.1 169.7-27.1 169.7-1 7.1 3.5 12.9 10.6 12.9h63.5c8.6 0 15.7-6.3 17.4-14.9.7-5.4-1.1 6.1 14.4-91.3 4.6-22 14.3-19.7 29.3-19.7 71 0 126.4-28.8 142.9-112.3 6.5-34.8 4.6-71.4-23.8-92.6z"></path></svg></a>! 😁☕</p>
+      </footer>
+    </div>
+  </body>
+</html>

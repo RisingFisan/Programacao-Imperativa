@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta property="og:title" content="Programação Imperativa">
+    <meta property="og:description" content="Resolução de exercícios, fichas e testes.">
+    <meta property="og:image" content="./C-Logo.png">
+    <meta property="og:image:secure_url" content="./C-Logo.png">
+    <title>
+      
+       
+        Ficha 6 |
+       Programação Imperativa</title>
+    <link rel="stylesheet" href="/Programacao-Imperativa/assets/css/main.css">
+    <link rel="shortcut icon" href="/Programacao-Imperativa/favicon.ico" >
+    <script type="text/javascript">
+
+      // Wait for the page to load first
+      window.onload = function() {
+
+        //Get a reference to the link on the page
+        // with an id of "mylink"
+        var a = document.getElementById("code-overlay");
+        a.style.display = "flex";
+
+        //Set code to run when the link is clicked
+        // by assigning a function to "onclick"
+        a.onclick = function() {
+
+          // Your code here...
+          a.remove();
+
+          //If you don't want the link to actually 
+          // redirect the browser to another page,
+          // then return false at the end of this block.
+          // Note that this also prevents event bubbling,
+          // which is probably what we want here, but won't 
+          // always be the case.
+          return false;
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="bg-darker-gray w-full min-h-screen text-white flex flex-col">
+      <header class="bg-dark-gray p-8 lg:px-14 flex flex-col md:flex-row gap-6 justify-between items-center">
+        <div class="flex flex-col items-center sm:flex-row sm:items-start gap-5 sm:gap-10">
+          <a href=/Programacao-Imperativa/ class="flex-none">
+            <img src=/Programacao-Imperativa/C-Logo.png class="relative h-16 top-2 md:items-center">
+          </a>
+          <div class="space-y-2 text-center sm:text-left">
+            <p class="text-4xl font-bold">Programação Imperativa</p>
+            <p class="text-lg font-light">Resolução de exercícios, fichas e testes.</p>
+          </div>
+        </div>
+        
+          <!--
+          <div class="flex gap-3 md:gap-6 justify-end items-center flex-col lg:flex-row w-full md:w-auto">
+            <a href=/Programacao-Imperativa/50q/index.html class="bg-blue-800 hover:bg-blue-600 p-5 w-full sm:w-1/2 md:w-36 flex justify-center items-center rounded-xl">
+              <p class="uppercase font-bold">50 Questões</p>
+            </a>
+            <a href=/Programacao-Imperativa/fichas/index.html class="bg-blue-800 hover:bg-blue-600 p-5 w-full sm:w-1/2 md:w-36 flex justify-center items-center rounded-xl">
+              <p class="uppercase font-bold">Fichas</p>
+            </a>
+          </div>
+          -->
+          <a href="../" class="bg-blue-800 hover:bg-blue-600 p-5 w-full sm:w-1/2 md:w-36 flex justify-center items-center rounded-xl">
+            <p class="uppercase font-bold">ᐸ Voltar</p>
+          </a>
+        
+      </header>
+      <div class="px-3 py-10 sm:p-20 flex-grow">
+      
+
+<div class="flex flex-col gap-3">
+  <div class="flex justify-between flex-col md:flex-row items-center gap-8 md:items-start">
+    <div class="md:w-2/3 xl:w-1/2 px-5 space-y-2 self-start">
+      <h1 class="text-2xl md:text-3xl xl:text-4xl font-bold">
+        Ficha : 
+      </h1>
+    </div>
+    <div class="flex gap-5">
+       
+        
+        
+        <a href=/Programacao-Imperativa/fichas/-1 class="flex flex-col justify-center items-center w-24 h-24 rounded-full bg-purple-800 hover:bg-purple-600">
+          <p class="text-2xl font-bold"><</p>
+          <p>Anterior</p>
+        </a>
+      
+      
+        
+        
+        <a href=/Programacao-Imperativa/fichas/1 class="flex flex-col justify-center items-center w-24 h-24 rounded-full bg-purple-800 hover:bg-purple-600">
+          <p class="text-2xl font-bold">></p>
+          <p>Seguinte</p>
+        </a>
+      
+    </div>
+  </div>
+  <div class="md:px-20" id="resolution">
+    
+    <h1 id="1-considere-o-seguinte-tipo-para-representar-árvores-binárias">1) Considere o seguinte tipo para representar árvores binárias.</h1>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>data BTree a = Empty
+| Node a (BTree a) (BTree a)
+deriving Show
+</code></pre></div></div>
+
+<h1 id="árvore-de-exemplo-para-testar-as-funções">Árvore de exemplo para testar as funções:</h1>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>arvore = (Node 5 (Node 2 (Node 1 Empty
+                                 Empty) 
+                         (Node 3 Empty 
+                                 Empty)) 
+                 (Node 9 (Node 7 (Node 6 Empty 
+                                         Empty) 
+                                 (Node 8 Empty 
+                                         Empty)) 
+                         Empty))
+</code></pre></div></div>
+
+<h1 id="defina-as-seguintes-funções">Defina as seguintes funções:</h1>
+
+<h2 id="a-altura--btree-a---int-que-calcula-a-altura-da-árvore">a) <code class="language-plaintext highlighter-rouge">altura :: BTree a -&gt; Int</code> que calcula a altura da árvore.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">altura</span> <span class="o">::</span> <span class="kt">BTree</span> <span class="n">a</span> <span class="o">-&gt;</span> <span class="kt">Int</span>
+<span class="n">altura</span> <span class="kt">Empty</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">altura</span> <span class="p">(</span><span class="kt">Node</span> <span class="kr">_</span> <span class="n">a</span> <span class="n">b</span><span class="p">)</span> <span class="o">=</span> <span class="n">max</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">altura</span> <span class="n">a</span><span class="p">)</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">altura</span> <span class="n">b</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="b-contanodos--btree-a---int-que-calcula-o-número-de-nodos-da-árvore">b) <code class="language-plaintext highlighter-rouge">contaNodos :: BTree a -&gt; Int</code> que calcula o número de nodos da árvore.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">contaNodos</span> <span class="o">::</span> <span class="kt">BTree</span> <span class="n">a</span> <span class="o">-&gt;</span> <span class="kt">Int</span>
+<span class="n">contaNodos</span> <span class="kt">Empty</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">contaNodos</span> <span class="p">(</span><span class="kt">Node</span> <span class="kr">_</span> <span class="n">a</span> <span class="n">b</span><span class="p">)</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">contaNodos</span> <span class="n">a</span> <span class="o">+</span> <span class="n">contaNodos</span> <span class="n">b</span>
+</code></pre></div></div>
+
+<h2 id="c-folhas--btree-a---int-que-calcula-o-número-de-folhas-ie-nodos-sem-descendentes-da-árvore">c) <code class="language-plaintext highlighter-rouge">folhas :: BTree a -&gt; Int</code> que calcula o número de folhas (i.e., nodos sem descendentes) da árvore.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">folhas</span> <span class="o">::</span> <span class="kt">BTree</span> <span class="n">a</span> <span class="o">-&gt;</span> <span class="kt">Int</span>
+<span class="n">folhas</span> <span class="kt">Empty</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">folhas</span> <span class="p">(</span><span class="kt">Node</span> <span class="kr">_</span> <span class="kt">Empty</span> <span class="kt">Empty</span><span class="p">)</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">folhas</span> <span class="p">(</span><span class="kt">Node</span> <span class="kr">_</span> <span class="n">a</span> <span class="n">b</span><span class="p">)</span> <span class="o">=</span> <span class="n">folhas</span> <span class="n">a</span> <span class="o">+</span> <span class="n">folhas</span> <span class="n">b</span>
+</code></pre></div></div>
+
+<h2 id="d-prune--int---btree-a---btree-a-que-remove-de-uma-árvore-todos-os-elementos-a-partir-de-uma-determinada-profundidade">d) <code class="language-plaintext highlighter-rouge">prune :: Int -&gt; BTree a -&gt; BTree a</code> que remove de uma árvore todos os elementos a partir de uma determinada profundidade.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">prune</span> <span class="o">::</span> <span class="kt">Int</span> <span class="o">-&gt;</span> <span class="kt">BTree</span> <span class="n">a</span> <span class="o">-&gt;</span> <span class="kt">BTree</span> <span class="n">a</span>
+<span class="n">prune</span> <span class="kr">_</span> <span class="kt">Empty</span> <span class="o">=</span> <span class="kt">Empty</span>
+<span class="n">prune</span> <span class="mi">0</span> <span class="kr">_</span> <span class="o">=</span> <span class="kt">Empty</span>
+<span class="n">prune</span> <span class="n">x</span> <span class="p">(</span><span class="kt">Node</span> <span class="n">e</span> <span class="n">l</span> <span class="n">r</span><span class="p">)</span> <span class="o">=</span> <span class="kt">Node</span> <span class="n">e</span> <span class="p">(</span><span class="n">prune</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="n">l</span><span class="p">)</span> <span class="p">(</span><span class="n">prune</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="n">r</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="e-path--bool---btree-a---a-que-dado-um-caminho-false-corresponde-a-esquerda-e-true-a-direita-e-uma-árvore-dá-a-lista-com-a-informação-dos-nodos-por-onde-esse-caminho-passa">e) <code class="language-plaintext highlighter-rouge">path :: [Bool] -&gt; BTree a -&gt; [a]</code> que dado um caminho (False corresponde a esquerda e True a direita) e uma árvore, dá a lista com a informação dos nodos por onde esse caminho passa.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">path</span> <span class="o">::</span> <span class="p">[</span><span class="kt">Bool</span><span class="p">]</span> <span class="o">-&gt;</span> <span class="kt">BTree</span> <span class="n">a</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span>
+<span class="n">path</span> <span class="kr">_</span> <span class="kt">Empty</span> <span class="o">=</span> <span class="kt">[]</span>
+<span class="n">path</span> <span class="kt">[]</span> <span class="p">(</span><span class="kt">Node</span> <span class="n">e</span> <span class="n">l</span> <span class="n">r</span><span class="p">)</span> <span class="o">=</span> <span class="p">[</span><span class="n">e</span><span class="p">]</span>
+<span class="n">path</span> <span class="p">(</span><span class="n">h</span><span class="o">:</span><span class="n">t</span><span class="p">)</span> <span class="p">(</span><span class="kt">Node</span> <span class="n">e</span> <span class="n">l</span> <span class="n">r</span><span class="p">)</span> <span class="o">=</span> <span class="n">e</span> <span class="o">:</span> <span class="n">path</span> <span class="n">t</span> <span class="p">(</span><span class="kr">if</span> <span class="n">h</span> <span class="kr">then</span> <span class="n">r</span> <span class="kr">else</span> <span class="n">l</span><span class="p">)</span>  
+</code></pre></div></div>
+
+<h2 id="f-mirror--btree-a---btree-a-que-dá-a-árvore-simétrica">f) <code class="language-plaintext highlighter-rouge">mirror :: BTree a -&gt; BTree a</code> que dá a árvore simétrica.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">mirror</span> <span class="o">::</span> <span class="kt">BTree</span> <span class="n">a</span> <span class="o">-&gt;</span> <span class="kt">BTree</span> <span class="n">a</span>
+<span class="n">mirror</span> <span class="kt">Empty</span> <span class="o">=</span> <span class="kt">Empty</span>
+<span class="n">mirror</span> <span class="p">(</span><span class="kt">Node</span> <span class="n">e</span> <span class="n">l</span> <span class="n">r</span><span class="p">)</span> <span class="o">=</span> <span class="kt">Node</span> <span class="n">e</span> <span class="p">(</span><span class="n">mirror</span> <span class="n">r</span><span class="p">)</span> <span class="p">(</span><span class="n">mirror</span> <span class="n">l</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="g-zipwithbt--a---b---c---btree-a---btree-b---btree-c-que-generaliza-a-função-zipwith-para-árvores-binárias">g) <code class="language-plaintext highlighter-rouge">zipWithBT :: (a -&gt; b -&gt; c) -&gt; BTree a -&gt; BTree b -&gt; BTree c</code> que generaliza a função zipWith para árvores binárias.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">zipWithBT</span> <span class="o">::</span> <span class="p">(</span><span class="n">a</span> <span class="o">-&gt;</span> <span class="n">b</span> <span class="o">-&gt;</span> <span class="n">c</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">BTree</span> <span class="n">a</span> <span class="o">-&gt;</span> <span class="kt">BTree</span> <span class="n">b</span> <span class="o">-&gt;</span> <span class="kt">BTree</span> <span class="n">c</span>
+<span class="n">zipWithBT</span> <span class="n">f</span> <span class="p">(</span><span class="kt">Node</span> <span class="n">e</span> <span class="n">l</span> <span class="n">r</span><span class="p">)</span> <span class="p">(</span><span class="kt">Node</span> <span class="n">e'</span> <span class="n">l'</span> <span class="n">r'</span><span class="p">)</span> <span class="o">=</span> <span class="kt">Node</span> <span class="p">(</span><span class="n">f</span> <span class="n">e</span> <span class="n">e'</span><span class="p">)</span> <span class="p">(</span><span class="n">zipWithBT</span> <span class="n">f</span> <span class="n">l</span> <span class="n">l'</span><span class="p">)</span> <span class="p">(</span><span class="n">zipWithBT</span> <span class="n">f</span> <span class="n">r</span> <span class="n">r'</span><span class="p">)</span>
+<span class="n">zipWithBT</span> <span class="kr">_</span> <span class="kr">_</span> <span class="kr">_</span> <span class="o">=</span> <span class="kt">Empty</span>
+</code></pre></div></div>
+
+<h2 id="h-unzipbt--btree-abc---btree-abtree-bbtree-c-que-generaliza-a-função-unzip-neste-caso-de-triplos-para-árvores-binárias">h) <code class="language-plaintext highlighter-rouge">unzipBT :: BTree (a,b,c) -&gt; (BTree a,BTree b,BTree c)</code> que generaliza a função unzip (neste caso de triplos) para árvores binárias.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">unzipBT</span> <span class="o">::</span> <span class="kt">BTree</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="kt">BTree</span> <span class="n">a</span><span class="p">,</span><span class="kt">BTree</span> <span class="n">b</span><span class="p">,</span><span class="kt">BTree</span> <span class="n">c</span><span class="p">)</span>
+<span class="n">unzipBT</span> <span class="kt">Empty</span> <span class="o">=</span> <span class="p">(</span><span class="kt">Empty</span><span class="p">,</span> <span class="kt">Empty</span><span class="p">,</span> <span class="kt">Empty</span><span class="p">)</span>
+<span class="n">unzipBT</span> <span class="p">(</span><span class="kt">Node</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">)</span> <span class="n">l</span> <span class="n">r</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="kt">Node</span> <span class="n">a</span> <span class="n">unzipL1</span> <span class="n">unzipR1</span><span class="p">,</span> <span class="kt">Node</span> <span class="n">b</span> <span class="n">unzipL2</span> <span class="n">unzipR2</span><span class="p">,</span> <span class="kt">Node</span> <span class="n">c</span> <span class="n">unzipL3</span> <span class="n">unzipR3</span><span class="p">)</span>
+    <span class="kr">where</span> <span class="p">(</span><span class="n">unzipL1</span><span class="p">,</span><span class="n">unzipL2</span><span class="p">,</span><span class="n">unzipL3</span><span class="p">)</span> <span class="o">=</span> <span class="n">unzipBT</span> <span class="n">l</span>
+          <span class="p">(</span><span class="n">unzipR1</span><span class="p">,</span><span class="n">unzipR2</span><span class="p">,</span><span class="n">unzipR3</span><span class="p">)</span> <span class="o">=</span> <span class="n">unzipBT</span> <span class="n">r</span>
+</code></pre></div></div>
+
+<h1 id="2-defina-as-seguintes-funções-assumindo-agora-que-as-árvores-são-binárias-de-procura">2) Defina as seguintes funções, assumindo agora que as árvores são binárias de procura:</h1>
+
+<h2 id="a-defina-uma-função-minimo--ord-a--btree-a---a-que-calcula-o-menor-elemento-de-uma-árvore-binária-de-procura-não-vazia">a) Defina uma função <code class="language-plaintext highlighter-rouge">minimo :: Ord a =&gt; BTree a -&gt; a</code> que calcula o menor elemento de uma árvore binária de procura <strong>não vazia</strong>.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">minimo</span> <span class="o">::</span> <span class="p">(</span><span class="kt">Ord</span> <span class="n">a</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="kt">BTree</span> <span class="n">a</span> <span class="o">-&gt;</span> <span class="n">a</span>
+<span class="n">minimo</span> <span class="p">(</span><span class="kt">Node</span> <span class="n">e</span> <span class="kt">Empty</span> <span class="kr">_</span><span class="p">)</span> <span class="o">=</span> <span class="n">e</span>
+<span class="n">minimo</span> <span class="p">(</span><span class="kt">Node</span> <span class="n">e</span> <span class="n">l</span> <span class="n">r</span><span class="p">)</span> <span class="o">=</span> <span class="n">minimo</span> <span class="n">l</span>
+</code></pre></div></div>
+
+<h2 id="b-defina-uma-função-semminimo--ord-a--btree-a---btree-a-que-remove-o-menor-elemento-de-uma-árvore-binária-de-procura-não-vazia">b) Defina uma função <code class="language-plaintext highlighter-rouge">semMinimo :: Ord a =&gt; BTree a -&gt; BTree a</code> que remove o menor elemento de uma árvore binária de procura <strong>não vazia</strong>.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">semMinimo</span> <span class="o">::</span> <span class="kt">Ord</span> <span class="n">a</span> <span class="o">=&gt;</span> <span class="kt">BTree</span> <span class="n">a</span> <span class="o">-&gt;</span> <span class="kt">BTree</span> <span class="n">a</span>
+<span class="n">semMinimo</span> <span class="p">(</span><span class="kt">Node</span> <span class="kr">_</span> <span class="kt">Empty</span> <span class="kr">_</span><span class="p">)</span> <span class="o">=</span> <span class="kt">Empty</span>
+<span class="n">semMinimo</span> <span class="p">(</span><span class="kt">Node</span> <span class="n">e</span> <span class="n">l</span> <span class="n">r</span><span class="p">)</span> <span class="o">=</span> <span class="kt">Node</span> <span class="n">e</span> <span class="p">(</span><span class="n">semMinimo</span> <span class="n">l</span><span class="p">)</span> <span class="n">r</span>
+</code></pre></div></div>
+
+<h2 id="c-defina-uma-função-minsmin--ord-a--btree-a---abtree-a-que-calcula-com-uma-única-travessia-da-árvore-o-resultado-das-duas-funções-anteriores">c) Defina uma função <code class="language-plaintext highlighter-rouge">minSmin :: Ord a =&gt; BTree a -&gt; (a,BTree a)</code> que calcula, com uma única travessia da árvore, o resultado das duas funções anteriores.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">minSmin</span> <span class="o">::</span> <span class="kt">Ord</span> <span class="n">a</span> <span class="o">=&gt;</span> <span class="kt">BTree</span> <span class="n">a</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="kt">BTree</span> <span class="n">a</span><span class="p">)</span>
+<span class="n">minSmin</span> <span class="p">(</span><span class="kt">Node</span> <span class="n">e</span> <span class="kt">Empty</span> <span class="kr">_</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="n">e</span><span class="p">,</span><span class="kt">Empty</span><span class="p">)</span>
+<span class="n">minSmin</span> <span class="p">(</span><span class="kt">Node</span> <span class="n">e</span> <span class="n">l</span> <span class="n">r</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="kt">Node</span> <span class="n">e</span> <span class="n">b</span> <span class="n">r</span><span class="p">)</span>
+    <span class="kr">where</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span> <span class="o">=</span> <span class="n">minSmin</span> <span class="n">l</span>
+</code></pre></div></div>
+
+<h2 id="d-defina-uma-função-remove--ord-a--a---btree-a---btree-a-que-remove-um-elemento-de-uma-árvore-binária-de-procura-usando-a-função-anterior">d) Defina uma função <code class="language-plaintext highlighter-rouge">remove :: Ord a =&gt; a -&gt; BTree a -&gt; BTree a</code> que remove um elemento de uma árvore binária de procura, usando a função anterior.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">remove</span> <span class="o">::</span> <span class="kt">Ord</span> <span class="n">a</span> <span class="o">=&gt;</span> <span class="n">a</span> <span class="o">-&gt;</span> <span class="kt">BTree</span> <span class="n">a</span> <span class="o">-&gt;</span> <span class="kt">BTree</span> <span class="n">a</span>
+<span class="n">remove</span> <span class="kr">_</span> <span class="kt">Empty</span> <span class="o">=</span> <span class="kt">Empty</span>
+<span class="n">remove</span> <span class="n">x</span> <span class="p">(</span><span class="kt">Node</span> <span class="n">e</span> <span class="n">l</span> <span class="n">r</span><span class="p">)</span> 
+    <span class="o">|</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">e</span> <span class="o">=</span> <span class="kt">Node</span> <span class="n">e</span> <span class="p">(</span><span class="n">remove</span> <span class="n">x</span> <span class="n">l</span><span class="p">)</span> <span class="n">r</span>
+    <span class="o">|</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="n">e</span> <span class="o">=</span> <span class="kt">Node</span> <span class="n">e</span> <span class="n">l</span> <span class="p">(</span><span class="n">remove</span> <span class="n">x</span> <span class="n">r</span><span class="p">)</span>
+    <span class="o">|</span> <span class="n">otherwise</span> <span class="o">=</span> <span class="kr">case</span> <span class="n">l</span> <span class="kr">of</span> <span class="kt">Empty</span> <span class="o">-&gt;</span> <span class="n">r</span>
+                            <span class="kr">_</span> <span class="o">-&gt;</span> <span class="kr">case</span> <span class="n">r</span> <span class="kr">of</span> <span class="kt">Empty</span> <span class="o">-&gt;</span> <span class="n">l</span>
+                                           <span class="kr">_</span> <span class="o">-&gt;</span> <span class="kt">Node</span> <span class="n">g</span> <span class="n">l</span> <span class="n">h</span>
+    <span class="kr">where</span> <span class="p">(</span><span class="n">g</span><span class="p">,</span><span class="n">h</span><span class="p">)</span> <span class="o">=</span> <span class="n">minSmin</span> <span class="n">r</span>
+
+<span class="c1">-- Nesta função, depois de remover o elemento, temos de formar uma nova árvore, pois não podemos ter um nodo vazio. Para isso, removemos o menor elemento do ramo da direita e colocamos esse elemento onde estava o elemento removido. Desta forma, a árvore mantém a sua ordem, já que todos os elementos à esquerda continuam a ser mais pequenos e todos os elementos à direita continuam a ser maiores do que o elemento no nodo.</span>
+</code></pre></div></div>
+
+<h1 id="3-considere-agora-que-guardamos-a-informação-sobre-uma-turma-de-alunos-na-seguinte-estrutura-de-dados">3) Considere agora que guardamos a informação sobre uma turma de alunos na seguinte estrutura de dados:</h1>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>type Aluno = (Numero,Nome,Regime,Classificacao)
+type Numero = Int
+type Nome = String
+data Regime = ORD | TE | MEL deriving Show
+data Classificacao = Aprov Int
+                   | Rep
+                   | Faltou
+    deriving Show
+
+type Turma = BTree Aluno -- árvore binária de procura (ordenada por número)
+</code></pre></div></div>
+
+<h1 id="turma-de-exemplo-para-testar-as-funções">Turma de exemplo para testar as funções:</h1>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>turma :: Turma
+turma = (Node (15,"Luís",ORD,Aprov 14) (Node (12,"Joana",MEL,Faltou) (Node (7,"Diogo",TE,Rep) Empty Empty) (Node (14,"Lara",ORD,Aprov 19) Empty Empty)) (Node (20,"Pedro",TE,Aprov 10) Empty (Node (25,"Sofia",ORD,Aprov 20) (Node (23,"Rita",ORD,Aprov 17) Empty Empty) (Node (28,"Vasco",MEL,Rep) Empty Empty))))
+</code></pre></div></div>
+
+<h1 id="defina-as-seguintes-funções-1">Defina as seguintes funções:</h1>
+
+<h2 id="a-inscnum--numero---turma---bool-que-verifica-se-um-aluno-com-um-dado-número-está-inscrito">a) <code class="language-plaintext highlighter-rouge">inscNum :: Numero -&gt; Turma -&gt; Bool</code> que verifica se um aluno, com um dado número, está inscrito.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">inscNum</span> <span class="o">::</span> <span class="kt">Numero</span> <span class="o">-&gt;</span> <span class="kt">Turma</span> <span class="o">-&gt;</span> <span class="kt">Bool</span>
+<span class="n">inscNum</span> <span class="kr">_</span> <span class="kt">Empty</span> <span class="o">=</span> <span class="kt">False</span>
+<span class="n">inscNum</span> <span class="n">n</span> <span class="p">(</span><span class="kt">Node</span> <span class="p">(</span><span class="n">num</span><span class="p">,</span><span class="kr">_</span><span class="p">,</span><span class="kr">_</span><span class="p">,</span><span class="kr">_</span><span class="p">)</span> <span class="n">l</span> <span class="n">r</span><span class="p">)</span> <span class="o">=</span> <span class="n">n</span> <span class="o">==</span> <span class="n">num</span> <span class="o">||</span> <span class="n">inscNum</span> <span class="n">n</span> <span class="p">(</span><span class="kr">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="n">num</span> <span class="kr">then</span> <span class="n">l</span> <span class="kr">else</span> <span class="n">r</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="b-inscnome--nome---turma---bool-que-verifica-se-um-aluno-com-um-dado-nome-está-inscrito">b) <code class="language-plaintext highlighter-rouge">inscNome :: Nome -&gt; Turma -&gt; Bool</code> que verifica se um aluno, com um dado nome, está inscrito.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">inscNome</span> <span class="o">::</span> <span class="kt">Nome</span> <span class="o">-&gt;</span> <span class="kt">Turma</span> <span class="o">-&gt;</span> <span class="kt">Bool</span>
+<span class="n">inscNome</span> <span class="kr">_</span> <span class="kt">Empty</span> <span class="o">=</span> <span class="kt">False</span>
+<span class="n">inscNome</span> <span class="n">n</span> <span class="p">(</span><span class="kt">Node</span> <span class="p">(</span><span class="kr">_</span><span class="p">,</span><span class="n">nom</span><span class="p">,</span><span class="kr">_</span><span class="p">,</span><span class="kr">_</span><span class="p">)</span> <span class="n">l</span> <span class="n">r</span><span class="p">)</span> <span class="o">=</span> <span class="n">n</span> <span class="o">==</span> <span class="n">nom</span> <span class="o">||</span> <span class="n">inscNome</span> <span class="n">n</span> <span class="n">l</span> <span class="o">||</span> <span class="n">inscNome</span> <span class="n">n</span> <span class="n">r</span>
+</code></pre></div></div>
+
+<h2 id="c-trabest--turma---numeronome-que-lista-o-número-e-nome-dos-alunos-trabalhadores-estudantes-ordenados-por-número">c) <code class="language-plaintext highlighter-rouge">trabEst :: Turma -&gt; [(Numero,Nome)]</code> que lista o número e nome dos alunos trabalhadores-estudantes (ordenados por número).</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">trabEst</span> <span class="o">::</span> <span class="kt">Turma</span> <span class="o">-&gt;</span> <span class="p">[(</span><span class="kt">Numero</span><span class="p">,</span><span class="kt">Nome</span><span class="p">)]</span>
+<span class="n">trabEst</span> <span class="kt">Empty</span> <span class="o">=</span> <span class="kt">[]</span>
+<span class="n">trabEst</span> <span class="p">(</span><span class="kt">Node</span> <span class="p">(</span><span class="n">num</span><span class="p">,</span><span class="n">nom</span><span class="p">,</span><span class="n">reg</span><span class="p">,</span><span class="kr">_</span><span class="p">)</span> <span class="n">l</span> <span class="n">r</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="kr">case</span> <span class="n">reg</span> <span class="kr">of</span> <span class="kt">TE</span> <span class="o">-&gt;</span> <span class="p">[(</span><span class="n">num</span><span class="p">,</span><span class="n">nom</span><span class="p">)];</span><span class="n">otherwise</span> <span class="o">-&gt;</span> <span class="kt">[]</span><span class="p">)</span> <span class="o">++</span> <span class="n">trabEst</span> <span class="n">l</span> <span class="o">++</span> <span class="n">trabEst</span> <span class="n">r</span>
+</code></pre></div></div>
+
+<h2 id="d-nota--numero---turma---maybe-classificacao-que-calcula-a-classificação-de-um-aluno-se-o-aluno-não-estiver-inscrito-a-função-deve-retornar-nothing">d) <code class="language-plaintext highlighter-rouge">nota :: Numero -&gt; Turma -&gt; Maybe Classificacao</code> que calcula a classificação de um aluno (se o aluno não estiver inscrito a função deve retornar Nothing).</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">nota</span> <span class="o">::</span> <span class="kt">Numero</span> <span class="o">-&gt;</span> <span class="kt">Turma</span> <span class="o">-&gt;</span> <span class="kt">Maybe</span> <span class="kt">Classificacao</span>
+<span class="n">nota</span> <span class="n">n</span> <span class="p">(</span><span class="kt">Node</span> <span class="p">(</span><span class="n">num</span><span class="p">,</span><span class="kr">_</span><span class="p">,</span><span class="kr">_</span><span class="p">,</span><span class="n">clas</span><span class="p">)</span> <span class="n">l</span> <span class="n">r</span><span class="p">)</span> <span class="o">|</span> <span class="n">n</span> <span class="o">==</span> <span class="n">num</span> <span class="o">=</span> <span class="kt">Just</span> <span class="n">clas</span>
+                                 <span class="o">|</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="n">num</span> <span class="o">=</span> <span class="n">nota</span> <span class="n">n</span> <span class="n">l</span>
+                                 <span class="o">|</span> <span class="n">otherwise</span> <span class="o">=</span> <span class="n">nota</span> <span class="n">n</span> <span class="n">r</span>
+<span class="n">nota</span> <span class="kr">_</span> <span class="kr">_</span> <span class="o">=</span> <span class="kt">Nothing</span>
+</code></pre></div></div>
+
+<h2 id="e-percfaltas--turma---float-que-calcula-a-percentagem-de-alunos-que-faltaram-à-avaliação">e) <code class="language-plaintext highlighter-rouge">percFaltas :: Turma -&gt; Float</code> que calcula a percentagem de alunos que faltaram à avaliação.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">percFaltas</span> <span class="o">::</span> <span class="kt">Turma</span> <span class="o">-&gt;</span> <span class="kt">Float</span>
+<span class="n">percFaltas</span> <span class="kt">Empty</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">percFaltas</span> <span class="n">turma</span> <span class="o">=</span> <span class="n">sumFaltas</span> <span class="n">turma</span> <span class="o">/</span> <span class="n">numAlunos</span> <span class="n">turma</span> <span class="o">*</span> <span class="mi">100</span>
+    <span class="kr">where</span> <span class="n">sumFaltas</span> <span class="kt">Empty</span> <span class="o">=</span> <span class="mi">0</span>
+          <span class="n">sumFaltas</span> <span class="p">(</span><span class="kt">Node</span> <span class="p">(</span><span class="kr">_</span><span class="p">,</span><span class="kr">_</span><span class="p">,</span><span class="kr">_</span><span class="p">,</span><span class="n">clas</span><span class="p">)</span> <span class="n">l</span> <span class="n">r</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="kr">case</span> <span class="n">clas</span> <span class="kr">of</span> <span class="kt">Faltou</span> <span class="o">-&gt;</span> <span class="mi">1</span><span class="p">;</span><span class="n">otherwise</span> <span class="o">-&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">sumFaltas</span> <span class="n">l</span> <span class="o">+</span> <span class="n">sumFaltas</span> <span class="n">r</span>
+          <span class="n">numAlunos</span> <span class="kt">Empty</span> <span class="o">=</span> <span class="mi">0</span>
+          <span class="n">numAlunos</span> <span class="p">(</span><span class="kt">Node</span> <span class="n">e</span> <span class="n">l</span> <span class="n">r</span><span class="p">)</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">numAlunos</span> <span class="n">l</span> <span class="o">+</span> <span class="n">numAlunos</span> <span class="n">r</span>
+</code></pre></div></div>
+
+<h2 id="f-mediaaprov--turma---float-que-calcula-a-média-das-notas-dos-alunos-que-passaram">f) <code class="language-plaintext highlighter-rouge">mediaAprov :: Turma -&gt; Float</code> que calcula a média das notas dos alunos que passaram.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">mediaAprov</span> <span class="o">::</span> <span class="kt">Turma</span> <span class="o">-&gt;</span> <span class="kt">Float</span>
+<span class="n">mediaAprov</span> <span class="kt">Empty</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">mediaAprov</span> <span class="n">turma</span> <span class="o">=</span> <span class="n">sumNotas</span> <span class="n">turma</span> <span class="o">/</span> <span class="n">numNotas</span> <span class="n">turma</span>
+    <span class="kr">where</span> <span class="n">sumNotas</span> <span class="o">::</span> <span class="kt">Turma</span> <span class="o">-&gt;</span> <span class="kt">Float</span>
+          <span class="n">sumNotas</span> <span class="kt">Empty</span> <span class="o">=</span> <span class="mi">0</span>
+          <span class="n">sumNotas</span> <span class="p">(</span><span class="kt">Node</span> <span class="p">(</span><span class="kr">_</span><span class="p">,</span><span class="kr">_</span><span class="p">,</span><span class="kr">_</span><span class="p">,</span><span class="kt">Aprov</span> <span class="n">nota</span><span class="p">)</span> <span class="n">l</span> <span class="n">r</span><span class="p">)</span> <span class="o">=</span> <span class="n">fromIntegral</span> <span class="n">nota</span> <span class="o">+</span> <span class="n">sumNotas</span> <span class="n">l</span> <span class="o">+</span> <span class="n">sumNotas</span> <span class="n">r</span>
+          <span class="n">sumNotas</span> <span class="p">(</span><span class="kt">Node</span> <span class="n">e</span> <span class="n">l</span> <span class="n">r</span><span class="p">)</span> <span class="o">=</span> <span class="n">sumNotas</span> <span class="n">l</span> <span class="o">+</span> <span class="n">sumNotas</span> <span class="n">r</span>
+          <span class="n">numNotas</span> <span class="o">::</span> <span class="kt">Turma</span> <span class="o">-&gt;</span> <span class="kt">Float</span>
+          <span class="n">numNotas</span> <span class="p">(</span><span class="kt">Node</span> <span class="p">(</span><span class="kr">_</span><span class="p">,</span><span class="kr">_</span><span class="p">,</span><span class="kr">_</span><span class="p">,</span><span class="n">clas</span><span class="p">)</span> <span class="n">l</span> <span class="n">r</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="kr">case</span> <span class="n">clas</span> <span class="kr">of</span> <span class="kt">Aprov</span> <span class="n">nota</span> <span class="o">-&gt;</span> <span class="mi">1</span><span class="p">;</span><span class="n">otherwise</span> <span class="o">-&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">numNotas</span> <span class="n">l</span> <span class="o">+</span> <span class="n">numNotas</span> <span class="n">r</span>
+          <span class="n">numNotas</span> <span class="kr">_</span> <span class="o">=</span> <span class="mi">0</span>
+</code></pre></div></div>
+
+<h2 id="g-aprovav--turma---float-que-calcula-o-rácio-de-alunos-aprovados-por-avaliados-implemente-esta-função-fazendo-apenas-uma-travessia-da-árvore">g) <code class="language-plaintext highlighter-rouge">aprovAv :: Turma -&gt; Float</code> que calcula o rácio de alunos aprovados por avaliados. Implemente esta função fazendo apenas uma travessia da árvore.</h2>
+
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">aprovAv</span> <span class="o">::</span> <span class="kt">Turma</span> <span class="o">-&gt;</span> <span class="kt">Float</span>
+<span class="n">aprovAv</span> <span class="kt">Empty</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">aprovAv</span> <span class="n">turma</span> <span class="o">=</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span>
+    <span class="kr">where</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span> <span class="o">=</span> <span class="n">aux</span> <span class="n">turma</span>
+          <span class="n">aux</span> <span class="kt">Empty</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+          <span class="n">aux</span> <span class="p">(</span><span class="kt">Node</span> <span class="p">(</span><span class="kr">_</span><span class="p">,</span><span class="kr">_</span><span class="p">,</span><span class="kr">_</span><span class="p">,</span><span class="n">clas</span><span class="p">)</span> <span class="n">l</span> <span class="n">r</span><span class="p">)</span> <span class="o">=</span> <span class="kr">case</span> <span class="n">clas</span> <span class="kr">of</span> <span class="kt">Aprov</span> <span class="n">nota</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">y</span><span class="p">)</span> <span class="p">;</span> <span class="kt">Rep</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="p">;</span> <span class="n">otherwise</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+            <span class="kr">where</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="n">c</span><span class="o">+</span><span class="n">e</span><span class="p">,</span><span class="n">d</span><span class="o">+</span><span class="n">f</span><span class="p">)</span>
+                  <span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="n">d</span><span class="p">)</span> <span class="o">=</span> <span class="n">aux</span> <span class="n">l</span>
+                  <span class="p">(</span><span class="n">e</span><span class="p">,</span><span class="n">f</span><span class="p">)</span> <span class="o">=</span> <span class="n">aux</span> <span class="n">r</span>
+</code></pre></div></div>
+
+  </div>
+</div>
+      </div>
+      <footer class="bg-dark-gray p-8 lg:px-14 flex flex-col md:flex-row gap-6 justify-between items-center justify-self-end">
+        <p>Made with 💙 by <a href="https://github.com/RisingFisan" target="_blank" rel="noopener noreferrer">RisingFisan</a>.</p>
+        <p class="inline">If you want to support this project, you can <a href="https://paypal.me/sofirs" target="_blank" rel="noopener noreferrer">buy me a coffee <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="paypal" class="w-4 inline" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path fill="currentColor" d="M111.4 295.9c-3.5 19.2-17.4 108.7-21.5 134-.3 1.8-1 2.5-3 2.5H12.3c-7.6 0-13.1-6.6-12.1-13.9L58.8 46.6c1.5-9.6 10.1-16.9 20-16.9 152.3 0 165.1-3.7 204 11.4 60.1 23.3 65.6 79.5 44 140.3-21.5 62.6-72.5 89.5-140.1 90.3-43.4.7-69.5-7-75.3 24.2zM357.1 152c-1.8-1.3-2.5-1.8-3 1.3-2 11.4-5.1 22.5-8.8 33.6-39.9 113.8-150.5 103.9-204.5 103.9-6.1 0-10.1 3.3-10.9 9.4-22.6 140.4-27.1 169.7-27.1 169.7-1 7.1 3.5 12.9 10.6 12.9h63.5c8.6 0 15.7-6.3 17.4-14.9.7-5.4-1.1 6.1 14.4-91.3 4.6-22 14.3-19.7 29.3-19.7 71 0 126.4-28.8 142.9-112.3 6.5-34.8 4.6-71.4-23.8-92.6z"></path></svg></a>! 😁☕</p>
+      </footer>
+    </div>
+  </body>
+</html>
